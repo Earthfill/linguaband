@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Brand / background */
+  --color-background: #fafafa; /* zinc-50 */
+  --color-foreground: #18181b; /* zinc-900 */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Accent (blue) */
+  --color-brand: #2563eb; /* blue-600 */
+  --color-brand-soft: #eff6ff; /* blue-50 */
+  --color-brand-dark: #1d4ed8; /* blue-700 */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Fonts */
+  --font-display: "Open Runde", "Space Grotesk", ui-sans-serif, system-ui,
+    sans-serif;
+  --font-sans: "Space Grotesk", "Open Runde", ui-sans-serif, system-ui,
+    sans-serif;
+
+  /* Radius */
+  --radius-4xl: 2rem;
+
+  /* Subtle reveal-in animation */
+  --animate-reveal: reveal 0.7s ease-out both;
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reveal-on-scroll utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.15);
 }
