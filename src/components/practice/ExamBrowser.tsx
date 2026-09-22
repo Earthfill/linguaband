@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { mockExams } from "@/data/practice";
-import type { MockSkill } from "@/data/practice";
+import type { MockExam, MockSkill } from "@/data/practice";
 import { Icon } from "@/components/icons";
 
 const SKILL_LABEL: Record<MockSkill, string> = {
@@ -19,10 +18,10 @@ function formatDuration(totalSeconds: number): string {
   return h > 0 ? `${h}h ${m}m` : `${m}m`;
 }
 
-export function ExamBrowser() {
+export function ExamBrowser({ mocks }: { mocks: MockExam[] }) {
   return (
     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {mockExams.map((exam) => {
+      {mocks.map((exam) => {
         const playable = exam.sections.length > 0;
         const totalSeconds = exam.sections.reduce((sum, s) => sum + s.timeLimitSec, 0);
         const mcqCount = exam.sections.reduce((sum, s) => sum + s.questions.length, 0);

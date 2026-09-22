@@ -2,6 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import { audioManifest } from "@/data/practice/audio-manifest";
+import type { AudioEntry } from "@/data/practice/audio-manifest";
 import { Icon } from "@/components/icons";
 
 function fmt(s: number): string {
@@ -54,13 +55,15 @@ export function DialogueAudioPlayer({
   transcript,
   mode,
   onEnded,
+  entry: propEntry,
 }: {
   id: string;
   transcript: string;
   mode: "exam" | "practice";
   onEnded?: () => void;
+  entry?: AudioEntry;
 }) {
-  const entry = audioManifest[id];
+  const entry = propEntry ?? audioManifest[id];
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [ended, setEnded] = useState(false);

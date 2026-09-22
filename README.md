@@ -100,3 +100,59 @@ uniform CBR so the timings can never drift silently. The command needs network a
 to the Microsoft Edge Read Aloud endpoint; the app degrades gracefully if audio is
 missing (it falls back to the plain transcript).
 
+## Admin — adding mock tests
+
+A password-protected `/admin` page accepts one JSON file per mock test. The file matches
+the existing `MockExam` shape:
+
+```json
+{
+  "id": "mock-02",
+  "name": "Mock Test 02",
+  "badge": "Timed",
+  "difficulty": "Standard",
+  "description": "...",
+  "sections": [
+    {
+      "id": "M2L1",
+      "skill": "listening",
+      "title": "Part 1 · Listening to Problem Solving",
+      "instructions": "...",
+      "timeLimitSec": 360,
+      "passageTitle": "Customer service call",
+      "passage": "AGENT: Halton Home Services, this is Priya.\nCUSTOMER: Hi — I have a leak.",
+      "questions": [
+        { "id": "M2L1Q1", "label": "Question 1", "part": "Part 1 · Problem Solving", "question": "...", "options": ["A", "B", "C", "D"], "answerIndex": 1, "explanation": "..." }
+      ]
+    },
+    { "id": "M2W1", "skill": "writing", "title": "Writing Task 1 · Email", "instructions": "...", "timeLimitSec": 1620, "questions": [], "writingTask": { "id": "M2W1", "task": "Writing Task 1", "title": "Writing an Email", "timeLimit": "27 min", "wordTarget": "150–200 words", "scenario": "...", "instructions": ["..."], "sampleAnswer": "...", "criteria": [{ "label": "Content", "note": "..." }] } },
+    { "id": "M2S1", "skill": "speaking", "title": "Speaking Task 1 · Giving Advice", "instructions": "...", "timeLimitSec": 90, "questions": [], "speakingTask": { "id": "M2S1", "title": "Task 1: Giving Advice", "scenario": "...", "prepTimeSec": 30, "speakTimeSec": 60, "tips": ["..."], "sampleAnswer": "...", "clb": "CLB 9 sample" } }
+  ]
+}
+```
+
+Rules the upload enforces: section ids must be unique across every mock (they key the
+audio), listening passages must be `SPEAKER: text` lines, and questions need exactly 4
+options with a valid answer index. Keeping 38 listening + 38 reading questions preserves
+the calibrated CLB estimate (otherwise it warns and falls back to percent-based). On
+upload the text goes live immediately; listening audio is generated in the background
+(about 2 minutes) via a GitHub Actions job.
+
+## Deploying to Cloudflare Workers
+
+The app runs on Cloudflare (free tier, business use allowed) via `@opennextjs/cloudflare`.
+
+1. `npx wrangler login`
+2. Create the database: `npx wrangler d1 create shilu-db`, then paste its id into
+   `wrangler.jsonc` (`database_id`).
+3. Apply the schema: `npx wrangler d1 migrations apply shilu-db --remote`.
+4. Create the bucket: `npx wrangler r2 bucket create shilu-audio`.
+5. Copy `.dev.vars.example` to `.dev.vars` and set `ADMIN_PASSWORD` + `ADMIN_SESSION_SECRET`
+   for local development.
+6. Deploy: push to `main` (GitHub Actions builds and deploys), or run `npm run deploy`.
+
+GitHub Actions secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`,
+`CLOUDFLARE_DATABASE_ID` (the D1 id), and `AUDIO_BASE_URL` (public prefix for R2 audio,
+e.g. `https://audio.example.com`). The app also needs `GITHUB_TOKEN` and `GITHUB_REPO`
+environment variables so `/admin` can trigger the audio-generation job.
+

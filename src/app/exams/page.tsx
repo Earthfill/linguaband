@@ -3,7 +3,10 @@ import { Footer } from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
 import { PracticeHero } from "@/components/practice/PracticeHero";
 import { ExamBrowser } from "@/components/practice/ExamBrowser";
+import { listMocks } from "@/lib/store";
 import { Icon } from "@/components/icons";
+
+export const dynamic = "force-dynamic";
 
 const facts = [
   { icon: "clock" as const, label: "Official timing", value: "Full exam ~2h 50m" },
@@ -11,7 +14,8 @@ const facts = [
   { icon: "bar-chart" as const, label: "CLB estimate", value: "Levels 3–12" },
 ];
 
-export default function ExamsPage() {
+export default async function ExamsPage() {
+  const mocks = await listMocks();
   return (
     <>
       <Header />
@@ -47,7 +51,7 @@ export default function ExamsPage() {
             <h2 className="mb-6 font-display text-2xl font-bold text-zinc-900">
               Available mock exams
             </h2>
-            <ExamBrowser />
+            <ExamBrowser mocks={mocks} />
           </Container>
         </section>
       </main>

@@ -6,6 +6,7 @@ import type { MockExam, MockSection, PracticeQuestion } from "@/data/practice";
 import { buildReport, clbLabel, type ExamReport } from "@/lib/scoring";
 import { Icon } from "@/components/icons";
 import { DialogueAudioPlayer } from "@/components/practice/DialogueAudioPlayer";
+import type { AudioEntry } from "@/data/practice/audio-manifest";
 
 const SKILL_LABEL = {
   listening: "Listening",
@@ -98,7 +99,13 @@ function submitCurrent(prev: Attempt, exam: MockExam): Attempt {
   };
 }
 
-export function MockExamPlayer({ exam }: { exam: MockExam }) {
+export function MockExamPlayer({
+  exam,
+  audioEntries,
+}: {
+  exam: MockExam;
+  audioEntries?: Record<string, AudioEntry>;
+}) {
   const hydrated = useSyncExternalStore(
     () => () => {},
     () => true,
@@ -180,6 +187,7 @@ export function MockExamPlayer({ exam }: { exam: MockExam }) {
       exam={exam}
       section={section}
       attempt={attempt}
+      audioEntries={audioEntries}
       onAnswer={(questionId, value) =>
         setAttempt((prev) => ({ ...prev, answers: { ...prev.answers, [questionId]: value } }))
       }
@@ -270,6 +278,7 @@ function RunningView({
   exam,
   section,
   attempt,
+  audioEntries,
   onAnswer,
   onWrite,
   onSpeak,
@@ -278,6 +287,7 @@ function RunningView({
   exam: MockExam;
   section: MockSection;
   attempt: Attempt;
+  audioEntries?: Record<string, AudioEntry>;
   onAnswer: (questionId: string, value: number | null) => void;
   onWrite: (text: string) => void;
   onSpeak: (clb: number | null) => void;
@@ -337,7 +347,12 @@ function RunningView({
         </div>
 
         {section.skill === "listening" || section.skill === "reading" ? (
-          <McqSectionView section={section} answers={attempt.answers} onAnswer={onAnswer} />
+          <McqSectionView
+            section={section}
+            answers={attempt.answers}
+            onAnswer={onAnswer}
+            audioEntry={audioEntries?.[section.id]}
+          />
         ) : null}
 
         {section.skill === "writing" && section.writingTask ? (
@@ -383,15 +398,17 @@ function McqSectionView({
   section,
   answers,
   onAnswer,
+  audioEntry,
 }: {
   section: MockSection;
   answers: Record<string, number | null>;
   onAnswer: (questionId: string, value: number | null) => void;
+  audioEntry?: AudioEntry;
 }) {
   if (section.skill === "listening") {
     return (
       <div className="space-y-6">
-        <DialogueAudioPlayer key={section.id} id={section.id} transcript={section.passage ?? ""} mode="exam" />
+        <DialogueAudioPlayer key={section.id} id={section.id} transcript={section.passage ?? ""} mode="exam" entry={audioEntry} />
         <div className="space-y-5">
           {section.questions.map((question, i) => (
             <QuestionCard

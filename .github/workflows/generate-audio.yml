@@ -1,0 +1,46 @@
+name: Generate Audio
+
+on:
+  repository_dispatch:
+    types: [generate-audio]
+
+jobs:
+  audio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Fetch mock payload from D1
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_DATABASE_ID: ${{ secrets.CLOUDFLARE_DATABASE_ID }}
+        run: node scripts/d1-read.mjs "${{ github.event.client_payload.mockId }}" > /tmp/mock.json
+
+      - name: Generate audio
+        env:
+          AUDIO_BASE_URL: ${{ secrets.AUDIO_BASE_URL }}
+        run: node scripts/generate-mock-audio.mjs /tmp/mock.json /tmp/audio
+
+      - name: Upload MP3s to R2
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          MOCK_ID="${{ github.event.client_payload.mockId }}"
+          for f in /tmp/audio/*.mp3; do
+            name=$(basename "$f")
+            npx wrangler r2 object put "shilu-audio/${MOCK_ID}/${name}" --file "$f"
+          done
+
+      - name: Publish manifest to D1
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_DATABASE_ID: ${{ secrets.CLOUDFLARE_DATABASE_ID }}
+        run: node scripts/d1-write.mjs "${{ github.event.client_payload.mockId }}" /tmp/audio/manifest.json
