@@ -9,7 +9,7 @@ ADMIN_SESSION_SECRET=change-me-to-a-long-random-string
 
 # GitHub token + repo used to trigger audio generation on upload.
 GITHUB_TOKEN=
-GITHUB_REPO=Earthfill/shilu
+GITHUB_REPO=Earthfill/linguaband
 
 # Optional public base URL for audio stored in R2 (e.g. https://audio.example.com).
 # Leave empty to keep serving audio from bundled files.

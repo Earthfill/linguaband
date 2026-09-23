@@ -30,7 +30,7 @@ export function Footer() {
         <div className="flex flex-col gap-6 py-14">
           <Logo />
           <p className="max-w-md text-sm leading-6 text-zinc-400">
-            Shilu is your all-in-one CELPIP prep hub — 4,000+ questions, timed
+            Linguaband is your all-in-one CELPIP prep hub — 4,000+ questions, timed
             mock tests, CLB-scored sample answers, and AI feedback on every
             Speaking and Writing response you submit.
           </p>
@@ -82,7 +82,7 @@ export function Footer() {
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-xs text-zinc-500">
-                © {year} Shilu.com · All rights reserved.
+                © {year} Linguaband.com · All rights reserved.
               </p>
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
                 {["Terms of Service", "Privacy Policy", "Refund Policy"].map((label) => (
@@ -104,14 +104,14 @@ export function Footer() {
             </div>
 
             <p className="max-w-4xl text-[11px] leading-5 text-zinc-600">
-              Shilu is an independent practice platform and is not affiliated
+              Linguaband is an independent practice platform and is not affiliated
               with, endorsed by, sponsored by, or accredited by Prometric or
               Paragon Testing Enterprises Inc., the developers and owners of the
               CELPIP® test. Our practice content is study material only: it is
-              not an official exam and does not produce official scores. Shilu
+              not an official exam and does not produce official scores. Linguaband
               does not reproduce or distribute real exam questions, passages,
               recordings, answer keys, or score reports. Every scored practice
-              item on this site is originally written by Shilu. Where our
+              item on this site is originally written by Linguaband. Where our
               practice format mirrors the exam owner&apos;s on-screen
               instructions or worked examples, short extracts of that
               instructional text may appear for format fidelity and remain the

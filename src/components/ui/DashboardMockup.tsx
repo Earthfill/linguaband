@@ -16,7 +16,7 @@ const options = [
 ];
 
 /**
- * Pure-CSS recreation of the Shilu practice dashboard mockup
+ * Pure-CSS recreation of the Linguaband practice dashboard mockup
  * shown in the hero section.
  */
 export function DashboardMockup() {
@@ -38,7 +38,7 @@ export function DashboardMockup() {
           </div>
           <div className="mx-auto flex w-full max-w-md items-center justify-center gap-2 rounded-full bg-white px-4 py-1 text-xs text-zinc-400 shadow-sm ring-1 ring-zinc-100">
             <Icon name="shield" size={12} className="text-emerald-500" />
-            shilu.ai/practice/listening
+            linguaband.com/practice/listening
           </div>
         </div>
 
@@ -50,7 +50,7 @@ export function DashboardMockup() {
               <span className="grid h-6 w-6 place-items-center rounded-md bg-blue-600 text-white">
                 <Icon name="mic" size={13} />
               </span>
-              <span className="text-xs font-bold text-zinc-900">Shilu</span>
+              <span className="text-xs font-bold text-zinc-900">Linguaband</span>
             </div>
             {navItems.map((item) => (
               <span

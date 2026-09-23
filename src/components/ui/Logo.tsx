@@ -4,7 +4,7 @@ export function Logo({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
-      aria-label="Shilu home"
+      aria-label="Linguaband home"
       className={`flex items-center gap-2 ${className}`}
     >
       {/* Stylized brand mark */}
@@ -24,7 +24,7 @@ export function Logo({ className = "" }: { className?: string }) {
         </svg>
       </span>
       <span className="font-display text-[17px] font-bold leading-none tracking-tight text-zinc-900">
-        Shi<span className="text-blue-600">lu</span>
+        Lingua<span className="text-blue-600">band</span>
       </span>
     </Link>
   );

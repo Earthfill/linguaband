@@ -1,9 +1,11 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "shilu",
+  "name": "linguaband",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-09-22",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
@@ -11,15 +13,15 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "shilu-db",
-      "database_id": "REPLACE_WITH_YOUR_DATABASE_ID",
+      "database_name": "linguaband-db",
+      "database_id": "c62275b8-d1ce-4481-a1f0-7efa00038ad0",
       "migrations_dir": "migrations"
     }
   ],
   "r2_buckets": [
     {
       "binding": "BUCKET",
-      "bucket_name": "shilu-audio"
+      "bucket_name": "linguaband-audio"
     }
   ]
 }

@@ -50,7 +50,7 @@ async function dispatchAudio(mockId: string): Promise<boolean> {
       headers: {
         Authorization: `Bearer ${token}`,
         Accept: "application/vnd.github+json",
-        "User-Agent": "shilu-admin",
+        "User-Agent": "linguaband-admin",
       },
       body: JSON.stringify({ event_type: "generate-audio", client_payload: { mockId } }),
     });

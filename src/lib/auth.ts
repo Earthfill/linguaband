@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-const COOKIE = "shilu_admin";
+const COOKIE = "linguaband_admin";
 
 async function secret(): Promise<string> {
   return process.env.ADMIN_SESSION_SECRET ?? "";

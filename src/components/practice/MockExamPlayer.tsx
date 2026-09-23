@@ -42,7 +42,7 @@ type Attempt = {
 };
 
 function storageKey(examId: string): string {
-  return `shilu.mock.attempt.${examId}`;
+  return `linguaband.mock.attempt.${examId}`;
 }
 
 function emptyAttempt(exam: MockExam): Attempt {

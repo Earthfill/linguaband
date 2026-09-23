@@ -12,7 +12,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "CELPIP Practice & Mock Exams | Shilu",
+  title: "CELPIP Practice & Mock Exams | Linguaband",
   description:
     "Ace the CELPIP with 4,000+ practice questions, 60+ timed mock tests, sample answers for every CLB level, and instant AI scoring on Speaking & Writing.",
 };

@@ -10,7 +10,7 @@ export const testimonials: Testimonial[] = [
     name: "Mohsen Alemasoom",
     title: "CELPIP test taker",
     quote:
-      "Shilu was the only prep tool I used for the exam and my band came out great. Every dollar spent was worth it.",
+      "Linguaband was the only prep tool I used for the exam and my band came out great. Every dollar spent was worth it.",
   },
   {
     name: "Toluwaniope Adeleye",

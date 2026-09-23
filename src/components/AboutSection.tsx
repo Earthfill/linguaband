@@ -20,13 +20,13 @@ export function AboutSection() {
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-500">
                 <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
-                About Shilu
+                About Linguaband
               </span>
               <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-zinc-900 sm:text-4xl">
                 Prep the way you&apos;ll actually take the test
               </h2>
               <p className="mt-5 text-base leading-7 text-zinc-500 sm:text-lg">
-                CELPIP rewards familiar hands. Shilu gives you the full exam
+                CELPIP rewards familiar hands. Linguaband gives you the full exam
                 experience online — same layout, same timing, same pressure —
                 whether your goal is Canadian immigration, citizenship,
                 professional licensing, or an Australian visa (DHA-accepted).

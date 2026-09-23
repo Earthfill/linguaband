@@ -7,10 +7,10 @@ export const faqs: Faq[] = [
   },
   {
     q: "What makes a good CELPIP practice platform?",
-    a: "The essentials are three things: practice sets that match the real exam's format and timing, instant scoring on Speaking and Writing, and clear explanations on every question. Shilu brings all three together with 4,000+ questions, 60+ timed mock tests, sample responses for every CLB level, and AI feedback that follows the official rubric.",
+    a: "The essentials are three things: practice sets that match the real exam's format and timing, instant scoring on Speaking and Writing, and clear explanations on every question. Linguaband brings all three together with 4,000+ questions, 60+ timed mock tests, sample responses for every CLB level, and AI feedback that follows the official rubric.",
   },
   {
-    q: "How close is Shilu's content to the real CELPIP exam?",
+    q: "How close is Linguaband's content to the real CELPIP exam?",
     a: "Very close. Every question is written to mirror the official exam — the same eight Listening parts, four Reading sections, both Writing tasks, and all eight Speaking tasks, with matching instructions, timing, and difficulty. Nothing is recycled from past official papers; every item is original practice material.",
   },
   {
@@ -27,7 +27,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "What should I look for if I'm comparing CELPIP prep sites?",
-    a: "Compare the size of the question bank, the format fidelity of mock exams, whether Speaking and Writing truly get scored (not just sample answers), explanation quality, mobile support, and the refund policy. Shilu was built to win on all of those at a price well below other platforms.",
+    a: "Compare the size of the question bank, the format fidelity of mock exams, whether Speaking and Writing truly get scored (not just sample answers), explanation quality, mobile support, and the refund policy. Linguaband was built to win on all of those at a price well below other platforms.",
   },
   {
     q: "Can I get ready for CELPIP in two weeks?",
@@ -35,7 +35,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "What CLB score do I need for Canadian immigration?",
-    a: "It depends on your program. Express Entry's Federal Skilled Worker stream needs at least CLB 7 in all four skills; Canadian citizenship requires CLB 4; and PNP requirements usually fall between CLB 5 and 7. CLB 9+ in all skills earns maximum CRS points, and Shilu includes sample responses for every level from 4 to 12.",
+    a: "It depends on your program. Express Entry's Federal Skilled Worker stream needs at least CLB 7 in all four skills; Canadian citizenship requires CLB 4; and PNP requirements usually fall between CLB 5 and 7. CLB 9+ in all skills earns maximum CRS points, and Linguaband includes sample responses for every level from 4 to 12.",
   },
   {
     q: "Can I practice on my phone?",
@@ -43,7 +43,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "What's the refund policy?",
-    a: "Simple and fair: if you've used fewer than 10 tests and aren't satisfied, you can request a full refund within 7 days of purchase — no extra conditions. Email support@shilu.ai and we'll take care of it.",
+    a: "Simple and fair: if you've used fewer than 10 tests and aren't satisfied, you can request a full refund within 7 days of purchase — no extra conditions. Email support@linguaband.com and we'll take care of it.",
   },
 ];
 

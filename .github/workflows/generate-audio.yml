@@ -35,7 +35,7 @@ jobs:
           MOCK_ID="${{ github.event.client_payload.mockId }}"
           for f in /tmp/audio/*.mp3; do
             name=$(basename "$f")
-            npx wrangler r2 object put "shilu-audio/${MOCK_ID}/${name}" --file "$f"
+            npx wrangler r2 object put "linguaband-audio/${MOCK_ID}/${name}" --file "$f"
           done
 
       - name: Publish manifest to D1

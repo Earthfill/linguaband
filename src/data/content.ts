@@ -235,7 +235,7 @@ export const footerColumns: FooterColumn[] = [
     ],
   },
   {
-    title: "About Shilu",
+    title: "About Linguaband",
     links: [
       { label: "CELPIP vs IELTS", href: "/lp/celpip-vs-ielts" },
       { label: "Compare CELPIP Platforms", href: "/compare/celpip-practice-platforms" },

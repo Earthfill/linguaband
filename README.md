@@ -1,7 +1,7 @@
-# Shilu — CELPIP practice platform
+# Linguaband — CELPIP practice platform
 
 A front-end clone of the celtestpip.com homepage experience, rebranded as
-**Shilu** with original copy, built with the **same stack as the original**:
+**Linguaband** with original copy, built with the **same stack as the original**:
 Next.js (App Router) + React + TypeScript + Tailwind CSS.
 
 > Static demo build. Auth, payments, and live AI scoring are out of scope. All
@@ -64,7 +64,7 @@ src/
 | `/speaking` | 8 task cards with a prep/speak timer studio + CLB-graded sample responses |
 
 All practice content lives in `src/data/practice/` (original study material written for
-Shilu); UI engines live in `src/components/practice/`.
+Linguaband); UI engines live in `src/components/practice/`.
 
 ## Design tokens (from the original site)
 
@@ -143,10 +143,10 @@ upload the text goes live immediately; listening audio is generated in the backg
 The app runs on Cloudflare (free tier, business use allowed) via `@opennextjs/cloudflare`.
 
 1. `npx wrangler login`
-2. Create the database: `npx wrangler d1 create shilu-db`, then paste its id into
+2. Create the database: `npx wrangler d1 create linguaband-db`, then paste its id into
    `wrangler.jsonc` (`database_id`).
-3. Apply the schema: `npx wrangler d1 migrations apply shilu-db --remote`.
-4. Create the bucket: `npx wrangler r2 bucket create shilu-audio`.
+3. Apply the schema: `npx wrangler d1 migrations apply linguaband-db --remote`.
+4. Create the bucket: `npx wrangler r2 bucket create linguaband-audio`.
 5. Copy `.dev.vars.example` to `.dev.vars` and set `ADMIN_PASSWORD` + `ADMIN_SESSION_SECRET`
    for local development.
 6. Deploy: push to `main` (GitHub Actions builds and deploys), or run `npm run deploy`.
