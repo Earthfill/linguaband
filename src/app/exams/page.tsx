@@ -29,28 +29,20 @@ export default async function ExamsPage() {
 
         <section className="py-12 sm:py-16">
           <Container>
-            <div className="mb-8 grid gap-3 sm:grid-cols-3">
+            <div className="mb-6 flex flex-wrap items-center gap-x-8 gap-y-3 rounded-2xl border border-zinc-200 bg-white px-5 py-3 shadow-sm">
               {facts.map((fact) => (
-                <div
-                  key={fact.label}
-                  className="flex items-center gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm"
-                >
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-blue-50 text-blue-600">
-                    <Icon name={fact.icon} size={20} />
+                <div key={fact.label} className="flex items-center gap-2.5">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-blue-50 text-blue-600">
+                    <Icon name={fact.icon} size={16} />
                   </span>
                   <span>
-                    <span className="block text-sm font-semibold text-zinc-900">
-                      {fact.value}
-                    </span>
-                    <span className="block text-xs text-zinc-500">{fact.label}</span>
+                    <span className="block text-sm font-bold text-zinc-900">{fact.value}</span>
+                    <span className="block text-[11px] text-zinc-500">{fact.label}</span>
                   </span>
                 </div>
               ))}
             </div>
 
-            <h2 className="mb-6 font-display text-2xl font-bold text-zinc-900">
-              Available mock exams
-            </h2>
             <ExamBrowser mocks={mocks} />
           </Container>
         </section>

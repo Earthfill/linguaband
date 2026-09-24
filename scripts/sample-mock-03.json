@@ -1,0 +1,1441 @@
+{
+  "id": "mock-03",
+  "name": "Mock Test 03",
+  "badge": "New",
+  "difficulty": "Challenging",
+  "description": "A full-length CELPIP-General style exam: 6 Listening, 4 Reading, 2 Writing, and 8 Speaking sections in the official order, with inference-based questions and official speaking timings.",
+  "sections": [
+    {
+      "id": "M3L1",
+      "skill": "listening",
+      "title": "Part 1 · Listening to Problem Solving",
+      "instructions": "Listen to the conversation and answer the questions.",
+      "timeLimitSec": 360,
+      "passageTitle": "Cancelled flight",
+      "passage": "AGENT: Thank you for calling Northern Sky Travel, this is Priya speaking.\nCUSTOMER: Hi Priya, my name is Jordan Ellis. My flight to Halifax tomorrow morning was cancelled, and all I got was an automated text with no details.\nAGENT: Let me pull up your booking. Yes, I see it. The airline cancelled every departure from Toronto before ten a.m. because of the storm that's forecast overnight.\nCUSTOMER: That's a problem. I'm presenting at a conference in Halifax at one o'clock tomorrow afternoon.\nAGENT: I understand. I have three options. First, the same flight on Friday at eight-fifteen a.m. Second, a reroute this evening, leaving at six-forty through Montreal and landing in Halifax at eleven fifty-five tonight. Or third, a full refund.\nCUSTOMER: Friday is too late, so that rules out the first one. Is there any extra charge for the reroute?\nAGENT: Normally there's a sixty-dollar change fee, but the airline is waiving it because of the weather.\nCUSTOMER: Good. What about my seat?\nAGENT: On the Montreal flight, I can give you a window seat. On the second leg, only middle seats are left.\nCUSTOMER: I can live with a middle seat for the second leg. Let's book it.\nAGENT: Done. I recommend arriving at the airport by four-forty, two hours before departure. I can't contact your hotel, so you'll want to let them know you'll be checking in around midnight.\nCUSTOMER: I'll call them right now. Thanks, Priya.",
+      "questions": [
+        {
+          "id": "M3L1Q1",
+          "label": "Question 1",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why is Jordan calling?",
+          "options": [
+            "A booking was made under the wrong name",
+            "The hotel in Halifax cancelled a reservation",
+            "Jordan wants to upgrade to a window seat",
+            "A flight was cancelled and the text message gave no details"
+          ],
+          "answerIndex": 3,
+          "explanation": "Jordan received only an automated text with no details about the cancellation."
+        },
+        {
+          "id": "M3L1Q2",
+          "label": "Question 2",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why did the airline cancel the flights?",
+          "options": [
+            "The airport is closing for repairs",
+            "A crew shortage in Toronto",
+            "An equipment problem with the aircraft",
+            "A storm is forecast overnight"
+          ],
+          "answerIndex": 3,
+          "explanation": "The agent says the cancellation is because of the storm forecast overnight."
+        },
+        {
+          "id": "M3L1Q3",
+          "label": "Question 3",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why does Jordan reject the Friday flight?",
+          "options": [
+            "It has no window seats",
+            "It costs more than the other options",
+            "It would arrive after the conference presentation",
+            "It leaves too early in the morning"
+          ],
+          "answerIndex": 2,
+          "explanation": "Jordan presents tomorrow at one o'clock, so a Friday flight is too late."
+        },
+        {
+          "id": "M3L1Q4",
+          "label": "Question 4",
+          "part": "Part 1 · Problem Solving",
+          "question": "Which option does Jordan choose?",
+          "options": [
+            "The Friday morning flight",
+            "The evening reroute through Montreal",
+            "A full refund",
+            "A later flight tomorrow evening"
+          ],
+          "answerIndex": 1,
+          "explanation": "Jordan says \"Let's book it\" after asking about the reroute."
+        },
+        {
+          "id": "M3L1Q5",
+          "label": "Question 5",
+          "part": "Part 1 · Problem Solving",
+          "question": "What does the agent say about the change fee?",
+          "options": [
+            "Jordan must pay sixty dollars at the airport",
+            "The airline is waiving it because of the weather",
+            "It applies only to the second flight",
+            "It is included in a refund"
+          ],
+          "answerIndex": 1,
+          "explanation": "The normal sixty-dollar fee is being waived due to weather."
+        },
+        {
+          "id": "M3L1Q6",
+          "label": "Question 6",
+          "part": "Part 1 · Problem Solving",
+          "question": "What is the seat situation?",
+          "options": [
+            "An aisle seat on the first flight only",
+            "Middle seats on both flights",
+            "Window seats on both flights",
+            "A window seat on the first flight and a middle seat on the second"
+          ],
+          "answerIndex": 3,
+          "explanation": "The Montreal leg has a window seat; only middle seats remain on the second leg."
+        },
+        {
+          "id": "M3L1Q7",
+          "label": "Question 7",
+          "part": "Part 1 · Problem Solving",
+          "question": "What does the agent suggest Jordan do besides going to the airport?",
+          "options": [
+            "Tell the hotel about a midnight check-in",
+            "Request a refund for the hotel",
+            "Call the airline to confirm the storm",
+            "Print the boarding pass at home"
+          ],
+          "answerIndex": 0,
+          "explanation": "The agent cannot contact the hotel, so Jordan must let them know about the late arrival."
+        },
+        {
+          "id": "M3L1Q8",
+          "label": "Question 8",
+          "part": "Part 1 · Problem Solving",
+          "question": "By what time should Jordan arrive at the airport?",
+          "options": [
+            "Eleven fifty-five at night",
+            "Six-forty in the evening",
+            "Eight-fifteen in the morning",
+            "Four-forty in the afternoon"
+          ],
+          "answerIndex": 3,
+          "explanation": "Departure is at six-forty and the agent recommends arriving two hours early, at four-forty."
+        }
+      ]
+    },
+    {
+      "id": "M3L2",
+      "skill": "listening",
+      "title": "Part 2 · Listening to a Daily Life Conversation",
+      "instructions": "Listen to the conversation and answer the questions.",
+      "timeLimitSec": 300,
+      "passageTitle": "Farewell party",
+      "passage": "CHLOE: Have you got a minute? I'm organizing Ana's farewell party and there's a scheduling problem.\nRAVI: Sure. I thought it was Friday afternoon in the staff lounge.\nCHLOE: That was the plan, but facilities just told me the lounge is booked on Friday for a client training session. The only day it's free is Thursday at three.\nRAVI: Thursday works for me, but Ana has a dentist appointment Thursday morning. Will she be back by three?\nCHLOE: She said it ends at eleven, so she should be fine. She just can't find out about the party, so please keep it quiet.\nRAVI: Of course. How much are we collecting for the gift card?\nCHLOE: Fifteen dollars each. I've got twelve people so far.\nRAVI: I'll put in twenty, actually, since I've worked with her the longest. And I could bring a cake from that bakery on Elm Street.\nCHLOE: That would be amazing, but it has to be ordered two days ahead. Could you call them today?\nRAVI: I'll do it on my lunch break. Should I get chocolate? That's her favourite, isn't it?\nCHLOE: It is, but she's allergic to nuts, so just make sure the bakery knows. Plain chocolate is safe.",
+      "questions": [
+        {
+          "id": "M3L2Q1",
+          "label": "Question 1",
+          "part": "Part 2 · Daily Life",
+          "question": "What problem does Chloe raise?",
+          "options": [
+            "The gift card budget is too small",
+            "The lounge is unavailable on the planned day",
+            "The bakery is closed on Fridays",
+            "Ana has asked to cancel the party"
+          ],
+          "answerIndex": 1,
+          "explanation": "Facilities booked the lounge for a client training session on Friday."
+        },
+        {
+          "id": "M3L2Q2",
+          "label": "Question 2",
+          "part": "Part 2 · Daily Life",
+          "question": "When will the party now be held?",
+          "options": [
+            "Thursday at eleven in the morning",
+            "Friday afternoon in a restaurant",
+            "Thursday at three o'clock",
+            "Friday at three o'clock"
+          ],
+          "answerIndex": 2,
+          "explanation": "The lounge is only free on Thursday at three."
+        },
+        {
+          "id": "M3L2Q3",
+          "label": "Question 3",
+          "part": "Part 2 · Daily Life",
+          "question": "Why does Chloe ask Ravi to keep it quiet?",
+          "options": [
+            "The lounge booking is unofficial",
+            "Ana is on a dentist appointment",
+            "The party is a surprise for Ana",
+            "The party is not officially approved"
+          ],
+          "answerIndex": 2,
+          "explanation": "Chloe says Ana can't find out about the party."
+        },
+        {
+          "id": "M3L2Q4",
+          "label": "Question 4",
+          "part": "Part 2 · Daily Life",
+          "question": "What will Ravi contribute?",
+          "options": [
+            "Fifteen dollars and a card",
+            "A gift card and decorations",
+            "Twenty dollars and a cake",
+            "Twenty dollars and the venue"
+          ],
+          "answerIndex": 2,
+          "explanation": "Ravi offers twenty dollars and to bring a cake from the bakery."
+        },
+        {
+          "id": "M3L2Q5",
+          "label": "Question 5",
+          "part": "Part 2 · Daily Life",
+          "question": "What must Ravi tell the bakery?",
+          "options": [
+            "The cake must be vanilla",
+            "Ana is allergic to nuts",
+            "The order is needed tomorrow morning",
+            "The cake is for a client event"
+          ],
+          "answerIndex": 1,
+          "explanation": "Chloe reminds him that Ana is allergic to nuts."
+        }
+      ]
+    },
+    {
+      "id": "M3L3",
+      "skill": "listening",
+      "title": "Part 3 · Listening for Information",
+      "instructions": "Listen to the information and answer the questions.",
+      "timeLimitSec": 360,
+      "passageTitle": "Swimming lesson message",
+      "passage": "RECORDING: You've reached the Lakeside Recreation Centre information line. This message covers adult swimming lessons for the spring session. Online registration opens Monday, March fourth, at nine a.m., and in-person registration begins at noon the same day. Lessons run for eight weeks, on Tuesday and Thursday evenings at seven o'clock, starting April ninth. There are three levels: beginner, for those who are not comfortable in deep water; intermediate, for those who can swim one full length; and advanced, which focuses on stroke correction. The fee is eighty-five dollars for residents and one hundred ten dollars for non-residents. Seniors aged sixty-five and over receive twenty percent off. To register in person, please bring a piece of identification showing your address. Refunds are available until the second class; after that, only credits toward a future session are offered. Because the beginner class fills quickly, we suggest registering online. For questions, press one to speak to a staff member, or press two to hear this message again.",
+      "questions": [
+        {
+          "id": "M3L3Q1",
+          "label": "Question 1",
+          "part": "Part 3 · Information",
+          "question": "What is the main purpose of the message?",
+          "options": [
+            "To promote a new membership plan",
+            "To advertise a children's swim camp",
+            "To announce a change in pool hours",
+            "To explain how to register for adult swimming lessons"
+          ],
+          "answerIndex": 3,
+          "explanation": "The recording covers adult swimming lessons for the spring session."
+        },
+        {
+          "id": "M3L3Q2",
+          "label": "Question 2",
+          "part": "Part 3 · Information",
+          "question": "When can someone first register in person?",
+          "options": [
+            "Monday, March fourth, at noon",
+            "Thursday, March seventh, at noon",
+            "Tuesday, April ninth, at seven p.m.",
+            "Monday, March fourth, at nine a.m."
+          ],
+          "answerIndex": 0,
+          "explanation": "In-person registration begins at noon on the same day online registration opens."
+        },
+        {
+          "id": "M3L3Q3",
+          "label": "Question 3",
+          "part": "Part 3 · Information",
+          "question": "How long do the lessons last?",
+          "options": [
+            "Twelve weeks",
+            "Six weeks",
+            "Ten weeks",
+            "Eight weeks"
+          ],
+          "answerIndex": 3,
+          "explanation": "Lessons run for eight weeks."
+        },
+        {
+          "id": "M3L3Q4",
+          "label": "Question 4",
+          "part": "Part 3 · Information",
+          "question": "How much would a 67-year-old resident pay?",
+          "options": [
+            "Eighty-eight dollars",
+            "Sixty-eight dollars",
+            "One hundred ten dollars",
+            "Eighty-five dollars"
+          ],
+          "answerIndex": 1,
+          "explanation": "Twenty percent off eighty-five dollars is sixty-eight dollars."
+        },
+        {
+          "id": "M3L3Q5",
+          "label": "Question 5",
+          "part": "Part 3 · Information",
+          "question": "What must a person bring to register in person?",
+          "options": [
+            "A swimsuit and a towel",
+            "A payment receipt from last session",
+            "A doctor's note",
+            "Identification showing their address"
+          ],
+          "answerIndex": 3,
+          "explanation": "The message asks for ID showing the person's address."
+        },
+        {
+          "id": "M3L3Q6",
+          "label": "Question 6",
+          "part": "Part 3 · Information",
+          "question": "What happens if someone cancels after the second class?",
+          "options": [
+            "They receive a full refund",
+            "They receive a half refund",
+            "They receive only a credit for a future session",
+            "They must pay a cancellation fee"
+          ],
+          "answerIndex": 2,
+          "explanation": "After the second class, only credits are offered."
+        }
+      ]
+    },
+    {
+      "id": "M3L4",
+      "skill": "listening",
+      "title": "Part 4 · Listening to a News Item",
+      "instructions": "Listen to the news item and answer the questions.",
+      "timeLimitSec": 420,
+      "passageTitle": "Transit fares to rise",
+      "passage": "ANNOUNCER: The regional transit authority announced today that fares will rise five percent starting July first, the first increase in three years. An adult monthly pass will go from one hundred twenty dollars to one hundred twenty-six dollars, while single-ride fares will stay at three dollars and twenty-five cents until next January. Children under thirteen will continue to ride free. Authority chair Denise Alvarez said the added revenue will help pay for forty new buses and extend evening service on eleven routes. Rider advocates welcomed the service improvements but argued that the increase falls hardest on low-income commuters, and they are urging the authority to introduce a discounted pass. The authority says it will review that proposal at its September meeting.",
+      "questions": [
+        {
+          "id": "M3L4Q1",
+          "label": "Question 1",
+          "part": "Part 4 · News Item",
+          "question": "What did the transit authority announce?",
+          "options": [
+            "A free-ride weekend",
+            "A new bus route downtown",
+            "A five percent fare increase",
+            "A reduction in evening service"
+          ],
+          "answerIndex": 2,
+          "explanation": "Fares will rise five percent starting July first."
+        },
+        {
+          "id": "M3L4Q2",
+          "label": "Question 2",
+          "part": "Part 4 · News Item",
+          "question": "What will an adult monthly pass cost after the increase?",
+          "options": [
+            "One hundred thirty-five dollars",
+            "Three dollars and twenty-five cents",
+            "One hundred twenty-six dollars",
+            "One hundred twenty dollars"
+          ],
+          "answerIndex": 2,
+          "explanation": "The pass goes from one hundred twenty to one hundred twenty-six dollars."
+        },
+        {
+          "id": "M3L4Q3",
+          "label": "Question 3",
+          "part": "Part 4 · News Item",
+          "question": "What will stay the same until January?",
+          "options": [
+            "The monthly pass price",
+            "Children's fares",
+            "The single-ride fare",
+            "Evening service hours"
+          ],
+          "answerIndex": 2,
+          "explanation": "Single-ride fares stay at three dollars and twenty-five cents until next January."
+        },
+        {
+          "id": "M3L4Q4",
+          "label": "Question 4",
+          "part": "Part 4 · News Item",
+          "question": "How will the extra revenue be used?",
+          "options": [
+            "To lower monthly pass prices",
+            "To hire more drivers only",
+            "To buy new buses and extend evening service",
+            "To repair existing stations"
+          ],
+          "answerIndex": 2,
+          "explanation": "The chair says it will pay for forty new buses and longer evening service."
+        },
+        {
+          "id": "M3L4Q5",
+          "label": "Question 5",
+          "part": "Part 4 · News Item",
+          "question": "What are rider advocates asking for?",
+          "options": [
+            "A freeze on all fares",
+            "A new fare zone system",
+            "A discounted pass for low-income commuters",
+            "Free rides for seniors"
+          ],
+          "answerIndex": 2,
+          "explanation": "Advocates want a discounted pass because the increase hurts low-income commuters most."
+        }
+      ]
+    },
+    {
+      "id": "M3L5",
+      "skill": "listening",
+      "title": "Part 5 · Listening to a Discussion",
+      "instructions": "Listen to the discussion and answer the questions.",
+      "timeLimitSec": 720,
+      "passageTitle": "Neighbourhood grant",
+      "passage": "HANNAH: Thanks for coming, everyone. We've received a two-thousand-dollar grant, and we have to decide how to spend it before the end of the month.\nOMAR: I'd like to put it toward playground equipment. The swings at Oak Street Park have been broken since the fall, and there are lots of young families on our block.\nBETH: I understand, but I think street lighting is more urgent. Three residents told me they no longer walk through the laneway after dark.\nHANNAH: Lighting is a safety issue. Solar lights for the laneway would cost about twelve hundred dollars.\nOMAR: And new swings would be around eighteen hundred, so we can't do both.\nBETH: What if the city repairs the swings? Playground maintenance is technically their responsibility. Someone could call the parks department.\nOMAR: I did call, twice. They said the repair is on a list for next year.\nHANNAH: Then here's a thought. We use the grant for the lighting now, and Omar leads a petition asking the city to fix the swings sooner. We'd have eight hundred dollars left, which we could set aside toward the playground.\nOMAR: That's reasonable, as long as the leftover money is set aside specifically for the playground.\nBETH: Agreed. I can get quotes from two lighting companies by next Wednesday.\nHANNAH: Great. Let's hold the vote at the meeting on the twenty-first.",
+      "questions": [
+        {
+          "id": "M3L5Q1",
+          "label": "Question 1",
+          "part": "Part 5 · Discussion",
+          "question": "What does the group need to decide?",
+          "options": [
+            "Who will lead the association",
+            "Which park to close",
+            "Where to hold a street party",
+            "How to spend a grant"
+          ],
+          "answerIndex": 3,
+          "explanation": "They must decide how to spend the two-thousand-dollar grant."
+        },
+        {
+          "id": "M3L5Q2",
+          "label": "Question 2",
+          "part": "Part 5 · Discussion",
+          "question": "Why does Omar prefer playground equipment?",
+          "options": [
+            "Playground equipment is cheaper than lights",
+            "Residents have voted for it",
+            "The city has refused to fix the park",
+            "The swings are broken and many young families live nearby"
+          ],
+          "answerIndex": 3,
+          "explanation": "Omar mentions the broken swings and the many young families on their block."
+        },
+        {
+          "id": "M3L5Q3",
+          "label": "Question 3",
+          "part": "Part 5 · Discussion",
+          "question": "Why does Beth prefer street lighting?",
+          "options": [
+            "Residents avoid the laneway after dark",
+            "The lights are cheaper to maintain",
+            "The city requires new lighting",
+            "The lights would raise property values"
+          ],
+          "answerIndex": 0,
+          "explanation": "Three residents no longer walk through the laneway after dark."
+        },
+        {
+          "id": "M3L5Q4",
+          "label": "Question 4",
+          "part": "Part 5 · Discussion",
+          "question": "About how much would the solar lights cost?",
+          "options": [
+            "Eighteen hundred dollars",
+            "Two thousand dollars",
+            "Eight hundred dollars",
+            "Twelve hundred dollars"
+          ],
+          "answerIndex": 3,
+          "explanation": "Hannah estimates the lights at about twelve hundred dollars."
+        },
+        {
+          "id": "M3L5Q5",
+          "label": "Question 5",
+          "part": "Part 5 · Discussion",
+          "question": "Why can't the group afford both projects?",
+          "options": [
+            "The lighting is not available until next year",
+            "Together they would cost more than the grant",
+            "The city would not approve both",
+            "The grant must be spent on one project only"
+          ],
+          "answerIndex": 1,
+          "explanation": "Lights (about $1,200) and swings (about $1,800) exceed the $2,000 grant."
+        },
+        {
+          "id": "M3L5Q6",
+          "label": "Question 6",
+          "part": "Part 5 · Discussion",
+          "question": "What has Omar already done?",
+          "options": [
+            "Spoken with the residents about lighting",
+            "Collected quotes for swings",
+            "Started a petition",
+            "Called the parks department twice"
+          ],
+          "answerIndex": 3,
+          "explanation": "Omar says he called the parks department twice."
+        },
+        {
+          "id": "M3L5Q7",
+          "label": "Question 7",
+          "part": "Part 5 · Discussion",
+          "question": "What compromise is proposed?",
+          "options": [
+            "Buy swings now and lights next year",
+            "Return the grant and apply again",
+            "Buy lights now and save the leftover money for the playground",
+            "Split the grant evenly between the two projects"
+          ],
+          "answerIndex": 2,
+          "explanation": "Hannah suggests lighting now, a petition for the swings, and setting aside the remaining eight hundred dollars."
+        },
+        {
+          "id": "M3L5Q8",
+          "label": "Question 8",
+          "part": "Part 5 · Discussion",
+          "question": "What will Beth do next?",
+          "options": [
+            "Get quotes from two lighting companies",
+            "Organize the petition",
+            "Book the meeting room",
+            "Call the parks department"
+          ],
+          "answerIndex": 0,
+          "explanation": "Beth offers to get two quotes by next Wednesday."
+        }
+      ]
+    },
+    {
+      "id": "M3L6",
+      "skill": "listening",
+      "title": "Part 6 · Listening for Viewpoints",
+      "instructions": "Listen to the two speakers and answer the questions.",
+      "timeLimitSec": 660,
+      "passageTitle": "Four-day work week debate",
+      "passage": "SPEAKER A: I'm convinced a four-day work week is the future. A company in my city switched last year, kept everyone's pay the same, and found that output didn't drop at all. Employees were less stressed, and resignations fell by almost a third.\nSPEAKER B: I don't think it works everywhere. Hospitals, restaurants, and customer service centres can't just shut down for an extra day. Either they hire more staff, which costs money, or workers cram forty hours into four long days, which is exhausting.\nSPEAKER A: That's true for some sectors, but it isn't an argument against the idea overall. Offices and tech firms could adopt it tomorrow, and that would put pressure on other industries to find creative scheduling.\nSPEAKER B: Maybe, but I worry about fairness. If office workers get a three-day weekend while nurses and cashiers don't, we widen the gap between people who have flexibility and people who don't.\nSPEAKER A: I see the concern, but I'd say the answer is to extend the benefit gradually, not to deny it to everyone.",
+      "questions": [
+        {
+          "id": "M3L6Q1",
+          "label": "Question 1",
+          "part": "Part 6 · Viewpoints",
+          "question": "What does Speaker A say happened at the company that switched?",
+          "options": [
+            "Output rose sharply and stress increased",
+            "Profits doubled in a year",
+            "Output stayed the same and fewer people quit",
+            "Pay was reduced but morale improved"
+          ],
+          "answerIndex": 2,
+          "explanation": "Speaker A says output didn't drop and resignations fell by almost a third."
+        },
+        {
+          "id": "M3L6Q2",
+          "label": "Question 2",
+          "part": "Part 6 · Viewpoints",
+          "question": "What is Speaker B's main objection?",
+          "options": [
+            "It reduces productivity in offices",
+            "It is impractical for jobs that cannot close for a day",
+            "It costs employees money",
+            "It is illegal in some industries"
+          ],
+          "answerIndex": 1,
+          "explanation": "Speaker B says hospitals, restaurants, and call centres can't shut down for an extra day."
+        },
+        {
+          "id": "M3L6Q3",
+          "label": "Question 3",
+          "part": "Part 6 · Viewpoints",
+          "question": "What downside does Speaker B mention about compressing hours?",
+          "options": [
+            "Long workdays can be exhausting",
+            "Managers lose control of schedules",
+            "Workers lose their benefits",
+            "Employers must raise salaries"
+          ],
+          "answerIndex": 0,
+          "explanation": "Cramming forty hours into four days is described as exhausting."
+        },
+        {
+          "id": "M3L6Q4",
+          "label": "Question 4",
+          "part": "Part 6 · Viewpoints",
+          "question": "How does Speaker A respond to the concern about certain sectors?",
+          "options": [
+            "Those sectors should hire fewer people",
+            "Those sectors should be exempt permanently",
+            "The government should force them to change",
+            "Sectors that can adopt it should, which will pressure others to adapt"
+          ],
+          "answerIndex": 3,
+          "explanation": "Speaker A says offices and tech firms could adopt it and push others to find creative scheduling."
+        },
+        {
+          "id": "M3L6Q5",
+          "label": "Question 5",
+          "part": "Part 6 · Viewpoints",
+          "question": "What fairness concern does Speaker B raise?",
+          "options": [
+            "It could widen the gap between workers with and without flexibility",
+            "It gives managers too much power",
+            "It lowers pay for part-time staff",
+            "It favours older workers"
+          ],
+          "answerIndex": 0,
+          "explanation": "Speaker B worries office workers would get three-day weekends while nurses and cashiers would not."
+        },
+        {
+          "id": "M3L6Q6",
+          "label": "Question 6",
+          "part": "Part 6 · Viewpoints",
+          "question": "What is Speaker A's final position?",
+          "options": [
+            "It should be limited to tech firms forever",
+            "It should be voted on by all employees",
+            "The idea should be abandoned",
+            "The benefit should be extended gradually"
+          ],
+          "answerIndex": 3,
+          "explanation": "Speaker A says to extend the benefit gradually instead of denying it to everyone."
+        }
+      ]
+    },
+    {
+      "id": "M3R1",
+      "skill": "reading",
+      "title": "Reading Part 1 · Reading Correspondence",
+      "instructions": "Read the email exchange and answer the questions.",
+      "timeLimitSec": 720,
+      "passageTitle": "Relocation package",
+      "passage": "From: Samira Khan <s.khan@northgate-eng.com>\nTo: Human Resources <hr@northgate-eng.com>\nSubject: Relocation to the Calgary office\n\nDear HR team,\n\nI am writing to confirm the details of my transfer to the Calgary office. My manager, Tyrone Blake, told me the move was approved on February 12, and I would like to start on May 6 if possible. I have a few questions about the relocation package.\n\nFirst, is the $3,000 relocation allowance paid in advance, or reimbursed after I submit receipts? Second, my lease in Toronto ends on May 31, so I may need temporary housing in Calgary for a few weeks. Finally, my partner will be moving with me. Does the package cover her flight as well?\n\nThank you,\nSamira Khan\n\n------------------------------\n\nFrom: Olivia Grant <hr@northgate-eng.com>\nTo: Samira Khan\nSubject: Re: Relocation to the Calgary office\n\nDear Samira,\n\nCongratulations on the transfer! May 6 is fine with us. To answer your questions:\n\nThe $3,000 allowance is reimbursed, not paid upfront, so please keep all receipts and submit them within 30 days of your start date. Temporary housing is covered for up to 30 days in a company-approved corporate apartment; you would need to book at least two weeks in advance through our travel coordinator. Your partner's airfare is also covered, but only one-way, and only if it is booked on the same day as your own ticket. Movers are not included in the package, although you may claim up to $500 for boxes and packing supplies under the allowance.\n\nPlease return the signed relocation agreement by April 12. You will also receive five paid days off for the move. Note that if your Toronto lease runs past your start date, you will be responsible for the overlapping rent.\n\nBest regards,\nOlivia Grant\nHuman Resources",
+      "questions": [
+        {
+          "id": "M3R1Q1",
+          "label": "Question 1",
+          "part": "Reading Part 1",
+          "question": "Why is Samira writing to HR?",
+          "options": [
+            "To ask about her relocation package",
+            "To cancel her transfer",
+            "To ask for a longer vacation",
+            "To request a new job title"
+          ],
+          "answerIndex": 0,
+          "explanation": "She wants details on the relocation package for her Calgary transfer."
+        },
+        {
+          "id": "M3R1Q2",
+          "label": "Question 2",
+          "part": "Reading Part 1",
+          "question": "When was Samira's transfer approved?",
+          "options": [
+            "May 6",
+            "February 12",
+            "May 31",
+            "April 12"
+          ],
+          "answerIndex": 1,
+          "explanation": "Her manager told her the move was approved on February 12."
+        },
+        {
+          "id": "M3R1Q3",
+          "label": "Question 3",
+          "part": "Reading Part 1",
+          "question": "What start date does Samira request?",
+          "options": [
+            "May 6",
+            "February 12",
+            "May 31",
+            "April 12"
+          ],
+          "answerIndex": 0,
+          "explanation": "She would like to start on May 6."
+        },
+        {
+          "id": "M3R1Q4",
+          "label": "Question 4",
+          "part": "Reading Part 1",
+          "question": "How is the $3,000 allowance paid?",
+          "options": [
+            "It is deducted from her salary",
+            "It is paid in full in advance",
+            "It is paid in two instalments",
+            "It is reimbursed after receipts are submitted"
+          ],
+          "answerIndex": 3,
+          "explanation": "HR says it is reimbursed, not paid upfront."
+        },
+        {
+          "id": "M3R1Q5",
+          "label": "Question 5",
+          "part": "Reading Part 1",
+          "question": "By when must receipts be submitted?",
+          "options": [
+            "Within 30 days of her start date",
+            "Before she leaves Toronto",
+            "Within two weeks of booking flights",
+            "By April 12"
+          ],
+          "answerIndex": 0,
+          "explanation": "Receipts must be submitted within 30 days of the start date."
+        },
+        {
+          "id": "M3R1Q6",
+          "label": "Question 6",
+          "part": "Reading Part 1",
+          "question": "How long is temporary housing covered?",
+          "options": [
+            "Up to 30 days",
+            "Up to 60 days",
+            "Until her lease ends",
+            "Up to two weeks"
+          ],
+          "answerIndex": 0,
+          "explanation": "Housing is covered for up to 30 days."
+        },
+        {
+          "id": "M3R1Q7",
+          "label": "Question 7",
+          "part": "Reading Part 1",
+          "question": "How far ahead must temporary housing be booked?",
+          "options": [
+            "One week",
+            "At least two weeks",
+            "At least 30 days",
+            "On the start date"
+          ],
+          "answerIndex": 1,
+          "explanation": "Samira must book at least two weeks in advance through the travel coordinator."
+        },
+        {
+          "id": "M3R1Q8",
+          "label": "Question 8",
+          "part": "Reading Part 1",
+          "question": "What condition applies to her partner's flight?",
+          "options": [
+            "It is reimbursed after 60 days",
+            "It is covered only if her partner works for the company",
+            "It is one-way and must be booked the same day as Samira's ticket",
+            "It is round-trip and booked any time"
+          ],
+          "answerIndex": 2,
+          "explanation": "The partner's airfare is covered one-way and only if booked the same day."
+        },
+        {
+          "id": "M3R1Q9",
+          "label": "Question 9",
+          "part": "Reading Part 1",
+          "question": "What is NOT included in the package?",
+          "options": [
+            "Professional movers",
+            "Boxes and packing supplies",
+            "Five paid days off",
+            "Temporary housing"
+          ],
+          "answerIndex": 0,
+          "explanation": "Movers are not included, although $500 for supplies can be claimed."
+        },
+        {
+          "id": "M3R1Q10",
+          "label": "Question 10",
+          "part": "Reading Part 1",
+          "question": "What is due on April 12?",
+          "options": [
+            "Her flight reservation",
+            "The temporary housing booking",
+            "The expense receipts",
+            "The signed relocation agreement"
+          ],
+          "answerIndex": 3,
+          "explanation": "HR asks for the signed agreement by April 12."
+        },
+        {
+          "id": "M3R1Q11",
+          "label": "Question 11",
+          "part": "Reading Part 1",
+          "question": "Who is likely to pay the rent for the overlap between May 6 and May 31?",
+          "options": [
+            "Her Calgary landlord",
+            "The travel coordinator",
+            "Samira",
+            "Northgate Engineering"
+          ],
+          "answerIndex": 2,
+          "explanation": "HR states she is responsible for overlapping rent if her lease runs past the start date."
+        }
+      ]
+    },
+    {
+      "id": "M3R2",
+      "skill": "reading",
+      "title": "Reading Part 2 · Reading to Apply a Diagram",
+      "instructions": "Read the schedule and answer the questions.",
+      "timeLimitSec": 720,
+      "passageTitle": "Community centre class schedule",
+      "passage": "RIVERSIDE COMMUNITY CENTRE — FALL CLASS SCHEDULE\n\nClass          | Days            | Time             | Level       | Fee\nYoga Basics    | Mon & Wed       | 6:00–7:00 pm     | Beginner    | $60\nPower Spin     | Tue & Thu       | 6:30–7:15 pm     | Intermediate| $75\nAqua Fit       | Mon, Wed, Fri   | 9:00–10:00 am    | All levels  | $55\nKids Karate    | Sat             | 10:00–11:00 am   | Ages 6–10   | $45\nEvening Zumba  | Wed             | 7:30–8:30 pm     | All levels  | $50\n\nNOTES\n- Registration opens September 3.\n- Families registering two or more people at the same time receive 10% off the total.\n- No classes on Thanksgiving Monday (October 14).\n- Refunds are available only before the first class.\n- Power Spin participants must reserve a bike at the front desk at least 24 hours in advance.\n- Bring a towel and a water bottle to all classes.",
+      "questions": [
+        {
+          "id": "M3R2Q1",
+          "label": "Question 1",
+          "part": "Reading Part 2",
+          "question": "Which class is best for someone who is only free on Tuesday and Thursday evenings?",
+          "options": [
+            "Evening Zumba",
+            "Power Spin",
+            "Aqua Fit",
+            "Yoga Basics"
+          ],
+          "answerIndex": 1,
+          "explanation": "Power Spin is the only class offered on Tuesday and Thursday evenings."
+        },
+        {
+          "id": "M3R2Q2",
+          "label": "Question 2",
+          "part": "Reading Part 2",
+          "question": "Which class suits a beginner who is free on Monday evenings?",
+          "options": [
+            "Aqua Fit",
+            "Yoga Basics",
+            "Power Spin",
+            "Kids Karate"
+          ],
+          "answerIndex": 1,
+          "explanation": "Yoga Basics is a beginner class held Monday evenings."
+        },
+        {
+          "id": "M3R2Q3",
+          "label": "Question 3",
+          "part": "Reading Part 2",
+          "question": "Which class costs the least?",
+          "options": [
+            "Kids Karate",
+            "Yoga Basics",
+            "Evening Zumba",
+            "Aqua Fit"
+          ],
+          "answerIndex": 0,
+          "explanation": "Kids Karate is $45, the lowest fee."
+        },
+        {
+          "id": "M3R2Q4",
+          "label": "Question 4",
+          "part": "Reading Part 2",
+          "question": "A parent registers for Evening Zumba and registers a child for Kids Karate at the same time. What is the total?",
+          "options": [
+            "$85.50",
+            "$95.00",
+            "$90.00",
+            "$76.50"
+          ],
+          "answerIndex": 0,
+          "explanation": "$50 + $45 = $95, minus 10% is $85.50."
+        },
+        {
+          "id": "M3R2Q5",
+          "label": "Question 5",
+          "part": "Reading Part 2",
+          "question": "Which classes are cancelled on October 14?",
+          "options": [
+            "Yoga Basics and Aqua Fit",
+            "All classes",
+            "Evening Zumba only",
+            "Power Spin and Kids Karate"
+          ],
+          "answerIndex": 0,
+          "explanation": "October 14 is a Monday, and only Yoga Basics and Aqua Fit meet on Mondays."
+        },
+        {
+          "id": "M3R2Q6",
+          "label": "Question 6",
+          "part": "Reading Part 2",
+          "question": "What must Power Spin participants do?",
+          "options": [
+            "Bring their own bike",
+            "Reserve a bike at least 24 hours ahead",
+            "Attend a beginner class first",
+            "Register two weeks early"
+          ],
+          "answerIndex": 1,
+          "explanation": "Bikes must be reserved at the front desk at least 24 hours in advance."
+        },
+        {
+          "id": "M3R2Q7",
+          "label": "Question 7",
+          "part": "Reading Part 2",
+          "question": "When can a person get a refund?",
+          "options": [
+            "Until the second class",
+            "Any time in the first month",
+            "Only before the first class",
+            "Only if the class is cancelled"
+          ],
+          "answerIndex": 2,
+          "explanation": "Refunds are available only before the first class."
+        },
+        {
+          "id": "M3R2Q8",
+          "label": "Question 8",
+          "part": "Reading Part 2",
+          "question": "On Wednesday evenings, how long is the break between Yoga Basics and Evening Zumba?",
+          "options": [
+            "One hour",
+            "No break",
+            "Fifteen minutes",
+            "Thirty minutes"
+          ],
+          "answerIndex": 3,
+          "explanation": "Yoga ends at 7:00 and Zumba starts at 7:30."
+        }
+      ]
+    },
+    {
+      "id": "M3R3",
+      "skill": "reading",
+      "title": "Reading Part 3 · Reading for Information",
+      "instructions": "Read the article and answer the questions.",
+      "timeLimitSec": 900,
+      "passageTitle": "Cool cities: the case for urban trees",
+      "passage": "Cities are often several degrees hotter than the countryside around them. This \"urban heat island\" effect occurs because dark surfaces such as asphalt and rooftops absorb sunlight during the day and release it slowly at night, sometimes keeping urban neighbourhoods up to five degrees warmer after dark.\n\nTrees offer one of the most affordable defences. Their leaves provide shade, and they cool the air by releasing moisture. Research suggests that neighbourhoods with about thirty percent tree canopy can be up to four degrees cooler than those with little cover. Trees also absorb stormwater, which reduces flooding, and they filter fine particles from the air.\n\nDespite these benefits, many cities are losing trees. A recent survey of mid-sized cities found canopy cover shrinking by an average of one percent a year, as old trees die and new construction removes others.\n\nPlanting alone does not solve the problem. Nearly half of street trees die within ten years, largely because of compacted soil, road salt, and too little water. Urban foresters recommend planting a diverse mix of species so that one disease cannot wipe out a whole street, and giving each tree a larger volume of good soil in which to grow.\n\nSome cities are turning to residents for help. In adopt-a-tree programs, neighbours agree to water young trees during dry spells. Cities that pair planting with this kind of follow-up care have seen survival rates climb to around 85 percent, suggesting that the cheapest way to grow a canopy is to look after the trees already planted.",
+      "questions": [
+        {
+          "id": "M3R3Q1",
+          "label": "Question 1",
+          "part": "Reading Part 3",
+          "question": "What is the main idea of the article?",
+          "options": [
+            "Urban trees help cool cities but need proper care to survive",
+            "Cities should stop building with asphalt",
+            "Countryside areas are always cooler than cities",
+            "Tree planting is too expensive for most cities"
+          ],
+          "answerIndex": 0,
+          "explanation": "The article explains the benefits of trees and stresses that planting must be paired with care."
+        },
+        {
+          "id": "M3R3Q2",
+          "label": "Question 2",
+          "part": "Reading Part 3",
+          "question": "Why are cities hotter than the countryside?",
+          "options": [
+            "There is less wind in the countryside",
+            "Dark surfaces absorb sunlight and release heat slowly at night",
+            "Buildings block the sun and trap moisture",
+            "Cities have more people breathing out heat"
+          ],
+          "answerIndex": 1,
+          "explanation": "Asphalt and rooftops absorb sunlight and release it slowly."
+        },
+        {
+          "id": "M3R3Q3",
+          "label": "Question 3",
+          "part": "Reading Part 3",
+          "question": "How much cooler can a neighbourhood with about thirty percent canopy be?",
+          "options": [
+            "Up to four degrees",
+            "Up to five degrees",
+            "Up to one degree",
+            "Up to ten degrees"
+          ],
+          "answerIndex": 0,
+          "explanation": "The article says up to four degrees cooler."
+        },
+        {
+          "id": "M3R3Q4",
+          "label": "Question 4",
+          "part": "Reading Part 3",
+          "question": "Besides cooling, what benefit do trees provide?",
+          "options": [
+            "They absorb stormwater and reduce flooding",
+            "They block traffic noise entirely",
+            "They produce fuel for city buses",
+            "They lower property taxes"
+          ],
+          "answerIndex": 0,
+          "explanation": "Trees absorb stormwater, which reduces flooding."
+        },
+        {
+          "id": "M3R3Q5",
+          "label": "Question 5",
+          "part": "Reading Part 3",
+          "question": "According to the survey, what is happening to canopy cover in mid-sized cities?",
+          "options": [
+            "It is growing by one percent a year",
+            "It is shrinking by about one percent a year",
+            "It is unchanged",
+            "It is shrinking by ten percent a year"
+          ],
+          "answerIndex": 1,
+          "explanation": "The survey found an average one percent yearly decline."
+        },
+        {
+          "id": "M3R3Q6",
+          "label": "Question 6",
+          "part": "Reading Part 3",
+          "question": "Why do many street trees die?",
+          "options": [
+            "Overwatering by residents",
+            "Compacted soil, road salt, and too little water",
+            "Too much shade from buildings",
+            "Vandalism and tree theft"
+          ],
+          "answerIndex": 1,
+          "explanation": "The article lists compacted soil, road salt, and lack of water."
+        },
+        {
+          "id": "M3R3Q7",
+          "label": "Question 7",
+          "part": "Reading Part 3",
+          "question": "What do urban foresters recommend?",
+          "options": [
+            "Planting only fast-growing trees",
+            "Using more road salt near trees",
+            "Removing older trees",
+            "Planting diverse species and providing more soil"
+          ],
+          "answerIndex": 3,
+          "explanation": "They recommend mixed species and larger soil volumes."
+        },
+        {
+          "id": "M3R3Q8",
+          "label": "Question 8",
+          "part": "Reading Part 3",
+          "question": "What have cities that add follow-up care seen?",
+          "options": [
+            "Tree planting costs falling by half",
+            "More residents leaving the city",
+            "Survival rates rising to about 85 percent",
+            "Canopy cover doubling in a year"
+          ],
+          "answerIndex": 2,
+          "explanation": "Cities pairing planting with care report survival around 85 percent."
+        },
+        {
+          "id": "M3R3Q9",
+          "label": "Question 9",
+          "part": "Reading Part 3",
+          "question": "Which best describes the author's attitude?",
+          "options": [
+            "Indifferent to the topic",
+            "Angry at city governments",
+            "Doubtful that trees make any difference",
+            "Supportive of tree planting but realistic about its challenges"
+          ],
+          "answerIndex": 3,
+          "explanation": "The author praises trees while pointing out that most planting fails without care."
+        }
+      ]
+    },
+    {
+      "id": "M3R4",
+      "skill": "reading",
+      "title": "Reading Part 4 · Reading for Viewpoints",
+      "instructions": "Read the two viewpoints and answer the questions.",
+      "timeLimitSec": 960,
+      "passageTitle": "Smartphones in school",
+      "passage": "Lock Them Away\nBy Elaine Ward\n\nSmartphones have no place in the classroom. When our district introduced a school-day phone ban two years ago, average test scores rose by six percent and reported cyberbullying incidents dropped by a third. Teachers who once spent fifteen minutes a day policing screens now spend that time teaching. Just as important, students started talking to one another at lunch again. Parents worry about reaching their children in an emergency, but the school office has always been able to do that. A ban is not about punishment. It is about giving young people a break from constant notifications so they can focus and connect.\n\nTeach, Don't Ban\nBy Marcus Bell\n\nA blanket ban treats a useful tool as if it were only a threat. For students with learning disabilities, phones provide text-to-speech, translation, and note-taking support that few classroom substitutes can match. Many families also rely on phones to coordinate pickups and after-school care. Schools that adopted locked pouches found that students simply carried second, cheaper phones or waited for the moment the pouches were opened. Instead of banning devices, schools should teach digital literacy and set clear rules for each class, so students learn to manage the distractions they will face for the rest of their lives.",
+      "questions": [
+        {
+          "id": "M3R4Q1",
+          "label": "Question 1",
+          "part": "Reading Part 4",
+          "question": "What is the main topic of the two pieces?",
+          "options": [
+            "Whether tests should be online",
+            "Whether smartphones should be banned in schools",
+            "How to teach digital literacy",
+            "How parents should monitor children"
+          ],
+          "answerIndex": 1,
+          "explanation": "Both authors discuss banning phones during the school day."
+        },
+        {
+          "id": "M3R4Q2",
+          "label": "Question 2",
+          "part": "Reading Part 4",
+          "question": "What happened to test scores after the ban, according to Ward?",
+          "options": [
+            "They were unchanged",
+            "They fell by six percent",
+            "They rose by a third",
+            "They rose by six percent"
+          ],
+          "answerIndex": 3,
+          "explanation": "Ward reports average scores rose by six percent."
+        },
+        {
+          "id": "M3R4Q3",
+          "label": "Question 3",
+          "part": "Reading Part 4",
+          "question": "What happened to reported cyberbullying?",
+          "options": [
+            "It doubled",
+            "It disappeared",
+            "It dropped by a third",
+            "It dropped by six percent"
+          ],
+          "answerIndex": 2,
+          "explanation": "Ward says incidents dropped by a third."
+        },
+        {
+          "id": "M3R4Q4",
+          "label": "Question 4",
+          "part": "Reading Part 4",
+          "question": "What do teachers do with the time they no longer spend policing screens?",
+          "options": [
+            "They use it for teaching",
+            "They collect phones at lunch",
+            "They meet with parents",
+            "They train students in digital skills"
+          ],
+          "answerIndex": 0,
+          "explanation": "Ward says teachers spend that time teaching."
+        },
+        {
+          "id": "M3R4Q5",
+          "label": "Question 5",
+          "part": "Reading Part 4",
+          "question": "How does Ward respond to parents' emergency concerns?",
+          "options": [
+            "Emergencies are rare",
+            "Students may keep phones in their bags",
+            "Parents can email teachers",
+            "The school office can already reach students"
+          ],
+          "answerIndex": 3,
+          "explanation": "She says the school office has always been able to contact children."
+        },
+        {
+          "id": "M3R4Q6",
+          "label": "Question 6",
+          "part": "Reading Part 4",
+          "question": "How does Ward describe the purpose of a ban?",
+          "options": [
+            "Giving students a break from notifications so they can focus and connect",
+            "Saving money on technology",
+            "Reducing teacher workload only",
+            "Punishing students who misuse phones"
+          ],
+          "answerIndex": 0,
+          "explanation": "She says a ban is about focus and connection, not punishment."
+        },
+        {
+          "id": "M3R4Q7",
+          "label": "Question 7",
+          "part": "Reading Part 4",
+          "question": "Which students does Bell say benefit especially from phones?",
+          "options": [
+            "Students in higher grades",
+            "Students with learning disabilities",
+            "Students who take online courses",
+            "Students who commute far"
+          ],
+          "answerIndex": 1,
+          "explanation": "Bell mentions text-to-speech, translation, and note-taking support for students with learning disabilities."
+        },
+        {
+          "id": "M3R4Q8",
+          "label": "Question 8",
+          "part": "Reading Part 4",
+          "question": "What did schools that used locked pouches discover?",
+          "options": [
+            "Attendance improved sharply",
+            "Parents stopped complaining",
+            "Teachers no longer needed rules",
+            "Students found ways around them"
+          ],
+          "answerIndex": 3,
+          "explanation": "Students carried second phones or waited until pouches opened."
+        },
+        {
+          "id": "M3R4Q9",
+          "label": "Question 9",
+          "part": "Reading Part 4",
+          "question": "What does Bell recommend instead of a ban?",
+          "options": [
+            "Allowing phones only at lunch",
+            "Banning only social media apps",
+            "Teaching digital literacy and setting clear rules per class",
+            "Giving every student a school tablet"
+          ],
+          "answerIndex": 2,
+          "explanation": "He recommends digital literacy and class-by-class rules."
+        },
+        {
+          "id": "M3R4Q10",
+          "label": "Question 10",
+          "part": "Reading Part 4",
+          "question": "Which statement would both authors most likely agree with?",
+          "options": [
+            "Parents should decide school policies",
+            "Phones can distract students from learning",
+            "Phones have no educational value",
+            "Phones should be banned in every classroom"
+          ],
+          "answerIndex": 1,
+          "explanation": "Ward says students need a break from notifications and Bell speaks of managing distractions; both see phones as potentially distracting."
+        }
+      ]
+    },
+    {
+      "id": "M3W1",
+      "skill": "writing",
+      "title": "Writing Task 1 · Email",
+      "instructions": "Write an email based on the task below.",
+      "timeLimitSec": 1620,
+      "questions": [],
+      "writingTask": {
+        "id": "M3W1",
+        "task": "Writing Task 1",
+        "title": "Writing an Email",
+        "timeLimit": "27 min",
+        "wordTarget": "150–200 words",
+        "scenario": "You registered for an evening pottery class at your community centre, but the centre has just moved the class to a time you cannot attend. Write an email to the program coordinator.",
+        "instructions": [
+          "Explain which class you registered for and what has changed.",
+          "Describe why the new time does not work for you.",
+          "Ask for a solution, such as another section or a refund.",
+          "Keep a polite and professional tone."
+        ],
+        "sampleAnswer": "Dear Ms. Alvarez, I am writing about the Adult Pottery class I registered for, which was scheduled for Tuesday evenings at 7:00 p.m. Yesterday I received a notice that the class has been moved to Tuesday afternoons at 2:00 p.m., starting next week. Unfortunately, I work until 5:00 p.m. every weekday, so I will no longer be able to attend. I paid the $95 fee three weeks ago, and I was looking forward to the course, so this change is very disappointing. I would like to ask whether there is another section available in the evening, or whether the class could remain at its original time. If neither option is possible, I would appreciate a full refund of my registration fee. Please let me know what you can offer as soon as possible, since the first session is only six days away. I can be reached by email or at 555-0142. Thank you for your time and understanding. Sincerely, Jamie Rowe",
+        "criteria": [
+          {
+            "label": "Content",
+            "note": "Covers every point in the task with relevant, specific detail."
+          },
+          {
+            "label": "Tone",
+            "note": "Appropriate register for the audience and purpose."
+          },
+          {
+            "label": "Organization",
+            "note": "Clear paragraphing, logical flow, and effective linking."
+          },
+          {
+            "label": "Language",
+            "note": "Accurate grammar, spelling, and varied vocabulary."
+          }
+        ]
+      }
+    },
+    {
+      "id": "M3W2",
+      "skill": "writing",
+      "title": "Writing Task 2 · Survey Response",
+      "instructions": "Write a response to the survey questions below.",
+      "timeLimitSec": 1560,
+      "questions": [],
+      "writingTask": {
+        "id": "M3W2",
+        "task": "Writing Task 2",
+        "title": "Responding to Survey Questions",
+        "timeLimit": "26 min",
+        "wordTarget": "150–200 words",
+        "scenario": "Your employer has a $50,000 budget for staff and is asking employees to choose between building a wellness room with exercise equipment and quiet space, or funding professional development courses. Complete the survey explaining which option you prefer and why.",
+        "instructions": [
+          "State your preferred option clearly.",
+          "Give at least two reasons for your choice.",
+          "Suggest one improvement to your preferred option.",
+          "Write in full sentences."
+        ],
+        "sampleAnswer": "I would choose the professional development fund. Although a wellness room would be pleasant, courses give staff skills that benefit both employees and the company. First, training helps people advance. Many of my colleagues want to move into leadership roles but lack the certifications to apply, and funding would remove that barrier. Second, better-trained employees make fewer mistakes and work more efficiently, so the investment pays for itself over time. A wellness room, by contrast, would be used by only part of the staff and would bring ongoing maintenance costs. To improve the plan, I suggest letting each employee apply for up to $1,500 and asking them to share what they learned in a short lunchtime presentation. That way the whole team benefits from every course. I also recommend surveying staff first to see which topics are most in demand. Thank you for asking for our input.",
+        "criteria": [
+          {
+            "label": "Content",
+            "note": "Covers every point in the task with relevant, specific detail."
+          },
+          {
+            "label": "Tone",
+            "note": "Appropriate register for the audience and purpose."
+          },
+          {
+            "label": "Organization",
+            "note": "Clear paragraphing, logical flow, and effective linking."
+          },
+          {
+            "label": "Language",
+            "note": "Accurate grammar, spelling, and varied vocabulary."
+          }
+        ]
+      }
+    },
+    {
+      "id": "M3S1",
+      "skill": "speaking",
+      "title": "Speaking Task 1 · Giving Advice",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 120,
+      "questions": [],
+      "speakingTask": {
+        "id": "M3S1",
+        "title": "Task 1: Giving Advice",
+        "scenario": "Your friend has a job interview next week for a position they really want, and they are very nervous. Give your friend advice on how to prepare and how to make a good impression.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 90,
+        "tips": [
+          "Give two or three specific, practical suggestions.",
+          "Use a warm, encouraging tone.",
+          "Explain briefly why each suggestion helps."
+        ],
+        "sampleAnswer": "If I were you, I would start by researching the company thoroughly, because knowing its projects and values lets you give answers that fit. Next, practise out loud with a friend, using common questions like \"Tell me about yourself.\" That way you will sound confident instead of rehearsed. On the day, arrive fifteen minutes early, dress neatly, and bring a few thoughtful questions of your own. Finally, remember that the interviewers want you to succeed, so take a deep breath and be yourself. I'm sure you'll do great.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M3S2",
+      "skill": "speaking",
+      "title": "Speaking Task 2 · Talking about a Personal Experience",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M3S2",
+        "title": "Task 2: Talking about a Personal Experience",
+        "scenario": "Talk about a time when you had to work with a team to accomplish something difficult. Describe what happened and how it turned out.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Set the scene quickly.",
+          "Explain your role and the challenge.",
+          "Finish with the result and what you learned."
+        ],
+        "sampleAnswer": "Two years ago, my team at work had to finish a client report in just three days after a colleague fell ill. At first we were overwhelmed, so I suggested splitting the report by section and meeting briefly each morning. Everyone took ownership, and we caught several errors early. We delivered the report on time, and the client praised its clarity. I learned that clear communication and shared responsibility can turn a stressful situation into a real success.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M3S3",
+      "skill": "speaking",
+      "title": "Speaking Task 3 · Describing a Scene",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M3S3",
+        "title": "Task 3: Describing a Scene",
+        "scenario": "Describe a train station at rush hour on a weekday morning. Include what you can see and hear and what people are doing.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Move through the scene in a logical order.",
+          "Use vivid, specific vocabulary.",
+          "Mention at least two details of what people are doing."
+        ],
+        "sampleAnswer": "The station is packed with commuters, and the air hums with the sound of footsteps and announcements. On the left, a long line of people waits to buy coffee, while others hurry toward the platforms with briefcases and backpacks. A train pulls in with a loud screech, and the doors open as passengers spill out. Near the clock, a man checks his phone anxiously and a student is running to catch the next departure. Despite the rush, there is a strangely organized rhythm to it all.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M3S4",
+      "skill": "speaking",
+      "title": "Speaking Task 4 · Making Predictions",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M3S4",
+        "title": "Task 4: Making Predictions",
+        "scenario": "A family is loading suitcases into their car for a road trip while dark clouds gather overhead. The children are holding a picnic basket. Predict what will happen next and explain why.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Use language of prediction such as will, probably, and likely.",
+          "Base each prediction on details in the scene.",
+          "Give a clear beginning, middle, and end."
+        ],
+        "sampleAnswer": "I think the family will probably leave anyway, because the car is already packed and the children look excited. However, the dark clouds suggest heavy rain is coming soon, so the parents will likely turn on the wipers and drive slowly. Because of the weather, they will probably eat their picnic in the car or at a covered rest stop instead of outdoors. In the end, I believe the trip will still be fun, and the children will remember the rainy picnic as a funny story.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M3S5",
+      "skill": "speaking",
+      "title": "Speaking Task 5 · Comparing and Persuading",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 120,
+      "questions": [],
+      "speakingTask": {
+        "id": "M3S5",
+        "title": "Task 5: Comparing and Persuading",
+        "scenario": "Your family is choosing between two vacations. Option A is a five-day beach resort with meals included, for $1,800. Option B is a five-day guided tour of a European city with museums and walking, for $2,200. Persuade your family to choose one option and explain why it is better.",
+        "prepTimeSec": 60,
+        "speakTimeSec": 60,
+        "tips": [
+          "State your choice clearly at the start.",
+          "Compare the two options directly.",
+          "Use persuasive language and finish with a strong closing line."
+        ],
+        "sampleAnswer": "I strongly recommend the beach resort. First, it is four hundred dollars cheaper, and that savings could pay for a nice family dinner or a boat trip. Second, with meals included, nobody has to plan or argue about where to eat. The city tour sounds interesting, but five days of walking and museums could be tiring, especially for the kids. After a stressful year, what we need most is rest and time together. So let's choose the resort and come home relaxed.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M3S6",
+      "skill": "speaking",
+      "title": "Speaking Task 6 · Dealing with a Difficult Situation",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 120,
+      "questions": [],
+      "speakingTask": {
+        "id": "M3S6",
+        "title": "Task 6: Dealing with a Difficult Situation",
+        "scenario": "You organized a dinner for twelve guests to celebrate a colleague's retirement. When you arrive at the restaurant, the manager says your reservation was lost and no table is available. Explain what you would say to the manager and what you would do next.",
+        "prepTimeSec": 60,
+        "speakTimeSec": 60,
+        "tips": [
+          "Stay calm and polite.",
+          "Explain the problem clearly and propose a solution.",
+          "Describe what you would do if the manager cannot help."
+        ],
+        "sampleAnswer": "I would stay calm and tell the manager politely that I made the reservation two weeks ago and even have a confirmation email. I would explain that twelve guests are arriving for a retirement dinner, so this is very important. Then I would ask whether they could combine tables or offer a private room, even in thirty minutes. If that is not possible, I would ask them to recommend a nearby restaurant and call ahead for me. Finally, I would let my guests know about the delay so the evening still feels welcoming.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M3S7",
+      "skill": "speaking",
+      "title": "Speaking Task 7 · Expressing Opinions",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 120,
+      "questions": [],
+      "speakingTask": {
+        "id": "M3S7",
+        "title": "Task 7: Expressing Opinions",
+        "scenario": "Some people believe it is better to have a job you love that pays less, while others prefer a well-paid job they find boring. Which do you think is better? Support your opinion with reasons.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 90,
+        "tips": [
+          "State your opinion clearly.",
+          "Give two or three reasons with examples.",
+          "Acknowledge the other side briefly."
+        ],
+        "sampleAnswer": "In my opinion, a job you enjoy is better, even if it pays somewhat less. People spend a huge part of their lives at work, so daily satisfaction matters a great deal. When you enjoy what you do, you tend to learn faster, perform better, and often earn promotions over time. I also think stress from a job you dislike can affect your health and relationships. Of course, money is important, and everyone needs to cover basic expenses. But as long as your income is comfortable, I would choose meaningful work every time.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M3S8",
+      "skill": "speaking",
+      "title": "Speaking Task 8 · Describing an Unusual Situation",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M3S8",
+        "title": "Task 8: Describing an Unusual Situation",
+        "scenario": "You see a photo of a café where customers sit on swings instead of chairs, and the tables hang from the ceiling on ropes. Describe the café to a friend and explain whether you would recommend visiting it.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Describe the most unusual features first.",
+          "Explain how customers might feel or behave there.",
+          "Give a clear recommendation with a reason."
+        ],
+        "sampleAnswer": "This café is unlike any place I've seen. Instead of chairs, there are wooden swings, and the tables hang from the ceiling on thick ropes, so everything sways gently. Customers probably feel like kids again, laughing as they try to balance their cups. I would definitely recommend it for a fun outing, though I would not go with a large laptop or a very hot drink. It looks like a place for conversation and photos, not for quiet work.",
+        "clb": "CLB 9 sample"
+      }
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "id": "mock-05",
+  "name": "Writing + Speaking Combo",
+  "badge": "Half exam",
+  "difficulty": "Standard",
+  "description": "Targets the two AI-scored sections with feedback on every response.",
+  "sections": [
+    {
+      "id": "M5W1",
+      "skill": "writing",
+      "title": "Writing Task 1 · Email",
+      "instructions": "Write an email based on the task below.",
+      "timeLimitSec": 1620,
+      "questions": [],
+      "writingTask": {
+        "id": "M5W1",
+        "task": "Writing Task 1",
+        "title": "Writing an Email",
+        "timeLimit": "27 min",
+        "wordTarget": "150–200 words",
+        "scenario": "You bought a pair of wireless headphones online, but they stopped working after only two days. Write an email to the store's customer service.",
+        "instructions": [
+          "Explain what you ordered and when it arrived.",
+          "Describe the problem and what you have already tried.",
+          "Say what you would like the store to do.",
+          "Keep a polite and professional tone."
+        ],
+        "sampleAnswer": "Dear Customer Service, I am writing about the wireless headphones I ordered on June 5 (order #88213). They arrived on June 8, but after two days they stopped charging and will not turn on. I have tried a different cable and a different outlet, but the charging light never comes on. I would appreciate a replacement pair sent at no extra cost, or a full refund if a replacement is not available. Please let me know how to return the faulty item and whether you can provide a prepaid shipping label. Thank you for your help, and I look forward to your reply.",
+        "criteria": [
+          { "label": "Content", "note": "Covers the order, the fault, and the requested resolution." },
+          { "label": "Tone", "note": "Polite, professional, and appropriately formal." },
+          { "label": "Organization", "note": "Clear paragraphs: the problem, the evidence, the request." },
+          { "label": "Language", "note": "Accurate grammar, spelling, and vocabulary." }
+        ]
+      }
+    },
+    {
+      "id": "M5W2",
+      "skill": "writing",
+      "title": "Writing Task 2 · Survey Response",
+      "instructions": "Write a response to the survey questions below.",
+      "timeLimitSec": 1560,
+      "questions": [],
+      "writingTask": {
+        "id": "M5W2",
+        "task": "Writing Task 2",
+        "title": "Responding to Survey Questions",
+        "timeLimit": "26 min",
+        "wordTarget": "150–200 words",
+        "scenario": "Your city has a community grant to build either an indoor pool or an outdoor skate park. Complete the survey explaining which option you prefer and why.",
+        "instructions": [
+          "State your preferred option clearly.",
+          "Give at least two reasons for your choice.",
+          "Suggest one improvement to your preferred option.",
+          "Write in full sentences."
+        ],
+        "sampleAnswer": "I strongly support building an indoor pool. First, a pool can be used all year round, while an outdoor skate park is only practical in warm weather. Second, swimming benefits people of every age, from children taking lessons to seniors staying active, so a pool would serve far more residents. To improve the idea, I would suggest adding a small warm-water teaching pool and a few family changing rooms, which would make it welcoming for beginners and for parents with young children. Thank you for asking residents for their views.",
+        "criteria": [
+          { "label": "Content", "note": "States a clear position with supporting reasons and a suggestion." },
+          { "label": "Tone", "note": "Appropriate for a public survey response." },
+          { "label": "Organization", "note": "Ideas are grouped and easy to follow." },
+          { "label": "Language", "note": "Full sentences with accurate grammar and spelling." }
+        ]
+      }
+    },
+    {
+      "id": "M5S1",
+      "skill": "speaking",
+      "title": "Speaking Task 1 · Giving Advice",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M5S1",
+        "title": "Task 1: Giving Advice",
+        "scenario": "Your friend has an important job interview tomorrow and is very nervous. Give your friend advice on how to prepare and stay calm.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": ["Give two or three specific, practical suggestions.", "Use a warm and encouraging tone.", "Speak for about 60 seconds."],
+        "sampleAnswer": "First, I would tell my friend to prepare by researching the company and practising answers to common questions out loud. I would also suggest laying out clothes and documents the night before, so the morning feels calm. Finally, I would remind them to breathe slowly before going in and to treat the interview as a conversation rather than a test.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M5S2",
+      "skill": "speaking",
+      "title": "Speaking Task 2 · Talking about a Personal Experience",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M5S2",
+        "title": "Task 2: Talking about a Personal Experience",
+        "scenario": "Describe a time you had to learn something quickly. Include what you learned and how it turned out.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": ["Set the scene briefly.", "Explain what you learned and why it mattered.", "Use past tenses consistently."],
+        "sampleAnswer": "Last year my office switched to new software with only a day's notice. I stayed late, watched tutorial videos, and asked a colleague for tips. By the next morning I could handle the basics, and within a week I was helping others. The experience taught me that staying calm and asking for help makes learning much faster.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M5S3",
+      "skill": "speaking",
+      "title": "Speaking Task 3 · Describing a Scene",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M5S3",
+        "title": "Task 3: Describing a Scene",
+        "scenario": "Describe a busy train station at rush hour. Include what you saw, heard, and felt.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": ["Use descriptive vocabulary and the five senses.", "Organize your description clearly.", "Keep the listener engaged with specific details."],
+        "sampleAnswer": "The station was packed and noisy. Commuters streamed through the gates while a voice announced delays over the speakers. I could smell coffee from a small kiosk and felt cold air rush in each time the doors opened. People hurried past with their heads down, and the platform buzzed with the hum of trains and low conversation.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M5S4",
+      "skill": "speaking",
+      "title": "Speaking Task 4 · Making Predictions",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M5S4",
+        "title": "Task 4: Making Predictions",
+        "scenario": "Predict how shopping will change in the next twenty years. Give at least two predictions and explain them.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": ["Use language of prediction such as will and likely.", "Give a reason for each prediction.", "Structure your answer with clear points."],
+        "sampleAnswer": "I think shopping will become almost entirely digital and highly personal. Stores will likely use data to suggest exactly what each customer needs, and delivery drones may bring orders within an hour. I also predict that physical shops will survive mainly as showrooms where people try products before ordering them online.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M5S5",
+      "skill": "speaking",
+      "title": "Speaking Task 5 · Comparing and Persuading",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M5S5",
+        "title": "Task 5: Comparing and Persuading",
+        "scenario": "A friend cannot decide whether to join a gym or exercise at home. Persuade your friend to choose one option and explain why it is the better choice.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": ["State your position clearly.", "Give at least two advantages of your chosen option.", "Use persuasive language."],
+        "sampleAnswer": "I would tell my friend to join a gym. A gym offers equipment and classes that are hard to match at home, and the monthly fee creates a sense of commitment. Being around other people who are exercising is also motivating. Exercising at home is cheaper, but it is too easy to skip a workout when the couch is right there.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M5S6",
+      "skill": "speaking",
+      "title": "Speaking Task 6 · Dealing with a Difficult Situation",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M5S6",
+        "title": "Task 6: Dealing with a Difficult Situation",
+        "scenario": "A coworker keeps interrupting you during team meetings. Explain what you would say and do to handle the situation.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": ["Describe the steps you would take calmly.", "Explain what you would say to the coworker.", "Suggest how you would raise the issue professionally."],
+        "sampleAnswer": "I would first speak to my coworker privately and say, politely, that I would like a chance to finish my points before others respond. If it continued, I would calmly ask in the meeting to complete my thought first. If the pattern kept happening, I would mention it to our manager with specific examples and records of my work.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M5S7",
+      "skill": "speaking",
+      "title": "Speaking Task 7 · Expressing Opinions",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M5S7",
+        "title": "Task 7: Expressing Opinions",
+        "scenario": "Should university education be free for all students? State your opinion and support it with reasons.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": ["Give a clear opinion.", "Support it with two or three reasons.", "Use appropriate connectors."],
+        "sampleAnswer": "I believe university should be more affordable, but not completely free. Free tuition would help students from low-income families, but it is very expensive for governments. A better option is to reduce fees and expand scholarships, so students who need help get it without placing the full cost on taxpayers.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M5S8",
+      "skill": "speaking",
+      "title": "Speaking Task 8 · Describing an Unusual Situation",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M5S8",
+        "title": "Task 8: Describing an Unusual Situation",
+        "scenario": "You are at a restaurant and realize you left your wallet at home. Describe what you would do, step by step.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": ["Describe your actions in a logical order.", "Use clear sequencing words such as first and next.", "Stay calm and practical."],
+        "sampleAnswer": "First, I would stay calm and check my pockets and bag one more time. Then I would explain the situation to the server honestly and ask if I could pay by phone. If that was not possible, I would offer to leave my name and contact details and return right away with my wallet to settle the bill.",
+        "clb": "CLB 9 sample"
+      }
+    }
+  ]
+}

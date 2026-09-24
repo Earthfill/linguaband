@@ -33,7 +33,9 @@ export type IconName =
   | "pause"
   | "refresh"
   | "target"
-  | "list";
+  | "list"
+  | "search"
+  | "grid";
 
 const paths: Record<IconName, ReactNode> = {
   clipboard: (
@@ -192,6 +194,20 @@ const paths: Record<IconName, ReactNode> = {
     <>
       <path d="M8 6h12M8 12h12M8 18h12" />
       <path d="M3 6h.01M3 12h.01M3 18h.01" />
+    </>
+  ),
+  search: (
+    <>
+      <circle cx="11" cy="11" r="7" />
+      <path d="M20 20l-4.3-4.3" />
+    </>
+  ),
+  grid: (
+    <>
+      <rect x="3" y="3" width="7" height="7" rx="1.5" />
+      <rect x="14" y="3" width="7" height="7" rx="1.5" />
+      <rect x="3" y="14" width="7" height="7" rx="1.5" />
+      <rect x="14" y="14" width="7" height="7" rx="1.5" />
     </>
   ),
 };

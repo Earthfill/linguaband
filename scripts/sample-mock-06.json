@@ -1,0 +1,234 @@
+{
+  "id": "mock-06",
+  "name": "Rapid Review Pack",
+  "badge": "On the go",
+  "difficulty": "Standard",
+  "description": "Quick daily drills to keep exam-ready between full mock tests.",
+  "sections": [
+    {
+      "id": "M6L1",
+      "skill": "listening",
+      "title": "Listening · Problem Solving",
+      "instructions": "Listen to the conversation and answer the questions.",
+      "timeLimitSec": 300,
+      "passageTitle": "Lost umbrella",
+      "passage": "AGENT: Good afternoon, City Transit, this is Omar.\nCUSTOMER: Hi, I think I left my umbrella on the number seven bus this morning.\nAGENT: I'm sorry to hear that. Do you remember which direction the bus was heading?\nCUSTOMER: It was going downtown. I got off at the library stop around eight thirty.\nAGENT: Thank you. Can you describe the umbrella?\nCUSTOMER: It's black with a wooden handle and a small red tag.\nAGENT: I've logged it in our lost and found system. If it's turned in, we'll call you.\nCUSTOMER: Great, thank you for your help.",
+      "questions": [
+        {
+          "id": "M6L1Q1",
+          "label": "Question 1",
+          "part": "Listening",
+          "question": "Where did the caller leave the item?",
+          "options": [
+            "At the library",
+            "On the train",
+            "On a bus",
+            "In a taxi"
+          ],
+          "answerIndex": 2,
+          "explanation": "The caller left the umbrella on the number seven bus."
+        },
+        {
+          "id": "M6L1Q2",
+          "label": "Question 2",
+          "part": "Listening",
+          "question": "Which bus number was it?",
+          "options": [
+            "Number three",
+            "Number seven",
+            "Number nine",
+            "Number eleven"
+          ],
+          "answerIndex": 1,
+          "explanation": "The caller was on the number seven bus."
+        },
+        {
+          "id": "M6L1Q3",
+          "label": "Question 3",
+          "part": "Listening",
+          "question": "When did the caller get off?",
+          "options": [
+            "At noon",
+            "Just after six",
+            "Around nine",
+            "Around eight thirty"
+          ],
+          "answerIndex": 3,
+          "explanation": "The caller got off at the library stop around eight thirty."
+        },
+        {
+          "id": "M6L1Q4",
+          "label": "Question 4",
+          "part": "Listening",
+          "question": "What does the umbrella look like?",
+          "options": [
+            "Black with a wooden handle",
+            "Blue with a plastic handle",
+            "Green and foldable",
+            "Red with a silver handle"
+          ],
+          "answerIndex": 0,
+          "explanation": "The umbrella is black with a wooden handle and a small red tag."
+        },
+        {
+          "id": "M6L1Q5",
+          "label": "Question 5",
+          "part": "Listening",
+          "question": "What will the agent do?",
+          "options": [
+            "Close the file",
+            "Replace it immediately",
+            "Call if it's turned in",
+            "Send it by mail"
+          ],
+          "answerIndex": 2,
+          "explanation": "The agent will call the customer if the umbrella is turned in."
+        }
+      ]
+    },
+    {
+      "id": "M6R1",
+      "skill": "reading",
+      "title": "Reading · For Information",
+      "instructions": "Read the notice and answer the questions.",
+      "timeLimitSec": 360,
+      "passageTitle": "Waste collection schedule change",
+      "passage": "Waste Collection Schedule Change\n\nThe City of Riverside is changing its curbside waste collection schedule starting Monday, September 14.\n\nRecycling (blue bins) will now be collected every week instead of every two weeks. Organic waste (green bins) will continue to be collected weekly. Garbage (grey bins) will be collected every two weeks instead of every week.\n\nCollection day for most streets stays the same, but homes east of King Street will move from Friday to Thursday. Please put your bins at the curb by 7:00 a.m. on collection day, and remove them by 8:00 p.m.\n\nResidents can check their exact collection day on the city website or by calling 311. If you have extra recycling, it can be placed in a clear bag beside the blue bin.\n\nThese changes are part of the city's plan to cut waste sent to landfill by forty percent by 2030.",
+      "questions": [
+        {
+          "id": "M6R1Q1",
+          "label": "Question 1",
+          "part": "Reading",
+          "question": "When do the changes begin?",
+          "options": [
+            "Friday, September 11",
+            "Monday, October 1",
+            "Thursday, September 17",
+            "Monday, September 14"
+          ],
+          "answerIndex": 3,
+          "explanation": "The new schedule starts Monday, September 14."
+        },
+        {
+          "id": "M6R1Q2",
+          "label": "Question 2",
+          "part": "Reading",
+          "question": "How often will recycling be collected?",
+          "options": [
+            "Every two weeks",
+            "Every week",
+            "Twice a week",
+            "Once a month"
+          ],
+          "answerIndex": 1,
+          "explanation": "Recycling will now be collected every week."
+        },
+        {
+          "id": "M6R1Q3",
+          "label": "Question 3",
+          "part": "Reading",
+          "question": "Which bins will be collected every two weeks?",
+          "options": [
+            "Grey bins",
+            "Blue bins",
+            "Clear bags",
+            "Green bins"
+          ],
+          "answerIndex": 0,
+          "explanation": "Garbage (grey bins) will be collected every two weeks."
+        },
+        {
+          "id": "M6R1Q4",
+          "label": "Question 4",
+          "part": "Reading",
+          "question": "What time should bins be at the curb by?",
+          "options": [
+            "8:00 p.m.",
+            "7:00 a.m.",
+            "7:00 p.m.",
+            "8:00 a.m."
+          ],
+          "answerIndex": 1,
+          "explanation": "Bins must be out by 7:00 a.m. on collection day."
+        },
+        {
+          "id": "M6R1Q5",
+          "label": "Question 5",
+          "part": "Reading",
+          "question": "What is the city's goal by 2030?",
+          "options": [
+            "Cut landfill waste by forty percent",
+            "Double the number of bins",
+            "Raise collection fees",
+            "Add more collection trucks"
+          ],
+          "answerIndex": 0,
+          "explanation": "The changes aim to cut waste sent to landfill by forty percent by 2030."
+        }
+      ]
+    },
+    {
+      "id": "M6W1",
+      "skill": "writing",
+      "title": "Writing · Email",
+      "instructions": "Write an email based on the task below.",
+      "timeLimitSec": 1620,
+      "questions": [],
+      "writingTask": {
+        "id": "M6W1",
+        "task": "Writing Task 1",
+        "title": "Writing an Email",
+        "timeLimit": "27 min",
+        "wordTarget": "150–200 words",
+        "scenario": "Your home internet service has been dropping out several times a day for the past week. Write an email to your provider's customer service.",
+        "instructions": [
+          "Explain the problem and how long it has been happening.",
+          "Describe what you have already tried.",
+          "Say what you would like the provider to do.",
+          "Keep a polite and professional tone."
+        ],
+        "sampleAnswer": "Dear Customer Service, I am writing to report that my home internet connection has been dropping several times a day for the past week. The connection works for a few minutes, then cuts out completely, which makes it impossible to work from home. I have already restarted the modem and checked all the cables, but the problem continues. I would like a technician to inspect the line as soon as possible, and I would also appreciate a credit on my next bill for the days without reliable service. Thank you for your help, and I look forward to your reply.",
+        "criteria": [
+          {
+            "label": "Content",
+            "note": "Covers the problem, what was tried, and the requested action."
+          },
+          {
+            "label": "Tone",
+            "note": "Polite, professional, and appropriately formal."
+          },
+          {
+            "label": "Organization",
+            "note": "Clear and logical paragraph structure."
+          },
+          {
+            "label": "Language",
+            "note": "Accurate grammar, spelling, and vocabulary."
+          }
+        ]
+      }
+    },
+    {
+      "id": "M6S1",
+      "skill": "speaking",
+      "title": "Speaking · Giving Advice",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M6S1",
+        "title": "Task 1: Giving Advice",
+        "scenario": "Your friend wants to start eating healthier but does not know where to begin. Give your friend advice on how to get started.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Give two or three specific, practical suggestions.",
+          "Use a warm and encouraging tone.",
+          "Speak for about 60 seconds."
+        ],
+        "sampleAnswer": "I would tell my friend to start small. Instead of changing everything at once, I would suggest adding one fruit or vegetable to each meal and drinking more water. I would also recommend planning a few simple recipes for the week, so there is always a healthy option ready. Finally, I would remind them that healthy eating is a habit, so it is better to be consistent than perfect.",
+        "clb": "CLB 9 sample"
+      }
+    }
+  ]
+}

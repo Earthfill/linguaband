@@ -1,0 +1,1183 @@
+{
+  "id": "mock-04",
+  "name": "Listening + Reading Combo",
+  "badge": "Half exam",
+  "difficulty": "Standard",
+  "description": "Build section stamina without the full-day time commitment.",
+  "sections": [
+    {
+      "id": "M4L1",
+      "skill": "listening",
+      "title": "Part 1 · Listening to Problem Solving",
+      "instructions": "Listen to the conversation and answer the questions.",
+      "timeLimitSec": 360,
+      "passageTitle": "Cancelling a dental appointment",
+      "passage": "AGENT: Thanks for calling Oakview Dental, this is Priya.\nCUSTOMER: Hi, I need to cancel my appointment for tomorrow morning.\nAGENT: I can help with that. Can I have your name, please?\nCUSTOMER: It's Daniel Cole. My appointment is at nine fifteen.\nAGENT: Found it. Is everything okay? Do you want to reschedule?\nCUSTOMER: Yes, I've come down with a cold, so I don't want to come in sick.\nAGENT: That's understandable. Would next Thursday at three work?\nCUSTOMER: That's perfect. Thank you.\nAGENT: You're welcome. I'll book that and send a confirmation email.\nCUSTOMER: Great, thanks again.",
+      "questions": [
+        {
+          "id": "M4L1Q1",
+          "label": "Question 1",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why is the caller phoning?",
+          "options": [
+            "To change a dentist",
+            "To ask about fees",
+            "To cancel an appointment",
+            "To book a new patient"
+          ],
+          "answerIndex": 2,
+          "explanation": "Daniel wants to cancel his appointment for the next morning."
+        },
+        {
+          "id": "M4L1Q2",
+          "label": "Question 2",
+          "part": "Part 1 · Problem Solving",
+          "question": "What is the caller's name?",
+          "options": [
+            "David Clarke",
+            "David Cole",
+            "Daniel Cole",
+            "Daniel Stone"
+          ],
+          "answerIndex": 2,
+          "explanation": "The caller introduces himself as Daniel Cole."
+        },
+        {
+          "id": "M4L1Q3",
+          "label": "Question 3",
+          "part": "Part 1 · Problem Solving",
+          "question": "When is the original appointment?",
+          "options": [
+            "Nine fifteen tomorrow morning",
+            "Three tomorrow",
+            "Nine fifteen this afternoon",
+            "Three next Thursday"
+          ],
+          "answerIndex": 0,
+          "explanation": "The appointment is at nine fifteen the next morning."
+        },
+        {
+          "id": "M4L1Q4",
+          "label": "Question 4",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why does the caller want to cancel?",
+          "options": [
+            "He has a cold",
+            "He is travelling",
+            "He forgot",
+            "He has a meeting"
+          ],
+          "answerIndex": 0,
+          "explanation": "Daniel has come down with a cold and does not want to come in sick."
+        },
+        {
+          "id": "M4L1Q5",
+          "label": "Question 5",
+          "part": "Part 1 · Problem Solving",
+          "question": "What does the agent offer to do?",
+          "options": [
+            "To call a doctor",
+            "To reschedule",
+            "To refund a fee",
+            "To close his file"
+          ],
+          "answerIndex": 1,
+          "explanation": "The agent asks whether Daniel wants to reschedule."
+        },
+        {
+          "id": "M4L1Q6",
+          "label": "Question 6",
+          "part": "Part 1 · Problem Solving",
+          "question": "What new time does the agent suggest?",
+          "options": [
+            "Tomorrow at nine fifteen",
+            "This Thursday at three",
+            "Next Thursday at three",
+            "Next Friday at three"
+          ],
+          "answerIndex": 2,
+          "explanation": "The agent suggests next Thursday at three."
+        },
+        {
+          "id": "M4L1Q7",
+          "label": "Question 7",
+          "part": "Part 1 · Problem Solving",
+          "question": "How will the caller be contacted?",
+          "options": [
+            "By confirmation email",
+            "By phone",
+            "By mail",
+            "By text"
+          ],
+          "answerIndex": 0,
+          "explanation": "The agent will send a confirmation email."
+        },
+        {
+          "id": "M4L1Q8",
+          "label": "Question 8",
+          "part": "Part 1 · Problem Solving",
+          "question": "How does the caller respond to the new time?",
+          "options": [
+            "He refuses it",
+            "He accepts it",
+            "He asks for a different day",
+            "He hangs up"
+          ],
+          "answerIndex": 1,
+          "explanation": "Daniel says the new time is perfect."
+        }
+      ]
+    },
+    {
+      "id": "M4L2",
+      "skill": "listening",
+      "title": "Part 2 · Listening to a Daily Life Conversation",
+      "instructions": "Listen to the conversation and answer the questions.",
+      "timeLimitSec": 300,
+      "passageTitle": "Neighbourhood picnic",
+      "passage": "LEE: Are you coming to the neighbourhood picnic on Saturday?\nMARA: I'd like to. What time does it start?\nLEE: At noon, in the park by the lake. Bring a dish to share if you can.\nMARA: Sure, I'll make a pasta salad. Is there anything else I should bring?\nLEE: Just a blanket and some sunscreen. It's supposed to be hot.\nMARA: Sounds good. Is it okay if I bring my sister?\nLEE: Of course, everyone's welcome.",
+      "questions": [
+        {
+          "id": "M4L2Q1",
+          "label": "Question 1",
+          "part": "Part 2 · Daily Life",
+          "question": "What event are the speakers discussing?",
+          "options": [
+            "A school fair",
+            "A neighbourhood picnic",
+            "A block party",
+            "A concert"
+          ],
+          "answerIndex": 1,
+          "explanation": "They are talking about the neighbourhood picnic on Saturday."
+        },
+        {
+          "id": "M4L2Q2",
+          "label": "Question 2",
+          "part": "Part 2 · Daily Life",
+          "question": "What time does the event start?",
+          "options": [
+            "At ten",
+            "At noon",
+            "At one",
+            "At six"
+          ],
+          "answerIndex": 1,
+          "explanation": "Lee says the picnic starts at noon."
+        },
+        {
+          "id": "M4L2Q3",
+          "label": "Question 3",
+          "part": "Part 2 · Daily Life",
+          "question": "Where is the event held?",
+          "options": [
+            "In the park by the lake",
+            "At a school",
+            "At the beach",
+            "At the community centre"
+          ],
+          "answerIndex": 0,
+          "explanation": "The picnic is in the park by the lake."
+        },
+        {
+          "id": "M4L2Q4",
+          "label": "Question 4",
+          "part": "Part 2 · Daily Life",
+          "question": "What dish will Mara bring?",
+          "options": [
+            "Drinks",
+            "A pasta salad",
+            "A fruit tray",
+            "A cake"
+          ],
+          "answerIndex": 1,
+          "explanation": "Mara says she will make a pasta salad."
+        },
+        {
+          "id": "M4L2Q5",
+          "label": "Question 5",
+          "part": "Part 2 · Daily Life",
+          "question": "Who else will Mara bring?",
+          "options": [
+            "Her neighbour",
+            "Her cousin",
+            "Her brother",
+            "Her sister"
+          ],
+          "answerIndex": 3,
+          "explanation": "Mara asks whether she can bring her sister."
+        }
+      ]
+    },
+    {
+      "id": "M4L3",
+      "skill": "listening",
+      "title": "Part 3 · Listening for Information",
+      "instructions": "Listen to the information and answer the questions.",
+      "timeLimitSec": 360,
+      "passageTitle": "Community centre winter programs",
+      "passage": "HOST: Welcome to the Elmwood Community Centre. Here is what you need to know about our winter programs. Registration opens online next Monday at nine a.m. Members register a day early, on Sunday. Our most popular class, beginner pottery, runs Tuesday evenings for eight weeks and costs ninety dollars, which includes all materials. Drop-in basketball is available every weekday from six to nine p.m. for five dollars a visit. And don't forget: the centre closes early, at five p.m., on the last Friday of every month for staff training.",
+      "questions": [
+        {
+          "id": "M4L3Q1",
+          "label": "Question 1",
+          "part": "Part 3 · Information",
+          "question": "What is the announcement about?",
+          "options": [
+            "Summer camps",
+            "Library hours",
+            "Winter programs at a community centre",
+            "A fitness sale"
+          ],
+          "answerIndex": 2,
+          "explanation": "The host describes the winter programs at Elmwood Community Centre."
+        },
+        {
+          "id": "M4L3Q2",
+          "label": "Question 2",
+          "part": "Part 3 · Information",
+          "question": "When does registration open online?",
+          "options": [
+            "Next Monday at nine a.m.",
+            "Next Monday at five p.m.",
+            "Next Sunday",
+            "This Friday"
+          ],
+          "answerIndex": 0,
+          "explanation": "Online registration opens next Monday at nine a.m."
+        },
+        {
+          "id": "M4L3Q3",
+          "label": "Question 3",
+          "part": "Part 3 · Information",
+          "question": "Who can register a day early?",
+          "options": [
+            "New members",
+            "Staff only",
+            "Members",
+            "Everyone"
+          ],
+          "answerIndex": 2,
+          "explanation": "Members can register a day early, on Sunday."
+        },
+        {
+          "id": "M4L3Q4",
+          "label": "Question 4",
+          "part": "Part 3 · Information",
+          "question": "Which class is the most popular?",
+          "options": [
+            "Yoga",
+            "Drop-in basketball",
+            "Swimming",
+            "Beginner pottery"
+          ],
+          "answerIndex": 3,
+          "explanation": "Beginner pottery is described as the most popular class."
+        },
+        {
+          "id": "M4L3Q5",
+          "label": "Question 5",
+          "part": "Part 3 · Information",
+          "question": "How much does the pottery class cost?",
+          "options": [
+            "A hundred dollars",
+            "Fifty dollars",
+            "Sixty dollars",
+            "Ninety dollars"
+          ],
+          "answerIndex": 3,
+          "explanation": "The pottery class costs ninety dollars, including materials."
+        },
+        {
+          "id": "M4L3Q6",
+          "label": "Question 6",
+          "part": "Part 3 · Information",
+          "question": "When does the centre close early?",
+          "options": [
+            "Only in December",
+            "The first Monday of every month",
+            "Every Friday",
+            "The last Friday of every month"
+          ],
+          "answerIndex": 3,
+          "explanation": "The centre closes at five p.m. on the last Friday of every month."
+        }
+      ]
+    },
+    {
+      "id": "M4L4",
+      "skill": "listening",
+      "title": "Part 4 · Listening to a News Item",
+      "instructions": "Listen to the news item and answer the questions.",
+      "timeLimitSec": 420,
+      "passageTitle": "Road-repair project",
+      "passage": "ANNOUNCER: The city will begin a major road-repair project on King Street starting Monday. Crews will resurface the road between First Avenue and the bridge, a distance of about two kilometres. During the work, one lane will stay open in each direction, but drivers should expect delays of up to twenty minutes at peak times. The project is expected to take six weeks and will cost an estimated three million dollars. Transit buses will use detours, and cyclists are asked to use the river path instead. The city says the work was scheduled now to avoid the winter.",
+      "questions": [
+        {
+          "id": "M4L4Q1",
+          "label": "Question 1",
+          "part": "Part 4 · News Item",
+          "question": "What is the news item about?",
+          "options": [
+            "A bus strike",
+            "A winter storm",
+            "A road-repair project",
+            "A new bridge"
+          ],
+          "answerIndex": 2,
+          "explanation": "The city is beginning a road-repair project on King Street."
+        },
+        {
+          "id": "M4L4Q2",
+          "label": "Question 2",
+          "part": "Part 4 · News Item",
+          "question": "Where will crews work?",
+          "options": [
+            "King Street between First Avenue and the bridge",
+            "King Street near the mall",
+            "The river path",
+            "First Avenue"
+          ],
+          "answerIndex": 0,
+          "explanation": "Crews will work on King Street between First Avenue and the bridge."
+        },
+        {
+          "id": "M4L4Q3",
+          "label": "Question 3",
+          "part": "Part 4 · News Item",
+          "question": "What delays are expected?",
+          "options": [
+            "Up to an hour",
+            "About five minutes",
+            "Up to twenty minutes",
+            "No delays"
+          ],
+          "answerIndex": 2,
+          "explanation": "Drivers should expect delays of up to twenty minutes at peak times."
+        },
+        {
+          "id": "M4L4Q4",
+          "label": "Question 4",
+          "part": "Part 4 · News Item",
+          "question": "How long will the project take?",
+          "options": [
+            "Six days",
+            "Three weeks",
+            "Six weeks",
+            "Six months"
+          ],
+          "answerIndex": 2,
+          "explanation": "The project is expected to take six weeks."
+        },
+        {
+          "id": "M4L4Q5",
+          "label": "Question 5",
+          "part": "Part 4 · News Item",
+          "question": "Why was the timing chosen?",
+          "options": [
+            "To use extra funds",
+            "To avoid the winter",
+            "To finish before a festival",
+            "To reduce traffic"
+          ],
+          "answerIndex": 1,
+          "explanation": "The work was scheduled now to avoid the winter."
+        }
+      ]
+    },
+    {
+      "id": "M4L5",
+      "skill": "listening",
+      "title": "Part 5 · Listening to a Discussion",
+      "instructions": "Listen to the discussion and answer the questions.",
+      "timeLimitSec": 720,
+      "passageTitle": "Planning a school fundraiser",
+      "passage": "LEE: We need to plan the school fundraiser. Any ideas?\nMARCUS: How about a bake sale? It's simple and people like it.\nMARA: A bake sale is fine, but a silent auction could raise more money.\nLEE: True, but an auction needs a lot of donated prizes.\nMARCUS: A car wash might be easier to organize, and it works well in spring.\nMARA: That's a good point. The gym needs new equipment, so we want a bigger total.\nLEE: Maybe we combine ideas: a car wash plus a small bake sale on the same day.\nMARCUS: I like that. It gives people two ways to support us.\nMARA: Let's do it. I'll ask local shops to donate baked goods.",
+      "questions": [
+        {
+          "id": "M4L5Q1",
+          "label": "Question 1",
+          "part": "Part 5 · Discussion",
+          "question": "What are the students planning?",
+          "options": [
+            "A school fundraiser",
+            "A field trip",
+            "A school dance",
+            "A sports day"
+          ],
+          "answerIndex": 0,
+          "explanation": "They are planning a school fundraiser."
+        },
+        {
+          "id": "M4L5Q2",
+          "label": "Question 2",
+          "part": "Part 5 · Discussion",
+          "question": "What does Marcus suggest first?",
+          "options": [
+            "A raffle",
+            "A silent auction",
+            "A bake sale",
+            "A car wash"
+          ],
+          "answerIndex": 2,
+          "explanation": "Marcus first suggests a bake sale."
+        },
+        {
+          "id": "M4L5Q3",
+          "label": "Question 3",
+          "part": "Part 5 · Discussion",
+          "question": "What does Mara suggest instead?",
+          "options": [
+            "A silent auction",
+            "A concert",
+            "A car wash",
+            "A bake sale"
+          ],
+          "answerIndex": 0,
+          "explanation": "Mara suggests a silent auction could raise more money."
+        },
+        {
+          "id": "M4L5Q4",
+          "label": "Question 4",
+          "part": "Part 5 · Discussion",
+          "question": "Why is an auction difficult, according to Lee?",
+          "options": [
+            "It needs donated prizes",
+            "It is too late",
+            "It is too loud",
+            "It is too slow"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lee says an auction needs a lot of donated prizes."
+        },
+        {
+          "id": "M4L5Q5",
+          "label": "Question 5",
+          "part": "Part 5 · Discussion",
+          "question": "What does Marcus suggest as easier to organize?",
+          "options": [
+            "A bake sale",
+            "An auction",
+            "A car wash",
+            "A raffle"
+          ],
+          "answerIndex": 2,
+          "explanation": "Marcus suggests a car wash might be easier to organize."
+        },
+        {
+          "id": "M4L5Q6",
+          "label": "Question 6",
+          "part": "Part 5 · Discussion",
+          "question": "What does the gym need?",
+          "options": [
+            "A new roof",
+            "New uniforms",
+            "New equipment",
+            "More coaches"
+          ],
+          "answerIndex": 2,
+          "explanation": "Mara says the gym needs new equipment."
+        },
+        {
+          "id": "M4L5Q7",
+          "label": "Question 7",
+          "part": "Part 5 · Discussion",
+          "question": "What final plan do they agree on?",
+          "options": [
+            "A car wash plus a raffle",
+            "A car wash plus a bake sale",
+            "Only a bake sale",
+            "Only an auction"
+          ],
+          "answerIndex": 1,
+          "explanation": "They agree to combine a car wash with a small bake sale."
+        },
+        {
+          "id": "M4L5Q8",
+          "label": "Question 8",
+          "part": "Part 5 · Discussion",
+          "question": "What will Mara do?",
+          "options": [
+            "Print flyers",
+            "Ask shops to donate baked goods",
+            "Book the gym",
+            "Buy prizes"
+          ],
+          "answerIndex": 1,
+          "explanation": "Mara will ask local shops to donate baked goods."
+        }
+      ]
+    },
+    {
+      "id": "M4L6",
+      "skill": "listening",
+      "title": "Part 6 · Listening for Viewpoints",
+      "instructions": "Listen to the two speakers and answer the questions.",
+      "timeLimitSec": 660,
+      "passageTitle": "Online courses debate",
+      "passage": "SPEAKER A: I think universities should offer more courses online. Students save money on housing and can learn at their own pace, and many already work part-time.\nSPEAKER B: I'm not so sure. The classroom gives students debate, group work, and direct access to professors — things a video can't replace.\nSPEAKER A: But online forums and live video calls now support discussion quite well, and recorded lectures let students rewatch difficult material.\nSPEAKER B: Perhaps, but staying motivated alone is hard, and online students drop out more often than those on campus.",
+      "questions": [
+        {
+          "id": "M4L6Q1",
+          "label": "Question 1",
+          "part": "Part 6 · Viewpoints",
+          "question": "What is the main topic?",
+          "options": [
+            "Part-time jobs",
+            "Whether universities should offer more online courses",
+            "Campus housing",
+            "Tuition costs"
+          ],
+          "answerIndex": 1,
+          "explanation": "The speakers debate whether universities should offer more courses online."
+        },
+        {
+          "id": "M4L6Q2",
+          "label": "Question 2",
+          "part": "Part 6 · Viewpoints",
+          "question": "What benefit does Speaker A mention?",
+          "options": [
+            "Smaller class sizes",
+            "More holidays",
+            "Students save money on housing",
+            "Better grades"
+          ],
+          "answerIndex": 2,
+          "explanation": "Speaker A says online students save money on housing."
+        },
+        {
+          "id": "M4L6Q3",
+          "label": "Question 3",
+          "part": "Part 6 · Viewpoints",
+          "question": "What does Speaker B say the classroom provides?",
+          "options": [
+            "Cheaper fees",
+            "More free time",
+            "Debate and direct access to professors",
+            "Online videos"
+          ],
+          "answerIndex": 2,
+          "explanation": "Speaker B says the classroom provides debate and direct access to professors."
+        },
+        {
+          "id": "M4L6Q4",
+          "label": "Question 4",
+          "part": "Part 6 · Viewpoints",
+          "question": "What does Speaker A say supports discussion online?",
+          "options": [
+            "Social media",
+            "Phone calls",
+            "Emails",
+            "Forums and live video calls"
+          ],
+          "answerIndex": 3,
+          "explanation": "Speaker A says online forums and live video calls support discussion."
+        },
+        {
+          "id": "M4L6Q5",
+          "label": "Question 5",
+          "part": "Part 6 · Viewpoints",
+          "question": "What do recorded lectures allow, according to Speaker A?",
+          "options": [
+            "Faster graduation",
+            "Rewatching difficult material",
+            "Skipping class",
+            "Free textbooks"
+          ],
+          "answerIndex": 1,
+          "explanation": "Recorded lectures let students rewatch difficult material."
+        },
+        {
+          "id": "M4L6Q6",
+          "label": "Question 6",
+          "part": "Part 6 · Viewpoints",
+          "question": "What is Speaker B's concern?",
+          "options": [
+            "Online students drop out more often",
+            "Videos are boring",
+            "Online courses cost more",
+            "Professors refuse to teach"
+          ],
+          "answerIndex": 0,
+          "explanation": "Speaker B worries online students drop out more often."
+        }
+      ]
+    },
+    {
+      "id": "M4R1",
+      "skill": "reading",
+      "title": "Reading Part 1 · Reading Correspondence",
+      "instructions": "Read the email exchange and answer the questions.",
+      "timeLimitSec": 720,
+      "passageTitle": "Wrong no-show charge",
+      "passage": "From: Priya Raman <priya.raman@netmail.com>\nTo: reservations@lakesidehotel.com\nSubject: Wrong no-show charge — booking #55107\n\nHello,\n\nI booked a room for March 12 under booking #55107, but my flight was cancelled the day before due to a storm. I called your desk that same evening to cancel, and the person I spoke to said there would be no charge.\n\nYesterday I noticed a charge of $180 on my card for a no-show. Could you please refund it?\n\nThanks,\nPriya Raman\n\nFrom: Lakeside Hotel Reservations <reservations@lakesidehotel.com>\nTo: Priya Raman\nSubject: Re: Wrong no-show charge — booking #55107\n\nHello Priya,\n\nThank you for writing in, and I'm sorry for the confusion. Our records show a call was received on March 11, but the cancellation was not completed in the system because of a technical error.\n\nI have now cancelled the booking and issued a full refund of $180. Please allow three to five business days for it to appear on your statement.\n\nAs an apology, I have also added 2,000 reward points to your account.\n\nBest regards,\nDana Cole, Reservations Manager",
+      "questions": [
+        {
+          "id": "M4R1Q1",
+          "label": "Question 1",
+          "part": "Reading Part 1",
+          "question": "What is the booking number?",
+          "options": [
+            "55701",
+            "55170",
+            "55107",
+            "51107"
+          ],
+          "answerIndex": 2,
+          "explanation": "The booking number is 55107."
+        },
+        {
+          "id": "M4R1Q2",
+          "label": "Question 2",
+          "part": "Reading Part 1",
+          "question": "Why did the customer cancel?",
+          "options": [
+            "She found a cheaper room",
+            "She was ill",
+            "She changed hotels",
+            "Her flight was cancelled by a storm"
+          ],
+          "answerIndex": 3,
+          "explanation": "Her flight was cancelled the day before due to a storm."
+        },
+        {
+          "id": "M4R1Q3",
+          "label": "Question 3",
+          "part": "Reading Part 1",
+          "question": "When was the room booked for?",
+          "options": [
+            "March 11",
+            "March 12",
+            "March 3",
+            "March 18"
+          ],
+          "answerIndex": 1,
+          "explanation": "The room was booked for March 12."
+        },
+        {
+          "id": "M4R1Q4",
+          "label": "Question 4",
+          "part": "Reading Part 1",
+          "question": "What did the customer do the evening before?",
+          "options": [
+            "Paid in advance",
+            "Called to cancel",
+            "Sent an email",
+            "Booked another hotel"
+          ],
+          "answerIndex": 1,
+          "explanation": "She called the desk that same evening to cancel."
+        },
+        {
+          "id": "M4R1Q5",
+          "label": "Question 5",
+          "part": "Reading Part 1",
+          "question": "What was she told on the phone?",
+          "options": [
+            "She would pay half",
+            "She owed a fee",
+            "She must rebook",
+            "There would be no charge"
+          ],
+          "answerIndex": 3,
+          "explanation": "The person she spoke to said there would be no charge."
+        },
+        {
+          "id": "M4R1Q6",
+          "label": "Question 6",
+          "part": "Reading Part 1",
+          "question": "How much was she charged?",
+          "options": [
+            "$100",
+            "$150",
+            "$180",
+            "$280"
+          ],
+          "answerIndex": 2,
+          "explanation": "She noticed a charge of $180 for a no-show."
+        },
+        {
+          "id": "M4R1Q7",
+          "label": "Question 7",
+          "part": "Reading Part 1",
+          "question": "Why was the charge applied?",
+          "options": [
+            "A late payment",
+            "A technical error",
+            "The booking was kept",
+            "A new policy"
+          ],
+          "answerIndex": 1,
+          "explanation": "The cancellation was not completed in the system because of a technical error."
+        },
+        {
+          "id": "M4R1Q8",
+          "label": "Question 8",
+          "part": "Reading Part 1",
+          "question": "What did the hotel do about it?",
+          "options": [
+            "Refunded the full amount",
+            "Declined the request",
+            "Offered a voucher",
+            "Refunded half"
+          ],
+          "answerIndex": 0,
+          "explanation": "The hotel issued a full refund of $180."
+        },
+        {
+          "id": "M4R1Q9",
+          "label": "Question 9",
+          "part": "Reading Part 1",
+          "question": "How long will the refund take?",
+          "options": [
+            "Three to five business days",
+            "A month",
+            "Two weeks",
+            "One day"
+          ],
+          "answerIndex": 0,
+          "explanation": "The refund takes three to five business days to appear."
+        },
+        {
+          "id": "M4R1Q10",
+          "label": "Question 10",
+          "part": "Reading Part 1",
+          "question": "What did the hotel add as an apology?",
+          "options": [
+            "A discount code",
+            "A free night",
+            "A gift card",
+            "2,000 reward points"
+          ],
+          "answerIndex": 3,
+          "explanation": "The hotel added 2,000 reward points to the account."
+        },
+        {
+          "id": "M4R1Q11",
+          "label": "Question 11",
+          "part": "Reading Part 1",
+          "question": "What is the customer's name?",
+          "options": [
+            "Priya Raman",
+            "Priya Nathan",
+            "Dana Cole",
+            "Priya Rao"
+          ],
+          "answerIndex": 0,
+          "explanation": "The customer's name is Priya Raman."
+        }
+      ]
+    },
+    {
+      "id": "M4R2",
+      "skill": "reading",
+      "title": "Reading Part 2 · Reading to Apply a Diagram",
+      "instructions": "Read the instructions and answer the questions.",
+      "timeLimitSec": 720,
+      "passageTitle": "TV wall mount installation",
+      "passage": "TV wall mount installation (Model WM-30)\n\nParts list:\n- 1 mounting plate (A)\n- 2 wall brackets (B)\n- 6 lag bolts (C)\n- 6 washers (D)\n- 1 spirit level (E)\n- 1 drill template (F)\n\nSteps:\n1. Tape the drill template to the wall where you want the TV, and check it is level.\n2. Drill six pilot holes through the marked spots.\n3. Hold the mounting plate against the wall and insert a washer onto each lag bolt.\n4. Fasten the plate to the wall using all six lag bolts.\n5. Attach the two brackets to the back of the TV with the short screws (not included in the kit).\n6. Lift the TV and hook the brackets onto the mounting plate, then tighten the safety screws.",
+      "questions": [
+        {
+          "id": "M4R2Q1",
+          "label": "Question 1",
+          "part": "Reading Part 2",
+          "question": "How many lag bolts are included?",
+          "options": [
+            "Two",
+            "Four",
+            "Six",
+            "Eight"
+          ],
+          "answerIndex": 2,
+          "explanation": "The parts list shows 6 lag bolts (C)."
+        },
+        {
+          "id": "M4R2Q2",
+          "label": "Question 2",
+          "part": "Reading Part 2",
+          "question": "What is the drill template used for?",
+          "options": [
+            "Holding the bracket",
+            "Levelling the TV",
+            "Marking where to drill",
+            "Measuring the TV"
+          ],
+          "answerIndex": 2,
+          "explanation": "The template is taped to the wall to mark where to drill."
+        },
+        {
+          "id": "M4R2Q3",
+          "label": "Question 3",
+          "part": "Reading Part 2",
+          "question": "What should be checked before drilling?",
+          "options": [
+            "The template is level",
+            "The screws are tight",
+            "The wall is painted",
+            "The TV is off"
+          ],
+          "answerIndex": 0,
+          "explanation": "Step 1 says to check the template is level."
+        },
+        {
+          "id": "M4R2Q4",
+          "label": "Question 4",
+          "part": "Reading Part 2",
+          "question": "Where is a washer placed?",
+          "options": [
+            "On the TV",
+            "On the template",
+            "On the bracket",
+            "On each lag bolt"
+          ],
+          "answerIndex": 3,
+          "explanation": "A washer is inserted onto each lag bolt."
+        },
+        {
+          "id": "M4R2Q5",
+          "label": "Question 5",
+          "part": "Reading Part 2",
+          "question": "How many brackets attach to the TV?",
+          "options": [
+            "Four",
+            "Three",
+            "One",
+            "Two"
+          ],
+          "answerIndex": 3,
+          "explanation": "Two brackets attach to the back of the TV."
+        },
+        {
+          "id": "M4R2Q6",
+          "label": "Question 6",
+          "part": "Reading Part 2",
+          "question": "What is NOT included in the kit?",
+          "options": [
+            "The short screws for the TV",
+            "The lag bolts",
+            "The washers",
+            "The template"
+          ],
+          "answerIndex": 0,
+          "explanation": "The short screws for the TV are not included in the kit."
+        },
+        {
+          "id": "M4R2Q7",
+          "label": "Question 7",
+          "part": "Reading Part 2",
+          "question": "What happens after the brackets are attached?",
+          "options": [
+            "The TV is hooked onto the plate",
+            "The plate is painted",
+            "The template is removed",
+            "The holes are drilled"
+          ],
+          "answerIndex": 0,
+          "explanation": "After attaching the brackets, the TV is hooked onto the mounting plate."
+        },
+        {
+          "id": "M4R2Q8",
+          "label": "Question 8",
+          "part": "Reading Part 2",
+          "question": "What is tightened last?",
+          "options": [
+            "The washers",
+            "The brackets",
+            "The safety screws",
+            "The lag bolts"
+          ],
+          "answerIndex": 2,
+          "explanation": "The safety screws are tightened last."
+        }
+      ]
+    },
+    {
+      "id": "M4R3",
+      "skill": "reading",
+      "title": "Reading Part 3 · Reading for Information",
+      "instructions": "Read the article and answer the questions.",
+      "timeLimitSec": 900,
+      "passageTitle": "How habits form",
+      "passage": "Habits shape far more of our lives than we realize. A habit is a behaviour that has been repeated so often it has become automatic, freeing the brain to focus on other tasks. Every habit follows a simple loop: a cue triggers a routine, and a reward reinforces it.\n\nThe cue can be a time of day, a place, or an emotion. The routine is the behaviour itself, and the reward is the satisfaction that follows. To build a new habit, experts recommend starting small. Instead of promising to exercise for an hour each day, commit to five minutes. Small wins build confidence and make the behaviour easier to repeat.\n\nChanging your environment is also powerful. If you want to read more, leave a book on your pillow each morning. If you want to snack less, move the snacks out of sight. Making good habits convenient and bad habits inconvenient is often more effective than relying on willpower alone.\n\nFinally, be patient. Research suggests a new habit takes anywhere from eighteen days to more than eight months to stick, depending on the person and the behaviour. The goal is progress, not perfection — missing one day does not undo the habit, but missing many in a row does.",
+      "questions": [
+        {
+          "id": "M4R3Q1",
+          "label": "Question 1",
+          "part": "Reading Part 3",
+          "question": "What is the main idea of the article?",
+          "options": [
+            "Rewards are harmful",
+            "Habits are automatic and can be shaped",
+            "Willpower is all you need",
+            "Habits are permanent"
+          ],
+          "answerIndex": 1,
+          "explanation": "The article explains that habits are automatic and offers ways to shape them."
+        },
+        {
+          "id": "M4R3Q2",
+          "label": "Question 2",
+          "part": "Reading Part 3",
+          "question": "What are the three parts of the habit loop?",
+          "options": [
+            "Cue, reward, goal",
+            "Routine, goal, cue",
+            "Cue, routine, reward",
+            "Reward, cue, plan"
+          ],
+          "answerIndex": 2,
+          "explanation": "A cue triggers a routine, and a reward reinforces it."
+        },
+        {
+          "id": "M4R3Q3",
+          "label": "Question 3",
+          "part": "Reading Part 3",
+          "question": "What is a cue?",
+          "options": [
+            "A punishment",
+            "A trigger like a time or place",
+            "The reward",
+            "The behaviour itself"
+          ],
+          "answerIndex": 1,
+          "explanation": "A cue can be a time of day, a place, or an emotion."
+        },
+        {
+          "id": "M4R3Q4",
+          "label": "Question 4",
+          "part": "Reading Part 3",
+          "question": "What do experts recommend for building a new habit?",
+          "options": [
+            "Avoid rewards",
+            "Start big",
+            "Start small",
+            "Change nothing"
+          ],
+          "answerIndex": 2,
+          "explanation": "Experts recommend starting small, such as committing to five minutes."
+        },
+        {
+          "id": "M4R3Q5",
+          "label": "Question 5",
+          "part": "Reading Part 3",
+          "question": "How does changing the environment help?",
+          "options": [
+            "It makes good habits convenient",
+            "It adds cues",
+            "It costs money",
+            "It removes rewards"
+          ],
+          "answerIndex": 0,
+          "explanation": "Changing the environment makes good habits convenient and bad habits inconvenient."
+        },
+        {
+          "id": "M4R3Q6",
+          "label": "Question 6",
+          "part": "Reading Part 3",
+          "question": "What example is given for reading more?",
+          "options": [
+            "Read at night",
+            "Buy more books",
+            "Join a book club",
+            "Leave a book on your pillow"
+          ],
+          "answerIndex": 3,
+          "explanation": "The article suggests leaving a book on your pillow each morning."
+        },
+        {
+          "id": "M4R3Q7",
+          "label": "Question 7",
+          "part": "Reading Part 3",
+          "question": "How long can a habit take to form?",
+          "options": [
+            "Eighteen days to over eight months",
+            "A year",
+            "Forever",
+            "One week"
+          ],
+          "answerIndex": 0,
+          "explanation": "Research suggests eighteen days to more than eight months."
+        },
+        {
+          "id": "M4R3Q8",
+          "label": "Question 8",
+          "part": "Reading Part 3",
+          "question": "What does the article say about missing one day?",
+          "options": [
+            "It is fatal",
+            "It resets the clock",
+            "It ruins the habit",
+            "It does not undo the habit"
+          ],
+          "answerIndex": 3,
+          "explanation": "Missing one day does not undo the habit."
+        },
+        {
+          "id": "M4R3Q9",
+          "label": "Question 9",
+          "part": "Reading Part 3",
+          "question": "What is the overall goal?",
+          "options": [
+            "Speed",
+            "Quantity",
+            "Perfection",
+            "Progress, not perfection"
+          ],
+          "answerIndex": 3,
+          "explanation": "The goal is progress, not perfection."
+        }
+      ]
+    },
+    {
+      "id": "M4R4",
+      "skill": "reading",
+      "title": "Reading Part 4 · Reading for Viewpoints",
+      "instructions": "Read the two viewpoints and answer the questions.",
+      "timeLimitSec": 960,
+      "passageTitle": "Should cities ban cars downtown?",
+      "passage": "Ban Cars Downtown: Yes\nBy Priya N.\n\nBanning private cars from the downtown core would make our city healthier and safer. Fewer cars mean cleaner air, quieter streets, and fewer accidents involving pedestrians and cyclists. Cities that have introduced car-free zones have seen foot traffic and shop sales rise, not fall. With reliable buses and bike lanes, most people can still get where they need to go.\n\nBan Cars Downtown: No\nBy Tom R.\n\nA blanket car ban ignores the people who rely on cars the most: seniors, families with young children, and delivery drivers. Many workers commute from areas with poor transit, and businesses depend on loading zones to receive goods. Instead of an outright ban, we should improve transit first and add more park-and-ride lots so driving becomes a choice rather than a necessity.",
+      "questions": [
+        {
+          "id": "M4R4Q1",
+          "label": "Question 1",
+          "part": "Reading Part 4",
+          "question": "What is the main topic of the two pieces?",
+          "options": [
+            "Whether to add bike lanes",
+            "Whether to ban cars downtown",
+            "Whether to build a highway",
+            "Whether to raise bus fares"
+          ],
+          "answerIndex": 1,
+          "explanation": "The two authors debate banning private cars from downtown."
+        },
+        {
+          "id": "M4R4Q2",
+          "label": "Question 2",
+          "part": "Reading Part 4",
+          "question": "What does Priya say fewer cars bring?",
+          "options": [
+            "Higher rents",
+            "More parking",
+            "More noise",
+            "Cleaner air and fewer accidents"
+          ],
+          "answerIndex": 3,
+          "explanation": "Priya says fewer cars mean cleaner air and fewer accidents."
+        },
+        {
+          "id": "M4R4Q3",
+          "label": "Question 3",
+          "part": "Reading Part 4",
+          "question": "What happened in cities with car-free zones, according to Priya?",
+          "options": [
+            "Shops closed",
+            "Sales fell",
+            "Foot traffic and sales rose",
+            "Traffic moved elsewhere"
+          ],
+          "answerIndex": 2,
+          "explanation": "Priya says foot traffic and shop sales rose in car-free zones."
+        },
+        {
+          "id": "M4R4Q4",
+          "label": "Question 4",
+          "part": "Reading Part 4",
+          "question": "How can people get around, according to Priya?",
+          "options": [
+            "Walking only",
+            "Taxis",
+            "Buses and bike lanes",
+            "Private cars"
+          ],
+          "answerIndex": 2,
+          "explanation": "Priya says reliable buses and bike lanes keep people moving."
+        },
+        {
+          "id": "M4R4Q5",
+          "label": "Question 5",
+          "part": "Reading Part 4",
+          "question": "Who does Tom say relies on cars the most?",
+          "options": [
+            "Tourists",
+            "Cyclists",
+            "Students",
+            "Seniors, families, and delivery drivers"
+          ],
+          "answerIndex": 3,
+          "explanation": "Tom lists seniors, families with young children, and delivery drivers."
+        },
+        {
+          "id": "M4R4Q6",
+          "label": "Question 6",
+          "part": "Reading Part 4",
+          "question": "What do many workers lack, according to Tom?",
+          "options": [
+            "Licences",
+            "Parking",
+            "Good transit",
+            "Cars"
+          ],
+          "answerIndex": 2,
+          "explanation": "Tom says many workers commute from areas with poor transit."
+        },
+        {
+          "id": "M4R4Q7",
+          "label": "Question 7",
+          "part": "Reading Part 4",
+          "question": "What do businesses depend on, according to Tom?",
+          "options": [
+            "Car bans",
+            "Foot traffic",
+            "Bike lanes",
+            "Loading zones"
+          ],
+          "answerIndex": 3,
+          "explanation": "Tom says businesses depend on loading zones to receive goods."
+        },
+        {
+          "id": "M4R4Q8",
+          "label": "Question 8",
+          "part": "Reading Part 4",
+          "question": "What does Tom propose instead of a ban?",
+          "options": [
+            "Raise taxes",
+            "Close streets",
+            "Ban buses",
+            "Improve transit and add park-and-ride lots"
+          ],
+          "answerIndex": 3,
+          "explanation": "Tom proposes improving transit and adding park-and-ride lots."
+        },
+        {
+          "id": "M4R4Q9",
+          "label": "Question 9",
+          "part": "Reading Part 4",
+          "question": "What do the authors disagree on?",
+          "options": [
+            "Whether buses work",
+            "Whether a downtown car ban is a good idea",
+            "Whether pollution exists",
+            "Whether bikes are safe"
+          ],
+          "answerIndex": 1,
+          "explanation": "They disagree on whether banning cars downtown is a good idea."
+        },
+        {
+          "id": "M4R4Q10",
+          "label": "Question 10",
+          "part": "Reading Part 4",
+          "question": "How would driving change under Tom's plan?",
+          "options": [
+            "It is banned",
+            "It is faster",
+            "It is free",
+            "It becomes a choice, not a necessity"
+          ],
+          "answerIndex": 3,
+          "explanation": "Tom wants driving to become a choice rather than a necessity."
+        }
+      ]
+    }
+  ]
+}

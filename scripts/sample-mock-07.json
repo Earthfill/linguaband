@@ -1,0 +1,1441 @@
+{
+  "id": "mock-07",
+  "name": "Mock Test 04",
+  "badge": "New",
+  "difficulty": "Challenging",
+  "description": "A full-length, high-difficulty CELPIP-General style exam: 6 Listening, 4 Reading, 2 Writing, and 8 Speaking sections in the official order, with multi-step reasoning, close distractors, and official speaking timings.",
+  "sections": [
+    {
+      "id": "M7L1",
+      "skill": "listening",
+      "title": "Part 1 · Listening to Problem Solving",
+      "instructions": "Listen to the conversation and answer the questions.",
+      "timeLimitSec": 360,
+      "passageTitle": "Double-booked conference room",
+      "passage": "COORDINATOR: Harbourfront Conference Centre, Marcus speaking.\nCALLER: Hello Marcus, it's Lena Petrov from the Pacific Nurses Association. I got an email saying the Ballroom for our March fourteenth workshop has been double-booked. We're expecting ninety people.\nCOORDINATOR: I'm very sorry about that, Ms. Petrov. A corporate booking was entered manually, and our system didn't flag the overlap. I can offer three alternatives. Room B is free at the same time, nine to four, but it seats only sixty. Room C seats one hundred, but it isn't available until one o'clock, so you'd run from one to eight in the evening. Or we could move the whole event to Saturday the sixteenth in the Ballroom, and I'd take fifteen percent off the rental.\nCALLER: Sixty won't work; we'd have to turn away thirty people. And Saturday is a problem because many of our members work weekend shifts. What would Room C cost?\nCOORDINATOR: Normally it's three hundred fifty dollars more than the Ballroom, but given the circumstances, I can waive that difference.\nCALLER: That helps. But an afternoon start changes our lunch plans. We had catering booked for noon.\nCOORDINATOR: Our kitchen can convert that into a dinner buffet at six at the same per-person price. Since the event is more than a week away, there's no penalty for changing the menu.\nCALLER: Actually, an afternoon start might suit our keynote speaker. She flies in from Vancouver at ten that morning. But she'll need a projector and a microphone.\nCOORDINATOR: The projector is included. The wireless microphone system is normally seventy-five dollars, and I'll include that at no charge. One thing, though: I need your confirmation by five o'clock today, because another client has shown interest in Room C.\nCALLER: I have to check with our board chair first. Could you hold it until tomorrow at noon?\nCOORDINATOR: The latest I can hold it is ten tomorrow morning. After that I'm required to release it.\nCALLER: All right. I'll call you before then.",
+      "questions": [
+        {
+          "id": "M7L1Q1",
+          "label": "Question 1",
+          "part": "Part 1 · Problem Solving",
+          "question": "What caused the double booking?",
+          "options": [
+            "Two clients paid deposits on the same day",
+            "The Pacific Nurses Association confirmed its booking late",
+            "The Ballroom was undergoing repairs",
+            "Another booking was entered manually without the system flagging the overlap"
+          ],
+          "answerIndex": 3,
+          "explanation": "Marcus says a corporate booking was entered manually and the overlap wasn't flagged."
+        },
+        {
+          "id": "M7L1Q2",
+          "label": "Question 2",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why does Lena rule out Room B?",
+          "options": [
+            "It is available only in the afternoon",
+            "It seats fewer people than she expects",
+            "It has no projector",
+            "It costs more than the Ballroom"
+          ],
+          "answerIndex": 1,
+          "explanation": "Room B seats sixty, and ninety people are expected."
+        },
+        {
+          "id": "M7L1Q3",
+          "label": "Question 3",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why is the Saturday option a problem for Lena?",
+          "options": [
+            "The keynote speaker is unavailable that day",
+            "The Ballroom is not available on Saturday",
+            "Many of her members work weekend shifts",
+            "The discount is too small to matter"
+          ],
+          "answerIndex": 2,
+          "explanation": "Lena says many members work weekend shifts."
+        },
+        {
+          "id": "M7L1Q4",
+          "label": "Question 4",
+          "part": "Part 1 · Problem Solving",
+          "question": "What does Marcus offer regarding the cost of Room C?",
+          "options": [
+            "To reduce the rental by fifteen percent",
+            "To include catering for free",
+            "To waive the extra three hundred fifty dollars",
+            "To charge the same as Room B"
+          ],
+          "answerIndex": 2,
+          "explanation": "He waives the usual three-hundred-fifty-dollar difference."
+        },
+        {
+          "id": "M7L1Q5",
+          "label": "Question 5",
+          "part": "Part 1 · Problem Solving",
+          "question": "How will the catering be handled?",
+          "options": [
+            "Lunch will be served at one o'clock at a higher price",
+            "Lunch becomes a dinner buffet at six at the same per-person price",
+            "The noon lunch will be served in a different room",
+            "The catering must be cancelled with a penalty"
+          ],
+          "answerIndex": 1,
+          "explanation": "The kitchen can convert lunch to a dinner buffet at six at the same price, with no penalty."
+        },
+        {
+          "id": "M7L1Q6",
+          "label": "Question 6",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why might an afternoon start suit the keynote speaker?",
+          "options": [
+            "She arrives from Vancouver at ten in the morning",
+            "She prefers to speak after a meal",
+            "She has another engagement in the evening",
+            "She lives near the conference centre"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lena says the speaker flies in at ten that morning."
+        },
+        {
+          "id": "M7L1Q7",
+          "label": "Question 7",
+          "part": "Part 1 · Problem Solving",
+          "question": "What does Marcus include at no charge?",
+          "options": [
+            "The wireless microphone system",
+            "The projector and a screen",
+            "Extra catering staff",
+            "A larger stage"
+          ],
+          "answerIndex": 0,
+          "explanation": "The projector is already included; the microphone system, normally seventy-five dollars, is added free."
+        },
+        {
+          "id": "M7L1Q8",
+          "label": "Question 8",
+          "part": "Part 1 · Problem Solving",
+          "question": "What will Lena do next?",
+          "options": [
+            "Accept the Saturday date",
+            "Confirm Room C before five o'clock today",
+            "Consult her board chair and call back by ten tomorrow morning",
+            "Ask another venue for a quote"
+          ],
+          "answerIndex": 2,
+          "explanation": "She needs to check with the board chair; Marcus can hold the room until ten the next morning."
+        }
+      ]
+    },
+    {
+      "id": "M7L2",
+      "skill": "listening",
+      "title": "Part 2 · Listening to a Daily Life Conversation",
+      "instructions": "Listen to the conversation and answer the questions.",
+      "timeLimitSec": 300,
+      "passageTitle": "Splitting the hydro bill",
+      "passage": "MIA: Dev, did you see the hydro bill? It's two hundred sixteen dollars for the two months.\nDEV: Ouch. We usually split it fifty-fifty, right?\nMIA: That's the thing. I was in Lisbon for the whole second month, so paying half feels unfair. But I don't think it should all fall on you either, since the fridge and the internet router kept running the entire time.\nDEV: What if you covered a third?\nMIA: A third of two sixteen is seventy-two. Okay, I can do that. And I'll take out the recycling for the next two weeks to make up the difference.\nDEV: Deal. Also, my cousin Tariq is visiting from the fourteenth to the twentieth. Is it all right if he sleeps on the couch?\nMIA: That's fine, but I have an early presentation on the eighteenth, so it needs to be quiet after ten that week.\nDEV: Sure, I'll tell him. Oh, and the landlord is replacing the dishwasher on Tuesday. Someone has to be here between one and five.\nMIA: I'm working from home Tuesday afternoon, so I can let them in. Just clear out the dishes before you leave.",
+      "questions": [
+        {
+          "id": "M7L2Q1",
+          "label": "Question 1",
+          "part": "Part 2 · Daily Life",
+          "question": "Why does Mia object to splitting the bill in half?",
+          "options": [
+            "She was away for the entire second month",
+            "She thinks the bill is incorrect",
+            "She moved in after the first month",
+            "She uses more electricity than Dev"
+          ],
+          "answerIndex": 0,
+          "explanation": "Mia was in Lisbon for the whole second month."
+        },
+        {
+          "id": "M7L2Q2",
+          "label": "Question 2",
+          "part": "Part 2 · Daily Life",
+          "question": "Why does Mia say the bill should not fall entirely on Dev?",
+          "options": [
+            "The landlord requires equal payments",
+            "Some appliances ran the whole time",
+            "Dev's cousin will use electricity",
+            "She will be home more often next month"
+          ],
+          "answerIndex": 1,
+          "explanation": "She points out the fridge and router kept running."
+        },
+        {
+          "id": "M7L2Q3",
+          "label": "Question 3",
+          "part": "Part 2 · Daily Life",
+          "question": "What does Mia agree to do?",
+          "options": [
+            "Pay seventy-two dollars and take out the recycling for two weeks",
+            "Pay one hundred eight dollars and do the dishes",
+            "Pay half the bill and stay away next month",
+            "Pay one hundred forty-four dollars"
+          ],
+          "answerIndex": 0,
+          "explanation": "She pays a third of two hundred sixteen dollars, which is seventy-two, and takes out the recycling."
+        },
+        {
+          "id": "M7L2Q4",
+          "label": "Question 4",
+          "part": "Part 2 · Daily Life",
+          "question": "What condition does Mia set for Tariq's visit?",
+          "options": [
+            "He must leave before the eighteenth",
+            "He must pay part of the hydro bill",
+            "He must sleep in the living room only on weekends",
+            "It must be quiet after ten o'clock that week"
+          ],
+          "answerIndex": 3,
+          "explanation": "Mia has an early presentation on the eighteenth."
+        },
+        {
+          "id": "M7L2Q5",
+          "label": "Question 5",
+          "part": "Part 2 · Daily Life",
+          "question": "Who will be home for the dishwasher replacement?",
+          "options": [
+            "Dev",
+            "Mia",
+            "Tariq",
+            "The landlord"
+          ],
+          "answerIndex": 1,
+          "explanation": "Mia says she will be working from home on Tuesday afternoon and can let them in."
+        }
+      ]
+    },
+    {
+      "id": "M7L3",
+      "skill": "listening",
+      "title": "Part 3 · Listening for Information",
+      "instructions": "Listen to the information and answer the questions.",
+      "timeLimitSec": 360,
+      "passageTitle": "Waste collection changes",
+      "passage": "RECORDING: You've reached the Municipal Waste Services information line. Effective Monday, May sixth, collection changes in all residential zones. Garbage will now be collected every second week instead of weekly, while blue-bin recycling and green-bin organics will continue to be collected every week. Residents in Zones one to three will have collection on Tuesdays, and residents in Zones four and five on Thursdays. If a statutory holiday falls on or before your collection day in the same week, your pickup will be delayed by one day. Large items such as furniture are collected by appointment only. The first two items each year are free, and each additional item costs fifteen dollars. Batteries, paint, and electronics must never be placed in the blue bin. Please take them to the Northfield Depot, which is open Wednesday through Saturday from nine to four. Proof of residency is required. To book a large-item pickup, press one. To hear the collection calendar for your zone, press two.",
+      "questions": [
+        {
+          "id": "M7L3Q1",
+          "label": "Question 1",
+          "part": "Part 3 · Information",
+          "question": "What is changing on May sixth?",
+          "options": [
+            "Collection will move to weekends",
+            "Organics collection will stop",
+            "Recycling will be collected every second week",
+            "Garbage will be collected every second week"
+          ],
+          "answerIndex": 3,
+          "explanation": "Garbage becomes biweekly while recycling and organics stay weekly."
+        },
+        {
+          "id": "M7L3Q2",
+          "label": "Question 2",
+          "part": "Part 3 · Information",
+          "question": "On which day do residents in Zone four have collection?",
+          "options": [
+            "Thursday",
+            "Tuesday",
+            "Saturday",
+            "Wednesday"
+          ],
+          "answerIndex": 0,
+          "explanation": "Zones four and five are collected on Thursdays."
+        },
+        {
+          "id": "M7L3Q3",
+          "label": "Question 3",
+          "part": "Part 3 · Information",
+          "question": "When is pickup delayed by a day?",
+          "options": [
+            "Only when the holiday falls on a Monday",
+            "When the holiday falls on a weekend",
+            "Whenever it rains",
+            "When a holiday falls on or before the collection day in the same week"
+          ],
+          "answerIndex": 3,
+          "explanation": "A holiday on or before the collection day in that week delays pickup by one day."
+        },
+        {
+          "id": "M7L3Q4",
+          "label": "Question 4",
+          "part": "Part 3 · Information",
+          "question": "How much would a resident pay for three large items in one year?",
+          "options": [
+            "Thirty dollars",
+            "Fifteen dollars",
+            "Forty-five dollars",
+            "Nothing"
+          ],
+          "answerIndex": 1,
+          "explanation": "The first two items are free; the third costs fifteen dollars."
+        },
+        {
+          "id": "M7L3Q5",
+          "label": "Question 5",
+          "part": "Part 3 · Information",
+          "question": "Where should batteries be taken?",
+          "options": [
+            "Any grocery store",
+            "The Northfield Depot",
+            "The blue bin",
+            "The collection truck driver"
+          ],
+          "answerIndex": 1,
+          "explanation": "Batteries must never go in the blue bin and should be taken to the depot."
+        },
+        {
+          "id": "M7L3Q6",
+          "label": "Question 6",
+          "part": "Part 3 · Information",
+          "question": "What is required at the depot?",
+          "options": [
+            "A fifteen-dollar fee",
+            "Proof of residency",
+            "A recycling permit",
+            "An appointment number"
+          ],
+          "answerIndex": 1,
+          "explanation": "The message says proof of residency is required."
+        }
+      ]
+    },
+    {
+      "id": "M7L4",
+      "skill": "listening",
+      "title": "Part 4 · Listening to a News Item",
+      "instructions": "Listen to the news item and answer the questions.",
+      "timeLimitSec": 420,
+      "passageTitle": "Bridge reopening delayed",
+      "passage": "ANNOUNCER: Residents of Millbrook will face a longer wait for the reopening of the Harper Street Bridge. City engineers announced today that the bridge, which closed on June third for a full deck replacement, will now reopen on October thirtieth instead of September fifteenth. The city cited a delay in the delivery of structural steel and unexpectedly severe corrosion found in the support beams. The estimated cost has risen from twelve million to fourteen and a half million dollars. In the meantime, drivers are directed along a seven-kilometre detour via Route Nine, and bus route twenty-two has been rerouted, adding roughly fifteen minutes to each trip. Business owners near the bridge say foot traffic is down by about a quarter, and some are asking the city for temporary property tax relief. A city spokesperson said council will consider the request at its next session but noted that no decision has been made. Pedestrian and cycling access is scheduled to be restored on August twentieth.",
+      "questions": [
+        {
+          "id": "M7L4Q1",
+          "label": "Question 1",
+          "part": "Part 4 · News Item",
+          "question": "When is the bridge now expected to reopen to vehicles?",
+          "options": [
+            "October thirtieth",
+            "June third",
+            "August twentieth",
+            "September fifteenth"
+          ],
+          "answerIndex": 0,
+          "explanation": "The reopening moved from September fifteenth to October thirtieth."
+        },
+        {
+          "id": "M7L4Q2",
+          "label": "Question 2",
+          "part": "Part 4 · News Item",
+          "question": "What reasons did the city give for the delay?",
+          "options": [
+            "A labour dispute and bad weather",
+            "Late steel delivery and severe corrosion in the support beams",
+            "Funding shortages and design changes",
+            "A shortage of engineers and permit delays"
+          ],
+          "answerIndex": 1,
+          "explanation": "The city cited the steel delay and unexpected corrosion."
+        },
+        {
+          "id": "M7L4Q3",
+          "label": "Question 3",
+          "part": "Part 4 · News Item",
+          "question": "By how much has the estimated cost increased?",
+          "options": [
+            "Fourteen and a half million dollars",
+            "Twelve million dollars",
+            "One and a half million dollars",
+            "Two and a half million dollars"
+          ],
+          "answerIndex": 3,
+          "explanation": "The estimate rose from twelve million to fourteen and a half million."
+        },
+        {
+          "id": "M7L4Q4",
+          "label": "Question 4",
+          "part": "Part 4 · News Item",
+          "question": "When will pedestrians and cyclists be able to use the bridge again?",
+          "options": [
+            "September fifteenth",
+            "June third",
+            "August twentieth",
+            "October thirtieth"
+          ],
+          "answerIndex": 2,
+          "explanation": "Pedestrian and cycling access returns on August twentieth."
+        },
+        {
+          "id": "M7L4Q5",
+          "label": "Question 5",
+          "part": "Part 4 · News Item",
+          "question": "How has the city responded to business owners' request for tax relief?",
+          "options": [
+            "It has promised a decision by August",
+            "It has approved a temporary reduction",
+            "It has refused the request",
+            "Council will consider it, but nothing has been decided"
+          ],
+          "answerIndex": 3,
+          "explanation": "A spokesperson said council will consider the request and that no decision has been made."
+        }
+      ]
+    },
+    {
+      "id": "M7L5",
+      "skill": "listening",
+      "title": "Part 5 · Listening to a Discussion",
+      "instructions": "Listen to the discussion and answer the questions.",
+      "timeLimitSec": 720,
+      "passageTitle": "Choosing a software vendor",
+      "passage": "NADIA: We have to recommend a scheduling software vendor to the director by Friday, and our budget cap is fifty-five thousand dollars a year.\nFELIX: I've reviewed all three. Alpha is forty-eight thousand a year, Beacon is sixty-two, and Crest is thirty-nine.\nGRACE: Crest is the cheapest, but the onboarding takes sixty days, and the reviews mention frequent outages. I'd rule it out.\nNADIA: Agreed. Between the other two, I lean toward Alpha. It's within budget, and onboarding is thirty days.\nFELIX: But Alpha's support is only weekdays, nine to five. We have staff on night shifts, so a problem at two in the morning would sit unresolved until the next day. Beacon offers round-the-clock support and a ten-day onboarding.\nNADIA: True, but Beacon is over budget by seven thousand dollars.\nGRACE: Alpha does have a premium support add-on, twenty-four hours a day, for eight thousand a year. That brings it to fifty-six thousand, which is still over the cap.\nFELIX: So both good options exceed the budget. What if we ask Beacon for a discount? Twelve percent would bring it under the cap.\nGRACE: Sixty-two thousand less twelve percent is about fifty-four thousand five hundred. That works, but they might say no.\nNADIA: In that case we fall back to Alpha with standard support and ask them to include the premium add-on free for the first year.\nFELIX: I'll contact both vendors tomorrow.\nGRACE: And I'll draft the recommendation once we have their replies.",
+      "questions": [
+        {
+          "id": "M7L5Q1",
+          "label": "Question 1",
+          "part": "Part 5 · Discussion",
+          "question": "What must the group do by Friday?",
+          "options": [
+            "Test each vendor's software",
+            "Negotiate a discount with all three vendors",
+            "Sign a contract with Alpha",
+            "Recommend a software vendor to the director"
+          ],
+          "answerIndex": 3,
+          "explanation": "They must recommend a vendor to the director by Friday."
+        },
+        {
+          "id": "M7L5Q2",
+          "label": "Question 2",
+          "part": "Part 5 · Discussion",
+          "question": "What is the yearly budget cap?",
+          "options": [
+            "Fifty-six thousand dollars",
+            "Sixty-two thousand dollars",
+            "Fifty-five thousand dollars",
+            "Forty-eight thousand dollars"
+          ],
+          "answerIndex": 2,
+          "explanation": "Nadia states the cap is fifty-five thousand dollars."
+        },
+        {
+          "id": "M7L5Q3",
+          "label": "Question 3",
+          "part": "Part 5 · Discussion",
+          "question": "Why does Grace rule out Crest?",
+          "options": [
+            "Long onboarding and reports of frequent outages",
+            "It is over the budget cap",
+            "It has no customer support",
+            "It is more expensive than Alpha"
+          ],
+          "answerIndex": 0,
+          "explanation": "She cites sixty-day onboarding and outage reviews."
+        },
+        {
+          "id": "M7L5Q4",
+          "label": "Question 4",
+          "part": "Part 5 · Discussion",
+          "question": "What is Felix's main reason for preferring Beacon?",
+          "options": [
+            "It offers round-the-clock support for night-shift staff",
+            "It offers the longest onboarding",
+            "It is the least expensive option",
+            "It has the best reviews"
+          ],
+          "answerIndex": 0,
+          "explanation": "Felix says a 2 a.m. problem would sit unresolved with Alpha's weekday-only support."
+        },
+        {
+          "id": "M7L5Q5",
+          "label": "Question 5",
+          "part": "Part 5 · Discussion",
+          "question": "What would Alpha cost with the premium support add-on?",
+          "options": [
+            "Sixty-two thousand dollars",
+            "Fifty-four thousand five hundred dollars",
+            "Fifty-six thousand dollars",
+            "Forty-eight thousand dollars"
+          ],
+          "answerIndex": 2,
+          "explanation": "Forty-eight thousand plus eight thousand is fifty-six thousand."
+        },
+        {
+          "id": "M7L5Q6",
+          "label": "Question 6",
+          "part": "Part 5 · Discussion",
+          "question": "What would Beacon cost after a twelve percent discount?",
+          "options": [
+            "About fifty-four thousand five hundred dollars",
+            "About fifty-one thousand dollars",
+            "About fifty-six thousand dollars",
+            "About fifty thousand dollars"
+          ],
+          "answerIndex": 0,
+          "explanation": "Grace calculates sixty-two thousand less twelve percent as about fifty-four thousand five hundred."
+        },
+        {
+          "id": "M7L5Q7",
+          "label": "Question 7",
+          "part": "Part 5 · Discussion",
+          "question": "What is the fallback plan if Beacon refuses a discount?",
+          "options": [
+            "Ask the director for a larger budget",
+            "Delay the decision until next year",
+            "Choose Crest to save money",
+            "Choose Alpha with standard support and ask for a free first-year add-on"
+          ],
+          "answerIndex": 3,
+          "explanation": "Nadia proposes Alpha with standard support and a free premium add-on for the first year."
+        },
+        {
+          "id": "M7L5Q8",
+          "label": "Question 8",
+          "part": "Part 5 · Discussion",
+          "question": "Who will contact the vendors?",
+          "options": [
+            "Nadia",
+            "Grace",
+            "The director",
+            "Felix"
+          ],
+          "answerIndex": 3,
+          "explanation": "Felix says he will contact both vendors tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "M7L6",
+      "skill": "listening",
+      "title": "Part 6 · Listening for Viewpoints",
+      "instructions": "Listen to the two speakers and answer the questions.",
+      "timeLimitSec": 660,
+      "passageTitle": "Short-term rentals debate",
+      "passage": "SPEAKER A: I think cities should allow short-term rentals with light regulation. For many homeowners, renting out a spare room is what keeps them able to pay the mortgage. And visitors spend money in neighbourhoods that hotels never reach; they shop at corner cafés, not just downtown.\nSPEAKER B: But the evidence from cities that allowed it is troubling. When landlords realize they can earn more from weekend visitors than from a long-term tenant, they convert apartments into de facto hotels, and rents rise. In one study, the neighbourhoods with the most listings saw rents climb nearly twice as fast as the city average.\nSPEAKER A: That's a fair concern, but it points to regulation, not prohibition. Cities can cap the number of nights an entire unit may be rented, say ninety a year, while still letting people rent a room in the home where they live.\nSPEAKER B: Caps sound good on paper, but enforcement is notoriously difficult. Cities need staff to track listings, and the platforms haven't always cooperated. I'd also add that noise and constant turnover erode the sense of community in apartment buildings.\nSPEAKER A: Enforcement is a challenge, but it isn't unique to this issue. And I'd argue that banning outright pushes the activity underground, where there is no safety oversight at all.",
+      "questions": [
+        {
+          "id": "M7L6Q1",
+          "label": "Question 1",
+          "part": "Part 6 · Viewpoints",
+          "question": "What is Speaker A's overall position?",
+          "options": [
+            "They should be unregulated",
+            "They should be banned in all residential areas",
+            "They should be limited to hotels",
+            "Short-term rentals should be allowed with light regulation"
+          ],
+          "answerIndex": 3,
+          "explanation": "Speaker A supports allowing rentals with light regulation."
+        },
+        {
+          "id": "M7L6Q2",
+          "label": "Question 2",
+          "part": "Part 6 · Viewpoints",
+          "question": "What benefit for homeowners does Speaker A mention?",
+          "options": [
+            "It raises their property value",
+            "It lowers their taxes",
+            "It provides free advertising",
+            "Renting a spare room helps them pay the mortgage"
+          ],
+          "answerIndex": 3,
+          "explanation": "Speaker A says spare-room rentals help homeowners pay the mortgage."
+        },
+        {
+          "id": "M7L6Q3",
+          "label": "Question 3",
+          "part": "Part 6 · Viewpoints",
+          "question": "What evidence does Speaker B offer?",
+          "options": [
+            "Data showing hotels are losing revenue",
+            "A survey showing tourists dislike rentals",
+            "A study showing rents rising nearly twice as fast where listings were most numerous",
+            "A report showing rents have fallen citywide"
+          ],
+          "answerIndex": 2,
+          "explanation": "Speaker B cites a study in which high-listing neighbourhoods saw rents climb nearly twice as fast."
+        },
+        {
+          "id": "M7L6Q4",
+          "label": "Question 4",
+          "part": "Part 6 · Viewpoints",
+          "question": "What compromise does Speaker A propose?",
+          "options": [
+            "Allow rentals only outside downtown",
+            "Ban rentals in apartment buildings only",
+            "Cap nights for whole-unit rentals but allow room rentals in a person's own home",
+            "Tax every rental at a higher rate"
+          ],
+          "answerIndex": 2,
+          "explanation": "Speaker A suggests a ninety-night cap on entire units while permitting room rentals where people live."
+        },
+        {
+          "id": "M7L6Q5",
+          "label": "Question 5",
+          "part": "Part 6 · Viewpoints",
+          "question": "What is Speaker B's objection to the cap?",
+          "options": [
+            "It is too generous to landlords",
+            "It would raise hotel prices",
+            "It would reduce tourism",
+            "It is hard to enforce"
+          ],
+          "answerIndex": 3,
+          "explanation": "Speaker B says enforcement is notoriously difficult."
+        },
+        {
+          "id": "M7L6Q6",
+          "label": "Question 6",
+          "part": "Part 6 · Viewpoints",
+          "question": "How does Speaker A respond to the enforcement concern?",
+          "options": [
+            "Cities already have enough staff",
+            "Banning would push the activity underground without safety oversight",
+            "Enforcement would be paid for by the platforms",
+            "Enforcement is unnecessary"
+          ],
+          "answerIndex": 1,
+          "explanation": "Speaker A argues a ban would push rentals underground with no oversight."
+        }
+      ]
+    },
+    {
+      "id": "M7R1",
+      "skill": "reading",
+      "title": "Reading Part 1 · Reading Correspondence",
+      "instructions": "Read the email exchange and answer the questions.",
+      "timeLimitSec": 720,
+      "passageTitle": "Kitchen renovation dispute",
+      "passage": "From: Priya Nair <priya.nair@mailbox.ca>\nTo: Colin Beck <colin@beckbuilders.ca>\nSubject: Concerns about revised kitchen costs\n\nDear Colin,\n\nI have reviewed the revised estimate you sent on Monday, and I have several concerns. Our original quote was $18,500, and I paid the 30 percent deposit on April 1. The new estimate adds $1,200 to replace wiring behind the north wall, plus $640 for the under-cabinet lighting, and pushes completion from May 3 to May 17.\n\nI understand surprises happen in older houses, but you inspected the kitchen twice before giving me the quote, and wiring was never mentioned. I feel the wiring cost should not fall entirely on me. I would also like to know whether the delay will affect the warranty.\n\nI look forward to your reply.\n\nPriya Nair\n\n------------------------------\n\nFrom: Colin Beck <colin@beckbuilders.ca>\nTo: Priya Nair\nSubject: Re: Concerns about revised kitchen costs\n\nDear Priya,\n\nThank you for raising this directly. I want to be transparent about how the numbers came about.\n\nThe wiring was concealed behind the drywall, so it could not have been seen during either inspection. Section 4 of our contract excludes concealed conditions from the fixed price, which is why it appears as an additional cost. That said, I recognize the wiring is not something you could have anticipated, so as a gesture of goodwill I will cover half of it. Your share would be $600 instead of $1,200.\n\nThe lighting is different. It was an optional upgrade that you requested on April 10, so I am unable to reduce that cost. With these adjustments, your revised total would be $19,740.\n\nThe completion date of May 17 is firm, provided the electrician's inspection passes on schedule. The two-year warranty on labour is unaffected by the delay. The remaining balance is due within five business days after our final walkthrough.\n\nSincerely,\nColin Beck, Beck Builders",
+      "questions": [
+        {
+          "id": "M7R1Q1",
+          "label": "Question 1",
+          "part": "Reading Part 1",
+          "question": "Why is Priya writing to Colin?",
+          "options": [
+            "To change the kitchen design",
+            "To request a larger deposit refund",
+            "To cancel the renovation",
+            "To dispute additional costs and a delayed completion date"
+          ],
+          "answerIndex": 3,
+          "explanation": "She raises concerns about the revised estimate and the new timeline."
+        },
+        {
+          "id": "M7R1Q2",
+          "label": "Question 2",
+          "part": "Reading Part 1",
+          "question": "How much was Priya's deposit?",
+          "options": [
+            "$5,550",
+            "$1,200",
+            "$4,500",
+            "$6,300"
+          ],
+          "answerIndex": 0,
+          "explanation": "Thirty percent of $18,500 is $5,550."
+        },
+        {
+          "id": "M7R1Q3",
+          "label": "Question 3",
+          "part": "Reading Part 1",
+          "question": "What is Priya's main argument about the wiring?",
+          "options": [
+            "It was already included in the fixed price",
+            "It was installed by a previous contractor",
+            "It was never mentioned during two inspections before the quote",
+            "It should be free because of a warranty"
+          ],
+          "answerIndex": 2,
+          "explanation": "She says Colin inspected twice and never mentioned wiring."
+        },
+        {
+          "id": "M7R1Q4",
+          "label": "Question 4",
+          "part": "Reading Part 1",
+          "question": "Why does Colin say the wiring is an additional cost?",
+          "options": [
+            "Priya requested the wiring change",
+            "The contract excludes concealed conditions from the fixed price",
+            "The original quote was based on old prices",
+            "The electrician charges extra for weekends"
+          ],
+          "answerIndex": 1,
+          "explanation": "Section 4 excludes concealed conditions."
+        },
+        {
+          "id": "M7R1Q5",
+          "label": "Question 5",
+          "part": "Reading Part 1",
+          "question": "What goodwill gesture does Colin offer?",
+          "options": [
+            "To pay half of the wiring cost",
+            "To finish the work earlier",
+            "To waive the lighting cost",
+            "To extend the warranty by a year"
+          ],
+          "answerIndex": 0,
+          "explanation": "Colin will cover half of the $1,200 wiring cost."
+        },
+        {
+          "id": "M7R1Q6",
+          "label": "Question 6",
+          "part": "Reading Part 1",
+          "question": "What is the revised total under Colin's offer?",
+          "options": [
+            "$20,340",
+            "$18,500",
+            "$19,740",
+            "$19,140"
+          ],
+          "answerIndex": 2,
+          "explanation": "$18,500 + $600 + $640 = $19,740."
+        },
+        {
+          "id": "M7R1Q7",
+          "label": "Question 7",
+          "part": "Reading Part 1",
+          "question": "What balance remains after the deposit is deducted from the revised total?",
+          "options": [
+            "$14,790",
+            "$19,740",
+            "$13,000",
+            "$14,190"
+          ],
+          "answerIndex": 3,
+          "explanation": "$19,740 minus $5,550 is $14,190."
+        },
+        {
+          "id": "M7R1Q8",
+          "label": "Question 8",
+          "part": "Reading Part 1",
+          "question": "What is the new completion date?",
+          "options": [
+            "May 24",
+            "May 17",
+            "May 3",
+            "April 10"
+          ],
+          "answerIndex": 1,
+          "explanation": "Colin confirms May 17."
+        },
+        {
+          "id": "M7R1Q9",
+          "label": "Question 9",
+          "part": "Reading Part 1",
+          "question": "Why does Colin refuse to reduce the lighting cost?",
+          "options": [
+            "The electrician cannot be paid less",
+            "It was an optional upgrade that Priya requested",
+            "The lighting was in the original quote",
+            "The lighting is covered by the manufacturer"
+          ],
+          "answerIndex": 1,
+          "explanation": "He says it was an optional upgrade Priya requested."
+        },
+        {
+          "id": "M7R1Q10",
+          "label": "Question 10",
+          "part": "Reading Part 1",
+          "question": "When is the final payment due?",
+          "options": [
+            "On the day the deposit is refunded",
+            "Within five business days after the final walkthrough",
+            "On May 3",
+            "Before the electrician's inspection"
+          ],
+          "answerIndex": 1,
+          "explanation": "The balance is due within five business days after the walkthrough."
+        },
+        {
+          "id": "M7R1Q11",
+          "label": "Question 11",
+          "part": "Reading Part 1",
+          "question": "Which best describes Colin's tone?",
+          "options": [
+            "Firm but conciliatory",
+            "Apologetic and uncertain",
+            "Defensive and dismissive",
+            "Casual and humorous"
+          ],
+          "answerIndex": 0,
+          "explanation": "He holds his position on the lighting but offers a goodwill gesture on the wiring."
+        }
+      ]
+    },
+    {
+      "id": "M7R2",
+      "skill": "reading",
+      "title": "Reading Part 2 · Reading to Apply a Diagram",
+      "instructions": "Read the rate sheet and answer the questions.",
+      "timeLimitSec": 720,
+      "passageTitle": "Airport parking rates",
+      "passage": "AIRPORT PARKING — RATES AND RULES\n\nOption          | Rate                                   | Notes\nLot A (Short)   | $6 per hour, maximum $40 per day       | Maximum stay 3 days\nLot B (Economy) | $18 per day, or $95 per 7-day week    | Free shuttle every 15 minutes, 4:30 am–12:30 am\nLot C (Valet)   | $45 per day                            | Vehicle ready within 12 minutes of request\n\nRULES\n1. In Lot A, part hours are charged as a full hour. A vehicle that exits within 15 minutes of entering pays nothing.\n2. The weekly rate in Lot B applies to a block of 7 consecutive days. Any additional days are charged at the daily rate.\n3. Reserving online saves 10% in Lots B and C. The online discount cannot be combined with the weekly rate.\n4. Lost ticket fee: $50 flat in Lots A and B.\n5. Rates are per calendar day or part of a day in Lots B and C.",
+      "questions": [
+        {
+          "id": "M7R2Q1",
+          "label": "Question 1",
+          "part": "Reading Part 2",
+          "question": "How much does it cost to park in Lot A from 9:00 am to 1:10 pm?",
+          "options": [
+            "$30",
+            "$40",
+            "$6",
+            "$24"
+          ],
+          "answerIndex": 0,
+          "explanation": "Four hours and ten minutes is charged as five hours at $6, which is $30."
+        },
+        {
+          "id": "M7R2Q2",
+          "label": "Question 2",
+          "part": "Reading Part 2",
+          "question": "How much does a driver pay in Lot A from 8:00 am to 5:05 pm?",
+          "options": [
+            "$40",
+            "$54",
+            "$60",
+            "$50"
+          ],
+          "answerIndex": 0,
+          "explanation": "Nine hours and five minutes rounds to ten hours ($60), but the daily maximum is $40."
+        },
+        {
+          "id": "M7R2Q3",
+          "label": "Question 3",
+          "part": "Reading Part 2",
+          "question": "What is the cheapest way to park in Lot B for 9 days?",
+          "options": [
+            "Reserve online and add the weekly rate",
+            "Pay the daily rate for nine days, for $162",
+            "Pay the weekly rate plus two daily rates, for $131",
+            "Reserve online and pay $145.80"
+          ],
+          "answerIndex": 2,
+          "explanation": "$95 + 2 × $18 = $131, which is less than 9 × $18 with 10% off ($145.80); the discount cannot be combined with the weekly rate."
+        },
+        {
+          "id": "M7R2Q4",
+          "label": "Question 4",
+          "part": "Reading Part 2",
+          "question": "How much does 3 days of valet parking cost when reserved online?",
+          "options": [
+            "$126.50",
+            "$121.50",
+            "$135.00",
+            "$108.00"
+          ],
+          "answerIndex": 1,
+          "explanation": "3 × $45 = $135, less 10% is $121.50."
+        },
+        {
+          "id": "M7R2Q5",
+          "label": "Question 5",
+          "part": "Reading Part 2",
+          "question": "A driver parks in Lot A for 20 minutes. How much does the driver pay?",
+          "options": [
+            "$12",
+            "$0",
+            "$6",
+            "$2"
+          ],
+          "answerIndex": 2,
+          "explanation": "The free exit applies only within 15 minutes; 20 minutes is charged as one full hour at $6."
+        },
+        {
+          "id": "M7R2Q6",
+          "label": "Question 6",
+          "part": "Reading Part 2",
+          "question": "Which statement about the shuttle is correct?",
+          "options": [
+            "It runs around the clock",
+            "It serves Lot A and Lot B",
+            "It costs $2 per trip",
+            "It runs every 15 minutes until 12:30 am"
+          ],
+          "answerIndex": 3,
+          "explanation": "Lot B's free shuttle runs every 15 minutes between 4:30 am and 12:30 am."
+        },
+        {
+          "id": "M7R2Q7",
+          "label": "Question 7",
+          "part": "Reading Part 2",
+          "question": "A traveller will be away for 4 days. Which lot is NOT an option?",
+          "options": [
+            "Lot B",
+            "Lot B or Lot C",
+            "Lot A",
+            "Lot C"
+          ],
+          "answerIndex": 2,
+          "explanation": "Lot A has a maximum stay of 3 days."
+        },
+        {
+          "id": "M7R2Q8",
+          "label": "Question 8",
+          "part": "Reading Part 2",
+          "question": "Which is true about lost ticket fees?",
+          "options": [
+            "Only Lot B charges a fee",
+            "The fee is $50 per day",
+            "A flat $50 applies in all three lots",
+            "A flat $50 applies in Lots A and B only"
+          ],
+          "answerIndex": 3,
+          "explanation": "Rule 4 applies the fee to Lots A and B."
+        }
+      ]
+    },
+    {
+      "id": "M7R3",
+      "skill": "reading",
+      "title": "Reading Part 3 · Reading for Information",
+      "instructions": "Read the article and answer the questions.",
+      "timeLimitSec": 900,
+      "passageTitle": "The quiet return of the night train",
+      "passage": "For most of the twentieth century, the overnight sleeper train was a fixture of European travel. Passengers boarded in the evening, slept through the miles, and woke in a different country. By the early 2000s, however, the service was in steep decline. Low-cost airlines had made short-haul flights cheaper and faster, and national rail operators, under pressure to cut costs, retired their sleeper routes one after another.\n\nIn the past decade, that trend has begun to reverse. Concerns about aviation emissions have led travellers to reconsider, and by some estimates a night train produces roughly eighty percent less carbon dioxide per passenger than a comparable short-haul flight. A Vienna-based operator that took over several abandoned routes in 2016 reports passenger numbers up by about thirty percent since 2019, and several countries have announced new overnight links.\n\nYet the revival faces stubborn obstacles. Manufacturers have not built sleeper carriages in decades, so operators rely on ageing rolling stock that is expensive to maintain and often unreliable. Track access fees, which vary widely between countries, can make cross-border journeys costly, and tickets on popular routes still run about twenty percent higher than budget airfares. Analysts also note that a night train must fill most of its berths to break even, which leaves little margin for error.\n\nSupporters argue that comparing ticket prices alone overlooks what passengers actually receive. A sleeper journey replaces a night in a hotel, and it delivers travellers directly into city centres rather than distant airports. One operator has ordered thirty-three new trainsets with private compartments and en-suite showers, a move that suggests confidence in the market, although delivery is not expected for several years.\n\nWhether the night train's comeback lasts may depend less on nostalgia than on policy. Governments that reduce track fees or subsidize equipment purchases could make the service competitive; those that do not may see the revival stall, leaving the night train an appealing but marginal option.",
+      "questions": [
+        {
+          "id": "M7R3Q1",
+          "label": "Question 1",
+          "part": "Reading Part 3",
+          "question": "What is the main idea of the article?",
+          "options": [
+            "Governments should ban low-cost airlines",
+            "Night trains have always been more popular than planes",
+            "Night trains will soon replace short-haul flights",
+            "Night trains are staging a comeback, but their future depends on overcoming obstacles that policy could influence"
+          ],
+          "answerIndex": 3,
+          "explanation": "The article describes the revival, the obstacles, and the role of policy."
+        },
+        {
+          "id": "M7R3Q2",
+          "label": "Question 2",
+          "part": "Reading Part 3",
+          "question": "Why did sleeper services decline by the early 2000s?",
+          "options": [
+            "New tracks made trains slower",
+            "Passengers stopped travelling at night",
+            "Cheap flights emerged and rail operators cut costs",
+            "Governments banned overnight services"
+          ],
+          "answerIndex": 2,
+          "explanation": "Low-cost airlines and cost-cutting rail operators led to retired routes."
+        },
+        {
+          "id": "M7R3Q3",
+          "label": "Question 3",
+          "part": "Reading Part 3",
+          "question": "What does the article say about emissions?",
+          "options": [
+            "Night trains produce no emissions",
+            "Night trains and flights produce about the same emissions",
+            "Night trains may produce roughly eighty percent less carbon dioxide per passenger than short-haul flights",
+            "Night trains produce eighty percent more emissions per passenger"
+          ],
+          "answerIndex": 2,
+          "explanation": "The article cites an estimate of about eighty percent less."
+        },
+        {
+          "id": "M7R3Q4",
+          "label": "Question 4",
+          "part": "Reading Part 3",
+          "question": "What does the Vienna-based operator's experience suggest?",
+          "options": [
+            "Demand has fallen since 2019",
+            "Its routes were profitable from the start",
+            "Demand has grown since it took over abandoned routes",
+            "It has stopped operating cross-border trains"
+          ],
+          "answerIndex": 2,
+          "explanation": "It reports passenger numbers up about thirty percent since 2019."
+        },
+        {
+          "id": "M7R3Q5",
+          "label": "Question 5",
+          "part": "Reading Part 3",
+          "question": "Why is ageing rolling stock a problem?",
+          "options": [
+            "It cannot carry luggage",
+            "It is banned in some countries",
+            "It is costly to maintain and unreliable",
+            "It is too fast for old tracks"
+          ],
+          "answerIndex": 2,
+          "explanation": "The article says it is expensive to maintain and often unreliable."
+        },
+        {
+          "id": "M7R3Q6",
+          "label": "Question 6",
+          "part": "Reading Part 3",
+          "question": "What does \"leaves little margin for error\" imply?",
+          "options": [
+            "The trains must be nearly full to make money",
+            "The trains must run exactly on schedule",
+            "Operators cannot afford any accidents",
+            "Ticket prices cannot be changed"
+          ],
+          "answerIndex": 0,
+          "explanation": "Because most berths must be filled to break even, there is little room for empty seats."
+        },
+        {
+          "id": "M7R3Q7",
+          "label": "Question 7",
+          "part": "Reading Part 3",
+          "question": "What do supporters say about comparing ticket prices?",
+          "options": [
+            "It proves trains are cheaper",
+            "It only matters for business travellers",
+            "It ignores that the train replaces a hotel night and arrives in city centres",
+            "It is unfair to airlines"
+          ],
+          "answerIndex": 2,
+          "explanation": "They argue sleepers replace a night in a hotel and reach city centres."
+        },
+        {
+          "id": "M7R3Q8",
+          "label": "Question 8",
+          "part": "Reading Part 3",
+          "question": "What does the order for thirty-three trainsets suggest?",
+          "options": [
+            "Some operators are confident about future demand, although the new trains are years away",
+            "Old carriages will be repaired immediately",
+            "Demand is already met",
+            "Track fees will be reduced next year"
+          ],
+          "answerIndex": 0,
+          "explanation": "The article says the order suggests confidence, but delivery is several years away."
+        },
+        {
+          "id": "M7R3Q9",
+          "label": "Question 9",
+          "part": "Reading Part 3",
+          "question": "What does the author conclude about the future of night trains?",
+          "options": [
+            "It is certain to succeed",
+            "It depends on airline ticket prices alone",
+            "It depends on nostalgia among passengers",
+            "It may depend on government policy on fees and subsidies"
+          ],
+          "answerIndex": 3,
+          "explanation": "The last paragraph ties the revival to policy such as track fees and equipment subsidies."
+        }
+      ]
+    },
+    {
+      "id": "M7R4",
+      "skill": "reading",
+      "title": "Reading Part 4 · Reading for Viewpoints",
+      "instructions": "Read the two viewpoints and answer the questions.",
+      "timeLimitSec": 960,
+      "passageTitle": "Should tipping be abolished?",
+      "passage": "Pay Servers Fairly, Not Randomly\nBy Renata Silva\n\nTipping is a relic that asks customers to solve a problem employers should own. A server's income swings with the weather, the day of the week, and even a customer's mood, which makes budgeting for rent nearly impossible. Studies also suggest that tips are higher for servers who fit customers' expectations of appearance, meaning the system rewards bias more reliably than it rewards service. Countries without a tipping culture, such as Japan, still enjoy excellent service. If restaurants paid a living wage and built it into menu prices, servers would earn a stable income and diners would know what a meal truly costs.\n\nKeep the Tip\nBy Daniel Cho\n\nAbolishing tipping sounds fair, but it would hurt the people it claims to help. In a busy restaurant, a skilled server on a strong night can earn well above a typical hourly wage, and that upside attracts talented staff. If owners raise menu prices by eighteen to twenty percent to cover higher wages, many diners will simply eat out less, and slower business means fewer shifts for everyone. Tipping also gives customers a direct way to reward good service and to hold restaurants accountable. It is not perfect, but a system that rewards effort is better than one in which a mediocre server earns the same as an excellent one.",
+      "questions": [
+        {
+          "id": "M7R4Q1",
+          "label": "Question 1",
+          "part": "Reading Part 4",
+          "question": "What is the main topic of the two pieces?",
+          "options": [
+            "Whether tipping in restaurants should be abolished",
+            "How restaurants set menu prices",
+            "How to improve service in Japan",
+            "Whether servers should receive training"
+          ],
+          "answerIndex": 0,
+          "explanation": "Both authors debate ending tipping."
+        },
+        {
+          "id": "M7R4Q2",
+          "label": "Question 2",
+          "part": "Reading Part 4",
+          "question": "What is Silva's main criticism of tipping?",
+          "options": [
+            "It makes menus more expensive",
+            "It lowers the quality of food",
+            "It shifts responsibility for wages from employers to customers",
+            "It is illegal in some countries"
+          ],
+          "answerIndex": 2,
+          "explanation": "She says tipping asks customers to solve a problem employers should own."
+        },
+        {
+          "id": "M7R4Q3",
+          "label": "Question 3",
+          "part": "Reading Part 4",
+          "question": "How does Silva say tipping affects servers' incomes?",
+          "options": [
+            "Their earnings are unpredictable, making budgeting difficult",
+            "Their earnings are always too low",
+            "Their earnings are guaranteed by law",
+            "Their earnings depend on years of experience"
+          ],
+          "answerIndex": 0,
+          "explanation": "She notes income swings with weather, weekday, and customer mood."
+        },
+        {
+          "id": "M7R4Q4",
+          "label": "Question 4",
+          "part": "Reading Part 4",
+          "question": "What does Silva suggest about tips and appearance?",
+          "options": [
+            "The system may reward bias more than service",
+            "Appearance has no effect on tips",
+            "Customers tip based on menu prices",
+            "Servers should dress formally"
+          ],
+          "answerIndex": 0,
+          "explanation": "She says tips favour servers who fit expectations of appearance."
+        },
+        {
+          "id": "M7R4Q5",
+          "label": "Question 5",
+          "part": "Reading Part 4",
+          "question": "Why does Silva mention Japan?",
+          "options": [
+            "To compare menu prices",
+            "To show that tipping originated there",
+            "To argue that servers are better paid abroad",
+            "To show that excellent service does not require tipping"
+          ],
+          "answerIndex": 3,
+          "explanation": "She says countries without tipping culture still enjoy excellent service."
+        },
+        {
+          "id": "M7R4Q6",
+          "label": "Question 6",
+          "part": "Reading Part 4",
+          "question": "What outcome does Silva expect if restaurants pay a living wage?",
+          "options": [
+            "Service would improve immediately",
+            "Restaurants would close",
+            "Menu prices would fall",
+            "Servers would have stable incomes and diners would know the true cost of a meal"
+          ],
+          "answerIndex": 3,
+          "explanation": "She says wages built into prices would produce stable income and clarity."
+        },
+        {
+          "id": "M7R4Q7",
+          "label": "Question 7",
+          "part": "Reading Part 4",
+          "question": "What does Cho say about strong nights for skilled servers?",
+          "options": [
+            "They lose money on slow days",
+            "They earn the same as any other night",
+            "They can earn well above a typical hourly wage",
+            "They receive bonuses from owners"
+          ],
+          "answerIndex": 2,
+          "explanation": "He says skilled servers can earn well above a typical wage on strong nights."
+        },
+        {
+          "id": "M7R4Q8",
+          "label": "Question 8",
+          "part": "Reading Part 4",
+          "question": "What consequence of higher menu prices does Cho fear?",
+          "options": [
+            "More customers tipping less",
+            "Owners earning higher profits",
+            "Servers demanding higher wages",
+            "Diners eating out less and servers getting fewer shifts"
+          ],
+          "answerIndex": 3,
+          "explanation": "He warns of less dining out and slower business, which means fewer shifts."
+        },
+        {
+          "id": "M7R4Q9",
+          "label": "Question 9",
+          "part": "Reading Part 4",
+          "question": "What does Cho say tipping gives customers?",
+          "options": [
+            "A guarantee of quality",
+            "A direct way to reward good service and hold restaurants accountable",
+            "A way to set menu prices",
+            "A discount on their meals"
+          ],
+          "answerIndex": 1,
+          "explanation": "He says tipping rewards service and holds restaurants accountable."
+        },
+        {
+          "id": "M7R4Q10",
+          "label": "Question 10",
+          "part": "Reading Part 4",
+          "question": "On what point do the authors most directly disagree?",
+          "options": [
+            "Whether tipping rewards effort or produces instability and bias",
+            "Whether servers deserve to be paid",
+            "Whether customers enjoy dining out",
+            "Whether restaurants should raise prices"
+          ],
+          "answerIndex": 0,
+          "explanation": "Silva says tipping rewards bias and creates instability; Cho says it rewards effort."
+        }
+      ]
+    },
+    {
+      "id": "M7W1",
+      "skill": "writing",
+      "title": "Writing Task 1 · Email",
+      "instructions": "Write an email based on the task below.",
+      "timeLimitSec": 1620,
+      "questions": [],
+      "writingTask": {
+        "id": "M7W1",
+        "task": "Writing Task 1",
+        "title": "Writing an Email",
+        "timeLimit": "27 min",
+        "wordTarget": "150–200 words",
+        "scenario": "You lead a small design team. A supplier delay means you will deliver a project to an important client one week later than promised. Write an email to the client.",
+        "instructions": [
+          "Explain what caused the delay and how long it will be.",
+          "Apologize and describe the effect on the client's plans.",
+          "Offer two options for moving forward.",
+          "Keep a professional, respectful tone."
+        ],
+        "sampleAnswer": "Dear Mr. Fraser, I am writing to inform you of a delay affecting the brand packaging project. Our printing supplier experienced a machine failure last week, and the finished materials will now reach us on June 21 instead of June 14. I sincerely apologize for the inconvenience, especially since I understand your product launch is scheduled for June 24. The revised date still leaves three days before the launch, but it removes the buffer we had planned for final review. To help, I can offer two options. First, we can courier the materials directly to your warehouse on the 21st, so you can review them on arrival and avoid an extra day of transit. Second, we can arrange a smaller first delivery of the most urgent items by June 17 and send the remainder on the 21st. Please let me know which option suits you best, and I will confirm the details the same day. Thank you for your patience and for your continued trust in our team. Kind regards, Amara Lewis",
+        "criteria": [
+          {
+            "label": "Content",
+            "note": "Covers every point in the task with relevant, specific detail."
+          },
+          {
+            "label": "Tone",
+            "note": "Appropriate register for the audience and purpose."
+          },
+          {
+            "label": "Organization",
+            "note": "Clear paragraphing, logical flow, and effective linking."
+          },
+          {
+            "label": "Language",
+            "note": "Accurate grammar, spelling, and varied vocabulary."
+          }
+        ]
+      }
+    },
+    {
+      "id": "M7W2",
+      "skill": "writing",
+      "title": "Writing Task 2 · Survey Response",
+      "instructions": "Write a response to the survey questions below.",
+      "timeLimitSec": 1560,
+      "questions": [],
+      "writingTask": {
+        "id": "M7W2",
+        "task": "Writing Task 2",
+        "title": "Responding to Survey Questions",
+        "timeLimit": "26 min",
+        "wordTarget": "150–200 words",
+        "scenario": "Your city is deciding whether to turn a busy downtown street into a pedestrian-only zone, or keep it open to cars and widen the sidewalks. Complete the survey explaining which option you prefer and why.",
+        "instructions": [
+          "State your preferred option clearly.",
+          "Give at least two reasons for your choice, using specific examples.",
+          "Address one possible concern about your choice and respond to it.",
+          "Write in full sentences."
+        ],
+        "sampleAnswer": "I prefer turning the street into a pedestrian-only zone. First, removing cars would make the area safer and quieter, which encourages people to linger. In cities that have done this, cafés and shops often report more customers because visitors walk slowly and notice storefronts. Second, the change would reduce air pollution in the busiest part of downtown, which benefits everyone who works or lives nearby. Some business owners worry that deliveries and customers who drive would be lost. This is a fair concern, but it can be addressed by allowing delivery vehicles in early morning hours and by placing clear signs to nearby parking garages. I also suggest running a six-month trial so the city can measure foot traffic and sales before making the change permanent. A trial would show whether the idea works for local businesses and give residents confidence in the decision. Thank you for allowing residents to have a say.",
+        "criteria": [
+          {
+            "label": "Content",
+            "note": "Covers every point in the task with relevant, specific detail."
+          },
+          {
+            "label": "Tone",
+            "note": "Appropriate register for the audience and purpose."
+          },
+          {
+            "label": "Organization",
+            "note": "Clear paragraphing, logical flow, and effective linking."
+          },
+          {
+            "label": "Language",
+            "note": "Accurate grammar, spelling, and varied vocabulary."
+          }
+        ]
+      }
+    },
+    {
+      "id": "M7S1",
+      "skill": "speaking",
+      "title": "Speaking Task 1 · Giving Advice",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 120,
+      "questions": [],
+      "speakingTask": {
+        "id": "M7S1",
+        "title": "Task 1: Giving Advice",
+        "scenario": "A colleague was recently passed over for a promotion they worked hard for, and they are thinking about quitting. Give your colleague advice on how to handle this situation.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 90,
+        "tips": [
+          "Acknowledge the person's feelings first.",
+          "Give two or three practical, balanced suggestions.",
+          "Explain the reasoning behind your advice."
+        ],
+        "sampleAnswer": "I understand how disappointing this must feel, especially after all your hard work. Before making a big decision, I would suggest taking a few days to cool down so you are not acting out of frustration. Then, ask your manager for specific feedback about what was missing and what you could do to be considered next time. That way you can decide if there is a real path forward. At the same time, it might be wise to quietly explore other opportunities, so you have options. Whatever you choose, remember that one setback does not define your career, and I'm here to support you.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M7S2",
+      "skill": "speaking",
+      "title": "Speaking Task 2 · Talking about a Personal Experience",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M7S2",
+        "title": "Task 2: Talking about a Personal Experience",
+        "scenario": "Describe a mistake you made that taught you an important lesson. Explain what happened and what you learned.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Briefly describe the situation and the mistake.",
+          "Explain the consequences and how you responded.",
+          "End with the lesson and how you apply it now."
+        ],
+        "sampleAnswer": "A few years ago, I forgot to double-check a client's shipping address and sent an important package to the wrong city. The client was upset, and I felt terrible. I immediately called the courier, arranged an express redelivery at my own expense, and apologized directly. The package arrived one day late, and the client actually appreciated how quickly I responded. Since then, I always verify details before sending anything. That experience taught me that mistakes are manageable if you take responsibility quickly.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M7S3",
+      "skill": "speaking",
+      "title": "Speaking Task 3 · Describing a Scene",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M7S3",
+        "title": "Task 3: Describing a Scene",
+        "scenario": "Describe a community festival held at night beside a river. Include what you see, hear, and smell, and what people are doing.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Use your senses to create a vivid picture.",
+          "Organize your description from a wide view to specific details.",
+          "Mention how the atmosphere feels."
+        ],
+        "sampleAnswer": "The riverbank glows with hundreds of paper lanterns, and their reflections shimmer on the dark water. Families crowd along the path, children waving glow sticks while a band plays cheerful folk music from a small stage. The air smells of roasted corn and fried dough from the food stalls, and vendors call out to passing crowds. Near the water, couples watch small lanterns float downstream. Everywhere there is laughter and a warm, relaxed feeling, as if the whole town has come together to celebrate.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M7S4",
+      "skill": "speaking",
+      "title": "Speaking Task 4 · Making Predictions",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M7S4",
+        "title": "Task 4: Making Predictions",
+        "scenario": "A man stands at a bus stop in the rain holding a large cake box. His phone is ringing, and a bus is approaching in the distance. Predict what will happen next and explain your reasoning.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Base your predictions on details in the scene.",
+          "Use language of prediction such as will, probably, and might.",
+          "Include a beginning, a middle, and an ending."
+        ],
+        "sampleAnswer": "I think the man is probably late for a birthday party, since he is carrying a cake. He will likely answer the phone quickly to tell the host he is on his way, while trying to keep the box dry under his arm. When the bus arrives, he will hurry aboard, and the box might get slightly squashed in the crowd. In the end, I believe he will arrive a little late but in good spirits, and everyone will laugh about the slightly damaged cake.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M7S5",
+      "skill": "speaking",
+      "title": "Speaking Task 5 · Comparing and Persuading",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 120,
+      "questions": [],
+      "speakingTask": {
+        "id": "M7S5",
+        "title": "Task 5: Comparing and Persuading",
+        "scenario": "Your manager is choosing a location for the annual team retreat. Option A is a two-day wilderness canoe trip costing $250 per person. Option B is a one-day workshop at a downtown hotel with a catered lunch, costing $120 per person. Persuade your manager to choose one option.",
+        "prepTimeSec": 60,
+        "speakTimeSec": 60,
+        "tips": [
+          "State your choice at the start.",
+          "Compare cost, benefits, and practicality directly.",
+          "Anticipate one objection and respond to it."
+        ],
+        "sampleAnswer": "I would recommend the downtown workshop. First, it costs only $120 per person, which is less than half the price of the canoe trip, and that saves money for other team needs. Second, a workshop offers structured activities that improve communication, while a canoe trip requires everyone to have the same fitness level and comfort with the outdoors. Some might say the canoe trip builds stronger bonds, but not everyone would enjoy it, and it takes two working days. A one-day workshop gives us focused teamwork with far less risk and disruption.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M7S6",
+      "skill": "speaking",
+      "title": "Speaking Task 6 · Dealing with a Difficult Situation",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 120,
+      "questions": [],
+      "speakingTask": {
+        "id": "M7S6",
+        "title": "Task 6: Dealing with a Difficult Situation",
+        "scenario": "A friend lent you her expensive camera for a weekend trip, and you accidentally dropped it and cracked the lens. Explain what you would say to your friend and what you would do to resolve the situation.",
+        "prepTimeSec": 60,
+        "speakTimeSec": 60,
+        "tips": [
+          "Take responsibility without making excuses.",
+          "Explain what you would offer to do.",
+          "Show that you value the friendship."
+        ],
+        "sampleAnswer": "I would tell her right away, in person if possible, so she doesn't hear it in a text. I would say, \"I'm so sorry, I dropped your camera and cracked the lens, and I take full responsibility.\" I would offer to pay for the repair or replacement, and I would find out what it costs before we meet. I would also ask how she would prefer to handle it. Most importantly, I would make it clear that her trust matters more to me than the camera, and I would never borrow anything without extra care again.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M7S7",
+      "skill": "speaking",
+      "title": "Speaking Task 7 · Expressing Opinions",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 120,
+      "questions": [],
+      "speakingTask": {
+        "id": "M7S7",
+        "title": "Task 7: Expressing Opinions",
+        "scenario": "Some people believe employers should be required by law to let employees ignore work messages outside working hours. Do you agree or disagree? Support your opinion with reasons.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 90,
+        "tips": [
+          "State your opinion clearly at the start.",
+          "Give two or three reasons with examples.",
+          "Acknowledge a counterargument and respond."
+        ],
+        "sampleAnswer": "I agree that employees should have the right to disconnect. First, constant availability leads to burnout, because people never fully recover from work. Second, rest improves productivity, so employers benefit too when staff return refreshed. Third, without a clear rule, workers may feel pressured to reply at night, even if nobody asks them directly. Some argue that emergencies require flexibility, and that is a fair point. But the law could include exceptions for urgent situations and for jobs that need on-call duty. Overall, I believe healthy boundaries make workplaces fairer and more sustainable.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M7S8",
+      "skill": "speaking",
+      "title": "Speaking Task 8 · Describing an Unusual Situation",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M7S8",
+        "title": "Task 8: Describing an Unusual Situation",
+        "scenario": "You see a photo of a library built inside an abandoned subway station, with bookshelves lining the platform and reading tables on the old tracks. Describe it to a friend and explain whether you think it is a good idea.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Describe the most unusual features first.",
+          "Explain how visitors might experience it.",
+          "Give a clear opinion with reasons."
+        ],
+        "sampleAnswer": "This library is remarkable. Bookshelves stretch along the old platform, and the reading tables sit where the trains used to run, so it feels like reading inside a piece of history. Visitors would probably find it quiet and atmospheric, though I imagine the lighting and temperature could be a challenge underground. Still, I think it is a wonderful idea, because it gives an unused space a new purpose and brings people into the community. I would definitely visit, and I would bring a sweater.",
+        "clb": "CLB 9 sample"
+      }
+    }
+  ]
+}
