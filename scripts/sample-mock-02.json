@@ -14,14 +14,118 @@
       "passageTitle": "Heating repair call",
       "passage": "AGENT: Good morning, Maple Grove Property Management, this is Dana.\nCUSTOMER: Hi, this is Sam in unit 402. My heating stopped working last night.\nAGENT: I'm sorry to hear that. When exactly did it stop?\nCUSTOMER: Around nine o'clock. I noticed the apartment getting cold.\nAGENT: Have you checked the thermostat and the breaker panel?\nCUSTOMER: Yes. The thermostat is set to twenty-four, and all the breakers look fine.\nAGENT: I'll send a technician this afternoon. They should arrive by two.\nCUSTOMER: I have a meeting until four. Could they come after that?\nAGENT: Of course. I'll book the visit for four thirty.\nCUSTOMER: Great, thank you for your help.",
       "questions": [
-        {"id": "M2L1Q1", "label": "Question 1", "part": "Part 1 · Problem Solving", "question": "Who is the caller?", "options": ["A tenant reporting a problem", "A technician asking for directions", "A manager giving instructions", "A delivery driver confirming a time"], "answerIndex": 0, "explanation": "Sam lives in unit 402 and is reporting that the heating stopped working."},
-        {"id": "M2L1Q2", "label": "Question 2", "part": "Part 1 · Problem Solving", "question": "What problem is the caller reporting?", "options": ["The heating stopped working", "The water is leaking", "The power is out", "The elevator is broken"], "answerIndex": 0, "explanation": "Sam says the heating stopped working last night."},
-        {"id": "M2L1Q3", "label": "Question 3", "part": "Part 1 · Problem Solving", "question": "When did the heating stop?", "options": ["Around nine last night", "Early this morning", "Late yesterday afternoon", "Two hours ago"], "answerIndex": 0, "explanation": "Sam noticed the apartment getting cold around nine o'clock."},
-        {"id": "M2L1Q4", "label": "Question 4", "part": "Part 1 · Problem Solving", "question": "What did the caller already check?", "options": ["The thermostat and the breaker panel", "The furnace filter", "The front door lock", "The radiators"], "answerIndex": 0, "explanation": "Sam checked the thermostat and the breakers; both looked fine."},
-        {"id": "M2L1Q5", "label": "Question 5", "part": "Part 1 · Problem Solving", "question": "When does the agent say the technician should arrive?", "options": ["By two in the afternoon", "By nine in the morning", "By four thirty", "Tomorrow morning"], "answerIndex": 0, "explanation": "The agent says someone should arrive by two."},
-        {"id": "M2L1Q6", "label": "Question 6", "part": "Part 1 · Problem Solving", "question": "Why does the caller ask for a later appointment?", "options": ["They have a meeting until four", "They will be at work all day", "They need to pick up a child", "They have not finished cleaning"], "answerIndex": 0, "explanation": "Sam has a meeting until four and asks for a visit after that."},
-        {"id": "M2L1Q7", "label": "Question 7", "part": "Part 1 · Problem Solving", "question": "What time is the visit rescheduled for?", "options": ["Four thirty", "Two o'clock", "Five o'clock", "Tomorrow at noon"], "answerIndex": 0, "explanation": "The agent books the visit for four thirty."},
-        {"id": "M2L1Q8", "label": "Question 8", "part": "Part 1 · Problem Solving", "question": "How does the agent respond to the caller's request?", "options": ["Agrees and reschedules", "Refuses politely", "Suggests calling back later", "Transfers the call"], "answerIndex": 0, "explanation": "The agent says \"Of course\" and books the later time."}
+        {
+          "id": "M2L1Q1",
+          "label": "Question 1",
+          "part": "Part 1 · Problem Solving",
+          "question": "Who is the caller?",
+          "options": [
+            "A manager giving instructions",
+            "A delivery driver confirming a time",
+            "A tenant reporting a problem",
+            "A technician asking for directions"
+          ],
+          "answerIndex": 2,
+          "explanation": "Sam lives in unit 402 and is reporting that the heating stopped working."
+        },
+        {
+          "id": "M2L1Q2",
+          "label": "Question 2",
+          "part": "Part 1 · Problem Solving",
+          "question": "What problem is the caller reporting?",
+          "options": [
+            "The power is out",
+            "The water is leaking",
+            "The elevator is broken",
+            "The heating stopped working"
+          ],
+          "answerIndex": 3,
+          "explanation": "Sam says the heating stopped working last night."
+        },
+        {
+          "id": "M2L1Q3",
+          "label": "Question 3",
+          "part": "Part 1 · Problem Solving",
+          "question": "When did the heating stop?",
+          "options": [
+            "Early this morning",
+            "Late yesterday afternoon",
+            "Two hours ago",
+            "Around nine last night"
+          ],
+          "answerIndex": 3,
+          "explanation": "Sam noticed the apartment getting cold around nine o'clock."
+        },
+        {
+          "id": "M2L1Q4",
+          "label": "Question 4",
+          "part": "Part 1 · Problem Solving",
+          "question": "What did the caller already check?",
+          "options": [
+            "The radiators",
+            "The front door lock",
+            "The furnace filter",
+            "The thermostat and the breaker panel"
+          ],
+          "answerIndex": 3,
+          "explanation": "Sam checked the thermostat and the breakers; both looked fine."
+        },
+        {
+          "id": "M2L1Q5",
+          "label": "Question 5",
+          "part": "Part 1 · Problem Solving",
+          "question": "When does the agent say the technician should arrive?",
+          "options": [
+            "By nine in the morning",
+            "By four thirty",
+            "By two in the afternoon",
+            "Tomorrow morning"
+          ],
+          "answerIndex": 2,
+          "explanation": "The agent says someone should arrive by two."
+        },
+        {
+          "id": "M2L1Q6",
+          "label": "Question 6",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why does the caller ask for a later appointment?",
+          "options": [
+            "They have a meeting until four",
+            "They have not finished cleaning",
+            "They will be at work all day",
+            "They need to pick up a child"
+          ],
+          "answerIndex": 0,
+          "explanation": "Sam has a meeting until four and asks for a visit after that."
+        },
+        {
+          "id": "M2L1Q7",
+          "label": "Question 7",
+          "part": "Part 1 · Problem Solving",
+          "question": "What time is the visit rescheduled for?",
+          "options": [
+            "Five o'clock",
+            "Four thirty",
+            "Tomorrow at noon",
+            "Two o'clock"
+          ],
+          "answerIndex": 1,
+          "explanation": "The agent books the visit for four thirty."
+        },
+        {
+          "id": "M2L1Q8",
+          "label": "Question 8",
+          "part": "Part 1 · Problem Solving",
+          "question": "How does the agent respond to the caller's request?",
+          "options": [
+            "Agrees and reschedules",
+            "Transfers the call",
+            "Refuses politely",
+            "Suggests calling back later"
+          ],
+          "answerIndex": 0,
+          "explanation": "The agent says \"Of course\" and books the later time."
+        }
       ]
     },
     {
@@ -33,11 +137,76 @@
       "passageTitle": "Camping plans",
       "passage": "LEE: Are we still on for the camping trip this weekend?\nMARA: Definitely. I booked a campsite at Pine Lake for Saturday night.\nLEE: Nice. Should we leave early on Saturday morning?\nMARA: Let's meet at my place at seven. The drive is about two hours.\nLEE: I'll bring my tent and the cooler. What about food?\nMARA: I'll grab sandwiches and snacks on Friday. You can handle the drinks.\nLEE: Works for me. Is there a fire ban at the park right now?\nMARA: Not as far as I know, but let's check the park website Friday night.",
       "questions": [
-        {"id": "M2L2Q1", "label": "Question 1", "part": "Part 2 · Daily Life", "question": "What are the speakers planning?", "options": ["A weekend camping trip", "A day at the beach", "A ski weekend", "A city tour"], "answerIndex": 0, "explanation": "They are planning a camping trip at Pine Lake."},
-        {"id": "M2L2Q2", "label": "Question 2", "part": "Part 2 · Daily Life", "question": "Where is the campsite?", "options": ["Pine Lake", "Maple Ridge", "Cedar Point", "Rocky Bay"], "answerIndex": 0, "explanation": "Mara booked a campsite at Pine Lake."},
-        {"id": "M2L2Q3", "label": "Question 3", "part": "Part 2 · Daily Life", "question": "When do they plan to meet?", "options": ["Seven in the morning", "Six in the evening", "Nine in the morning", "Noon"], "answerIndex": 0, "explanation": "They agree to meet at Mara's place at seven."},
-        {"id": "M2L2Q4", "label": "Question 4", "part": "Part 2 · Daily Life", "question": "Who will bring the food?", "options": ["Mara", "Lee", "Both of them", "Neither of them"], "answerIndex": 0, "explanation": "Mara will grab sandwiches and snacks on Friday."},
-        {"id": "M2L2Q5", "label": "Question 5", "part": "Part 2 · Daily Life", "question": "What do they decide to do on Friday night?", "options": ["Check the fire-ban status", "Book another night", "Buy a new tent", "Change the destination"], "answerIndex": 0, "explanation": "They plan to check the park website Friday night about a fire ban."}
+        {
+          "id": "M2L2Q1",
+          "label": "Question 1",
+          "part": "Part 2 · Daily Life",
+          "question": "What are the speakers planning?",
+          "options": [
+            "A city tour",
+            "A day at the beach",
+            "A ski weekend",
+            "A weekend camping trip"
+          ],
+          "answerIndex": 3,
+          "explanation": "They are planning a camping trip at Pine Lake."
+        },
+        {
+          "id": "M2L2Q2",
+          "label": "Question 2",
+          "part": "Part 2 · Daily Life",
+          "question": "Where is the campsite?",
+          "options": [
+            "Cedar Point",
+            "Pine Lake",
+            "Maple Ridge",
+            "Rocky Bay"
+          ],
+          "answerIndex": 1,
+          "explanation": "Mara booked a campsite at Pine Lake."
+        },
+        {
+          "id": "M2L2Q3",
+          "label": "Question 3",
+          "part": "Part 2 · Daily Life",
+          "question": "When do they plan to meet?",
+          "options": [
+            "Six in the evening",
+            "Noon",
+            "Nine in the morning",
+            "Seven in the morning"
+          ],
+          "answerIndex": 3,
+          "explanation": "They agree to meet at Mara's place at seven."
+        },
+        {
+          "id": "M2L2Q4",
+          "label": "Question 4",
+          "part": "Part 2 · Daily Life",
+          "question": "Who will bring the food?",
+          "options": [
+            "Neither of them",
+            "Mara",
+            "Both of them",
+            "Lee"
+          ],
+          "answerIndex": 1,
+          "explanation": "Mara will grab sandwiches and snacks on Friday."
+        },
+        {
+          "id": "M2L2Q5",
+          "label": "Question 5",
+          "part": "Part 2 · Daily Life",
+          "question": "What do they decide to do on Friday night?",
+          "options": [
+            "Book another night",
+            "Change the destination",
+            "Check the fire-ban status",
+            "Buy a new tent"
+          ],
+          "answerIndex": 2,
+          "explanation": "They plan to check the park website Friday night about a fire ban."
+        }
       ]
     },
     {
@@ -49,12 +218,90 @@
       "passageTitle": "Library orientation",
       "passage": "HOST: Welcome to the Riverside Library orientation. My name is Nina.\nELENA: Thanks. I just moved here and I'd like to know how things work.\nHOST: Happy to help. Your card lets you borrow up to thirty items at once.\nELENA: How long can I keep books for?\nHOST: Most items go out for three weeks. You can renew twice online.\nELENA: Do you have digital books too?\nHOST: Yes, the e-book catalogue is free with your card, and there's no late fee on them.\nELENA: That's great. What about the study rooms upstairs?\nHOST: You can reserve one for two hours a day using the website.",
       "questions": [
-        {"id": "M2L3Q1", "label": "Question 1", "part": "Part 3 · Information", "question": "What is the purpose of the talk?", "options": ["To explain library services", "To sell library cards", "To promote a book sale", "To announce new hours"], "answerIndex": 0, "explanation": "The librarian is orienting a new patron to how the library works."},
-        {"id": "M2L3Q2", "label": "Question 2", "part": "Part 3 · Information", "question": "How many items can be borrowed at once?", "options": ["Thirty", "Twenty", "Ten", "Fifteen"], "answerIndex": 0, "explanation": "The card lets a patron borrow up to thirty items at once."},
-        {"id": "M2L3Q3", "label": "Question 3", "part": "Part 3 · Information", "question": "How long can most items be kept?", "options": ["Three weeks", "One week", "Two weeks", "Four weeks"], "answerIndex": 0, "explanation": "Most items go out for three weeks."},
-        {"id": "M2L3Q4", "label": "Question 4", "part": "Part 3 · Information", "question": "How many times can an item be renewed?", "options": ["Twice", "Once", "Three times", "Unlimited"], "answerIndex": 0, "explanation": "Items can be renewed twice, online."},
-        {"id": "M2L3Q5", "label": "Question 5", "part": "Part 3 · Information", "question": "What is free with a library card?", "options": ["The e-book catalogue", "The study rooms", "Printing", "Inter-library loans"], "answerIndex": 0, "explanation": "The e-book catalogue is free with a card and has no late fees."},
-        {"id": "M2L3Q6", "label": "Question 6", "part": "Part 3 · Information", "question": "How can the study rooms be reserved?", "options": ["Through the website, for two hours a day", "In person, for a full day", "By phone, for one hour", "By email, for three hours"], "answerIndex": 0, "explanation": "Rooms are reserved online for two hours a day."}
+        {
+          "id": "M2L3Q1",
+          "label": "Question 1",
+          "part": "Part 3 · Information",
+          "question": "What is the purpose of the talk?",
+          "options": [
+            "To sell library cards",
+            "To promote a book sale",
+            "To announce new hours",
+            "To explain library services"
+          ],
+          "answerIndex": 3,
+          "explanation": "The librarian is orienting a new patron to how the library works."
+        },
+        {
+          "id": "M2L3Q2",
+          "label": "Question 2",
+          "part": "Part 3 · Information",
+          "question": "How many items can be borrowed at once?",
+          "options": [
+            "Ten",
+            "Twenty",
+            "Thirty",
+            "Fifteen"
+          ],
+          "answerIndex": 2,
+          "explanation": "The card lets a patron borrow up to thirty items at once."
+        },
+        {
+          "id": "M2L3Q3",
+          "label": "Question 3",
+          "part": "Part 3 · Information",
+          "question": "How long can most items be kept?",
+          "options": [
+            "Three weeks",
+            "One week",
+            "Two weeks",
+            "Four weeks"
+          ],
+          "answerIndex": 0,
+          "explanation": "Most items go out for three weeks."
+        },
+        {
+          "id": "M2L3Q4",
+          "label": "Question 4",
+          "part": "Part 3 · Information",
+          "question": "How many times can an item be renewed?",
+          "options": [
+            "Once",
+            "Three times",
+            "Unlimited",
+            "Twice"
+          ],
+          "answerIndex": 3,
+          "explanation": "Items can be renewed twice, online."
+        },
+        {
+          "id": "M2L3Q5",
+          "label": "Question 5",
+          "part": "Part 3 · Information",
+          "question": "What is free with a library card?",
+          "options": [
+            "The study rooms",
+            "The e-book catalogue",
+            "Inter-library loans",
+            "Printing"
+          ],
+          "answerIndex": 1,
+          "explanation": "The e-book catalogue is free with a card and has no late fees."
+        },
+        {
+          "id": "M2L3Q6",
+          "label": "Question 6",
+          "part": "Part 3 · Information",
+          "question": "How can the study rooms be reserved?",
+          "options": [
+            "By phone, for one hour",
+            "In person, for a full day",
+            "Through the website, for two hours a day",
+            "By email, for three hours"
+          ],
+          "answerIndex": 2,
+          "explanation": "Rooms are reserved online for two hours a day."
+        }
       ]
     },
     {
@@ -66,11 +313,76 @@
       "passageTitle": "Community garden opens",
       "passage": "ANNOUNCER: The city opened its first community garden in Riverside Park this morning. The garden has forty raised beds, and residents can rent one for twenty dollars a season. Organizers say all plots were claimed within the first hour, and a waiting list has already started. The garden will also host free gardening workshops every Saturday throughout the summer. The mayor, who attended the opening, called the project a long-awaited win for the neighbourhood.",
       "questions": [
-        {"id": "M2L4Q1", "label": "Question 1", "part": "Part 4 · News Item", "question": "What did the city open?", "options": ["A community garden", "A new library", "A sports centre", "A farmers market"], "answerIndex": 0, "explanation": "The city opened its first community garden."},
-        {"id": "M2L4Q2", "label": "Question 2", "part": "Part 4 · News Item", "question": "How many raised beds does the garden have?", "options": ["Forty", "Twenty", "Thirty", "Fifty"], "answerIndex": 0, "explanation": "The garden has forty raised beds."},
-        {"id": "M2L4Q3", "label": "Question 3", "part": "Part 4 · News Item", "question": "How much does it cost to rent a bed?", "options": ["Twenty dollars a season", "Ten dollars a month", "Forty dollars a season", "Free"], "answerIndex": 0, "explanation": "A bed costs twenty dollars a season."},
-        {"id": "M2L4Q4", "label": "Question 4", "part": "Part 4 · News Item", "question": "What happened to the plots?", "options": ["All were claimed within an hour", "Half were still available", "They were given by lottery", "They were too expensive"], "answerIndex": 0, "explanation": "All plots were claimed within the first hour."},
-        {"id": "M2L4Q5", "label": "Question 5", "part": "Part 4 · News Item", "question": "What will be offered every Saturday?", "options": ["Free gardening workshops", "A produce sale", "Tours of the park", "Cooking classes"], "answerIndex": 0, "explanation": "Free gardening workshops run every Saturday through the summer."}
+        {
+          "id": "M2L4Q1",
+          "label": "Question 1",
+          "part": "Part 4 · News Item",
+          "question": "What did the city open?",
+          "options": [
+            "A new library",
+            "A farmers market",
+            "A community garden",
+            "A sports centre"
+          ],
+          "answerIndex": 2,
+          "explanation": "The city opened its first community garden."
+        },
+        {
+          "id": "M2L4Q2",
+          "label": "Question 2",
+          "part": "Part 4 · News Item",
+          "question": "How many raised beds does the garden have?",
+          "options": [
+            "Twenty",
+            "Forty",
+            "Fifty",
+            "Thirty"
+          ],
+          "answerIndex": 1,
+          "explanation": "The garden has forty raised beds."
+        },
+        {
+          "id": "M2L4Q3",
+          "label": "Question 3",
+          "part": "Part 4 · News Item",
+          "question": "How much does it cost to rent a bed?",
+          "options": [
+            "Free",
+            "Ten dollars a month",
+            "Forty dollars a season",
+            "Twenty dollars a season"
+          ],
+          "answerIndex": 3,
+          "explanation": "A bed costs twenty dollars a season."
+        },
+        {
+          "id": "M2L4Q4",
+          "label": "Question 4",
+          "part": "Part 4 · News Item",
+          "question": "What happened to the plots?",
+          "options": [
+            "Half were still available",
+            "They were given by lottery",
+            "They were too expensive",
+            "All were claimed within an hour"
+          ],
+          "answerIndex": 3,
+          "explanation": "All plots were claimed within the first hour."
+        },
+        {
+          "id": "M2L4Q5",
+          "label": "Question 5",
+          "part": "Part 4 · News Item",
+          "question": "What will be offered every Saturday?",
+          "options": [
+            "A produce sale",
+            "Cooking classes",
+            "Free gardening workshops",
+            "Tours of the park"
+          ],
+          "answerIndex": 2,
+          "explanation": "Free gardening workshops run every Saturday through the summer."
+        }
       ]
     },
     {
@@ -82,14 +394,118 @@
       "passageTitle": "Choosing a project topic",
       "passage": "LEE: Okay, for our group project we need to pick a topic by Friday.\nMARA: I think we should do renewable energy. There's a lot of recent data.\nMARCUS: I'd rather do public transit. It's more relevant to our city.\nLEE: Both are good. Let's think about which one has more sources.\nMARA: Renewable energy has plenty of studies, and we can interview a local expert.\nMARCUS: That's true. Transit data is harder to find, honestly.\nLEE: Then let's go with renewable energy and split the research three ways.\nMARA: I'll take solar power. Marcus, you can cover wind, and Lee can do policy.\nMARCUS: Works for me. Let's meet again Thursday to compare notes.",
       "questions": [
-        {"id": "M2L5Q1", "label": "Question 1", "part": "Part 5 · Discussion", "question": "What do the students need to do by Friday?", "options": ["Choose a project topic", "Submit the final report", "Book a classroom", "Pick a partner"], "answerIndex": 0, "explanation": "They need to pick a topic by Friday."},
-        {"id": "M2L5Q2", "label": "Question 2", "part": "Part 5 · Discussion", "question": "What topic does Mara suggest?", "options": ["Renewable energy", "Public transit", "Urban planning", "Water conservation"], "answerIndex": 0, "explanation": "Mara suggests renewable energy because of the recent data."},
-        {"id": "M2L5Q3", "label": "Question 3", "part": "Part 5 · Discussion", "question": "What topic does Marcus prefer?", "options": ["Public transit", "Renewable energy", "Recycling", "Green buildings"], "answerIndex": 0, "explanation": "Marcus prefers public transit for its local relevance."},
-        {"id": "M2L5Q4", "label": "Question 4", "part": "Part 5 · Discussion", "question": "Why does Marcus prefer his topic?", "options": ["It's more relevant to their city", "It has more data", "It's easier to research", "It's less common"], "answerIndex": 0, "explanation": "He says public transit is more relevant to their city."},
-        {"id": "M2L5Q5", "label": "Question 5", "part": "Part 5 · Discussion", "question": "What advantage does Mara mention for renewable energy?", "options": ["Plenty of studies and a local expert", "Cheaper fieldwork", "More grant funding", "Easier statistics"], "answerIndex": 0, "explanation": "She notes many studies and the chance to interview a local expert."},
-        {"id": "M2L5Q6", "label": "Question 6", "part": "Part 5 · Discussion", "question": "Which topic do the students choose?", "options": ["Renewable energy", "Public transit", "Both topics combined", "Neither; they keep looking"], "answerIndex": 0, "explanation": "They agree to go with renewable energy."},
-        {"id": "M2L5Q7", "label": "Question 7", "part": "Part 5 · Discussion", "question": "What will Mara research?", "options": ["Solar power", "Wind power", "Energy policy", "Public transit"], "answerIndex": 0, "explanation": "Mara takes solar power."},
-        {"id": "M2L5Q8", "label": "Question 8", "part": "Part 5 · Discussion", "question": "When do they plan to meet again?", "options": ["Thursday", "Friday", "Monday", "Wednesday"], "answerIndex": 0, "explanation": "They agree to meet again on Thursday."}
+        {
+          "id": "M2L5Q1",
+          "label": "Question 1",
+          "part": "Part 5 · Discussion",
+          "question": "What do the students need to do by Friday?",
+          "options": [
+            "Book a classroom",
+            "Choose a project topic",
+            "Submit the final report",
+            "Pick a partner"
+          ],
+          "answerIndex": 1,
+          "explanation": "They need to pick a topic by Friday."
+        },
+        {
+          "id": "M2L5Q2",
+          "label": "Question 2",
+          "part": "Part 5 · Discussion",
+          "question": "What topic does Mara suggest?",
+          "options": [
+            "Renewable energy",
+            "Urban planning",
+            "Public transit",
+            "Water conservation"
+          ],
+          "answerIndex": 0,
+          "explanation": "Mara suggests renewable energy because of the recent data."
+        },
+        {
+          "id": "M2L5Q3",
+          "label": "Question 3",
+          "part": "Part 5 · Discussion",
+          "question": "What topic does Marcus prefer?",
+          "options": [
+            "Public transit",
+            "Recycling",
+            "Green buildings",
+            "Renewable energy"
+          ],
+          "answerIndex": 0,
+          "explanation": "Marcus prefers public transit for its local relevance."
+        },
+        {
+          "id": "M2L5Q4",
+          "label": "Question 4",
+          "part": "Part 5 · Discussion",
+          "question": "Why does Marcus prefer his topic?",
+          "options": [
+            "It's easier to research",
+            "It has more data",
+            "It's more relevant to their city",
+            "It's less common"
+          ],
+          "answerIndex": 2,
+          "explanation": "He says public transit is more relevant to their city."
+        },
+        {
+          "id": "M2L5Q5",
+          "label": "Question 5",
+          "part": "Part 5 · Discussion",
+          "question": "What advantage does Mara mention for renewable energy?",
+          "options": [
+            "Plenty of studies and a local expert",
+            "Easier statistics",
+            "Cheaper fieldwork",
+            "More grant funding"
+          ],
+          "answerIndex": 0,
+          "explanation": "She notes many studies and the chance to interview a local expert."
+        },
+        {
+          "id": "M2L5Q6",
+          "label": "Question 6",
+          "part": "Part 5 · Discussion",
+          "question": "Which topic do the students choose?",
+          "options": [
+            "Renewable energy",
+            "Public transit",
+            "Neither; they keep looking",
+            "Both topics combined"
+          ],
+          "answerIndex": 0,
+          "explanation": "They agree to go with renewable energy."
+        },
+        {
+          "id": "M2L5Q7",
+          "label": "Question 7",
+          "part": "Part 5 · Discussion",
+          "question": "What will Mara research?",
+          "options": [
+            "Solar power",
+            "Public transit",
+            "Energy policy",
+            "Wind power"
+          ],
+          "answerIndex": 0,
+          "explanation": "Mara takes solar power."
+        },
+        {
+          "id": "M2L5Q8",
+          "label": "Question 8",
+          "part": "Part 5 · Discussion",
+          "question": "When do they plan to meet again?",
+          "options": [
+            "Monday",
+            "Thursday",
+            "Wednesday",
+            "Friday"
+          ],
+          "answerIndex": 1,
+          "explanation": "They agree to meet again on Thursday."
+        }
       ]
     },
     {
@@ -101,12 +517,90 @@
       "passageTitle": "Remote work debate",
       "passage": "SPEAKER A: I believe working from home is better for most people. It saves hours of commuting and gives workers more control over their day. Productivity studies show people get just as much done at home.\nSPEAKER B: I disagree. The office is where collaboration and mentorship happen. Young employees learn by watching colleagues, and that's hard to do over video calls. A hybrid model misses the spontaneity that sparks ideas.\nSPEAKER A: Fair point, but not every job needs that. Many roles are focused and quiet, and those workers are far more efficient at home without office distractions.\nSPEAKER B: Perhaps, but I worry that fully remote work weakens team culture over time. People who never meet in person tend to feel less connected to the company.",
       "questions": [
-        {"id": "M2L6Q1", "label": "Question 1", "part": "Part 6 · Viewpoints", "question": "What is the main topic of the discussion?", "options": ["Whether remote work is better than office work", "How to run better meetings", "Which jobs pay the most", "How to reduce commuting costs"], "answerIndex": 0, "explanation": "The speakers debate remote work versus office work."},
-        {"id": "M2L6Q2", "label": "Question 2", "part": "Part 6 · Viewpoints", "question": "What does Speaker A say is a benefit of working from home?", "options": ["It saves commuting time", "It improves teamwork", "It raises salaries", "It shortens the workday"], "answerIndex": 0, "explanation": "Speaker A says remote work saves hours of commuting."},
-        {"id": "M2L6Q3", "label": "Question 3", "part": "Part 6 · Viewpoints", "question": "What does Speaker B say the office provides?", "options": ["Collaboration and mentorship", "Fewer distractions", "Better equipment", "More privacy"], "answerIndex": 0, "explanation": "Speaker B says the office is where collaboration and mentorship happen."},
-        {"id": "M2L6Q4", "label": "Question 4", "part": "Part 6 · Viewpoints", "question": "Why does Speaker B think young employees benefit from the office?", "options": ["They learn by watching colleagues", "They need supervision", "They lack home internet", "They prefer social events"], "answerIndex": 0, "explanation": "Young employees learn by observing colleagues, which is hard over video calls."},
-        {"id": "M2L6Q5", "label": "Question 5", "part": "Part 6 · Viewpoints", "question": "What does Speaker A claim about productivity at home?", "options": ["People get just as much done", "Productivity drops sharply", "Output increases greatly", "Quality suffers"], "answerIndex": 0, "explanation": "Speaker A says studies show people get just as much done at home."},
-        {"id": "M2L6Q6", "label": "Question 6", "part": "Part 6 · Viewpoints", "question": "What is Speaker B's concern about fully remote work?", "options": ["It weakens team culture", "It increases costs", "It reduces flexibility", "It limits hiring"], "answerIndex": 0, "explanation": "Speaker B worries remote work weakens team culture over time."}
+        {
+          "id": "M2L6Q1",
+          "label": "Question 1",
+          "part": "Part 6 · Viewpoints",
+          "question": "What is the main topic of the discussion?",
+          "options": [
+            "How to run better meetings",
+            "How to reduce commuting costs",
+            "Whether remote work is better than office work",
+            "Which jobs pay the most"
+          ],
+          "answerIndex": 2,
+          "explanation": "The speakers debate remote work versus office work."
+        },
+        {
+          "id": "M2L6Q2",
+          "label": "Question 2",
+          "part": "Part 6 · Viewpoints",
+          "question": "What does Speaker A say is a benefit of working from home?",
+          "options": [
+            "It saves commuting time",
+            "It shortens the workday",
+            "It improves teamwork",
+            "It raises salaries"
+          ],
+          "answerIndex": 0,
+          "explanation": "Speaker A says remote work saves hours of commuting."
+        },
+        {
+          "id": "M2L6Q3",
+          "label": "Question 3",
+          "part": "Part 6 · Viewpoints",
+          "question": "What does Speaker B say the office provides?",
+          "options": [
+            "Fewer distractions",
+            "More privacy",
+            "Collaboration and mentorship",
+            "Better equipment"
+          ],
+          "answerIndex": 2,
+          "explanation": "Speaker B says the office is where collaboration and mentorship happen."
+        },
+        {
+          "id": "M2L6Q4",
+          "label": "Question 4",
+          "part": "Part 6 · Viewpoints",
+          "question": "Why does Speaker B think young employees benefit from the office?",
+          "options": [
+            "They prefer social events",
+            "They need supervision",
+            "They lack home internet",
+            "They learn by watching colleagues"
+          ],
+          "answerIndex": 3,
+          "explanation": "Young employees learn by observing colleagues, which is hard over video calls."
+        },
+        {
+          "id": "M2L6Q5",
+          "label": "Question 5",
+          "part": "Part 6 · Viewpoints",
+          "question": "What does Speaker A claim about productivity at home?",
+          "options": [
+            "Output increases greatly",
+            "People get just as much done",
+            "Productivity drops sharply",
+            "Quality suffers"
+          ],
+          "answerIndex": 1,
+          "explanation": "Speaker A says studies show people get just as much done at home."
+        },
+        {
+          "id": "M2L6Q6",
+          "label": "Question 6",
+          "part": "Part 6 · Viewpoints",
+          "question": "What is Speaker B's concern about fully remote work?",
+          "options": [
+            "It weakens team culture",
+            "It increases costs",
+            "It limits hiring",
+            "It reduces flexibility"
+          ],
+          "answerIndex": 0,
+          "explanation": "Speaker B worries remote work weakens team culture over time."
+        }
       ]
     },
     {
@@ -118,17 +612,160 @@
       "passageTitle": "Delayed order",
       "passage": "From: Alex Morgan <alex.morgan@freshmail.com>\nTo: support@harborwares.com\nSubject: Order #HW-4821 — status\n\nHi there,\n\nI placed order #HW-4821 on March 3 for a coffee maker and two mugs. The confirmation email said it would arrive by March 10, but I haven't received anything yet, and the tracking link still shows label created.\n\nCould you tell me when the order will actually ship?\n\nThanks,\nAlex Morgan\n\nFrom: Dana Reed <support@harborwares.com>\nTo: Alex Morgan\nSubject: Re: Order #HW-4821 — status\n\nHello Alex,\n\nThanks for reaching out, and I apologize for the delay. The coffee maker is currently out of stock and is expected back on March 18. Your order will ship the same day, and you should receive it by March 22.\n\nAs an apology, we have upgraded your shipping to express at no charge and added a $10 store credit to your account.\n\nIf you would prefer, I can cancel the mugs portion and ship it immediately, or cancel the full order for a full refund.\n\nBest,\nDana Reed, Customer Support",
       "questions": [
-        {"id": "M2R1Q1", "label": "Question 1", "part": "Reading Part 1", "question": "What is the order number?", "options": ["HW-4821", "HW-4281", "BB-40", "HW-4128"], "answerIndex": 0, "explanation": "The order number is HW-4821."},
-        {"id": "M2R1Q2", "label": "Question 2", "part": "Reading Part 1", "question": "What did Alex order?", "options": ["A coffee maker and two mugs", "A blender and glasses", "A kettle and cups", "A toaster and plates"], "answerIndex": 0, "explanation": "Alex ordered a coffee maker and two mugs."},
-        {"id": "M2R1Q3", "label": "Question 3", "part": "Reading Part 1", "question": "When did Alex place the order?", "options": ["March 3", "March 10", "March 18", "March 22"], "answerIndex": 0, "explanation": "The order was placed on March 3."},
-        {"id": "M2R1Q4", "label": "Question 4", "part": "Reading Part 1", "question": "When was the order supposed to arrive?", "options": ["By March 10", "By March 18", "By March 22", "By March 3"], "answerIndex": 0, "explanation": "The confirmation promised arrival by March 10."},
-        {"id": "M2R1Q5", "label": "Question 5", "part": "Reading Part 1", "question": "What does the tracking link show?", "options": ["Label created", "In transit", "Delivered", "Out for delivery"], "answerIndex": 0, "explanation": "The tracking link still shows label created."},
-        {"id": "M2R1Q6", "label": "Question 6", "part": "Reading Part 1", "question": "Why is the order delayed?", "options": ["The coffee maker is out of stock", "The address was wrong", "The payment failed", "The courier was on strike"], "answerIndex": 0, "explanation": "Dana explains the coffee maker is out of stock."},
-        {"id": "M2R1Q7", "label": "Question 7", "part": "Reading Part 1", "question": "When is the coffee maker expected back in stock?", "options": ["March 18", "March 10", "March 22", "April 3"], "answerIndex": 0, "explanation": "The coffee maker is expected back on March 18."},
-        {"id": "M2R1Q8", "label": "Question 8", "part": "Reading Part 1", "question": "When should the order arrive after it ships?", "options": ["By March 22", "By March 18", "By March 10", "By April 1"], "answerIndex": 0, "explanation": "It ships March 18 and should arrive by March 22."},
-        {"id": "M2R1Q9", "label": "Question 9", "part": "Reading Part 1", "question": "What did Dana do as an apology?", "options": ["Upgraded shipping and added credit", "Refunded the order", "Cancelled the mugs", "Sent a replacement"], "answerIndex": 0, "explanation": "She upgraded shipping to express and added store credit."},
-        {"id": "M2R1Q10", "label": "Question 10", "part": "Reading Part 1", "question": "How much store credit was added?", "options": ["$10", "$20", "$5", "$15"], "answerIndex": 0, "explanation": "Dana added a $10 store credit."},
-        {"id": "M2R1Q11", "label": "Question 11", "part": "Reading Part 1", "question": "What alternative does Dana offer?", "options": ["Cancel the mugs or the full order", "Upgrade to a newer model", "Pick up in store", "Pay a deposit"], "answerIndex": 0, "explanation": "She offers to cancel the mugs portion or the full order for a refund."}
+        {
+          "id": "M2R1Q1",
+          "label": "Question 1",
+          "part": "Reading Part 1",
+          "question": "What is the order number?",
+          "options": [
+            "HW-4281",
+            "HW-4821",
+            "HW-4128",
+            "BB-40"
+          ],
+          "answerIndex": 1,
+          "explanation": "The order number is HW-4821."
+        },
+        {
+          "id": "M2R1Q2",
+          "label": "Question 2",
+          "part": "Reading Part 1",
+          "question": "What did Alex order?",
+          "options": [
+            "A coffee maker and two mugs",
+            "A toaster and plates",
+            "A blender and glasses",
+            "A kettle and cups"
+          ],
+          "answerIndex": 0,
+          "explanation": "Alex ordered a coffee maker and two mugs."
+        },
+        {
+          "id": "M2R1Q3",
+          "label": "Question 3",
+          "part": "Reading Part 1",
+          "question": "When did Alex place the order?",
+          "options": [
+            "March 3",
+            "March 10",
+            "March 22",
+            "March 18"
+          ],
+          "answerIndex": 0,
+          "explanation": "The order was placed on March 3."
+        },
+        {
+          "id": "M2R1Q4",
+          "label": "Question 4",
+          "part": "Reading Part 1",
+          "question": "When was the order supposed to arrive?",
+          "options": [
+            "By March 22",
+            "By March 10",
+            "By March 3",
+            "By March 18"
+          ],
+          "answerIndex": 1,
+          "explanation": "The confirmation promised arrival by March 10."
+        },
+        {
+          "id": "M2R1Q5",
+          "label": "Question 5",
+          "part": "Reading Part 1",
+          "question": "What does the tracking link show?",
+          "options": [
+            "Label created",
+            "Delivered",
+            "In transit",
+            "Out for delivery"
+          ],
+          "answerIndex": 0,
+          "explanation": "The tracking link still shows label created."
+        },
+        {
+          "id": "M2R1Q6",
+          "label": "Question 6",
+          "part": "Reading Part 1",
+          "question": "Why is the order delayed?",
+          "options": [
+            "The payment failed",
+            "The courier was on strike",
+            "The address was wrong",
+            "The coffee maker is out of stock"
+          ],
+          "answerIndex": 3,
+          "explanation": "Dana explains the coffee maker is out of stock."
+        },
+        {
+          "id": "M2R1Q7",
+          "label": "Question 7",
+          "part": "Reading Part 1",
+          "question": "When is the coffee maker expected back in stock?",
+          "options": [
+            "April 3",
+            "March 10",
+            "March 18",
+            "March 22"
+          ],
+          "answerIndex": 2,
+          "explanation": "The coffee maker is expected back on March 18."
+        },
+        {
+          "id": "M2R1Q8",
+          "label": "Question 8",
+          "part": "Reading Part 1",
+          "question": "When should the order arrive after it ships?",
+          "options": [
+            "By March 10",
+            "By March 18",
+            "By March 22",
+            "By April 1"
+          ],
+          "answerIndex": 2,
+          "explanation": "It ships March 18 and should arrive by March 22."
+        },
+        {
+          "id": "M2R1Q9",
+          "label": "Question 9",
+          "part": "Reading Part 1",
+          "question": "What did Dana do as an apology?",
+          "options": [
+            "Upgraded shipping and added credit",
+            "Sent a replacement",
+            "Refunded the order",
+            "Cancelled the mugs"
+          ],
+          "answerIndex": 0,
+          "explanation": "She upgraded shipping to express and added store credit."
+        },
+        {
+          "id": "M2R1Q10",
+          "label": "Question 10",
+          "part": "Reading Part 1",
+          "question": "How much store credit was added?",
+          "options": [
+            "$20",
+            "$15",
+            "$10",
+            "$5"
+          ],
+          "answerIndex": 2,
+          "explanation": "Dana added a $10 store credit."
+        },
+        {
+          "id": "M2R1Q11",
+          "label": "Question 11",
+          "part": "Reading Part 1",
+          "question": "What alternative does Dana offer?",
+          "options": [
+            "Cancel the mugs or the full order",
+            "Pick up in store",
+            "Pay a deposit",
+            "Upgrade to a newer model"
+          ],
+          "answerIndex": 0,
+          "explanation": "She offers to cancel the mugs portion or the full order for a refund."
+        }
       ]
     },
     {
@@ -140,14 +777,118 @@
       "passageTitle": "Bookshelf assembly",
       "passage": "Bookshelf assembly instructions (Model BB-40)\n\nParts list:\n- 2 side panels (A)\n- 4 shelves (B)\n- 1 back panel (C)\n- 8 screws (D)\n- 8 dowels (E)\n- 1 hex key (F)\n\nSteps:\n1. Lay the back panel flat and insert the four dowels into its top holes.\n2. Attach the side panels to the back panel by pressing them onto the dowels.\n3. Slide each shelf into the side grooves, starting from the bottom.\n4. Secure the shelves with the screws, using the hex key.\n5. Stand the unit upright and fix the back panel with the remaining screws.",
       "questions": [
-        {"id": "M2R2Q1", "label": "Question 1", "part": "Reading Part 2", "question": "How many shelves are included?", "options": ["Four", "Two", "Six", "Eight"], "answerIndex": 0, "explanation": "The parts list shows 4 shelves (B)."},
-        {"id": "M2R2Q2", "label": "Question 2", "part": "Reading Part 2", "question": "What are the dowels used for?", "options": ["Connecting the panels", "Holding the screws", "Levelling the unit", "Covering the holes"], "answerIndex": 0, "explanation": "The dowels join the back panel and side panels."},
-        {"id": "M2R2Q3", "label": "Question 3", "part": "Reading Part 2", "question": "Which piece goes in first?", "options": ["The back panel", "The side panels", "The shelves", "The screws"], "answerIndex": 0, "explanation": "Step 1 begins by laying the back panel flat."},
-        {"id": "M2R2Q4", "label": "Question 4", "part": "Reading Part 2", "question": "How many screws are included?", "options": ["Eight", "Four", "Six", "Ten"], "answerIndex": 0, "explanation": "The parts list shows 8 screws (D)."},
-        {"id": "M2R2Q5", "label": "Question 5", "part": "Reading Part 2", "question": "What tool is used to tighten the screws?", "options": ["A hex key", "A screwdriver", "A wrench", "A hammer"], "answerIndex": 0, "explanation": "The hex key (F) tightens the screws."},
-        {"id": "M2R2Q6", "label": "Question 6", "part": "Reading Part 2", "question": "In which order are the shelves added?", "options": ["Starting from the bottom", "Starting from the top", "In any order", "All at once"], "answerIndex": 0, "explanation": "Step 3 says to slide each shelf in, starting from the bottom."},
-        {"id": "M2R2Q7", "label": "Question 7", "part": "Reading Part 2", "question": "What holds the side panels to the back panel?", "options": ["The dowels", "The screws", "The shelves", "The hex key"], "answerIndex": 0, "explanation": "The side panels press onto the dowels."},
-        {"id": "M2R2Q8", "label": "Question 8", "part": "Reading Part 2", "question": "What is the last step?", "options": ["Fix the back panel with the remaining screws", "Add the shelves", "Insert the dowels", "Attach the side panels"], "answerIndex": 0, "explanation": "Step 5 fixes the back panel with the remaining screws."}
+        {
+          "id": "M2R2Q1",
+          "label": "Question 1",
+          "part": "Reading Part 2",
+          "question": "How many shelves are included?",
+          "options": [
+            "Two",
+            "Four",
+            "Eight",
+            "Six"
+          ],
+          "answerIndex": 1,
+          "explanation": "The parts list shows 4 shelves (B)."
+        },
+        {
+          "id": "M2R2Q2",
+          "label": "Question 2",
+          "part": "Reading Part 2",
+          "question": "What are the dowels used for?",
+          "options": [
+            "Levelling the unit",
+            "Holding the screws",
+            "Covering the holes",
+            "Connecting the panels"
+          ],
+          "answerIndex": 3,
+          "explanation": "The dowels join the back panel and side panels."
+        },
+        {
+          "id": "M2R2Q3",
+          "label": "Question 3",
+          "part": "Reading Part 2",
+          "question": "Which piece goes in first?",
+          "options": [
+            "The screws",
+            "The shelves",
+            "The side panels",
+            "The back panel"
+          ],
+          "answerIndex": 3,
+          "explanation": "Step 1 begins by laying the back panel flat."
+        },
+        {
+          "id": "M2R2Q4",
+          "label": "Question 4",
+          "part": "Reading Part 2",
+          "question": "How many screws are included?",
+          "options": [
+            "Six",
+            "Four",
+            "Eight",
+            "Ten"
+          ],
+          "answerIndex": 2,
+          "explanation": "The parts list shows 8 screws (D)."
+        },
+        {
+          "id": "M2R2Q5",
+          "label": "Question 5",
+          "part": "Reading Part 2",
+          "question": "What tool is used to tighten the screws?",
+          "options": [
+            "A screwdriver",
+            "A hex key",
+            "A wrench",
+            "A hammer"
+          ],
+          "answerIndex": 1,
+          "explanation": "The hex key (F) tightens the screws."
+        },
+        {
+          "id": "M2R2Q6",
+          "label": "Question 6",
+          "part": "Reading Part 2",
+          "question": "In which order are the shelves added?",
+          "options": [
+            "Starting from the top",
+            "Starting from the bottom",
+            "In any order",
+            "All at once"
+          ],
+          "answerIndex": 1,
+          "explanation": "Step 3 says to slide each shelf in, starting from the bottom."
+        },
+        {
+          "id": "M2R2Q7",
+          "label": "Question 7",
+          "part": "Reading Part 2",
+          "question": "What holds the side panels to the back panel?",
+          "options": [
+            "The shelves",
+            "The hex key",
+            "The dowels",
+            "The screws"
+          ],
+          "answerIndex": 2,
+          "explanation": "The side panels press onto the dowels."
+        },
+        {
+          "id": "M2R2Q8",
+          "label": "Question 8",
+          "part": "Reading Part 2",
+          "question": "What is the last step?",
+          "options": [
+            "Add the shelves",
+            "Insert the dowels",
+            "Fix the back panel with the remaining screws",
+            "Attach the side panels"
+          ],
+          "answerIndex": 2,
+          "explanation": "Step 5 fixes the back panel with the remaining screws."
+        }
       ]
     },
     {
@@ -159,15 +900,132 @@
       "passageTitle": "Why sleep matters",
       "passage": "Sleep is not a luxury; it is a biological necessity. While you sleep, your brain consolidates memories, clears waste products, and repairs tissue. Most adults need between seven and nine hours each night, yet surveys show that nearly one in three gets less than seven.\n\nChronic sleep loss is linked to a range of health problems, including weakened immunity, high blood pressure, and difficulty concentrating. It also affects appetite-regulating hormones, which is why poor sleep is associated with weight gain.\n\nTo improve sleep, experts recommend a consistent schedule, a cool and dark bedroom, and avoiding screens for at least an hour before bed. Caffeine and alcohol can both disrupt sleep quality, even when they do not prevent falling asleep.\n\nEven small changes help. Going to bed and waking at the same time every day is one of the most effective steps you can take, because it trains your body's internal clock.",
       "questions": [
-        {"id": "M2R3Q1", "label": "Question 1", "part": "Reading Part 3", "question": "What is the main idea of the article?", "options": ["Sleep is essential for health", "Caffeine should be avoided", "Naps are beneficial", "Most people sleep too much"], "answerIndex": 0, "explanation": "The article explains why sleep is a biological necessity."},
-        {"id": "M2R3Q2", "label": "Question 2", "part": "Reading Part 3", "question": "How much sleep do most adults need?", "options": ["Seven to nine hours", "Five to six hours", "Nine to eleven hours", "Ten or more hours"], "answerIndex": 0, "explanation": "Most adults need seven to nine hours a night."},
-        {"id": "M2R3Q3", "label": "Question 3", "part": "Reading Part 3", "question": "How many people get less than seven hours?", "options": ["Nearly one in three", "About one in ten", "Almost half", "One in five"], "answerIndex": 0, "explanation": "Nearly one in three adults gets less than seven hours."},
-        {"id": "M2R3Q4", "label": "Question 4", "part": "Reading Part 3", "question": "What does the brain do during sleep?", "options": ["Consolidate memories and repair tissue", "Stop all activity", "Slow down digestion", "Reduce blood flow"], "answerIndex": 0, "explanation": "During sleep the brain consolidates memories and repairs tissue."},
-        {"id": "M2R3Q5", "label": "Question 5", "part": "Reading Part 3", "question": "What is chronic sleep loss linked to?", "options": ["Weakened immunity and high blood pressure", "Better memory", "Lower appetite", "Improved mood"], "answerIndex": 0, "explanation": "Chronic sleep loss is linked to weakened immunity and high blood pressure."},
-        {"id": "M2R3Q6", "label": "Question 6", "part": "Reading Part 3", "question": "How does poor sleep relate to weight?", "options": ["It affects appetite hormones", "It burns more calories", "It reduces hunger", "It speeds metabolism"], "answerIndex": 0, "explanation": "Poor sleep affects appetite-regulating hormones, linked to weight gain."},
-        {"id": "M2R3Q7", "label": "Question 7", "part": "Reading Part 3", "question": "What do experts recommend for better sleep?", "options": ["A consistent schedule and a dark room", "More caffeine", "Late-night screens", "Irregular bedtimes"], "answerIndex": 0, "explanation": "Experts recommend a consistent schedule, a cool dark room, and avoiding screens."},
-        {"id": "M2R3Q8", "label": "Question 8", "part": "Reading Part 3", "question": "How do caffeine and alcohol affect sleep?", "options": ["They disrupt sleep quality", "They improve deep sleep", "They have no effect", "They only delay falling asleep"], "answerIndex": 0, "explanation": "Both can disrupt sleep quality even without preventing falling asleep."},
-        {"id": "M2R3Q9", "label": "Question 9", "part": "Reading Part 3", "question": "What is called one of the most effective steps?", "options": ["Waking at the same time daily", "Drinking warm milk", "Taking naps", "Exercising late"], "answerIndex": 0, "explanation": "A regular sleep-wake schedule trains the body's internal clock."}
+        {
+          "id": "M2R3Q1",
+          "label": "Question 1",
+          "part": "Reading Part 3",
+          "question": "What is the main idea of the article?",
+          "options": [
+            "Naps are beneficial",
+            "Sleep is essential for health",
+            "Most people sleep too much",
+            "Caffeine should be avoided"
+          ],
+          "answerIndex": 1,
+          "explanation": "The article explains why sleep is a biological necessity."
+        },
+        {
+          "id": "M2R3Q2",
+          "label": "Question 2",
+          "part": "Reading Part 3",
+          "question": "How much sleep do most adults need?",
+          "options": [
+            "Ten or more hours",
+            "Seven to nine hours",
+            "Five to six hours",
+            "Nine to eleven hours"
+          ],
+          "answerIndex": 1,
+          "explanation": "Most adults need seven to nine hours a night."
+        },
+        {
+          "id": "M2R3Q3",
+          "label": "Question 3",
+          "part": "Reading Part 3",
+          "question": "How many people get less than seven hours?",
+          "options": [
+            "Almost half",
+            "About one in ten",
+            "One in five",
+            "Nearly one in three"
+          ],
+          "answerIndex": 3,
+          "explanation": "Nearly one in three adults gets less than seven hours."
+        },
+        {
+          "id": "M2R3Q4",
+          "label": "Question 4",
+          "part": "Reading Part 3",
+          "question": "What does the brain do during sleep?",
+          "options": [
+            "Stop all activity",
+            "Reduce blood flow",
+            "Slow down digestion",
+            "Consolidate memories and repair tissue"
+          ],
+          "answerIndex": 3,
+          "explanation": "During sleep the brain consolidates memories and repairs tissue."
+        },
+        {
+          "id": "M2R3Q5",
+          "label": "Question 5",
+          "part": "Reading Part 3",
+          "question": "What is chronic sleep loss linked to?",
+          "options": [
+            "Weakened immunity and high blood pressure",
+            "Lower appetite",
+            "Better memory",
+            "Improved mood"
+          ],
+          "answerIndex": 0,
+          "explanation": "Chronic sleep loss is linked to weakened immunity and high blood pressure."
+        },
+        {
+          "id": "M2R3Q6",
+          "label": "Question 6",
+          "part": "Reading Part 3",
+          "question": "How does poor sleep relate to weight?",
+          "options": [
+            "It burns more calories",
+            "It speeds metabolism",
+            "It reduces hunger",
+            "It affects appetite hormones"
+          ],
+          "answerIndex": 3,
+          "explanation": "Poor sleep affects appetite-regulating hormones, linked to weight gain."
+        },
+        {
+          "id": "M2R3Q7",
+          "label": "Question 7",
+          "part": "Reading Part 3",
+          "question": "What do experts recommend for better sleep?",
+          "options": [
+            "Late-night screens",
+            "A consistent schedule and a dark room",
+            "More caffeine",
+            "Irregular bedtimes"
+          ],
+          "answerIndex": 1,
+          "explanation": "Experts recommend a consistent schedule, a cool dark room, and avoiding screens."
+        },
+        {
+          "id": "M2R3Q8",
+          "label": "Question 8",
+          "part": "Reading Part 3",
+          "question": "How do caffeine and alcohol affect sleep?",
+          "options": [
+            "They have no effect",
+            "They disrupt sleep quality",
+            "They improve deep sleep",
+            "They only delay falling asleep"
+          ],
+          "answerIndex": 1,
+          "explanation": "Both can disrupt sleep quality even without preventing falling asleep."
+        },
+        {
+          "id": "M2R3Q9",
+          "label": "Question 9",
+          "part": "Reading Part 3",
+          "question": "What is called one of the most effective steps?",
+          "options": [
+            "Waking at the same time daily",
+            "Drinking warm milk",
+            "Taking naps",
+            "Exercising late"
+          ],
+          "answerIndex": 0,
+          "explanation": "A regular sleep-wake schedule trains the body's internal clock."
+        }
       ]
     },
     {
@@ -179,16 +1037,146 @@
       "passageTitle": "Are electric cars the answer?",
       "passage": "Electric Cars: A Step Forward\nBy Priya N.\n\nElectric vehicles are essential to cutting urban air pollution. They produce no tailpipe emissions, cost less to run than petrol cars, and their batteries are improving every year. As charging networks expand, range anxiety will fade, and cities will become quieter and healthier.\n\nElectric Cars: A Costly Distraction\nBy Tom R.\n\nElectrics are not the green miracle they appear to be. Mining lithium and cobalt damages ecosystems, and most electricity still comes from fossil fuels. Meanwhile, public transit, cycling, and walking deliver bigger environmental gains for far less money. We should invest in those first, not in expensive cars for the few.",
       "questions": [
-        {"id": "M2R4Q1", "label": "Question 1", "part": "Reading Part 4", "question": "What is the main topic of the two pieces?", "options": ["Whether electric cars are a good environmental step", "How batteries are made", "The cost of public transit", "Why petrol cars are popular"], "answerIndex": 0, "explanation": "The two authors debate the environmental value of electric cars."},
-        {"id": "M2R4Q2", "label": "Question 2", "part": "Reading Part 4", "question": "What does Priya say electric vehicles produce?", "options": ["No tailpipe emissions", "Fewer batteries", "Lower taxes", "More noise"], "answerIndex": 0, "explanation": "Priya says electric vehicles produce no tailpipe emissions."},
-        {"id": "M2R4Q3", "label": "Question 3", "part": "Reading Part 4", "question": "How do electric cars compare on running cost, according to Priya?", "options": ["They cost less to run than petrol cars", "They cost more to run", "They cost the same", "They are free to run"], "answerIndex": 0, "explanation": "Priya says they cost less to run than petrol cars."},
-        {"id": "M2R4Q4", "label": "Question 4", "part": "Reading Part 4", "question": "What does Priya say will fade as charging networks expand?", "options": ["Range anxiety", "Traffic congestion", "Battery costs", "Petrol prices"], "answerIndex": 0, "explanation": "Priya says range anxiety will fade as networks expand."},
-        {"id": "M2R4Q5", "label": "Question 5", "part": "Reading Part 4", "question": "What does Priya say cities will become?", "options": ["Quieter and healthier", "More crowded", "More expensive", "Less convenient"], "answerIndex": 0, "explanation": "Priya says cities will become quieter and healthier."},
-        {"id": "M2R4Q6", "label": "Question 6", "part": "Reading Part 4", "question": "What does Tom say damages ecosystems?", "options": ["Mining lithium and cobalt", "Building roads", "Wind farms", "Charging stations"], "answerIndex": 0, "explanation": "Tom says mining lithium and cobalt damages ecosystems."},
-        {"id": "M2R4Q7", "label": "Question 7", "part": "Reading Part 4", "question": "What does Tom say most electricity comes from?", "options": ["Fossil fuels", "Solar power", "Nuclear plants", "Hydropower"], "answerIndex": 0, "explanation": "Tom notes most electricity still comes from fossil fuels."},
-        {"id": "M2R4Q8", "label": "Question 8", "part": "Reading Part 4", "question": "What does Tom think delivers bigger gains?", "options": ["Public transit, cycling, and walking", "Faster charging", "Cheaper batteries", "More highways"], "answerIndex": 0, "explanation": "Tom argues transit, cycling, and walking deliver bigger gains for less money."},
-        {"id": "M2R4Q9", "label": "Question 9", "part": "Reading Part 4", "question": "What does Tom call electric cars?", "options": ["A costly distraction", "A green miracle", "The best option", "A temporary trend"], "answerIndex": 0, "explanation": "Tom's title calls electric cars a costly distraction."},
-        {"id": "M2R4Q10", "label": "Question 10", "part": "Reading Part 4", "question": "What do the two authors disagree on?", "options": ["Whether electric cars are the best environmental investment", "Whether pollution exists", "Whether public transit works", "Whether petrol cars are cheap"], "answerIndex": 0, "explanation": "They disagree on whether electric cars are the best use of environmental investment."}
+        {
+          "id": "M2R4Q1",
+          "label": "Question 1",
+          "part": "Reading Part 4",
+          "question": "What is the main topic of the two pieces?",
+          "options": [
+            "The cost of public transit",
+            "How batteries are made",
+            "Whether electric cars are a good environmental step",
+            "Why petrol cars are popular"
+          ],
+          "answerIndex": 2,
+          "explanation": "The two authors debate the environmental value of electric cars."
+        },
+        {
+          "id": "M2R4Q2",
+          "label": "Question 2",
+          "part": "Reading Part 4",
+          "question": "What does Priya say electric vehicles produce?",
+          "options": [
+            "Lower taxes",
+            "More noise",
+            "Fewer batteries",
+            "No tailpipe emissions"
+          ],
+          "answerIndex": 3,
+          "explanation": "Priya says electric vehicles produce no tailpipe emissions."
+        },
+        {
+          "id": "M2R4Q3",
+          "label": "Question 3",
+          "part": "Reading Part 4",
+          "question": "How do electric cars compare on running cost, according to Priya?",
+          "options": [
+            "They cost less to run than petrol cars",
+            "They cost the same",
+            "They cost more to run",
+            "They are free to run"
+          ],
+          "answerIndex": 0,
+          "explanation": "Priya says they cost less to run than petrol cars."
+        },
+        {
+          "id": "M2R4Q4",
+          "label": "Question 4",
+          "part": "Reading Part 4",
+          "question": "What does Priya say will fade as charging networks expand?",
+          "options": [
+            "Traffic congestion",
+            "Petrol prices",
+            "Range anxiety",
+            "Battery costs"
+          ],
+          "answerIndex": 2,
+          "explanation": "Priya says range anxiety will fade as networks expand."
+        },
+        {
+          "id": "M2R4Q5",
+          "label": "Question 5",
+          "part": "Reading Part 4",
+          "question": "What does Priya say cities will become?",
+          "options": [
+            "Quieter and healthier",
+            "More crowded",
+            "Less convenient",
+            "More expensive"
+          ],
+          "answerIndex": 0,
+          "explanation": "Priya says cities will become quieter and healthier."
+        },
+        {
+          "id": "M2R4Q6",
+          "label": "Question 6",
+          "part": "Reading Part 4",
+          "question": "What does Tom say damages ecosystems?",
+          "options": [
+            "Building roads",
+            "Mining lithium and cobalt",
+            "Charging stations",
+            "Wind farms"
+          ],
+          "answerIndex": 1,
+          "explanation": "Tom says mining lithium and cobalt damages ecosystems."
+        },
+        {
+          "id": "M2R4Q7",
+          "label": "Question 7",
+          "part": "Reading Part 4",
+          "question": "What does Tom say most electricity comes from?",
+          "options": [
+            "Nuclear plants",
+            "Fossil fuels",
+            "Solar power",
+            "Hydropower"
+          ],
+          "answerIndex": 1,
+          "explanation": "Tom notes most electricity still comes from fossil fuels."
+        },
+        {
+          "id": "M2R4Q8",
+          "label": "Question 8",
+          "part": "Reading Part 4",
+          "question": "What does Tom think delivers bigger gains?",
+          "options": [
+            "More highways",
+            "Faster charging",
+            "Cheaper batteries",
+            "Public transit, cycling, and walking"
+          ],
+          "answerIndex": 3,
+          "explanation": "Tom argues transit, cycling, and walking deliver bigger gains for less money."
+        },
+        {
+          "id": "M2R4Q9",
+          "label": "Question 9",
+          "part": "Reading Part 4",
+          "question": "What does Tom call electric cars?",
+          "options": [
+            "A costly distraction",
+            "The best option",
+            "A temporary trend",
+            "A green miracle"
+          ],
+          "answerIndex": 0,
+          "explanation": "Tom's title calls electric cars a costly distraction."
+        },
+        {
+          "id": "M2R4Q10",
+          "label": "Question 10",
+          "part": "Reading Part 4",
+          "question": "What do the two authors disagree on?",
+          "options": [
+            "Whether petrol cars are cheap",
+            "Whether public transit works",
+            "Whether electric cars are the best environmental investment",
+            "Whether pollution exists"
+          ],
+          "answerIndex": 2,
+          "explanation": "They disagree on whether electric cars are the best use of environmental investment."
+        }
       ]
     },
     {
@@ -213,10 +1201,22 @@
         ],
         "sampleAnswer": "Dear Customer Service, I am writing about order #4471, a NutriBlend Pro blender, which arrived on Tuesday. Unfortunately, the glass jug was cracked when I opened the box, so the blender leaks and cannot be used safely. I would appreciate a replacement jug or a full refund. Please let me know how to return the damaged item. Thank you for your help.",
         "criteria": [
-          { "label": "Content", "note": "Covers the order, the damage, and the requested resolution." },
-          { "label": "Tone", "note": "Polite, professional, and appropriately formal." },
-          { "label": "Organization", "note": "Clear paragraphing and logical flow." },
-          { "label": "Language", "note": "Accurate grammar, spelling, and vocabulary." }
+          {
+            "label": "Content",
+            "note": "Covers the order, the damage, and the requested resolution."
+          },
+          {
+            "label": "Tone",
+            "note": "Polite, professional, and appropriately formal."
+          },
+          {
+            "label": "Organization",
+            "note": "Clear paragraphing and logical flow."
+          },
+          {
+            "label": "Language",
+            "note": "Accurate grammar, spelling, and vocabulary."
+          }
         ]
       }
     },
@@ -242,10 +1242,22 @@
         ],
         "sampleAnswer": "I strongly prefer a public park. First, our neighbourhood has little green space, and a park would give families a safe place to gather. Second, parks attract visitors to nearby shops and cafes, which helps local businesses. To improve the idea, I suggest adding a small playground and a few shaded benches. Thank you for asking residents for their views.",
         "criteria": [
-          { "label": "Content", "note": "States a clear position with supporting reasons and a suggestion." },
-          { "label": "Tone", "note": "Appropriate for a public survey response." },
-          { "label": "Organization", "note": "Ideas are grouped and easy to follow." },
-          { "label": "Language", "note": "Full sentences with accurate grammar and spelling." }
+          {
+            "label": "Content",
+            "note": "States a clear position with supporting reasons and a suggestion."
+          },
+          {
+            "label": "Tone",
+            "note": "Appropriate for a public survey response."
+          },
+          {
+            "label": "Organization",
+            "note": "Ideas are grouped and easy to follow."
+          },
+          {
+            "label": "Language",
+            "note": "Full sentences with accurate grammar and spelling."
+          }
         ]
       }
     },
@@ -262,7 +1274,11 @@
         "scenario": "Your friend is moving to a new city for a job and is nervous about making friends. Give your friend advice on how to settle in and meet people.",
         "prepTimeSec": 30,
         "speakTimeSec": 60,
-        "tips": ["Give two or three specific, practical suggestions.", "Use a warm and encouraging tone.", "Speak for about 60 seconds."],
+        "tips": [
+          "Give two or three specific, practical suggestions.",
+          "Use a warm and encouraging tone.",
+          "Speak for about 60 seconds."
+        ],
         "sampleAnswer": "If I were you, I would start by joining a local club or fitness class, because shared activities make it much easier to meet people. I would also suggest volunteering on weekends, since it connects you with neighbours who share your values. Finally, give yourself time — new friendships usually take a few months to form.",
         "clb": "CLB 9 sample"
       }
@@ -280,7 +1296,11 @@
         "scenario": "Describe a time you learned something new that changed how you do things. Include what you learned and how it affected you.",
         "prepTimeSec": 30,
         "speakTimeSec": 60,
-        "tips": ["Set the scene briefly.", "Explain what you learned and why it mattered.", "Use past tenses consistently."],
+        "tips": [
+          "Set the scene briefly.",
+          "Explain what you learned and why it mattered.",
+          "Use past tenses consistently."
+        ],
         "sampleAnswer": "Last year I learned how to cook from scratch, and it completely changed my routine. Before, I relied on takeout and ready meals, but learning a few basic techniques made cooking faster and much cheaper. Now I plan meals every Sunday and genuinely enjoy it.",
         "clb": "CLB 10 sample"
       }
@@ -298,7 +1318,11 @@
         "scenario": "Describe a busy marketplace you have visited. Include what you saw, heard, and felt.",
         "prepTimeSec": 30,
         "speakTimeSec": 60,
-        "tips": ["Use descriptive vocabulary and the five senses.", "Organize your description clearly.", "Keep the listener engaged with specific details."],
+        "tips": [
+          "Use descriptive vocabulary and the five senses.",
+          "Organize your description clearly.",
+          "Keep the listener engaged with specific details."
+        ],
         "sampleAnswer": "The market was a riot of colour and noise. Stalls were piled with bright fruit, and vendors shouted their prices over the crowd. The air smelled of grilled meat and fresh herbs, and everywhere people were bargaining, laughing, and hurrying past with full bags.",
         "clb": "CLB 9 sample"
       }
@@ -316,7 +1340,11 @@
         "scenario": "Predict how technology will change education in the next twenty years. Give at least two predictions and explain them.",
         "prepTimeSec": 30,
         "speakTimeSec": 60,
-        "tips": ["Use language of prediction such as will and likely.", "Give a reason for each prediction.", "Structure your answer with clear points."],
+        "tips": [
+          "Use language of prediction such as will and likely.",
+          "Give a reason for each prediction.",
+          "Structure your answer with clear points."
+        ],
         "sampleAnswer": "I think technology will make education far more personal. Software will likely adapt lessons to each student's pace, so nobody is held back or left behind. I also predict that virtual classrooms will become common, letting students in remote areas learn from expert teachers anywhere in the world.",
         "clb": "CLB 9 sample"
       }
@@ -334,7 +1362,11 @@
         "scenario": "A friend cannot decide whether to buy a house or keep renting. Persuade your friend to choose one option and explain why it is the better choice.",
         "prepTimeSec": 30,
         "speakTimeSec": 60,
-        "tips": ["State your position clearly.", "Give at least two advantages of your chosen option.", "Use persuasive language."],
+        "tips": [
+          "State your position clearly.",
+          "Give at least two advantages of your chosen option.",
+          "Use persuasive language."
+        ],
         "sampleAnswer": "I would tell my friend to keep renting for now. Buying a house ties up a lot of money in a down payment, while renting leaves you free to move for work and avoids repair costs. Renting also gives you time to save a larger deposit and buy a place you truly love later.",
         "clb": "CLB 9 sample"
       }
@@ -352,7 +1384,11 @@
         "scenario": "A coworker has been taking credit for your work in team meetings. Explain what you would say and do to handle the situation.",
         "prepTimeSec": 30,
         "speakTimeSec": 60,
-        "tips": ["Describe the steps you would take calmly.", "Explain what you would say to the coworker.", "Suggest how you would raise the issue professionally."],
+        "tips": [
+          "Describe the steps you would take calmly.",
+          "Explain what you would say to the coworker.",
+          "Suggest how you would raise the issue professionally."
+        ],
         "sampleAnswer": "I would first speak to my coworker privately and explain, politely but clearly, that the work was mine and that I would appreciate being acknowledged. If it continued, I would mention my contribution directly in the next meeting and, if needed, discuss the pattern with our manager using examples and records of my work.",
         "clb": "CLB 10 sample"
       }
@@ -370,7 +1406,11 @@
         "scenario": "Should all students be required to learn a second language in school? State your opinion and support it with reasons.",
         "prepTimeSec": 30,
         "speakTimeSec": 60,
-        "tips": ["Give a clear opinion.", "Support it with two or three reasons.", "Use appropriate connectors."],
+        "tips": [
+          "Give a clear opinion.",
+          "Support it with two or three reasons.",
+          "Use appropriate connectors."
+        ],
         "sampleAnswer": "I believe every student should study a second language. It improves memory and problem-solving, and it opens doors to other cultures and careers. In a connected world, being bilingual is a real advantage, and starting early in school makes it much easier to reach fluency.",
         "clb": "CLB 9 sample"
       }
@@ -388,7 +1428,11 @@
         "scenario": "You arrive at the airport and realize you forgot your passport at home. Describe what you would do, step by step.",
         "prepTimeSec": 30,
         "speakTimeSec": 60,
-        "tips": ["Describe your actions in a logical order.", "Use clear sequencing words such as first and next.", "Stay calm and practical."],
+        "tips": [
+          "Describe your actions in a logical order.",
+          "Use clear sequencing words such as first and next.",
+          "Stay calm and practical."
+        ],
         "sampleAnswer": "First, I would stay calm and check my bag one more time in case I had missed it. Then I would call a family member and ask them to bring the passport to the airport if there was time. If not, I would speak to the airline desk immediately to ask about rescheduling my flight and what identification alternatives they accept.",
         "clb": "CLB 9 sample"
       }
