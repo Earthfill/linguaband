@@ -42,7 +42,22 @@ jobs:
         run: |
           for f in /tmp/audio/*.mp3; do
             name=$(basename "$f")
-            npx wrangler r2 object put "linguaband-audio/${MOCK_ID}/${name}" --file "$f"
+            npx wrangler r2 object put "linguaband-audio/${MOCK_ID}/${name}" --file "$f" --remote
+          done
+
+      - name: Verify MP3s reached remote R2
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          for f in /tmp/audio/*.mp3; do
+            name=$(basename "$f")
+            bytes=$(npx wrangler r2 object get "linguaband-audio/${MOCK_ID}/${name}" --remote --pipe | wc -c)
+            if [ "$bytes" -eq 0 ]; then
+              echo "FAILED: ${name} was not uploaded to remote R2"
+              exit 1
+            fi
+            echo "OK: ${name} (${bytes} bytes)"
           done
 
       - name: Publish manifest to D1
