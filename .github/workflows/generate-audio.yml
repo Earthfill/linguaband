@@ -30,9 +30,19 @@ jobs:
           CLOUDFLARE_DATABASE_ID: ${{ secrets.CLOUDFLARE_DATABASE_ID }}
         run: node scripts/d1-read.mjs "$MOCK_ID" > /tmp/mock.json
 
+      - name: Write Google credentials
+        env:
+          GOOGLE_TTS_KEY: ${{ secrets.GOOGLE_TTS_KEY }}
+        run: |
+          if [ -z "$GOOGLE_TTS_KEY" ]; then
+            echo "Missing GOOGLE_TTS_KEY repository secret"; exit 1
+          fi
+          printf '%s' "$GOOGLE_TTS_KEY" > /tmp/gcp-tts.json
+
       - name: Generate audio
         env:
           AUDIO_BASE_URL: ${{ secrets.AUDIO_BASE_URL }}
+          GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp-tts.json
         run: node scripts/generate-mock-audio.mjs /tmp/mock.json /tmp/audio
 
       - name: Upload MP3s to R2
@@ -42,7 +52,7 @@ jobs:
         run: |
           for f in /tmp/audio/*.mp3; do
             name=$(basename "$f")
-            npx wrangler r2 object put "linguaband-audio/${MOCK_ID}/${name}" --file "$f" --remote
+            npx wrangler r2 object put "linguaband-audio/${MOCK_ID}/${name}" --file "$f" --remote --cache-control "public, max-age=31536000, immutable"
           done
 
       - name: Verify MP3s reached remote R2
