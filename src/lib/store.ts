@@ -70,19 +70,26 @@ export async function listMocks(): Promise<MockExam[]> {
   return [...stored, ...builtinExams.filter((e) => !storedIds.has(e.id))];
 }
 
+export type MockSource = "stored" | "builtin";
+
 export async function getMock(
   id: string,
-): Promise<{ exam: MockExam; audio: Record<string, AudioEntry> } | null> {
+): Promise<{ exam: MockExam; audio: Record<string, AudioEntry>; source: MockSource } | null> {
   const db = getDb();
   if (db) {
     try {
       const row = await db
         .prepare("SELECT payload, audio FROM mocks WHERE id = ?")
-        .first<{ payload: string; audio: string | null }>(id);
+        .bind(id)
+        .first<{ payload: string; audio: string | null }>();
       if (row) {
         const exam = parseExam(row.payload);
         if (exam) {
-          return { exam, audio: row.audio ? (JSON.parse(row.audio) as Record<string, AudioEntry>) : {} };
+          return {
+            exam,
+            audio: row.audio ? (JSON.parse(row.audio) as Record<string, AudioEntry>) : {},
+            source: "stored",
+          };
         }
       }
     } catch (err) {
@@ -90,12 +97,12 @@ export async function getMock(
     }
   }
   const builtin = builtinExams.find((e) => e.id === id);
-  if (builtin) return { exam: builtin, audio: builtinAudio as Record<string, AudioEntry> };
+  if (builtin) return { exam: builtin, audio: builtinAudio as Record<string, AudioEntry>, source: "builtin" };
   return null;
 }
 
 /** Every section id already in use (built-in + stored) — for upload collision checks. */
-export async function existingSectionIds(): Promise<Set<string>> {
+export async function existingSectionIds(exceptMockId?: string): Promise<Set<string>> {
   const ids = new Set<string>();
   for (const exam of builtinExams) {
     for (const s of exam.sections) ids.add(s.id);
@@ -103,8 +110,9 @@ export async function existingSectionIds(): Promise<Set<string>> {
   const db = getDb();
   if (db) {
     try {
-      const res = await db.prepare("SELECT payload FROM mocks").all<{ payload: string }>();
+      const res = await db.prepare("SELECT id, payload FROM mocks").all<{ id: string; payload: string }>();
       for (const row of res.results ?? []) {
+        if (row.id === exceptMockId) continue;
         const exam = parseExam(row.payload);
         if (exam) for (const s of exam.sections) ids.add(s.id);
       }

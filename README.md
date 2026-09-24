@@ -145,7 +145,7 @@ The app runs on Cloudflare (free tier, business use allowed) via `@opennextjs/cl
 1. `npx wrangler login`
 2. Create the database: `npx wrangler d1 create linguaband-db`, then paste its id into
    `wrangler.jsonc` (`database_id`).
-3. Apply the schema: `npx wrangler d1 migrations apply linguaband-db --remote`.
+3. Apply the schema: `npx wrangler d1 migrations apply linguaband-db --remote` (and `npx wrangler d1 migrations apply linguaband-db` for local development).
 4. Create the bucket: `npx wrangler r2 bucket create linguaband-audio`.
 5. Copy `.dev.vars.example` to `.dev.vars` and set `ADMIN_PASSWORD` + `ADMIN_SESSION_SECRET`
    for local development.

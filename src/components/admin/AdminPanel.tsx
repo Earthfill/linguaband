@@ -1,10 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import type { AdminMock } from "@/lib/store";
 
 export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
+  const router = useRouter();
   const [busy, setBusy] = useState(false);
+  const [retrying, setRetrying] = useState<string | null>(null);
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -14,22 +17,62 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
     const form = new FormData(e.currentTarget);
     try {
       const res = await fetch("/api/admin/upload", { method: "POST", body: form });
-      const data = (await res.json().catch(() => null)) as {
+      const text = await res.text();
+      let data: {
         ok?: boolean;
         warnings?: string[];
         errors?: { message: string }[];
-      } | null;
+        dispatched?: boolean;
+      } | null = null;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        data = null;
+      }
       if (res.ok) {
-        const extras = data?.warnings?.length ? ` ${data.warnings.join(" ")}` : "";
-        setResult({ ok: true, message: `Uploaded. Audio will be generated shortly.${extras}` });
+        const warnings = data?.warnings?.length ? ` ${data.warnings.join(" ")}` : "";
+        const note = data?.dispatched
+          ? "Audio generation started."
+          : "Audio was NOT scheduled (check GITHUB_TOKEN / GITHUB_REPO).";
+        setResult({ ok: true, message: `Uploaded. ${note}${warnings}` });
+        router.refresh();
       } else {
-        const errors = data?.errors?.map((x) => x.message).join("; ") ?? "Upload failed";
-        setResult({ ok: false, message: errors });
+        const errors = data?.errors?.map((x) => x.message).join("; ");
+        setResult({ ok: false, message: errors || text.trim() || `Upload failed (${res.status})` });
       }
     } catch {
       setResult({ ok: false, message: "Upload failed (network error)" });
     } finally {
       setBusy(false);
+    }
+  }
+
+  async function retryAudio(mockId: string) {
+    setRetrying(mockId);
+    try {
+      const form = new FormData();
+      form.append("mockId", mockId);
+      const res = await fetch("/api/admin/regenerate-audio", { method: "POST", body: form });
+      const data = (await res.json().catch(() => null)) as {
+        ok?: boolean;
+        dispatched?: boolean;
+        error?: string;
+      } | null;
+      if (res.ok) {
+        setResult({
+          ok: true,
+          message: data?.dispatched
+            ? "Audio generation started."
+            : "Retry not dispatched (check GITHUB_TOKEN / GITHUB_REPO).",
+        });
+        router.refresh();
+      } else {
+        setResult({ ok: false, message: data?.error || `Retry failed (${res.status})` });
+      }
+    } catch {
+      setResult({ ok: false, message: "Retry failed (network error)" });
+    } finally {
+      setRetrying(null);
     }
   }
 
@@ -81,7 +124,19 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
                 <span className="text-sm text-zinc-700">
                   {m.name} <span className="text-zinc-400">({m.id})</span>
                 </span>
-                <StatusBadge status={m.status} />
+                <div className="flex items-center gap-2">
+                  {m.status === "content" || m.status === "failed" ? (
+                    <button
+                      type="button"
+                      onClick={() => retryAudio(m.id)}
+                      disabled={retrying === m.id}
+                      className="rounded-full border border-zinc-200 px-3 py-1 text-xs font-semibold text-zinc-600 transition-colors hover:border-blue-300 hover:text-blue-600 disabled:opacity-50"
+                    >
+                      {retrying === m.id ? "…" : "Retry audio"}
+                    </button>
+                  ) : null}
+                  <StatusBadge status={m.status} />
+                </div>
               </li>
             ))}
           </ul>

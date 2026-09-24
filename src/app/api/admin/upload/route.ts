@@ -2,6 +2,7 @@ import { isAdmin } from "@/lib/auth";
 import { existingSectionIds, saveMock, setMockStatus } from "@/lib/store";
 import { validateMock } from "@/lib/validate-mock";
 import type { MockExam } from "@/data/practice";
+import { dispatchAudio } from "@/lib/audio";
 
 export async function POST(request: Request) {
   if (!(await isAdmin())) {
@@ -24,13 +25,22 @@ export async function POST(request: Request) {
     return new Response("Not valid JSON", { status: 400 });
   }
 
-  const { errors, warnings } = validateMock(parsed, await existingSectionIds());
+  const exam = parsed as MockExam;
+  // Exclude this mock's own sections so an update or re-upload is not flagged as a collision.
+  const { errors, warnings } = validateMock(parsed, await existingSectionIds(exam.id));
   if (errors.length > 0) {
     return Response.json({ ok: false, errors, warnings }, { status: 400 });
   }
 
-  const exam = parsed as MockExam;
-  await saveMock(exam);
+  try {
+    await saveMock(exam);
+  } catch (err) {
+    console.error("[admin/upload] saveMock failed", err);
+    return Response.json(
+      { ok: false, error: err instanceof Error ? err.message : String(err) },
+      { status: 500 },
+    );
+  }
 
   // Best-effort: ask GitHub to make the audio. If the token isn't configured the
   // mock still appears (transcript-only) and audio can be triggered later.
@@ -38,24 +48,4 @@ export async function POST(request: Request) {
   if (dispatched) await setMockStatus(exam.id, "generating");
 
   return Response.json({ ok: true, warnings, dispatched });
-}
-
-async function dispatchAudio(mockId: string): Promise<boolean> {
-  const token = process.env.GITHUB_TOKEN;
-  const repo = process.env.GITHUB_REPO;
-  if (!token || !repo) return false;
-  try {
-    const res = await fetch(`https://api.github.com/repos/${repo}/dispatches`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/vnd.github+json",
-        "User-Agent": "linguaband-admin",
-      },
-      body: JSON.stringify({ event_type: "generate-audio", client_payload: { mockId } }),
-    });
-    return res.ok;
-  } catch {
-    return false;
-  }
 }

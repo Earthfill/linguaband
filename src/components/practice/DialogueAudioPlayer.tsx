@@ -56,12 +56,14 @@ export function DialogueAudioPlayer({
   mode,
   onEnded,
   entry: propEntry,
+  source,
 }: {
   id: string;
   transcript: string;
   mode: "exam" | "practice";
   onEnded?: () => void;
   entry?: AudioEntry;
+  source?: "stored" | "builtin";
 }) {
   const entry = propEntry ?? audioManifest[id];
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -80,7 +82,11 @@ export function DialogueAudioPlayer({
         </p>
         <p className="mt-3 whitespace-pre-line text-[15px] leading-8 text-zinc-700">{transcript}</p>
         <p className="mt-3 text-xs text-zinc-400">
-          Audio not generated yet — run <code className="rounded bg-zinc-100 px-1">npm run audio:generate</code>.
+          {source === "stored" ? (
+              "Audio is still being generated. If it does not appear, the audio job was not scheduled — check the GitHub token permission."
+            ) : (
+              <>Audio not generated yet — run <code className="rounded bg-zinc-100 px-1">npm run audio:generate</code>.</>
+            )}
         </p>
       </div>
     );
