@@ -23,6 +23,8 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
         warnings?: string[];
         errors?: { message: string }[];
         dispatched?: boolean;
+        status?: number;
+        error?: string;
       } | null = null;
       try {
         data = JSON.parse(text);
@@ -33,7 +35,7 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
         const warnings = data?.warnings?.length ? ` ${data.warnings.join(" ")}` : "";
         const note = data?.dispatched
           ? "Audio generation started."
-          : "Audio was NOT scheduled (check GITHUB_TOKEN / GITHUB_REPO).";
+          : `Audio was NOT scheduled — ${data?.status ?? ""} ${data?.error ?? "check GITHUB_TOKEN / GITHUB_REPO"}`.trim();
         setResult({ ok: true, message: `Uploaded. ${note}${warnings}` });
         router.refresh();
       } else {
@@ -56,6 +58,7 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
       const data = (await res.json().catch(() => null)) as {
         ok?: boolean;
         dispatched?: boolean;
+        status?: number;
         error?: string;
       } | null;
       if (res.ok) {
@@ -63,7 +66,7 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
           ok: true,
           message: data?.dispatched
             ? "Audio generation started."
-            : "Retry not dispatched (check GITHUB_TOKEN / GITHUB_REPO).",
+            : `Retry not dispatched — ${data?.status ?? ""} ${data?.error ?? "check GITHUB_TOKEN / GITHUB_REPO"}`.trim(),
         });
         router.refresh();
       } else {

@@ -3,10 +3,18 @@ name: Generate Audio
 on:
   repository_dispatch:
     types: [generate-audio]
+  workflow_dispatch:
+    inputs:
+      mockId:
+        description: "Mock ID to generate audio for"
+        required: true
+        type: string
 
 jobs:
   audio:
     runs-on: ubuntu-latest
+    env:
+      MOCK_ID: ${{ github.event.inputs.mockId || github.event.client_payload.mockId }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -20,7 +28,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_DATABASE_ID: ${{ secrets.CLOUDFLARE_DATABASE_ID }}
-        run: node scripts/d1-read.mjs "${{ github.event.client_payload.mockId }}" > /tmp/mock.json
+        run: node scripts/d1-read.mjs "$MOCK_ID" > /tmp/mock.json
 
       - name: Generate audio
         env:
@@ -32,7 +40,6 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          MOCK_ID="${{ github.event.client_payload.mockId }}"
           for f in /tmp/audio/*.mp3; do
             name=$(basename "$f")
             npx wrangler r2 object put "linguaband-audio/${MOCK_ID}/${name}" --file "$f"
@@ -43,4 +50,4 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_DATABASE_ID: ${{ secrets.CLOUDFLARE_DATABASE_ID }}
-        run: node scripts/d1-write.mjs "${{ github.event.client_payload.mockId }}" /tmp/audio/manifest.json
+        run: node scripts/d1-write.mjs "$MOCK_ID" /tmp/audio/manifest.json

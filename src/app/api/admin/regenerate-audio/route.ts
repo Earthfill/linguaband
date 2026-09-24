@@ -13,8 +13,13 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "Missing mockId" }, { status: 400 });
   }
 
-  const dispatched = await dispatchAudio(mockId);
-  if (dispatched) await setMockStatus(mockId, "generating");
+  const result = await dispatchAudio(mockId);
+  if (result.ok) await setMockStatus(mockId, "generating");
 
-  return Response.json({ ok: true, dispatched });
+  return Response.json({
+    ok: true,
+    dispatched: result.ok,
+    status: result.status ?? null,
+    error: result.error ?? null,
+  });
 }

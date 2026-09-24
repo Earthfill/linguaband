@@ -44,8 +44,14 @@ export async function POST(request: Request) {
 
   // Best-effort: ask GitHub to make the audio. If the token isn't configured the
   // mock still appears (transcript-only) and audio can be triggered later.
-  const dispatched = await dispatchAudio(exam.id);
-  if (dispatched) await setMockStatus(exam.id, "generating");
+  const result = await dispatchAudio(exam.id);
+  if (result.ok) await setMockStatus(exam.id, "generating");
 
-  return Response.json({ ok: true, warnings, dispatched });
+  return Response.json({
+    ok: true,
+    warnings,
+    dispatched: result.ok,
+    status: result.status ?? null,
+    error: result.error ?? null,
+  });
 }
