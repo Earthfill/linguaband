@@ -18,7 +18,8 @@ const OUTPUT_FORMAT_FOR = {
   96: OUTPUT_FORMAT.AUDIO_24KHZ_96KBITRATE_MONO_MP3,
 };
 
-const FALLBACK_VOICE = "en-US-EmmaMultilingualNeural";
+const FALLBACK_VOICE = "en-US-AriaNeural";
+const STABLE_FALLBACK = "en-US-AriaNeural";
 const SPEAKER_VOICES = {
   AGENT: "en-CA-ClaraNeural",
   CUSTOMER: "en-CA-LiamNeural",
@@ -47,6 +48,41 @@ function parseDialogue(text) {
     else if (segments.length && line.trim()) segments[segments.length - 1].text += " " + line.trim();
   }
   return segments.filter((s) => s.text.length > 0);
+}
+
+// Long single TTS calls are where Edge's stream gets cut off ("no turn.end
+// received"), so split each speaker turn into sentence-sized chunks first.
+function splitSentences(text, max = 380) {
+  const raw = text.match(/[^.!?]*[.!?]+["')\]]*|[^.!?]+$/g) ?? [text];
+  const chunks = [];
+  let cur = "";
+  for (const part of raw) {
+    if (cur && (cur + part).length > max) {
+      if (cur.trim()) chunks.push(cur.trim());
+      cur = part;
+    } else {
+      cur += part;
+    }
+  }
+  if (cur.trim()) chunks.push(cur.trim());
+
+  // Hard-split anything still too long (no sentence punctuation).
+  const out = [];
+  for (const c of chunks) {
+    if (c.length <= max) {
+      out.push(c);
+      continue;
+    }
+    let rest = c;
+    while (rest.length > max) {
+      let cut = rest.lastIndexOf(" ", max);
+      if (cut < max * 0.6) cut = max;
+      out.push(rest.slice(0, cut).trim());
+      rest = rest.slice(cut).trim();
+    }
+    if (rest) out.push(rest);
+  }
+  return out.filter(Boolean);
 }
 
 function collect(stream) {
@@ -121,18 +157,30 @@ async function synthesizeOnce(voice, text, bitrate) {
 }
 
 async function synthesize(voice, text) {
-  for (const bitrate of [96, 48]) {
-    try {
-      const { buffer, sentences } = await synthesizeOnce(voice, text, bitrate);
-      return { buffer, sentences, bitrate };
-    } catch (err) {
-      if (bitrate === 48) throw err;
-      const message = err instanceof Error ? err.message : String(err);
-      console.warn(`  retry ${voice} @48k: ${message}`);
-      await sleep(1000);
+  let lastMessage = "";
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    for (const bitrate of [96, 48]) {
+      try {
+        const { buffer, sentences } = await synthesizeOnce(voice, text, bitrate);
+        return { buffer, sentences, bitrate };
+      } catch (err) {
+        lastMessage = err instanceof Error ? err.message : String(err);
+        console.warn(`  retry ${voice} @${bitrate}k (attempt ${attempt + 1}/3): ${lastMessage}`);
+        await sleep(600 * (attempt + 1));
+      }
     }
   }
-  throw new Error(`failed: ${voice}`);
+  // Last resort: a very stable voice so one flaky voice never sinks a whole mock.
+  if (voice !== STABLE_FALLBACK) {
+    try {
+      const { buffer, sentences } = await synthesizeOnce(STABLE_FALLBACK, text, 48);
+      console.warn(`  fallback ${voice} -> ${STABLE_FALLBACK} @48k`);
+      return { buffer, sentences, bitrate: 48 };
+    } catch (err) {
+      lastMessage = err instanceof Error ? err.message : String(err);
+    }
+  }
+  throw new Error(`synthesis failed for ${voice}: ${lastMessage}`);
 }
 
 async function main() {
@@ -156,14 +204,29 @@ async function main() {
     const buffers = [];
     const segMeta = [];
     let cursor = 0;
+    let sectionBitrate = 96;
     for (const seg of segments) {
       const voice = SPEAKER_VOICES[seg.speaker] ?? FALLBACK_VOICE;
-      const { buffer, sentences, bitrate } = await synthesize(voice, seg.text);
-      const duration = Math.max(0.1, round(buffer.length / BYTES_PER_SECOND[bitrate], 2));
-      buffers.push(buffer);
-      segMeta.push({ speaker: seg.speaker, start: round(cursor, 2), duration, sentences });
-      cursor += duration;
-      await sleep(150);
+      const segStart = cursor;
+      const sentences = [];
+      let local = 0; // seconds offset within this segment
+      for (const chunk of splitSentences(seg.text)) {
+        const { buffer, sentences: rawSentences, bitrate } = await synthesize(voice, chunk);
+        if (bitrate === 48) sectionBitrate = 48;
+        const duration = Math.max(0.1, round(buffer.length / BYTES_PER_SECOND[bitrate], 2));
+        if (rawSentences.length > 0) {
+          for (const s of rawSentences) {
+            sentences.push({ start: round(local + s.start, 2), duration: round(s.duration, 2), text: s.text });
+          }
+        } else {
+          sentences.push({ start: round(local, 2), duration, text: chunk });
+        }
+        buffers.push(buffer);
+        local += duration;
+        await sleep(120);
+      }
+      segMeta.push({ speaker: seg.speaker, start: round(segStart, 2), duration: round(local, 2), sentences });
+      cursor = segStart + local;
     }
     const file = path.join(outDir, `${section.id}.mp3`);
     await fs.writeFile(file, Buffer.concat(buffers));
@@ -171,7 +234,7 @@ async function main() {
     manifest[section.id] = {
       group: mock.id,
       src,
-      bitrate: 96,
+      bitrate: sectionBitrate,
       durationSec: round(cursor, 2),
       segments: segMeta,
     };
