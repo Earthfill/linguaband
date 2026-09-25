@@ -1,0 +1,1441 @@
+{
+  "id": "mock-08",
+  "name": "Mock Test 05",
+  "badge": "New",
+  "difficulty": "Challenging",
+  "description": "A full-length, high-difficulty CELPIP-General style exam: 6 Listening, 4 Reading, 2 Writing, and 8 Speaking sections in the official order, with multi-step reasoning, close distractors, and official speaking timings.",
+  "sections": [
+    {
+      "id": "M8L1",
+      "skill": "listening",
+      "title": "Part 1 · Listening to Problem Solving",
+      "instructions": "Listen to the conversation and answer the questions.",
+      "timeLimitSec": 360,
+      "passageTitle": "Broken washing machine",
+      "passage": "AGENT: Customer care, Hollis Home Appliances, this is Brandon.\nCUSTOMER: Hi Brandon, Aisha Rahman here. My front-load washer stopped mid-cycle on Sunday with an error code, and there's still water inside. I bought it fourteen months ago.\nAGENT: I'm sorry to hear that. Our standard warranty covers twelve months, so it would have expired two months ago. Did you buy a protection plan at the time?\nCUSTOMER: I'm honestly not sure. The salesperson mentioned one, but I don't remember signing up.\nAGENT: Let me search by your phone number. Yes, I see it. You purchased the two-year protection plan for one hundred twenty-nine dollars. It covers parts and labour, with a fifty-dollar deductible per repair, not per visit, so if a second visit is needed for a part, you won't be charged again.\nCUSTOMER: That's a relief. What are my options for a technician?\nAGENT: Thursday between eight and noon; Saturday between one and five, with a twenty-five-dollar weekend surcharge; or next Tuesday between one and five.\nCUSTOMER: I work Thursday morning and can't leave. Tuesday is too far off with three kids and a washer full of water. Saturday afternoon could work. My son's tournament ends at noon.\nAGENT: Then I'll book Saturday. You'll pay the fifty-dollar deductible plus the twenty-five-dollar surcharge, seventy-five in total, once the repair is completed.\nCUSTOMER: Fine. Is there anything I should do beforehand?\nAGENT: Please don't run the machine again. And someone over eighteen has to be home. If nobody answers the door, there's a forty-dollar missed-appointment fee.\nCUSTOMER: Understood.\nAGENT: You'll receive a confirmation text on Friday afternoon.",
+      "questions": [
+        {
+          "id": "M8L1Q1",
+          "label": "Question 1",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why does Aisha first believe her washer is no longer covered?",
+          "options": [
+            "She bought it fourteen months ago and the standard warranty lasts twelve",
+            "The warranty applies only to dryers",
+            "The error code is not covered by any warranty",
+            "She declined the warranty when she bought it"
+          ],
+          "answerIndex": 0,
+          "explanation": "The standard warranty covers twelve months and she bought the machine fourteen months ago."
+        },
+        {
+          "id": "M8L1Q2",
+          "label": "Question 2",
+          "part": "Part 1 · Problem Solving",
+          "question": "What does Brandon discover?",
+          "options": [
+            "The machine was recalled",
+            "Aisha bought a two-year protection plan",
+            "The purchase was made under another name",
+            "The warranty was extended automatically"
+          ],
+          "answerIndex": 1,
+          "explanation": "He finds she purchased the plan for one hundred twenty-nine dollars."
+        },
+        {
+          "id": "M8L1Q3",
+          "label": "Question 3",
+          "part": "Part 1 · Problem Solving",
+          "question": "What does Brandon say about the fifty-dollar deductible?",
+          "options": [
+            "It is charged once per repair, even if a second visit is needed",
+            "It applies only to weekend visits",
+            "It is charged at every visit",
+            "It is waived if a part must be ordered"
+          ],
+          "answerIndex": 0,
+          "explanation": "The deductible is per repair, not per visit."
+        },
+        {
+          "id": "M8L1Q4",
+          "label": "Question 4",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why does Aisha reject the Thursday appointment?",
+          "options": [
+            "The surcharge is too high",
+            "She is at work in the morning and cannot leave",
+            "The window is too short",
+            "She will be out of town"
+          ],
+          "answerIndex": 1,
+          "explanation": "She works Thursday morning and can't leave."
+        },
+        {
+          "id": "M8L1Q5",
+          "label": "Question 5",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why does she reject Tuesday?",
+          "options": [
+            "The technician is unavailable",
+            "There is a surcharge for that day",
+            "She works on Tuesday afternoons",
+            "It is too long to wait with three children and water still in the washer"
+          ],
+          "answerIndex": 3,
+          "explanation": "She says Tuesday is too far off given her situation."
+        },
+        {
+          "id": "M8L1Q6",
+          "label": "Question 6",
+          "part": "Part 1 · Problem Solving",
+          "question": "How much will Aisha pay in total for the Saturday visit?",
+          "options": [
+            "Fifty dollars",
+            "One hundred twenty-nine dollars",
+            "Seventy-five dollars",
+            "Twenty-five dollars"
+          ],
+          "answerIndex": 2,
+          "explanation": "The fifty-dollar deductible plus the twenty-five-dollar surcharge equals seventy-five dollars."
+        },
+        {
+          "id": "M8L1Q7",
+          "label": "Question 7",
+          "part": "Part 1 · Problem Solving",
+          "question": "What does Brandon ask Aisha to do before the visit?",
+          "options": [
+            "Avoid running the machine again",
+            "Buy the replacement part",
+            "Send a photo of the error code",
+            "Drain the water and unplug the machine"
+          ],
+          "answerIndex": 0,
+          "explanation": "He asks her not to run the machine again."
+        },
+        {
+          "id": "M8L1Q8",
+          "label": "Question 8",
+          "part": "Part 1 · Problem Solving",
+          "question": "What happens if no one answers the door?",
+          "options": [
+            "The technician will return the next day at no cost",
+            "The deductible doubles",
+            "The protection plan is cancelled",
+            "A forty-dollar missed-appointment fee applies"
+          ],
+          "answerIndex": 3,
+          "explanation": "Brandon mentions a forty-dollar missed-appointment fee."
+        }
+      ]
+    },
+    {
+      "id": "M8L2",
+      "skill": "listening",
+      "title": "Part 2 · Listening to a Daily Life Conversation",
+      "instructions": "Listen to the conversation and answer the questions.",
+      "timeLimitSec": 300,
+      "passageTitle": "Train or rental car",
+      "passage": "SAM: Have you looked at how we're getting to Ottawa this weekend?\nJO: I did. The rental is sixty-five dollars a day, so I figured a hundred thirty for the two days.\nSAM: That's just the base rate. There's also twenty cents a kilometre after the first two hundred kilometres each day, and the hotel charges thirty dollars a night for parking.\nJO: Ugh, that adds up. It's about four hundred fifty kilometres each way, so nine hundred round trip. Minus four hundred free, that's five hundred kilometres, so a hundred dollars. With the base rate and the parking, we're at two sixty before gas.\nSAM: And the train is fifty-eight dollars each way if we book today. Tomorrow it goes up to seventy-nine.\nJO: For two people, round trip, that's two thirty-two if we book today. That's cheaper than the car once gas is included.\nSAM: The last train back on Sunday leaves at seven-ten, and brunch with my cousin ends around one, so timing isn't a problem.\nJO: Then it's the train. The only catch is that the station is a twenty-minute cab ride from the hotel.\nSAM: A cab is maybe twenty dollars each way. It's still cheaper.\nJO: Okay, I'm booking now.",
+      "questions": [
+        {
+          "id": "M8L2Q1",
+          "label": "Question 1",
+          "part": "Part 2 · Daily Life",
+          "question": "What are Sam and Jo deciding?",
+          "options": [
+            "Where to stay in Ottawa",
+            "Whether to cancel the trip",
+            "When to visit Sam's cousin",
+            "How to travel to Ottawa"
+          ],
+          "answerIndex": 3,
+          "explanation": "They compare a rental car and the train for the trip to Ottawa."
+        },
+        {
+          "id": "M8L2Q2",
+          "label": "Question 2",
+          "part": "Part 2 · Daily Life",
+          "question": "Why is the rental more expensive than Jo first thought?",
+          "options": [
+            "The base rate rises on weekends",
+            "There is a per-kilometre charge and hotel parking",
+            "The car must be returned with a full tank",
+            "The rental includes a mandatory insurance fee"
+          ],
+          "answerIndex": 1,
+          "explanation": "Sam mentions a charge per kilometre beyond the free distance and thirty dollars a night for parking."
+        },
+        {
+          "id": "M8L2Q3",
+          "label": "Question 3",
+          "part": "Part 2 · Daily Life",
+          "question": "What is the cost of the train for two people round trip if booked today?",
+          "options": [
+            "One hundred sixteen dollars",
+            "Three hundred sixteen dollars",
+            "Two hundred thirty-two dollars",
+            "Two hundred sixty dollars"
+          ],
+          "answerIndex": 2,
+          "explanation": "Fifty-eight dollars times four one-way tickets is two hundred thirty-two dollars."
+        },
+        {
+          "id": "M8L2Q4",
+          "label": "Question 4",
+          "part": "Part 2 · Daily Life",
+          "question": "Why is the return timing not a problem?",
+          "options": [
+            "Sam's cousin will drive them to the station",
+            "The last train leaves at seven-ten and brunch ends around one",
+            "They plan to stay until Monday",
+            "The train leaves every hour"
+          ],
+          "answerIndex": 1,
+          "explanation": "Brunch ends around one and the last train leaves at seven-ten."
+        },
+        {
+          "id": "M8L2Q5",
+          "label": "Question 5",
+          "part": "Part 2 · Daily Life",
+          "question": "What do they decide?",
+          "options": [
+            "To book the train today",
+            "To take a cab the whole way",
+            "To wait until tomorrow to compare prices",
+            "To rent a car for one day"
+          ],
+          "answerIndex": 0,
+          "explanation": "Jo says she is booking the train now."
+        }
+      ]
+    },
+    {
+      "id": "M8L3",
+      "skill": "listening",
+      "title": "Part 3 · Listening for Information",
+      "instructions": "Listen to the information and answer the questions.",
+      "timeLimitSec": 360,
+      "passageTitle": "Flu vaccine clinics",
+      "passage": "RECORDING: You've reached Eastbrook Public Health. This message provides details about this year's flu vaccine clinics. Beginning Monday, October seventh, the vaccine is free for anyone six months of age or older who lives in the Eastbrook Region. Please bring your health card. Walk-in clinics are held Monday to Thursday, from ten to three, at the Community Health Centre. On Fridays, clinics are by appointment only, and appointments can be booked online. Adults sixty-five and older, and residents of long-term care homes, are eligible for a high-dose vaccine, which is available only at Friday appointment clinics. Children under nine who have never received a flu vaccine need two doses, at least four weeks apart. If you have a fever or feel unwell on the day of your visit, please reschedule. After vaccination, everyone is asked to wait fifteen minutes in the clinic before leaving. To hear this message in another language, press two.",
+      "questions": [
+        {
+          "id": "M8L3Q1",
+          "label": "Question 1",
+          "part": "Part 3 · Information",
+          "question": "Who is eligible for the free vaccine?",
+          "options": [
+            "Only adults over sixty-five",
+            "Only people with a doctor's referral",
+            "Anyone six months or older who lives in the Eastbrook Region",
+            "Anyone visiting the region"
+          ],
+          "answerIndex": 2,
+          "explanation": "The vaccine is free for residents six months of age or older."
+        },
+        {
+          "id": "M8L3Q2",
+          "label": "Question 2",
+          "part": "Part 3 · Information",
+          "question": "When are walk-in clinics held?",
+          "options": [
+            "Monday to Friday from ten to three",
+            "Monday to Thursday from ten to three",
+            "Friday by appointment only",
+            "Saturdays from nine to noon"
+          ],
+          "answerIndex": 1,
+          "explanation": "Walk-ins are Monday to Thursday, ten to three."
+        },
+        {
+          "id": "M8L3Q3",
+          "label": "Question 3",
+          "part": "Part 3 · Information",
+          "question": "Where can a 70-year-old get the high-dose vaccine?",
+          "options": [
+            "At any walk-in clinic",
+            "Only at Friday appointment clinics",
+            "At any pharmacy in the region",
+            "At the Community Health Centre on Mondays"
+          ],
+          "answerIndex": 1,
+          "explanation": "The high-dose vaccine is available only at Friday appointment clinics."
+        },
+        {
+          "id": "M8L3Q4",
+          "label": "Question 4",
+          "part": "Part 3 · Information",
+          "question": "What is required for a five-year-old who has never had a flu vaccine?",
+          "options": [
+            "Two doses at least four weeks apart",
+            "One dose only",
+            "Two doses one week apart",
+            "A doctor's note"
+          ],
+          "answerIndex": 0,
+          "explanation": "Children under nine with no prior flu vaccine need two doses, four weeks apart."
+        },
+        {
+          "id": "M8L3Q5",
+          "label": "Question 5",
+          "part": "Part 3 · Information",
+          "question": "What should someone with a fever do?",
+          "options": [
+            "Book a Friday appointment",
+            "Bring a health card as proof",
+            "Wait fifteen minutes before entering",
+            "Reschedule the visit"
+          ],
+          "answerIndex": 3,
+          "explanation": "The message asks people who are unwell to reschedule."
+        },
+        {
+          "id": "M8L3Q6",
+          "label": "Question 6",
+          "part": "Part 3 · Information",
+          "question": "What is everyone asked to do after vaccination?",
+          "options": [
+            "Return the next day",
+            "Wait for a confirmation call",
+            "Wait fifteen minutes in the clinic",
+            "Book a follow-up visit"
+          ],
+          "answerIndex": 2,
+          "explanation": "Everyone waits fifteen minutes before leaving."
+        }
+      ]
+    },
+    {
+      "id": "M8L4",
+      "skill": "listening",
+      "title": "Part 4 · Listening to a News Item",
+      "instructions": "Listen to the news item and answer the questions.",
+      "timeLimitSec": 420,
+      "passageTitle": "Heat pump rebates",
+      "passage": "ANNOUNCER: The provincial government unveiled a new rebate program today to help homeowners switch from gas furnaces to electric heat pumps. Most households can receive a rebate of three thousand dollars, while those with a combined income below seventy thousand dollars qualify for up to six thousand. Applications open October first and must be submitted before installation begins, and the work must be done by a certified installer. The government has set aside eighty million dollars, which officials say should cover about twenty thousand homes. Critics point out that the average installation costs about fourteen thousand dollars, meaning even the larger rebate covers less than half, and they warn that a shortage of certified installers could lead to long waits. The energy minister acknowledged the concern and said a training program for two thousand new installers will begin in January.",
+      "questions": [
+        {
+          "id": "M8L4Q1",
+          "label": "Question 1",
+          "part": "Part 4 · News Item",
+          "question": "What is the purpose of the new program?",
+          "options": [
+            "To help homeowners replace gas furnaces with electric heat pumps",
+            "To reduce electricity prices",
+            "To train energy inspectors",
+            "To fund new home construction"
+          ],
+          "answerIndex": 0,
+          "explanation": "The rebate helps households switch from gas furnaces to heat pumps."
+        },
+        {
+          "id": "M8L4Q2",
+          "label": "Question 2",
+          "part": "Part 4 · News Item",
+          "question": "Who qualifies for the larger rebate?",
+          "options": [
+            "Households with a combined income below seventy thousand dollars",
+            "Households that apply before October",
+            "Households with children",
+            "Households that install two heat pumps"
+          ],
+          "answerIndex": 0,
+          "explanation": "Lower-income households qualify for up to six thousand dollars."
+        },
+        {
+          "id": "M8L4Q3",
+          "label": "Question 3",
+          "part": "Part 4 · News Item",
+          "question": "What must homeowners do before installation?",
+          "options": [
+            "Submit an application",
+            "Get a government inspection",
+            "Remove their gas furnace",
+            "Pay a deposit to the province"
+          ],
+          "answerIndex": 0,
+          "explanation": "Applications must be submitted before installation begins."
+        },
+        {
+          "id": "M8L4Q4",
+          "label": "Question 4",
+          "part": "Part 4 · News Item",
+          "question": "About how many homes should the funding cover?",
+          "options": [
+            "Twenty thousand",
+            "Eighty thousand",
+            "Two thousand",
+            "Fourteen thousand"
+          ],
+          "answerIndex": 0,
+          "explanation": "Officials say eighty million dollars should cover about twenty thousand homes."
+        },
+        {
+          "id": "M8L4Q5",
+          "label": "Question 5",
+          "part": "Part 4 · News Item",
+          "question": "What are critics' concerns?",
+          "options": [
+            "The rebate is too generous and the funding will run out",
+            "Heat pumps do not work in cold weather",
+            "The larger rebate covers less than half of the average cost, and installers may be in short supply",
+            "Applications are too complicated"
+          ],
+          "answerIndex": 2,
+          "explanation": "Critics note the cost gap and a possible shortage of certified installers."
+        }
+      ]
+    },
+    {
+      "id": "M8L5",
+      "skill": "listening",
+      "title": "Part 5 · Listening to a Discussion",
+      "instructions": "Listen to the discussion and answer the questions.",
+      "timeLimitSec": 720,
+      "passageTitle": "Choosing a fundraiser",
+      "passage": "PRIYANKA: We need to raise at least six thousand dollars, after costs, for the youth soccer program by November thirtieth. It's mid-September now, so we have about ten weeks.\nOWEN: I've priced three ideas. A gala dinner could bring in twelve thousand dollars, but the costs would be around seven thousand, and the venue needs three months' notice.\nLEAH: Three months is out. That would put us into December.\nOWEN: Right. A charity 5K would raise about eight thousand with roughly twenty-five hundred in costs, but we need a city permit, and that takes six weeks to process.\nPRIYANKA: Six weeks leaves four weeks to organize. That's tight but possible. And the third?\nOWEN: An online auction. It would cost about five hundred dollars and raise five thousand, and we could launch it within a month.\nLEAH: The auction is the safest, but the net is only forty-five hundred, so it falls short of the goal on its own.\nPRIYANKA: The 5K nets fifty-five hundred, which is also short by five hundred.\nOWEN: What if we hold the 5K and add a raffle at the event? Raffle tickets could bring in another thousand with almost no cost.\nLEAH: That gets us to sixty-five hundred, over the target. But if the permit is delayed, we're in trouble.\nPRIYANKA: Then Owen files the permit application tomorrow, and Leah prepares the online auction as a backup that can launch in October if the permit is late.",
+      "questions": [
+        {
+          "id": "M8L5Q1",
+          "label": "Question 1",
+          "part": "Part 5 · Discussion",
+          "question": "What is the group's fundraising goal and deadline?",
+          "options": [
+            "Five thousand dollars by mid-November",
+            "At least six thousand dollars after costs by November thirtieth",
+            "Twelve thousand dollars by December",
+            "Six thousand dollars in gross revenue by October"
+          ],
+          "answerIndex": 1,
+          "explanation": "Priyanka states they need six thousand dollars net by November thirtieth."
+        },
+        {
+          "id": "M8L5Q2",
+          "label": "Question 2",
+          "part": "Part 5 · Discussion",
+          "question": "Why do they rule out the gala dinner?",
+          "options": [
+            "The permit takes too long",
+            "The venue needs three months' notice, which runs past the deadline",
+            "It would raise too little money",
+            "Its costs exceed its revenue"
+          ],
+          "answerIndex": 1,
+          "explanation": "Three months' notice would put them into December."
+        },
+        {
+          "id": "M8L5Q3",
+          "label": "Question 3",
+          "part": "Part 5 · Discussion",
+          "question": "How much would the 5K raise after costs?",
+          "options": [
+            "Forty-five hundred dollars",
+            "Sixty-five hundred dollars",
+            "Eight thousand dollars",
+            "Fifty-five hundred dollars"
+          ],
+          "answerIndex": 3,
+          "explanation": "Eight thousand less twenty-five hundred is fifty-five hundred."
+        },
+        {
+          "id": "M8L5Q4",
+          "label": "Question 4",
+          "part": "Part 5 · Discussion",
+          "question": "Why is the online auction alone not enough?",
+          "options": [
+            "It costs more than it raises",
+            "It needs a city permit",
+            "Its net of forty-five hundred dollars falls short of the goal",
+            "It takes too long to launch"
+          ],
+          "answerIndex": 2,
+          "explanation": "Leah says the auction nets only forty-five hundred."
+        },
+        {
+          "id": "M8L5Q5",
+          "label": "Question 5",
+          "part": "Part 5 · Discussion",
+          "question": "What does Owen propose?",
+          "options": [
+            "Holding the 5K with a raffle at the event",
+            "Holding the 5K and the auction together",
+            "Holding the gala in December",
+            "Combining the auction with a raffle"
+          ],
+          "answerIndex": 0,
+          "explanation": "Owen suggests adding a raffle to the 5K."
+        },
+        {
+          "id": "M8L5Q6",
+          "label": "Question 6",
+          "part": "Part 5 · Discussion",
+          "question": "What would the total be after costs with the raffle added?",
+          "options": [
+            "Sixty-five hundred dollars",
+            "Fifty-five hundred dollars",
+            "Seventy-five hundred dollars",
+            "Six thousand dollars"
+          ],
+          "answerIndex": 0,
+          "explanation": "Fifty-five hundred plus a thousand is sixty-five hundred."
+        },
+        {
+          "id": "M8L5Q7",
+          "label": "Question 7",
+          "part": "Part 5 · Discussion",
+          "question": "What is Leah's concern?",
+          "options": [
+            "The venue may not be free",
+            "The permit could be delayed",
+            "Volunteers may not be available",
+            "The raffle could lose money"
+          ],
+          "answerIndex": 1,
+          "explanation": "Leah says a permit delay would be a problem."
+        },
+        {
+          "id": "M8L5Q8",
+          "label": "Question 8",
+          "part": "Part 5 · Discussion",
+          "question": "What backup plan do they agree on?",
+          "options": [
+            "They ask the city to speed up the permit",
+            "Owen books the gala for December",
+            "Leah prepares an online auction that could launch in October",
+            "They cancel the raffle"
+          ],
+          "answerIndex": 2,
+          "explanation": "Leah will prepare the auction as a backup."
+        }
+      ]
+    },
+    {
+      "id": "M8L6",
+      "skill": "listening",
+      "title": "Part 6 · Listening for Viewpoints",
+      "instructions": "Listen to the two speakers and answer the questions.",
+      "timeLimitSec": 660,
+      "passageTitle": "Pass-fail in first year",
+      "passage": "SPEAKER A: I support making first-year university courses pass-fail. First-year students are adjusting to a new environment, and grades add pressure that discourages them from taking risks. At one university that ran a pilot, students took about twenty percent more courses outside their intended major, and they reported noticeably lower anxiety.\nSPEAKER B: I understand the goal, but I'm concerned about motivation. In the same pilot, students studied roughly two hours less per week. When there's no difference between a barely passing paper and an excellent one, many people will do the minimum.\nSPEAKER A: That's a legitimate risk, but studying two hours less doesn't mean students learned less; the pilot showed no difference in pass rates. And we could limit pass-fail to the first semester, so students still build good habits afterward.\nSPEAKER B: Even so, there's an equity issue. Students from under-resourced high schools often rely on strong early grades to show they belong. Removing grades could hide their progress and make it harder to qualify for scholarships that require a minimum average.\nSPEAKER A: That's a fair point, and the answer is probably to let students opt in to receiving letter grades if they want them, rather than keeping the current system.",
+      "questions": [
+        {
+          "id": "M8L6Q1",
+          "label": "Question 1",
+          "part": "Part 6 · Viewpoints",
+          "question": "What is Speaker A's position?",
+          "options": [
+            "First-year students should skip electives",
+            "Universities should reduce course loads",
+            "First-year courses should be pass-fail",
+            "Grades should be eliminated at every level"
+          ],
+          "answerIndex": 2,
+          "explanation": "Speaker A supports making first-year courses pass-fail."
+        },
+        {
+          "id": "M8L6Q2",
+          "label": "Question 2",
+          "part": "Part 6 · Viewpoints",
+          "question": "What evidence does Speaker A cite from the pilot?",
+          "options": [
+            "More students graduated early",
+            "Students earned higher grades in their major",
+            "Students studied more hours per week",
+            "Students took more outside courses and reported lower anxiety"
+          ],
+          "answerIndex": 3,
+          "explanation": "Speaker A mentions a twenty percent increase in outside courses and lower anxiety."
+        },
+        {
+          "id": "M8L6Q3",
+          "label": "Question 3",
+          "part": "Part 6 · Viewpoints",
+          "question": "What is Speaker B's main concern?",
+          "options": [
+            "Fewer elective choices",
+            "Reduced motivation to study",
+            "Lower anxiety among students",
+            "Higher tuition costs"
+          ],
+          "answerIndex": 1,
+          "explanation": "Speaker B says students studied about two hours less per week and may do the minimum."
+        },
+        {
+          "id": "M8L6Q4",
+          "label": "Question 4",
+          "part": "Part 6 · Viewpoints",
+          "question": "How does Speaker A respond to that concern?",
+          "options": [
+            "Students will make up the time in second year",
+            "Pass rates did not change, and pass-fail could be limited to the first semester",
+            "Motivation is not important in first year",
+            "Professors can assign more work"
+          ],
+          "answerIndex": 1,
+          "explanation": "Speaker A notes unchanged pass rates and proposes a one-semester limit."
+        },
+        {
+          "id": "M8L6Q5",
+          "label": "Question 5",
+          "part": "Part 6 · Viewpoints",
+          "question": "What equity concern does Speaker B raise?",
+          "options": [
+            "Students from under-resourced schools may need early grades to show progress and qualify for scholarships",
+            "Wealthier students would buy tutoring",
+            "Professors would grade unfairly",
+            "Students would avoid difficult courses"
+          ],
+          "answerIndex": 0,
+          "explanation": "Speaker B says grades help these students show they belong and meet scholarship requirements."
+        },
+        {
+          "id": "M8L6Q6",
+          "label": "Question 6",
+          "part": "Part 6 · Viewpoints",
+          "question": "What does Speaker A suggest at the end?",
+          "options": [
+            "Making all courses pass-fail",
+            "Keeping the current grading system",
+            "Ending scholarships based on grades",
+            "Allowing students to opt in to letter grades"
+          ],
+          "answerIndex": 3,
+          "explanation": "Speaker A proposes letting students choose to receive letter grades."
+        }
+      ]
+    },
+    {
+      "id": "M8R1",
+      "skill": "reading",
+      "title": "Reading Part 1 · Reading Correspondence",
+      "instructions": "Read the email exchange and answer the questions.",
+      "timeLimitSec": 720,
+      "passageTitle": "Grade appeal",
+      "passage": "From: Marcus Ibarra <m.ibarra@student.northlake.ca>\nTo: Dr. Halloran <halloran@northlake.ca>\nSubject: Request to review Lab 3 mark\n\nDear Dr. Halloran,\n\nI am writing to request a review of my mark on Lab 3, which was returned on October 18. I received 71 out of 100. My raw score was 81, and a 10-point late penalty was applied because the portal shows my submission at 2:14 a.m. on October 4, after the midnight deadline.\n\nHowever, the submission portal was down that night. I have attached the IT notice, which shows an outage from 11:20 p.m. to 1:50 a.m. I tried to upload my report at 11:40 p.m. and could not, so at 11:52 p.m. I emailed a copy to my teaching assistant, and I uploaded it as soon as the portal returned.\n\nSeparately, 4 of the 19 marks I lost were for missing units. I believe I included units in all my final answers, so I would also like that deduction reviewed. I am writing within the seven-day appeal window.\n\nThank you for your time.\nMarcus Ibarra\n\n------------------------------\n\nFrom: Dr. Halloran <halloran@northlake.ca>\nTo: Marcus Ibarra\nSubject: Re: Request to review Lab 3 mark\n\nDear Marcus,\n\nThank you for your email and for attaching the IT notice. I have confirmed with the technology office that the portal was unavailable between 11:20 p.m. and 1:50 a.m. on the night in question. Given this, I have removed the late penalty, and your mark is now 81.\n\nI have also reviewed the units deduction. The rubric requires units in every intermediate calculation, not only in the final answers. Your final answers were correct and included units, but the intermediate steps in questions 3 and 5 did not, so the 4-mark deduction stands.\n\nFor the future, please note that when the portal fails, students must email the course instructor, not the teaching assistant, within 30 minutes of the failure. I accepted your case because the outage is documented, but I cannot make the same exception again.\n\nThe corrected mark will appear on the course website by October 26. If you would like to go over the rubric in more detail, I hold office hours on Tuesdays from 2 to 4 p.m.\n\nBest regards,\nDr. Halloran",
+      "questions": [
+        {
+          "id": "M8R1Q1",
+          "label": "Question 1",
+          "part": "Reading Part 1",
+          "question": "Why is Marcus writing to Dr. Halloran?",
+          "options": [
+            "To ask for an extension on Lab 4",
+            "To request a meeting with his teaching assistant",
+            "To request a review of his Lab 3 mark",
+            "To report a problem with the portal to the university"
+          ],
+          "answerIndex": 2,
+          "explanation": "He asks for a review of his Lab 3 mark."
+        },
+        {
+          "id": "M8R1Q2",
+          "label": "Question 2",
+          "part": "Reading Part 1",
+          "question": "What mark did Marcus originally receive?",
+          "options": [
+            "85 out of 100",
+            "10 out of 100",
+            "71 out of 100",
+            "81 out of 100"
+          ],
+          "answerIndex": 2,
+          "explanation": "He received 71 after a 10-point penalty was applied to a raw score of 81."
+        },
+        {
+          "id": "M8R1Q3",
+          "label": "Question 3",
+          "part": "Reading Part 1",
+          "question": "Why was a late penalty applied?",
+          "options": [
+            "The portal showed his submission after the deadline",
+            "He missed the rubric requirements",
+            "He submitted an incomplete report",
+            "He emailed the report to the wrong person"
+          ],
+          "answerIndex": 0,
+          "explanation": "The portal timestamp was 2:14 a.m. after the midnight deadline."
+        },
+        {
+          "id": "M8R1Q4",
+          "label": "Question 4",
+          "part": "Reading Part 1",
+          "question": "What does Marcus offer as evidence that the penalty was unfair?",
+          "options": [
+            "A note from his teaching assistant",
+            "A letter from his doctor",
+            "An IT notice about a portal outage",
+            "A screenshot of the assignment instructions"
+          ],
+          "answerIndex": 2,
+          "explanation": "He attaches the IT notice showing the outage."
+        },
+        {
+          "id": "M8R1Q5",
+          "label": "Question 5",
+          "part": "Reading Part 1",
+          "question": "Was Marcus's appeal submitted within the appeal window?",
+          "options": [
+            "It cannot be determined from the emails",
+            "No, because the marks were returned on October 4",
+            "No, because the window is three days",
+            "Yes, because it was within seven days of the marks being returned"
+          ],
+          "answerIndex": 3,
+          "explanation": "The marks were returned October 18, and he writes within the seven-day window."
+        },
+        {
+          "id": "M8R1Q6",
+          "label": "Question 6",
+          "part": "Reading Part 1",
+          "question": "How did Dr. Halloran verify the outage?",
+          "options": [
+            "He confirmed it with the technology office",
+            "He checked the portal himself",
+            "He read Marcus's email to the teaching assistant",
+            "He asked other students"
+          ],
+          "answerIndex": 0,
+          "explanation": "He says he confirmed the outage with the technology office."
+        },
+        {
+          "id": "M8R1Q7",
+          "label": "Question 7",
+          "part": "Reading Part 1",
+          "question": "What was the result of the late penalty appeal?",
+          "options": [
+            "The penalty was upheld",
+            "The appeal was sent to a committee",
+            "The penalty was reduced by half",
+            "The penalty was removed"
+          ],
+          "answerIndex": 3,
+          "explanation": "Dr. Halloran removed the penalty."
+        },
+        {
+          "id": "M8R1Q8",
+          "label": "Question 8",
+          "part": "Reading Part 1",
+          "question": "Why does the units deduction stand?",
+          "options": [
+            "Marcus did not submit the appeal on time",
+            "The rubric requires units in intermediate calculations, and some steps lacked them",
+            "The units were incorrect",
+            "The final answers were missing units"
+          ],
+          "answerIndex": 1,
+          "explanation": "The intermediate steps in questions 3 and 5 did not include units."
+        },
+        {
+          "id": "M8R1Q9",
+          "label": "Question 9",
+          "part": "Reading Part 1",
+          "question": "What is Marcus's new mark?",
+          "options": [
+            "71",
+            "77",
+            "81",
+            "85"
+          ],
+          "answerIndex": 2,
+          "explanation": "With the penalty removed, his mark is 81."
+        },
+        {
+          "id": "M8R1Q10",
+          "label": "Question 10",
+          "part": "Reading Part 1",
+          "question": "What must students do if the portal fails in the future?",
+          "options": [
+            "Email their teaching assistant immediately",
+            "Submit the report the next morning",
+            "Email the instructor within 30 minutes of the failure",
+            "Submit a paper copy in class"
+          ],
+          "answerIndex": 2,
+          "explanation": "Dr. Halloran says to email the course instructor within 30 minutes."
+        },
+        {
+          "id": "M8R1Q11",
+          "label": "Question 11",
+          "part": "Reading Part 1",
+          "question": "How does Dr. Halloran suggest Marcus learn more about the rubric?",
+          "options": [
+            "Attend his Tuesday office hours",
+            "Read the course handbook",
+            "Attend a study group",
+            "Book an appointment with the teaching assistant"
+          ],
+          "answerIndex": 0,
+          "explanation": "He holds office hours on Tuesdays from 2 to 4 p.m."
+        }
+      ]
+    },
+    {
+      "id": "M8R2",
+      "skill": "reading",
+      "title": "Reading Part 2 · Reading to Apply a Diagram",
+      "instructions": "Read the timetable and answer the questions.",
+      "timeLimitSec": 720,
+      "passageTitle": "Lakeshore transit timetable",
+      "passage": "LAKESHORE REGIONAL TRANSIT — WEEKDAY TIMETABLE\n\nTRAIN R1 (Northfield → Millbrook → Harbour City)\nNorthfield dep. | Millbrook arr. | Millbrook dep. | Harbour City arr.\n7:10 am         | 7:52 am        | 7:58 am        | 8:40 am\n9:10 am         | 9:52 am        | 9:58 am        | 10:40 am\n\nBUS B5 (Millbrook → Cedar Falls) — journey time 35 minutes\nDeparts Millbrook: 8:05 am, 9:05 am, 10:05 am\n\nFARES\nNorthfield–Millbrook: $6      Millbrook–Harbour City: $6      Northfield–Harbour City: $10 (through fare)\nBus B5: $3     Day pass (unlimited train and bus): $22\n\nRULES\n1. Seniors (65+) pay half fare on trains and buses.\n2. Each adult may bring up to two children under 12 free.\n3. A validated train ticket includes a free bus transfer if the bus is boarded within 90 minutes of validation.\n4. Train R1 does not operate on Sundays or statutory holidays.",
+      "questions": [
+        {
+          "id": "M8R2Q1",
+          "label": "Question 1",
+          "part": "Reading Part 2",
+          "question": "What time does the 9:10 am train from Northfield arrive in Harbour City?",
+          "options": [
+            "10:40 am",
+            "9:58 am",
+            "10:05 am",
+            "9:52 am"
+          ],
+          "answerIndex": 0,
+          "explanation": "The 9:10 train arrives in Harbour City at 10:40 am."
+        },
+        {
+          "id": "M8R2Q2",
+          "label": "Question 2",
+          "part": "Reading Part 2",
+          "question": "What is the earliest time a traveller leaving Northfield on the 7:10 train can arrive in Cedar Falls?",
+          "options": [
+            "8:05 am",
+            "9:40 am",
+            "7:52 am",
+            "8:40 am"
+          ],
+          "answerIndex": 3,
+          "explanation": "The train reaches Millbrook at 7:52, the 8:05 bus leaves, and the journey takes 35 minutes."
+        },
+        {
+          "id": "M8R2Q3",
+          "label": "Question 3",
+          "part": "Reading Part 2",
+          "question": "How much does a senior pay for a through ticket from Northfield to Harbour City?",
+          "options": [
+            "$10",
+            "$6",
+            "$5",
+            "$3"
+          ],
+          "answerIndex": 2,
+          "explanation": "Half of the $10 through fare is $5."
+        },
+        {
+          "id": "M8R2Q4",
+          "label": "Question 4",
+          "part": "Reading Part 2",
+          "question": "Two adults and three children under 12 travel from Northfield to Millbrook. What is the total fare?",
+          "options": [
+            "$12",
+            "$18",
+            "$30",
+            "$24"
+          ],
+          "answerIndex": 0,
+          "explanation": "Each adult may bring two children free, so only the two adult fares of $6 are paid."
+        },
+        {
+          "id": "M8R2Q5",
+          "label": "Question 5",
+          "part": "Reading Part 2",
+          "question": "A passenger validates a ticket in Northfield at 7:10 am and boards the 9:05 am bus in Millbrook. How much is the bus fare?",
+          "options": [
+            "$3",
+            "Free",
+            "$6",
+            "$1.50"
+          ],
+          "answerIndex": 0,
+          "explanation": "The bus is boarded 115 minutes after validation, beyond the 90-minute transfer window."
+        },
+        {
+          "id": "M8R2Q6",
+          "label": "Question 6",
+          "part": "Reading Part 2",
+          "question": "A traveller will take a round trip from Northfield to Harbour City ($20 total) and a round trip on Bus B5 that does not qualify for a free transfer ($6 total). What is the best choice?",
+          "options": [
+            "Buy a day pass and save $4",
+            "Buy individual tickets because the totals are equal",
+            "Buy a day pass and save $2",
+            "Buy individual tickets and save $4"
+          ],
+          "answerIndex": 0,
+          "explanation": "Individual tickets total $26, and the day pass costs $22."
+        },
+        {
+          "id": "M8R2Q7",
+          "label": "Question 7",
+          "part": "Reading Part 2",
+          "question": "How much time is there between the 9:52 am train arriving in Millbrook and the next Bus B5 departure?",
+          "options": [
+            "13 minutes",
+            "8 minutes",
+            "6 minutes",
+            "23 minutes"
+          ],
+          "answerIndex": 0,
+          "explanation": "The 9:52 train arrives, and the next bus leaves at 10:05."
+        },
+        {
+          "id": "M8R2Q8",
+          "label": "Question 8",
+          "part": "Reading Part 2",
+          "question": "Which statement is correct?",
+          "options": [
+            "The day pass includes only train travel",
+            "Train R1 does not run on Sundays",
+            "Bus B5 does not run on Sundays",
+            "Seniors ride free on buses"
+          ],
+          "answerIndex": 1,
+          "explanation": "Rule 4 says Train R1 does not operate on Sundays or statutory holidays."
+        }
+      ]
+    },
+    {
+      "id": "M8R3",
+      "skill": "reading",
+      "title": "Reading Part 3 · Reading for Information",
+      "instructions": "Read the article and answer the questions.",
+      "timeLimitSec": 900,
+      "passageTitle": "The science of remembering",
+      "passage": "In the 1880s, the German psychologist Hermann Ebbinghaus memorized lists of nonsense syllables and tested himself at intervals. He found that forgetting was steepest immediately after learning: within an hour, more than half of the material could be lost, and the decline then slowed. His \"forgetting curve\" remains one of the most replicated findings in psychology.\n\nLater research showed that the curve is not fixed. Each time a memory is retrieved, it tends to become more durable, so reviewing material at increasing intervals, such as a day later, then a week, then a month, can flatten the curve dramatically. This \"spacing effect\" has been demonstrated with subjects ranging from vocabulary to surgical techniques.\n\nA related finding is the \"testing effect\": trying to recall information from memory strengthens it more than simply rereading it. In one classroom experiment, students who spent part of their study time quizzing themselves scored about twenty percent higher on a test a month later than those who spent all of it rereading their notes.\n\nParadoxically, the methods that work best often feel worse. Massed practice, or cramming, produces fluency in the short term, which creates an illusion of mastery, whereas spaced retrieval feels slower and harder. When asked afterward, students often rate rereading as more effective than self-testing, even when their own scores show otherwise. Psychologists call the beneficial struggle a \"desirable difficulty.\"\n\nNone of this means cramming is useless. If an exam is tomorrow and the material will never be needed again, massed study may be an efficient choice. But for knowledge intended to last, such as a professional qualification or a new language, spacing offers more durable results for the same total time. Researchers caution, however, that the ideal interval depends on how long a person needs to remember the material, and that no single schedule suits everyone.",
+      "questions": [
+        {
+          "id": "M8R3Q1",
+          "label": "Question 1",
+          "part": "Reading Part 3",
+          "question": "What is the main idea of the article?",
+          "options": [
+            "Rereading notes is the most effective method",
+            "Cramming is always the best way to study",
+            "Forgetting cannot be prevented",
+            "Memory lasts longer when study is spaced and involves recall, even though it feels harder"
+          ],
+          "answerIndex": 3,
+          "explanation": "The article explains the spacing effect, the testing effect, and why effective methods feel difficult."
+        },
+        {
+          "id": "M8R3Q2",
+          "label": "Question 2",
+          "part": "Reading Part 3",
+          "question": "What did Ebbinghaus discover about forgetting?",
+          "options": [
+            "It happens at a steady rate",
+            "It depends on the length of the list",
+            "It is fastest right after learning and then slows",
+            "It occurs mostly after a week"
+          ],
+          "answerIndex": 2,
+          "explanation": "The article says forgetting was steepest immediately after learning."
+        },
+        {
+          "id": "M8R3Q3",
+          "label": "Question 3",
+          "part": "Reading Part 3",
+          "question": "What does the \"spacing effect\" involve?",
+          "options": [
+            "Studying in a quiet room",
+            "Rereading notes several times in one day",
+            "Learning one subject for several hours",
+            "Reviewing material at increasing intervals"
+          ],
+          "answerIndex": 3,
+          "explanation": "Spacing refers to reviewing at intervals such as a day, a week, and a month."
+        },
+        {
+          "id": "M8R3Q4",
+          "label": "Question 4",
+          "part": "Reading Part 3",
+          "question": "What is the \"testing effect\"?",
+          "options": [
+            "Tests should be given more often in schools",
+            "Tests measure intelligence accurately",
+            "Students remember test questions better than notes",
+            "Recalling information strengthens it more than rereading"
+          ],
+          "answerIndex": 3,
+          "explanation": "The article says recall strengthens memory more than rereading."
+        },
+        {
+          "id": "M8R3Q5",
+          "label": "Question 5",
+          "part": "Reading Part 3",
+          "question": "What did the classroom experiment show?",
+          "options": [
+            "Students who quizzed themselves scored about twenty percent higher a month later",
+            "Students who quizzed themselves studied less",
+            "Both groups performed equally",
+            "Students who reread scored higher"
+          ],
+          "answerIndex": 0,
+          "explanation": "Self-quizzing students scored about twenty percent higher."
+        },
+        {
+          "id": "M8R3Q6",
+          "label": "Question 6",
+          "part": "Reading Part 3",
+          "question": "Why do students often prefer rereading?",
+          "options": [
+            "It feels easier and creates an illusion of mastery",
+            "It has been proven more effective",
+            "It requires no notes",
+            "It takes less time in total"
+          ],
+          "answerIndex": 0,
+          "explanation": "Cramming and rereading produce fluency, which feels like mastery."
+        },
+        {
+          "id": "M8R3Q7",
+          "label": "Question 7",
+          "part": "Reading Part 3",
+          "question": "What does \"desirable difficulty\" refer to?",
+          "options": [
+            "A beneficial struggle that improves long-term learning",
+            "A task too hard for most students",
+            "A rule for setting exam questions",
+            "A method that reduces stress"
+          ],
+          "answerIndex": 0,
+          "explanation": "The article uses the term for the beneficial struggle of spaced retrieval."
+        },
+        {
+          "id": "M8R3Q8",
+          "label": "Question 8",
+          "part": "Reading Part 3",
+          "question": "According to the article, when might cramming be efficient?",
+          "options": [
+            "When the ideal interval is a month",
+            "When learning a professional qualification",
+            "When an exam is tomorrow and the material won't be needed again",
+            "When studying a new language"
+          ],
+          "answerIndex": 2,
+          "explanation": "Massed study may be efficient for short-term needs."
+        },
+        {
+          "id": "M8R3Q9",
+          "label": "Question 9",
+          "part": "Reading Part 3",
+          "question": "Which statement would the author most likely agree with?",
+          "options": [
+            "Spacing is useful only for languages",
+            "The best study schedule depends on how long the information must be remembered",
+            "One schedule works for every learner",
+            "Cramming produces the most durable memory"
+          ],
+          "answerIndex": 1,
+          "explanation": "The author notes that the ideal interval depends on how long a person needs to remember."
+        }
+      ]
+    },
+    {
+      "id": "M8R4",
+      "skill": "reading",
+      "title": "Reading Part 4 · Reading for Viewpoints",
+      "instructions": "Read the two viewpoints and answer the questions.",
+      "timeLimitSec": 960,
+      "passageTitle": "Should zoos be phased out?",
+      "passage": "The Case for Ending Zoos\nBy Dr. Imani Osei\n\nZoos justify their existence with conservation and education, but the record is thin. Only a small fraction of the species kept in zoos are ever released into the wild, and many of the animals on display are not endangered at all. Meanwhile, wide-ranging species suffer. Elephants in zoos live roughly half as long as those in protected habitats, and polar bears and big cats often pace endlessly, a behaviour rarely seen in the wild. The educational case is weaker still: studies suggest that a brief visit changes visitors' attitudes and behaviour very little. Sanctuaries, protected reserves, and immersive technology can teach people about animals without confining them.\n\nReform, Don't Abolish\nBy Carlos Ferreira\n\nAccredited zoos do more than display animals. They fund field conservation, run breeding programs, and have helped bring species such as the Arabian oryx and the California condor back from the edge of extinction. Zoos also reach millions of people who will never see wildlife any other way, and personal encounters build support for protecting habitats. A ban would leave thousands of animals with nowhere to go, since most cannot be released. The better path is stricter standards: larger enclosures, better welfare oversight, and an end to keeping species, such as elephants and orcas, that clearly cannot thrive in captivity.",
+      "questions": [
+        {
+          "id": "M8R4Q1",
+          "label": "Question 1",
+          "part": "Reading Part 4",
+          "question": "What is the main topic of the two pieces?",
+          "options": [
+            "Whether animals can be trained",
+            "Whether zoos should continue to exist",
+            "How to design better enclosures",
+            "How to protect endangered habitats"
+          ],
+          "answerIndex": 1,
+          "explanation": "Both authors debate the future of zoos."
+        },
+        {
+          "id": "M8R4Q2",
+          "label": "Question 2",
+          "part": "Reading Part 4",
+          "question": "How does Dr. Osei view zoos' conservation claims?",
+          "options": [
+            "They are exaggerated but harmless",
+            "They are essential to animal research",
+            "The record is thin, since few species are released and many displayed animals are not endangered",
+            "They have saved most endangered species"
+          ],
+          "answerIndex": 2,
+          "explanation": "She says few species are released and many are not endangered."
+        },
+        {
+          "id": "M8R4Q3",
+          "label": "Question 3",
+          "part": "Reading Part 4",
+          "question": "What does Dr. Osei say about elephants in zoos?",
+          "options": [
+            "They live longer than wild elephants",
+            "They breed more successfully than wild elephants",
+            "They are healthier than other zoo animals",
+            "They live about half as long as those in protected habitats"
+          ],
+          "answerIndex": 3,
+          "explanation": "She reports zoo elephants live roughly half as long."
+        },
+        {
+          "id": "M8R4Q4",
+          "label": "Question 4",
+          "part": "Reading Part 4",
+          "question": "What does Dr. Osei say about zoos' educational value?",
+          "options": [
+            "A brief visit changes attitudes and behaviour very little",
+            "Educational programs are too expensive",
+            "Zoos teach more than school programs",
+            "Children learn best by seeing animals"
+          ],
+          "answerIndex": 0,
+          "explanation": "She says studies suggest a brief visit changes little."
+        },
+        {
+          "id": "M8R4Q5",
+          "label": "Question 5",
+          "part": "Reading Part 4",
+          "question": "What alternatives does Dr. Osei propose?",
+          "options": [
+            "Private animal collections",
+            "Smaller zoos with fewer animals",
+            "Wildlife photography contests",
+            "Sanctuaries, protected reserves, and immersive technology"
+          ],
+          "answerIndex": 3,
+          "explanation": "She lists sanctuaries, reserves, and immersive technology."
+        },
+        {
+          "id": "M8R4Q6",
+          "label": "Question 6",
+          "part": "Reading Part 4",
+          "question": "What examples does Ferreira use to support zoos?",
+          "options": [
+            "Sanctuaries and reserves",
+            "The Arabian oryx and the California condor",
+            "Elephants and polar bears",
+            "Lions and giraffes"
+          ],
+          "answerIndex": 1,
+          "explanation": "He cites the oryx and the condor as species brought back from near extinction."
+        },
+        {
+          "id": "M8R4Q7",
+          "label": "Question 7",
+          "part": "Reading Part 4",
+          "question": "What does Ferreira say would happen if zoos were banned?",
+          "options": [
+            "Wildlife populations would rise",
+            "Attitudes toward animals would improve",
+            "Thousands of animals would have nowhere to go",
+            "Conservation funding would increase"
+          ],
+          "answerIndex": 2,
+          "explanation": "He says most animals cannot be released."
+        },
+        {
+          "id": "M8R4Q8",
+          "label": "Question 8",
+          "part": "Reading Part 4",
+          "question": "What reforms does Ferreira recommend?",
+          "options": [
+            "Closing all zoos within ten years",
+            "Charging higher ticket prices",
+            "Stricter standards and ending the keeping of species that cannot thrive in captivity",
+            "Removing all large animals"
+          ],
+          "answerIndex": 2,
+          "explanation": "He proposes larger enclosures, better oversight, and ending the keeping of certain species."
+        },
+        {
+          "id": "M8R4Q9",
+          "label": "Question 9",
+          "part": "Reading Part 4",
+          "question": "On what point do the authors partly agree?",
+          "options": [
+            "Zoos should be closed immediately",
+            "Sanctuaries are too costly",
+            "Zoos are the best form of education",
+            "Some species, such as elephants, do not thrive in captivity"
+          ],
+          "answerIndex": 3,
+          "explanation": "Osei says wide-ranging species suffer; Ferreira says elephants and orcas cannot thrive in captivity."
+        },
+        {
+          "id": "M8R4Q10",
+          "label": "Question 10",
+          "part": "Reading Part 4",
+          "question": "Which best describes Ferreira's overall position?",
+          "options": [
+            "Zoos should be run by governments",
+            "Zoos should be improved rather than eliminated",
+            "Zoos should be replaced with technology",
+            "Zoos should be expanded"
+          ],
+          "answerIndex": 1,
+          "explanation": "His title and conclusion call for reform, not abolition."
+        }
+      ]
+    },
+    {
+      "id": "M8W1",
+      "skill": "writing",
+      "title": "Writing Task 1 · Email",
+      "instructions": "Write an email based on the task below.",
+      "timeLimitSec": 1620,
+      "questions": [],
+      "writingTask": {
+        "id": "M8W1",
+        "task": "Writing Task 1",
+        "title": "Writing an Email",
+        "timeLimit": "27 min",
+        "wordTarget": "150–200 words",
+        "scenario": "You completed a two-day training course six weeks ago. The company promised to email your certificate within two weeks, but you have not received it, and you need it for a job application due this Friday. Write an email to the training coordinator.",
+        "instructions": [
+          "Explain which course you took and what you were promised.",
+          "Describe what has happened since and why the matter is urgent.",
+          "State clearly what you need and by when.",
+          "Keep a polite but firm tone."
+        ],
+        "sampleAnswer": "Dear Ms. Chen, I am writing about the certificate for the Project Management Fundamentals course I completed on September 12 and 13. At the end of the course, the instructor told us that certificates would be emailed within two weeks. It has now been six weeks, and I have not received mine, even though I wrote to the general inbox on October 1 and have not had a reply. I need the certificate for a job application that is due this Friday, so the matter is urgent. Could you please confirm whether my certificate has been issued and send a PDF copy by Wednesday, if at all possible? If there is a problem with my registration, please tell me so that I can provide any missing information right away. I would also appreciate the name and phone number of someone I can contact directly if this is not resolved by then. I understand that delays happen, and I appreciate your help in settling this quickly. Thank you for your time. Sincerely, Daniel Okoye, Registration No. 20481",
+        "criteria": [
+          {
+            "label": "Content",
+            "note": "Covers every point in the task with relevant, specific detail."
+          },
+          {
+            "label": "Tone",
+            "note": "Appropriate register for the audience and purpose."
+          },
+          {
+            "label": "Organization",
+            "note": "Clear paragraphing, logical flow, and effective linking."
+          },
+          {
+            "label": "Language",
+            "note": "Accurate grammar, spelling, and varied vocabulary."
+          }
+        ]
+      }
+    },
+    {
+      "id": "M8W2",
+      "skill": "writing",
+      "title": "Writing Task 2 · Survey Response",
+      "instructions": "Write a response to the survey questions below.",
+      "timeLimitSec": 1560,
+      "questions": [],
+      "writingTask": {
+        "id": "M8W2",
+        "task": "Writing Task 2",
+        "title": "Responding to Survey Questions",
+        "timeLimit": "26 min",
+        "wordTarget": "150–200 words",
+        "scenario": "Your local library has received extra funding. It is asking residents whether the money should be used to keep the building open until 10 p.m. on weekdays, or to expand its digital collection of e-books, audiobooks, and online databases. Complete the survey explaining which option you prefer and why.",
+        "instructions": [
+          "State your preferred option clearly.",
+          "Give at least two reasons for your choice, using specific examples.",
+          "Address one possible concern about your choice and respond to it.",
+          "Write in full sentences."
+        ],
+        "sampleAnswer": "I would prefer to use the funding to expand the digital collection rather than to extend opening hours. First, e-books, audiobooks, and online databases are available to every member around the clock, including people who work evenings and those who cannot travel easily. Extended hours, by contrast, would serve only those who can physically visit after eight. Second, digital collections reach more people per dollar. A single licence can be borrowed by many readers over a year, while evening staffing costs continue every week. Some residents worry that not everyone has reliable internet or a suitable device, and that concern deserves attention. To address it, I suggest using a portion of the funds to lend tablets and portable hotspots, and to offer short workshops that teach older patrons how to borrow digital titles. It would also be wise to review usage after one year so that any unused titles can be replaced with more popular ones. I believe this approach serves the widest range of residents. Thank you for the opportunity to comment.",
+        "criteria": [
+          {
+            "label": "Content",
+            "note": "Covers every point in the task with relevant, specific detail."
+          },
+          {
+            "label": "Tone",
+            "note": "Appropriate register for the audience and purpose."
+          },
+          {
+            "label": "Organization",
+            "note": "Clear paragraphing, logical flow, and effective linking."
+          },
+          {
+            "label": "Language",
+            "note": "Accurate grammar, spelling, and varied vocabulary."
+          }
+        ]
+      }
+    },
+    {
+      "id": "M8S1",
+      "skill": "speaking",
+      "title": "Speaking Task 1 · Giving Advice",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 120,
+      "questions": [],
+      "speakingTask": {
+        "id": "M8S1",
+        "title": "Task 1: Giving Advice",
+        "scenario": "Your younger cousin is about to start university in another country and is worried about managing money. Give your cousin advice on how to budget and avoid financial stress.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 90,
+        "tips": [
+          "Give two or three practical suggestions with reasons.",
+          "Use a supportive, confident tone.",
+          "Show that you understand the concern."
+        ],
+        "sampleAnswer": "I understand why you are nervous, but a few habits can make money much less stressful. First, I would write down all your fixed costs, like rent and phone, before you arrive, so you know exactly how much is left each month. Then, set a weekly spending limit for food and fun, and track it with a simple app, because small purchases add up quickly. It is also smart to keep a small emergency fund, even just a couple of hundred dollars, for surprises. Finally, look for student discounts and part-time jobs on campus. If you plan early, you will feel much more in control.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M8S2",
+      "skill": "speaking",
+      "title": "Speaking Task 2 · Talking about a Personal Experience",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M8S2",
+        "title": "Task 2: Talking about a Personal Experience",
+        "scenario": "Talk about a time when you had to adapt quickly to an unexpected change. Explain what happened, how you responded, and what the outcome was.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Set the scene in one or two sentences.",
+          "Describe your actions clearly and in order.",
+          "End with the outcome and what it taught you."
+        ],
+        "sampleAnswer": "Last spring, my manager told me on a Monday that our biggest client wanted to move a presentation from Friday to Wednesday. I had only two days to prepare, so I quickly listed what was essential and asked two colleagues to help with the slides. We worked late on Tuesday, and I rehearsed on the train the next morning. The presentation went well, and the client even praised our flexibility. That experience taught me that staying calm and asking for help is the fastest way to handle sudden change.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M8S3",
+      "skill": "speaking",
+      "title": "Speaking Task 3 · Describing a Scene",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M8S3",
+        "title": "Task 3: Describing a Scene",
+        "scenario": "Describe a crowded airport terminal when many flights have been delayed by a storm. Include what you can see and hear and how the people around you are behaving.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Describe from a wide view to specific details.",
+          "Use sensory and emotional language.",
+          "Show contrast between different groups of people."
+        ],
+        "sampleAnswer": "The terminal is packed, and the departure board is glowing red with the word delayed. Travellers are sitting on their suitcases along the walls, while others stand in a long, slow line at the service desk. The air is filled with announcements, crying babies, and the low hum of frustrated conversations. Near the window, a group of children play cards on the floor, and a businessman paces while shouting into his phone. In the middle of the chaos, one traveller is calmly sharing snacks with strangers, and the mood softens for a moment.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M8S4",
+      "skill": "speaking",
+      "title": "Speaking Task 4 · Making Predictions",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M8S4",
+        "title": "Task 4: Making Predictions",
+        "scenario": "A woman stands beside a flat tire on a quiet country road at dusk. She is holding her phone up and looking at the screen, and a car is approaching in the distance. Predict what will happen next and explain why.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Use details in the scene to justify predictions.",
+          "Use language such as will probably, might, and is likely to.",
+          "Give a clear beginning, middle, and end."
+        ],
+        "sampleAnswer": "I think the woman is probably trying to find a phone signal, since she is holding the phone up. The approaching driver will likely notice her and slow down, because it is getting dark and the road is quiet. He might offer to change the tire or to call a tow truck from his own phone. In the end, I believe she will be back on the road within an hour, grateful for the help, and she will probably decide to carry a spare-tire kit and a portable phone charger from now on.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "M8S5",
+      "skill": "speaking",
+      "title": "Speaking Task 5 · Comparing and Persuading",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 120,
+      "questions": [],
+      "speakingTask": {
+        "id": "M8S5",
+        "title": "Task 5: Comparing and Persuading",
+        "scenario": "Your community group must choose a venue for its annual meeting. Option A is a downtown community hall that seats 150 people, costs $400, and is beside a subway station but has no parking. Option B is a school gymnasium on the edge of town that seats 250 people, costs $250, and has free parking but no public transit. Persuade the group to choose one option.",
+        "prepTimeSec": 60,
+        "speakTimeSec": 60,
+        "tips": [
+          "Choose one option at the start.",
+          "Compare seating, cost, and access directly.",
+          "Acknowledge one weakness of your choice and respond to it."
+        ],
+        "sampleAnswer": "I recommend the downtown community hall. Although it costs a hundred and fifty dollars more, it is right beside the subway, so members who do not drive, including seniors and students, can attend easily. Last year we had about a hundred people, so 150 seats is more than enough, and the extra gym space would just feel empty. Some will say the lack of parking is a problem, but the subway and nearby public lots can fill that need. Accessibility matters most, so the hall is the better choice.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M8S6",
+      "skill": "speaking",
+      "title": "Speaking Task 6 · Dealing with a Difficult Situation",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 120,
+      "questions": [],
+      "speakingTask": {
+        "id": "M8S6",
+        "title": "Task 6: Dealing with a Difficult Situation",
+        "scenario": "You are leading a group project at work, and one teammate keeps missing deadlines, which is putting the whole project at risk. Explain what you would say to your teammate and what you would do to solve the problem.",
+        "prepTimeSec": 60,
+        "speakTimeSec": 60,
+        "tips": [
+          "Describe a calm, constructive approach.",
+          "Explain what you would say directly to the teammate.",
+          "Mention what you would do if the problem continued."
+        ],
+        "sampleAnswer": "I would start with a private conversation, because I want to understand what is behind the delays. I would say, \"I've noticed a few deadlines slipping, and I'd like to help. Is something making the work difficult?\" If the problem is workload, I would redistribute tasks or extend a deadline. I would also set shorter check-in dates so any issue appears early. If nothing improved, I would let my manager know, presenting facts rather than blame, and ask for advice on how to protect the project.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M8S7",
+      "skill": "speaking",
+      "title": "Speaking Task 7 · Expressing Opinions",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 120,
+      "questions": [],
+      "speakingTask": {
+        "id": "M8S7",
+        "title": "Task 7: Expressing Opinions",
+        "scenario": "Some people believe public transit should be free for everyone in large cities. Do you agree or disagree? Support your opinion with reasons.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 90,
+        "tips": [
+          "State your opinion clearly at the start.",
+          "Give two or three reasons supported by examples.",
+          "Acknowledge a counterargument and respond to it."
+        ],
+        "sampleAnswer": "I agree that public transit should be free in large cities. First, it would reduce traffic and pollution, because more people would leave their cars at home. Second, it would help low-income residents, who often spend a large share of their income on getting to work. Third, it would speed up boarding, since nobody would need to pay a fare, and that makes buses more efficient. Some argue that it would be too expensive, and that is true. However, the money could come from parking fees or congestion charges, and cities also save on road repairs and health costs. Overall, I think free transit benefits everyone.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "M8S8",
+      "skill": "speaking",
+      "title": "Speaking Task 8 · Describing an Unusual Situation",
+      "instructions": "Prepare and speak using the prompt below.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M8S8",
+        "title": "Task 8: Describing an Unusual Situation",
+        "scenario": "You see a photo of an apartment building where every balcony is filled with plants and vegetables, and there is a small farm on the roof. Describe the building to a friend and explain whether you would like to live there.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Start with the most striking features.",
+          "Describe what residents might do there.",
+          "Give a clear personal opinion with reasons."
+        ],
+        "sampleAnswer": "This building looks like a vertical garden. Green vines hang from every balcony, and I can see tomatoes and herbs growing beside chairs and bicycles. On the roof, there are rows of vegetables and a few beehives, with residents working among them. I would love to live there, because fresh food is just an elevator ride away, and it seems to create a strong community. The only downside might be watering and maintenance, but sharing that work with neighbours could be part of the fun.",
+        "clb": "CLB 9 sample"
+      }
+    }
+  ]
+}
