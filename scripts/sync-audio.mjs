@@ -47,7 +47,7 @@ function hasLocalRow(mockId) {
 
 function syncOne(mockId) {
   if (!hasLocalRow(mockId)) {
-    return { ok: false, reason: "no local row yet — upload this mock once in local dev first" };
+    return { ok: false, skip: true, reason: "no local row yet — upload this mock once in local dev first" };
   }
 
   const rows = jsonRows(
@@ -55,7 +55,7 @@ function syncOne(mockId) {
   );
   const audio = rows?.[0]?.audio ?? null;
   if (!audio) {
-    return { ok: false, reason: "no remote audio (has the audio job finished?)" };
+    return { ok: false, skip: true, reason: "no remote audio (has the audio job finished?)" };
   }
 
   // Write via a temp SQL file so the JSON never goes through shell quoting.
@@ -80,14 +80,23 @@ if (ids.length === 0) {
 }
 
 let failed = 0;
+let skipped = 0;
 for (const id of ids) {
   const result = syncOne(id);
   if (result.ok) console.log(`✓ ${id}: local audio synced (status = ready)`);
-  else {
+  else if (result.skip) {
+    skipped += 1;
+    console.log(`- ${id}: skipped (${result.reason})`);
+  } else {
     failed += 1;
     console.error(`✗ ${id}: ${result.reason}`);
   }
 }
 
-console.log(`\nSynced ${ids.length - failed}/${ids.length} mock(s) into local D1.`);
+console.log(
+  `\nSynced ${ids.length - failed - skipped}/${ids.length} mock(s) into local D1` +
+    (skipped ? `, skipped ${skipped}` : "") +
+    (failed ? `, failed ${failed}` : "") +
+    ".",
+);
 if (failed) process.exit(1);

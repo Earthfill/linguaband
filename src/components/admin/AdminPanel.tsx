@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { AdminMock } from "@/lib/store";
 
 /** A "generating" row older than this is treated as stuck (the job failed or never ran). */
 const STUCK_AFTER_MS = 15 * 60 * 1000;
+const CLOCK_TICK_MS = 30_000;
 
 function isStuck(mock: AdminMock, now: number): boolean {
   if (mock.status !== "generating") return false;
@@ -19,14 +20,19 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
   const [busy, setBusy] = useState(false);
   const [retrying, setRetrying] = useState<string | null>(null);
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
-  // False during SSR so the server and the client render identical first HTML; the
-  // clock is then read at render time (no interval state, no hydration mismatch).
-  const mounted = useSyncExternalStore(
-    () => () => {},
-    () => true,
-    () => false,
-  );
-  const now = mounted ? Date.now() : 0;
+  // 0 until the clock has been read in a timer (reading Date.now() during render would
+  // break React's purity rules). Both server and client start at 0, so hydration matches.
+  const [now, setNow] = useState(0);
+
+  useEffect(() => {
+    const tick = () => setNow(Date.now());
+    const kick = window.setTimeout(tick, 0);
+    const id = window.setInterval(tick, CLOCK_TICK_MS);
+    return () => {
+      window.clearTimeout(kick);
+      window.clearInterval(id);
+    };
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
