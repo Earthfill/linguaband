@@ -8,9 +8,19 @@
 // Needs CLOUDFLARE_* env vars (CI) or a local `wrangler login`.
 // Exit code 1 = something needs attention (missing/broken audio for a listening mock).
 
-import { allMockRows } from "./lib/d1.mjs";
+import { d1Query } from "./lib/d1.mjs";
 
 const noHead = process.argv.includes("--no-head");
+
+/** Listening sections a mock actually has (audio is only expected for those). */
+function listeningSections(payload) {
+  try {
+    const exam = JSON.parse(payload);
+    return (exam.sections ?? []).filter((s) => s.skill === "listening" && s.passage).length;
+  } catch {
+    return 0;
+  }
+}
 
 /** 32 kbps + `?v=` is the Google Cloud TTS signature; 96/48 kbps without it is the old Edge build. */
 function engine(entry) {
@@ -20,7 +30,7 @@ function engine(entry) {
   return "unknown";
 }
 
-const rows = await allMockRows();
+const rows = await d1Query("SELECT id, status, audio, payload FROM mocks ORDER BY id");
 if (rows.length === 0) {
   console.log("No mocks in D1.");
   process.exit(0);
@@ -32,6 +42,7 @@ const summary = [];
 for (const row of rows) {
   const audio = row.audio ? JSON.parse(row.audio) : {};
   const ids = Object.keys(audio);
+  const expected = listeningSections(row.payload);
   const engines = new Set();
   const broken = [];
 
@@ -50,29 +61,32 @@ for (const row of rows) {
   const status = `${row.status}`.padEnd(10);
   const engineLabel = ids.length === 0 ? "—" : [...engines].join("+");
   const line =
-    `${row.id.padEnd(9)} ${status} sections=${String(ids.length).padEnd(2)} engine=${engineLabel}` +
+    `${row.id.padEnd(9)} ${status} audio=${String(ids.length).padEnd(2)}/${String(expected).padEnd(2)}` +
+    ` engine=${engineLabel}` +
     (broken.length ? ` BROKEN: ${broken.join(", ")}` : "");
   console.log(line.trimEnd());
 
-  if (ids.length === 0) {
+  const issues = [];
+  if (ids.length < expected) {
+    issues.push(`${expected - ids.length} listening section(s) without audio`);
+  }
+  if (engines.has("edge")) issues.push("still on Microsoft/Edge audio");
+  if (broken.length) issues.push(`unreachable files: ${broken.join(", ")}`);
+  if (issues.length) {
     problems += 1;
-    console.log(`  ↳ no audio rows (${row.status}) — dispatch the audio job for this mock`);
-  } else if (engines.has("edge")) {
-    problems += 1;
-  } else if (broken.length) {
-    problems += 1;
+    console.log(`  ↳ ${issues.join("; ")}`);
   }
 
-  summary.push({ id: row.id, status: row.status, sections: ids.length, engine: engineLabel });
+  summary.push({ id: row.id, status: row.status, sections: ids.length, expected, engine: engineLabel });
 }
 
 const edge = summary.filter((m) => m.engine.includes("edge")).map((m) => m.id);
-const empty = summary.filter((m) => m.sections === 0).map((m) => m.id);
+const missing = summary.filter((m) => m.sections < m.expected).map((m) => m.id);
 
 console.log("");
 if (edge.length) console.log(`Still on Microsoft/Edge audio: ${edge.join(", ")}`);
-if (empty.length) console.log(`No audio yet: ${empty.join(", ")}`);
-if (!problems) console.log("All stored mocks have Google Cloud TTS audio with reachable files.");
+if (missing.length) console.log(`Listening audio missing for: ${missing.join(", ")}`);
+if (!problems) console.log("All listening audio is Google Cloud TTS (Chirp 3: HD) with reachable files.");
 console.log("Backfill with: node scripts/dispatch-audio-all.mjs");
 
 process.exit(problems ? 1 : 0);
