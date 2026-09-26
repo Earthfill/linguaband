@@ -81,7 +81,7 @@ Linguaband); UI engines live in `src/components/practice/`.
 ## Listening audio
 
 Listening exercises use **real, human-sounding audio** generated from each script's
-`SPEAKER: text` lines with **Google Cloud Text-to-Speech (Chirp 3: HD)** — one voice per
+`SPEAKER: text` lines with **Google Cloud Text-to-Speech (Australian English, Chirp 3: HD)** — one voice per
 speaker role (see `SPEAKER_VOICES` in `scripts/lib/gcp-tts.mjs`). Every part is one MP3
 plus a manifest of per-speaker *and per-sentence* timings, so the player can highlight the
 exact sentence being spoken.
@@ -97,12 +97,14 @@ Two kinds of audio exist:
 npm run audio:audit                    # which mocks still have old or missing audio
 npm run audio:backfill                 # re-run the audio job for every mock in D1
 npm run audio:backfill mock-03 mock-07 # …or just some mocks
-npm run audio:bundled                  # regenerate the bundled parts (Google TTS)
+npm run audio:bundled                  # regenerate the bundled parts (Australian English Google TTS)
 npm run audio:bundled practice         # …or just the /listening practice tracks
-npm run audio:voices                   # list the available Chirp 3: HD voices
+npm run audio:voices                   # list available en-AU and English Chirp 3: HD voices
 ```
 
-Chirp 3: HD returns 24 kHz mono **32 kbps** MP3s (the old Edge build was 96 kbps), and each
+Chirp 3: HD returns 24 kHz mono **32 kbps** MP3s (the old Edge build was 96 kbps). New audio
+uses Australian-English (`en-AU`) voices by default. Google Cloud TTS currently does not list
+Canadian-English (`en-CA`) voices; existing audio is not changed until it is regenerated. Each
 `src` carries a `?v=<content hash>` so a re-generation is never masked by a cached copy.
 Both generators need Google credentials: a service-account JSON at `.secrets/gcp-tts.json`
 (gitignored) or `GOOGLE_APPLICATION_CREDENTIALS` pointing at one. The app degrades

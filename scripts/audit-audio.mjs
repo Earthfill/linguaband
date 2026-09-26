@@ -48,7 +48,7 @@ function voiceCollisions(payload) {
     }
     for (const [voice, speakers] of byVoice) {
       if (speakers.size > 1) {
-        collisions.push(`${section.id}: ${[...speakers].join(" + ")} share ${voice.replace("en-US-Chirp3-HD-", "")}`);
+        collisions.push(`${section.id}: ${[...speakers].join(" + ")} share ${voice.replace(/^en-[A-Z]{2}-Chirp3-HD-/, "")}`);
       }
     }
   }
@@ -122,7 +122,7 @@ const missing = summary.filter((m) => m.sections < m.expected).map((m) => m.id);
 console.log("");
 if (edge.length) console.log(`Still on Microsoft/Edge audio: ${edge.join(", ")}`);
 if (missing.length) console.log(`Listening audio missing for: ${missing.join(", ")}`);
-if (!problems) console.log("All listening audio is Google Cloud TTS (Chirp 3: HD) with reachable files.");
+if (!problems) console.log("All listening audio is Google Cloud TTS (Australian English Chirp 3: HD) with reachable files.");
 console.log("Backfill with: node scripts/dispatch-audio-all.mjs");
 
 process.exit(problems ? 1 : 0);

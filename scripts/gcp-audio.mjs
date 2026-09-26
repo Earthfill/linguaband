@@ -1,6 +1,6 @@
 // Google Cloud Text-to-Speech helper for hand-run experiments.
 // Key from GOOGLE_APPLICATION_CREDENTIALS, or .secrets/gcp-tts.json.
-//   node scripts/gcp-audio.mjs                       # list en-CA + Chirp3-HD voices
+//   node scripts/gcp-audio.mjs                       # list en-AU + Chirp3-HD voices
 //   node scripts/gcp-audio.mjs <voice> [<voice>...]  # synth the M2L2 sample per voice
 
 import { promises as fs } from "node:fs";
@@ -12,13 +12,13 @@ async function listVoices(token) {
   const data = await res.json();
   if (!res.ok) throw new Error(JSON.stringify(data));
   const voices = data.voices ?? [];
-  const ca = voices.filter((v) => (v.languageCodes ?? []).some((l) => l.startsWith("en-CA")));
+  const au = voices.filter((v) => (v.languageCodes ?? []).some((l) => l.startsWith("en-AU")));
   const hd = voices.filter(
     (v) => /Chirp3?-HD/i.test(v.name ?? "") && (v.languageCodes ?? []).some((l) => l.startsWith("en-")),
   );
-  console.log("=== en-CA voices ===");
-  for (const v of ca) console.log(`  ${v.name}  (${v.ssmlGender})`);
-  if (!ca.length) console.log("  (none)");
+  console.log("=== en-AU voices ===");
+  for (const v of au) console.log(`  ${v.name}  (${v.ssmlGender})`);
+  if (!au.length) console.log("  (none)");
   console.log("\n=== Chirp 3: HD voices (English) ===");
   for (const v of hd) console.log(`  ${v.name}  (${v.ssmlGender})  [${(v.languageCodes ?? []).join(",")}]`);
   if (!hd.length) console.log("  (none)");
