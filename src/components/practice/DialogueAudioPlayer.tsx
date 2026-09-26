@@ -93,7 +93,7 @@ export function DialogueAudioPlayer({
   }
 
   const allowReplay = mode === "practice";
-  const revealTranscript = allowReplay ? showTranscript : ended;
+  const revealTranscript = showTranscript && (allowReplay || ended);
   const currentIndex = entry.segments.findIndex(
     (seg) => time >= seg.start && time < seg.start + seg.duration,
   );
@@ -197,13 +197,14 @@ export function DialogueAudioPlayer({
         </p>
       ) : null}
 
-      {allowReplay ? (
+      {allowReplay || ended ? (
         <button
           type="button"
           onClick={() => setShowTranscript((v) => !v)}
           className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-500 transition-colors hover:text-zinc-900"
+          aria-expanded={revealTranscript}
         >
-          {showTranscript ? "Hide" : "Show"} transcript
+          {revealTranscript ? "Hide" : "Show"} transcript
           <Icon name="chevron-down" size={14} className={`transition-transform ${showTranscript ? "rotate-180" : ""}`} />
         </button>
       ) : null}
@@ -211,7 +212,7 @@ export function DialogueAudioPlayer({
       {revealTranscript ? (
         <div className="mt-4 space-y-2 rounded-xl border border-zinc-100 bg-zinc-50/70 p-4">
           {lines.map((line, i) => {
-            const active = i === currentIndex;
+            const active = allowReplay && i === currentIndex;
             const spans =
               active && activeSeg && activeSeg.sentences.length > 0
                 ? splitIntoSpans(line.text, activeSeg.sentences.map((s) => s.text))
