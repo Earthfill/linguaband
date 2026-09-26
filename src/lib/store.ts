@@ -25,6 +25,8 @@ export type AdminMock = {
   difficulty: string;
   description: string;
   status: MockStatus;
+  /** ISO timestamp of the last status/audio change — used to spot stuck jobs. */
+  updatedAt?: string;
 };
 
 function getDb(): D1Database | null {
@@ -105,6 +107,8 @@ export async function getMock(
 export async function existingSectionIds(exceptMockId?: string): Promise<Set<string>> {
   const ids = new Set<string>();
   for (const exam of builtinExams) {
+    // A mock that now lives in D1 (e.g. mock-01) may reuse its own built-in section ids.
+    if (exam.id === exceptMockId) continue;
     for (const s of exam.sections) ids.add(s.id);
   }
   const db = getDb();
@@ -137,9 +141,27 @@ export async function adminMocks(): Promise<AdminMock[]> {
   }
   try {
     const res = await db
-      .prepare("SELECT id, name, badge, difficulty, description, status FROM mocks ORDER BY created_at DESC")
-      .all<AdminMock>();
-    return res.results ?? [];
+      .prepare(
+        "SELECT id, name, badge, difficulty, description, status, updated_at FROM mocks ORDER BY created_at DESC",
+      )
+      .all<{
+        id: string;
+        name: string;
+        badge: string;
+        difficulty: string;
+        description: string;
+        status: MockStatus;
+        updated_at: string;
+      }>();
+    return (res.results ?? []).map((row) => ({
+      id: row.id,
+      name: row.name,
+      badge: row.badge,
+      difficulty: row.difficulty,
+      description: row.description,
+      status: row.status,
+      updatedAt: row.updated_at,
+    }));
   } catch (err) {
     console.error("[store] adminMocks failed", err);
     return [];

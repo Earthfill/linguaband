@@ -45,12 +45,20 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp-tts.json
         run: node scripts/generate-mock-audio.mjs /tmp/mock.json /tmp/audio
 
+      # A mock with no listening sections (or none with "SPEAKER: text" lines) has
+      # nothing to upload — that is not a failure, it still gets an empty manifest.
       - name: Upload MP3s to R2
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          for f in /tmp/audio/*.mp3; do
+          shopt -s nullglob
+          files=(/tmp/audio/*.mp3)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "$MOCK_ID produced no listening audio — skipping upload."
+            exit 0
+          fi
+          for f in "${files[@]}"; do
             name=$(basename "$f")
             npx wrangler r2 object put "linguaband-audio/${MOCK_ID}/${name}" --file "$f" --remote --cache-control "public, max-age=31536000, immutable"
           done
@@ -60,7 +68,13 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          for f in /tmp/audio/*.mp3; do
+          shopt -s nullglob
+          files=(/tmp/audio/*.mp3)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "Nothing to verify."
+            exit 0
+          fi
+          for f in "${files[@]}"; do
             name=$(basename "$f")
             bytes=$(npx wrangler r2 object get "linguaband-audio/${MOCK_ID}/${name}" --remote --pipe | wc -c)
             if [ "$bytes" -eq 0 ]; then
@@ -76,3 +90,16 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_DATABASE_ID: ${{ secrets.CLOUDFLARE_DATABASE_ID }}
         run: node scripts/d1-write.mjs "$MOCK_ID" /tmp/audio/manifest.json
+
+      # Keeps /admin truthful: a failed run shows "failed" (with a Retry button)
+      # instead of waiting forever on "generating".
+      - name: Mark mock as failed in D1
+        if: failure()
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_DATABASE_ID: ${{ secrets.CLOUDFLARE_DATABASE_ID }}
+        run: |
+          if [ -n "$MOCK_ID" ]; then
+            node scripts/d1-status.mjs "$MOCK_ID" failed || echo "could not record the failure in D1"
+          fi

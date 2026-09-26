@@ -7,8 +7,8 @@ export const listeningTracks: ListeningTrack[] = [
     part: "Part 1 · Problem Solving",
     setting: "Customer service call",
     speaker: "Customer ↔ Agent",
-    durationSec: 45,
-    trackLabel: "Track 1 · 0:45",
+    durationSec: 36,
+    trackLabel: "Track 1 · 0:36",
     transcript:
       "AGENT: TechFix support, Maya speaking. How can I help you?\nCUSTOMER: Hi — I bought a laptop charger from your website last week and it arrived already cracked. The cable's frayed near the tip.\nAGENT: I'm sorry about that. Could you share your order number so I can look it up?\nCUSTOMER: Sure, it's 8-3-2-1-7-0-4.\nAGENT: Thanks. I can see the order was placed six days ago. We'll send a replacement free of charge, and you don't need to return the damaged one.\nCUSTOMER: That's great. How long will it take?\nAGENT: Around three to five business days. You'll receive a tracking email shortly.\nCUSTOMER: Perfect, that solves it.",
     questions: [

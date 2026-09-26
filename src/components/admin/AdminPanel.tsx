@@ -1,14 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import type { AdminMock } from "@/lib/store";
+
+/** A "generating" row older than this is treated as stuck (the job failed or never ran). */
+const STUCK_AFTER_MS = 15 * 60 * 1000;
+
+function isStuck(mock: AdminMock, now: number): boolean {
+  if (mock.status !== "generating") return false;
+  const updated = mock.updatedAt ? Date.parse(mock.updatedAt) : NaN;
+  if (Number.isNaN(updated)) return true;
+  return now - updated > STUCK_AFTER_MS;
+}
 
 export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [retrying, setRetrying] = useState<string | null>(null);
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
+  // False during SSR so the server and the client render identical first HTML; the
+  // clock is then read at render time (no interval state, no hydration mismatch).
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+  const now = mounted ? Date.now() : 0;
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -128,14 +146,19 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
                   {m.name} <span className="text-zinc-400">({m.id})</span>
                 </span>
                 <div className="flex items-center gap-2">
-                  {m.status === "content" || m.status === "failed" ? (
+                  {m.status === "content" || m.status === "failed" || isStuck(m, now) ? (
                     <button
                       type="button"
                       onClick={() => retryAudio(m.id)}
                       disabled={retrying === m.id}
+                      title={
+                        isStuck(m, now)
+                          ? "This job looks stuck — queue the audio again"
+                          : "Queue audio generation for this mock"
+                      }
                       className="rounded-full border border-zinc-200 px-3 py-1 text-xs font-semibold text-zinc-600 transition-colors hover:border-blue-300 hover:text-blue-600 disabled:opacity-50"
                     >
-                      {retrying === m.id ? "…" : "Retry audio"}
+                      {retrying === m.id ? "…" : isStuck(m, now) ? "Re-queue audio" : "Retry audio"}
                     </button>
                   ) : null}
                   <StatusBadge status={m.status} />

@@ -11,6 +11,6 @@ ADMIN_SESSION_SECRET=change-me-to-a-long-random-string
 GITHUB_TOKEN=
 GITHUB_REPO=Earthfill/linguaband
 
-# Optional public base URL for audio stored in R2 (e.g. https://audio.example.com).
-# Leave empty to keep serving audio from bundled files.
-AUDIO_BASE_URL=
+# Public base URL for audio stored in R2 (e.g. https://audio.linguaband.com).
+# Leave empty to serve only the bundled audio (mock-01 fallback + practice tracks).
+AUDIO_BASE_URL=https://audio.linguaband.com

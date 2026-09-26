@@ -85,7 +85,7 @@ export function DialogueAudioPlayer({
           {source === "stored" ? (
               "Audio is still being generated. If it does not appear, the audio job was not scheduled — check the GitHub token permission."
             ) : (
-              <>Audio not generated yet — run <code className="rounded bg-zinc-100 px-1">npm run audio:generate</code>.</>
+              <>Audio not generated yet — run <code className="rounded bg-zinc-100 px-1">npm run audio:bundled</code>.</>
             )}
         </p>
       </div>

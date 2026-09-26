@@ -1,0 +1,1449 @@
+{
+  "id": "mock-01",
+  "name": "Mock Test 01",
+  "badge": "Most popular",
+  "difficulty": "Standard",
+  "description": "A balanced full-length exam that mirrors the official format and timing.",
+  "sections": [
+    {
+      "id": "L1",
+      "skill": "listening",
+      "title": "Part 1 · Listening to Problem Solving",
+      "instructions": "Listen to the phone call. Answer each question by choosing the best option.",
+      "timeLimitSec": 360,
+      "passageTitle": "Customer service call",
+      "passage": "AGENT: Halton Home Services, this is Priya. How may I help you?\nCUSTOMER: Hi — I've got water coming through the ceiling of my kitchen from the bathroom upstairs.\nAGENT: I'm sorry to hear that. Have you turned off the water at the main valve?\nCUSTOMER: Not yet — I wasn't sure where it is.\nAGENT: It's usually in the basement near the front wall. I'd turn it off right away to stop further damage.\nCUSTOMER: Okay, I'll do that now. How soon can someone come?\nAGENT: We have a plumber finishing a job in your area. He can be there within the hour.\nCUSTOMER: That's fine. What's the cost?\nAGENT: There's a standard call-out fee of eighty dollars, covering the first thirty minutes. After that it's billed per fifteen-minute block at twenty-five dollars. Parts are extra, but we'll confirm any cost before starting repairs.\nCUSTOMER: Great — please send someone over.",
+      "questions": [
+        {
+          "id": "L1Q1",
+          "label": "Question",
+          "part": "Part 1 · Problem Solving",
+          "question": "Why did the customer call?",
+          "options": [
+            "A sink is blocked",
+            "Water is leaking through the ceiling",
+            "The heating has stopped working",
+            "A window will not close"
+          ],
+          "answerIndex": 1,
+          "explanation": "The caller says water is 'coming through the ceiling of my kitchen' from the bathroom above."
+        },
+        {
+          "id": "L1Q2",
+          "label": "Question",
+          "part": "Part 1 · Problem Solving",
+          "question": "What is the customer advised to do first?",
+          "options": [
+            "Open a window",
+            "Turn off the main water valve",
+            "Move the furniture upstairs",
+            "Call an electrician"
+          ],
+          "answerIndex": 1,
+          "explanation": "The agent recommends turning off the water 'right away' to stop further damage."
+        },
+        {
+          "id": "L1Q3",
+          "label": "Question",
+          "part": "Part 1 · Problem Solving",
+          "question": "Where is the main valve located?",
+          "options": [
+            "In the kitchen",
+            "Beside the front door",
+            "In the basement near the front wall",
+            "Under the bathroom sink"
+          ],
+          "answerIndex": 2,
+          "explanation": "The agent says it is 'usually in the basement near the front wall'."
+        },
+        {
+          "id": "L1Q4",
+          "label": "Question",
+          "part": "Part 1 · Problem Solving",
+          "question": "How soon can a plumber arrive?",
+          "options": [
+            "Within the hour",
+            "Tomorrow morning",
+            "In three days",
+            "Within fifteen minutes"
+          ],
+          "answerIndex": 0,
+          "explanation": "The plumber 'can be there within the hour'."
+        },
+        {
+          "id": "L1Q5",
+          "label": "Question",
+          "part": "Part 1 · Problem Solving",
+          "question": "What does the eighty-dollar fee cover?",
+          "options": [
+            "The full repair",
+            "Travel only",
+            "The first thirty minutes",
+            "Parts and labour"
+          ],
+          "answerIndex": 2,
+          "explanation": "The call-out fee 'covers the first thirty minutes'."
+        },
+        {
+          "id": "L1Q6",
+          "label": "Question",
+          "part": "Part 1 · Problem Solving",
+          "question": "How is time billed after the first thirty minutes?",
+          "options": [
+            "Per hour",
+            "Per fifteen-minute block",
+            "A flat fifty dollars",
+            "It is free"
+          ],
+          "answerIndex": 1,
+          "explanation": "Time is 'billed per fifteen-minute block at twenty-five dollars'."
+        },
+        {
+          "id": "L1Q7",
+          "label": "Question",
+          "part": "Part 1 · Problem Solving",
+          "question": "What does the agent say about parts?",
+          "options": [
+            "They are free",
+            "The cost is confirmed before repairs",
+            "The customer must buy them first",
+            "They are not available today"
+          ],
+          "answerIndex": 1,
+          "explanation": "Parts are extra but 'we'll confirm any cost before starting repairs'."
+        },
+        {
+          "id": "L1Q8",
+          "label": "Question",
+          "part": "Part 1 · Problem Solving",
+          "question": "What does the customer decide to do?",
+          "options": [
+            "Fix it himself",
+            "Wait until the weekend",
+            "Send someone over",
+            "Ask for a refund"
+          ],
+          "answerIndex": 2,
+          "explanation": "The caller ends with 'please send someone over'."
+        }
+      ]
+    },
+    {
+      "id": "L2",
+      "skill": "listening",
+      "title": "Part 2 · Listening to a Daily Life Conversation",
+      "instructions": "Listen to two friends planning their weekend. Choose the best answer for each question.",
+      "timeLimitSec": 300,
+      "passageTitle": "Weekend plans",
+      "passage": "LEE: You look tired. Long week?\nMARA: Tell me about it. I've been working late every night because of a project deadline.\nLEE: Well, the good news is the weather's supposed to be beautiful this weekend.\nMARA: Really? I was thinking of finally checking out that new trail by the river.\nLEE: I did it last Saturday — it's about six kilometres, mostly flat, and there's a little cafe at the halfway point.\nMARA: That sounds perfect. Are you free on Sunday morning?\nLEE: I have a dentist appointment at nine, but I could meet you around eleven.\nMARA: Eleven works. Should we drive separately or meet at the trailhead?\nLEE: The parking lot fills up early, so I'll pick you up at ten forty-five.\nMARA: Great — I'll bring water and a hat.",
+      "questions": [
+        {
+          "id": "L2Q1",
+          "label": "Question",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "Why has Mara been tired?",
+          "options": [
+            "She has been travelling",
+            "She has been working late",
+            "She has been unwell",
+            "She has been exercising too much"
+          ],
+          "answerIndex": 1,
+          "explanation": "Mara says she has been 'working late every night' for a project."
+        },
+        {
+          "id": "L2Q2",
+          "label": "Question",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "What does Lee say about the weekend weather?",
+          "options": [
+            "It will rain",
+            "It will be cold",
+            "It will be beautiful",
+            "It will be windy"
+          ],
+          "answerIndex": 2,
+          "explanation": "Lee says the weather is 'supposed to be beautiful'."
+        },
+        {
+          "id": "L2Q3",
+          "label": "Question",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "What did Lee say about the trail?",
+          "options": [
+            "It is steep and difficult",
+            "It is six kilometres and mostly flat",
+            "It is closed this weekend",
+            "It is far from the river"
+          ],
+          "answerIndex": 1,
+          "explanation": "The trail is 'about six kilometres, mostly flat' with a cafe at the halfway point."
+        },
+        {
+          "id": "L2Q4",
+          "label": "Question",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "When will they meet?",
+          "options": [
+            "Saturday at nine",
+            "Sunday around eleven",
+            "Sunday at nine",
+            "Saturday at eleven"
+          ],
+          "answerIndex": 1,
+          "explanation": "Lee can meet 'around eleven' on Sunday after a dentist appointment at nine."
+        },
+        {
+          "id": "L2Q5",
+          "label": "Question",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "How will they get to the trail?",
+          "options": [
+            "They will drive separately",
+            "Lee will pick Mara up",
+            "They will take the bus",
+            "Mara will drive"
+          ],
+          "answerIndex": 1,
+          "explanation": "Lee offers to 'pick you up at ten forty-five'."
+        }
+      ]
+    },
+    {
+      "id": "L3",
+      "skill": "listening",
+      "title": "Part 3 · Listening for Information",
+      "instructions": "Listen to a library announcement. Choose the best answer for each question.",
+      "timeLimitSec": 360,
+      "passageTitle": "Library program launch",
+      "passage": "ANNOUNCER: Welcome to the Riverside Public Library's fall program launch. Starting October first, we're introducing three new services. First, an extended Saturday storytime for children aged three to six, running from ten to eleven in the community room. Second, a free digital-skills help desk every Tuesday and Thursday afternoon, where volunteers can assist with phones, tablets and laptops — no appointment needed. Third, a home-delivery service for cardholders who cannot visit the library in person; deliveries go out every second Wednesday and can be arranged by phone or through our website. All three services are free, but storytime and home delivery require registration in advance. Registration opens this Friday at nine a.m. at the front desk and online.",
+      "questions": [
+        {
+          "id": "L3Q1",
+          "label": "Question",
+          "part": "Part 3 · Listening for Information",
+          "question": "What is the announcement mainly about?",
+          "options": [
+            "New library services for fall",
+            "Changes to opening hours",
+            "A book sale",
+            "Library job openings"
+          ],
+          "answerIndex": 0,
+          "explanation": "The talk introduces 'three new services' for the library's fall program."
+        },
+        {
+          "id": "L3Q2",
+          "label": "Question",
+          "part": "Part 3 · Listening for Information",
+          "question": "Who is the Saturday storytime for?",
+          "options": [
+            "Teenagers",
+            "Children aged three to six",
+            "All library members",
+            "New parents only"
+          ],
+          "answerIndex": 1,
+          "explanation": "Storytime is 'for children aged three to six'."
+        },
+        {
+          "id": "L3Q3",
+          "label": "Question",
+          "part": "Part 3 · Listening for Information",
+          "question": "When is the digital-skills help desk available?",
+          "options": [
+            "Monday and Wednesday mornings",
+            "Every day at noon",
+            "Tuesday and Thursday afternoons",
+            "Saturday and Sunday"
+          ],
+          "answerIndex": 2,
+          "explanation": "The help desk runs 'every Tuesday and Thursday afternoon'."
+        },
+        {
+          "id": "L3Q4",
+          "label": "Question",
+          "part": "Part 3 · Listening for Information",
+          "question": "Who is the home-delivery service for?",
+          "options": [
+            "People who work full time",
+            "Cardholders who cannot visit in person",
+            "New members only",
+            "Seniors over seventy"
+          ],
+          "answerIndex": 1,
+          "explanation": "It is for 'cardholders who cannot visit the library in person'."
+        },
+        {
+          "id": "L3Q5",
+          "label": "Question",
+          "part": "Part 3 · Listening for Information",
+          "question": "How often do home deliveries go out?",
+          "options": [
+            "Every second Wednesday",
+            "Every Friday",
+            "Twice a week",
+            "Once a month"
+          ],
+          "answerIndex": 0,
+          "explanation": "Deliveries go out 'every second Wednesday'."
+        },
+        {
+          "id": "L3Q6",
+          "label": "Question",
+          "part": "Part 3 · Listening for Information",
+          "question": "What requires advance registration?",
+          "options": [
+            "Storytime and home delivery",
+            "The help desk only",
+            "Nothing — all services are drop-in",
+            "Home delivery only"
+          ],
+          "answerIndex": 0,
+          "explanation": "Storytime and home delivery both 'require registration in advance'."
+        }
+      ]
+    },
+    {
+      "id": "L4",
+      "skill": "listening",
+      "title": "Part 4 · Listening to a News Item",
+      "instructions": "Listen to the news item. Choose the best answer for each question.",
+      "timeLimitSec": 420,
+      "passageTitle": "City council approves bridge",
+      "passage": "NEWS READER: The city council voted last night to approve funding for a new pedestrian bridge across the Don Valley. The bridge, which will connect the Eastside neighbourhood with the downtown core, is expected to cost eighteen million dollars and take two years to complete. Construction is scheduled to begin next spring, following a final public consultation in December. Supporters say the bridge will cut the current forty-minute walking detour down to just ten minutes and encourage cycling. Opponents argue the money would be better spent repairing existing roads, several of which have been closed since last winter's flooding. The mayor called the decision 'a long-term investment in a greener, more connected city', while acknowledging that some road repairs will be delayed as a result.",
+      "questions": [
+        {
+          "id": "L4Q1",
+          "label": "Question",
+          "part": "Part 4 · News Item",
+          "question": "What did the council approve?",
+          "options": [
+            "Funding for a pedestrian bridge",
+            "A new road-widening project",
+            "A public transit fare increase",
+            "A housing development"
+          ],
+          "answerIndex": 0,
+          "explanation": "The council voted to 'approve funding for a new pedestrian bridge'."
+        },
+        {
+          "id": "L4Q2",
+          "label": "Question",
+          "part": "Part 4 · News Item",
+          "question": "How much will the bridge cost?",
+          "options": [
+            "Eight million dollars",
+            "Eighteen million dollars",
+            "Eighty million dollars",
+            "Two million dollars"
+          ],
+          "answerIndex": 1,
+          "explanation": "The bridge is expected to cost 'eighteen million dollars'."
+        },
+        {
+          "id": "L4Q3",
+          "label": "Question",
+          "part": "Part 4 · News Item",
+          "question": "When is construction scheduled to begin?",
+          "options": [
+            "This December",
+            "Next spring",
+            "Next winter",
+            "Within two years"
+          ],
+          "answerIndex": 1,
+          "explanation": "Construction is 'scheduled to begin next spring'."
+        },
+        {
+          "id": "L4Q4",
+          "label": "Question",
+          "part": "Part 4 · News Item",
+          "question": "What benefit do supporters describe?",
+          "options": [
+            "It will create new jobs",
+            "It will cut a 40-minute walk to 10 minutes",
+            "It will reduce road traffic tolls",
+            "It will link two suburbs"
+          ],
+          "answerIndex": 1,
+          "explanation": "Supporters say it will cut 'the current forty-minute walking detour down to just ten minutes'."
+        },
+        {
+          "id": "L4Q5",
+          "label": "Question",
+          "part": "Part 4 · News Item",
+          "question": "What is the main concern of opponents?",
+          "options": [
+            "The bridge is too expensive for cyclists",
+            "The money should go to road repairs",
+            "The bridge will damage the valley",
+            "Construction will take too long"
+          ],
+          "answerIndex": 1,
+          "explanation": "Opponents argue the money 'would be better spent repairing existing roads'."
+        }
+      ]
+    },
+    {
+      "id": "L5",
+      "skill": "listening",
+      "title": "Part 5 · Listening to a Discussion",
+      "instructions": "Listen to a discussion about remote work. Choose the best answer for each question.",
+      "timeLimitSec": 720,
+      "passageTitle": "Remote work and our cities",
+      "passage": "HOST: Welcome back. Today we're asking: has the shift to remote work been good for our cities? With me are economist Dr. Elena Roth and small-business owner Marcus Webb. Elena, let's start with you.\nELENA: Thanks. The data shows a clear split. Knowledge workers report higher satisfaction and save commuting costs, but downtown businesses have lost foot traffic — lunch spots and transit have felt it most.\nHOST: Marcus, you run a print shop downtown.\nMARCUS: That's right. Our daytime customers dropped by almost half. But we've adapted — we now offer delivery and early-evening hours, and we've kept everyone employed.\nHOST: Elena, what about the long term?\nELENA: Offices aren't disappearing; they're changing. We're likely to settle on three days in, two days out. That hybrid model spreads demand more evenly and is better for the city's finances than full remote.\nMARCUS: I'd agree with that. A steady three-day week would bring enough people back to keep the lunch economy alive, without losing the flexibility workers now expect.\nHOST: So a middle path, then. Thanks to you both.",
+      "questions": [
+        {
+          "id": "L5Q1",
+          "label": "Question",
+          "part": "Part 5 · Discussion",
+          "question": "What is the main topic of the discussion?",
+          "options": [
+            "The cost of downtown parking",
+            "The effects of remote work on cities",
+            "How to run a print shop",
+            "Public transit funding"
+          ],
+          "answerIndex": 1,
+          "explanation": "The host frames the question as whether remote work 'has been good for our cities'."
+        },
+        {
+          "id": "L5Q2",
+          "label": "Question",
+          "part": "Part 5 · Discussion",
+          "question": "What benefit do knowledge workers report, according to Elena?",
+          "options": [
+            "Shorter workdays",
+            "Higher satisfaction and lower commuting costs",
+            "Better salaries",
+            "More vacation time"
+          ],
+          "answerIndex": 1,
+          "explanation": "Elena says knowledge workers 'report higher satisfaction and save commuting costs'."
+        },
+        {
+          "id": "L5Q3",
+          "label": "Question",
+          "part": "Part 5 · Discussion",
+          "question": "Which businesses have felt the impact most?",
+          "options": [
+            "Suburban malls",
+            "Downtown lunch spots and transit",
+            "Online retailers",
+            "Warehouses"
+          ],
+          "answerIndex": 1,
+          "explanation": "Downtown 'lunch spots and transit have felt it most', Elena says."
+        },
+        {
+          "id": "L5Q4",
+          "label": "Question",
+          "part": "Part 5 · Discussion",
+          "question": "How has Marcus's print shop adapted?",
+          "options": [
+            "It moved to the suburbs",
+            "It cut its staff",
+            "It added delivery and evening hours",
+            "It raised its prices"
+          ],
+          "answerIndex": 2,
+          "explanation": "Marcus says 'we now offer delivery and early-evening hours'."
+        },
+        {
+          "id": "L5Q5",
+          "label": "Question",
+          "part": "Part 5 · Discussion",
+          "question": "What did Marcus say about his employees?",
+          "options": [
+            "He had to lay some off",
+            "He kept everyone employed",
+            "He reduced their hours",
+            "He hired more staff"
+          ],
+          "answerIndex": 1,
+          "explanation": "Marcus says 'we've kept everyone employed'."
+        },
+        {
+          "id": "L5Q6",
+          "label": "Question",
+          "part": "Part 5 · Discussion",
+          "question": "What hybrid model does Elena predict?",
+          "options": [
+            "Four days in, one day out",
+            "Two days in, three days out",
+            "Three days in, two days out",
+            "Fully remote forever"
+          ],
+          "answerIndex": 2,
+          "explanation": "Elena predicts 'three days in, two days out'."
+        },
+        {
+          "id": "L5Q7",
+          "label": "Question",
+          "part": "Part 5 · Discussion",
+          "question": "Why does Marcus support the hybrid model?",
+          "options": [
+            "It would keep the lunch economy alive",
+            "It would raise property values",
+            "It would reduce traffic",
+            "It would cut his rent"
+          ],
+          "answerIndex": 0,
+          "explanation": "A three-day week 'would bring enough people back to keep the lunch economy alive'."
+        },
+        {
+          "id": "L5Q8",
+          "label": "Question",
+          "part": "Part 5 · Discussion",
+          "question": "What is the overall conclusion of the discussion?",
+          "options": [
+            "Remote work should be banned",
+            "A middle path of hybrid work is likely",
+            "Offices will close completely",
+            "The city must subsidize transit"
+          ],
+          "answerIndex": 1,
+          "explanation": "The host closes with 'so a middle path, then', reflecting the hybrid consensus."
+        }
+      ]
+    },
+    {
+      "id": "L6",
+      "skill": "listening",
+      "title": "Part 6 · Listening to Viewpoints",
+      "instructions": "Listen to two speakers give their views. Choose the best answer for each question.",
+      "timeLimitSec": 660,
+      "passageTitle": "E-bikes in city parks",
+      "passage": "SPEAKER A: E-bikes have no place on our park trails. Trails are for walking and traditional cycling, and motor-assisted bikes move too fast for a space meant for families and dogs. I've nearly been clipped twice this month. If we allow e-bikes everywhere, we'll push walkers out of the parks entirely. A speed limit is unenforceable on a narrow path, so the only fair rule is to keep motor power off the trails.\nSPEAKER B: I understand the worry, but a blanket ban ignores who actually rides e-bikes — commuters and older riders who otherwise wouldn't cycle at all. The real issue isn't the motor; it's courtesy. A fifteen-kilometre speed limit, clearly posted, plus fines for reckless riding, would let everyone share the trail safely. We shouldn't punish a whole group for the behaviour of a few.",
+      "questions": [
+        {
+          "id": "L6Q1",
+          "label": "Question",
+          "part": "Part 6 · Viewpoints",
+          "question": "What is the topic of the two viewpoints?",
+          "options": [
+            "Whether e-bikes belong on park trails",
+            "The price of bicycles",
+            "New park opening hours",
+            "Road safety for cars"
+          ],
+          "answerIndex": 0,
+          "explanation": "Both speakers debate whether e-bikes should be allowed on park trails."
+        },
+        {
+          "id": "L6Q2",
+          "label": "Question",
+          "part": "Part 6 · Viewpoints",
+          "question": "What is Speaker A's main concern?",
+          "options": [
+            "E-bikes are too expensive",
+            "E-bikes move too fast for shared paths",
+            "E-bikes are too loud",
+            "E-bikes are hard to park"
+          ],
+          "answerIndex": 1,
+          "explanation": "Speaker A says e-bikes 'move too fast for a space meant for families and dogs'."
+        },
+        {
+          "id": "L6Q3",
+          "label": "Question",
+          "part": "Part 6 · Viewpoints",
+          "question": "What does Speaker A say about a speed limit?",
+          "options": [
+            "It would solve everything",
+            "It is unenforceable on a narrow path",
+            "It is too costly",
+            "It already exists"
+          ],
+          "answerIndex": 1,
+          "explanation": "Speaker A calls a speed limit 'unenforceable on a narrow path'."
+        },
+        {
+          "id": "L6Q4",
+          "label": "Question",
+          "part": "Part 6 · Viewpoints",
+          "question": "According to Speaker B, who actually rides e-bikes?",
+          "options": [
+            "Young children",
+            "Commuters and older riders",
+            "Delivery drivers",
+            "Tourists"
+          ],
+          "answerIndex": 1,
+          "explanation": "Speaker B says e-bikes are used by 'commuters and older riders who otherwise wouldn't cycle'."
+        },
+        {
+          "id": "L6Q5",
+          "label": "Question",
+          "part": "Part 6 · Viewpoints",
+          "question": "What solution does Speaker B propose?",
+          "options": [
+            "A complete ban",
+            "Wider trails only",
+            "A posted speed limit plus fines",
+            "Charging a trail fee"
+          ],
+          "answerIndex": 2,
+          "explanation": "Speaker B proposes a 'fifteen-kilometre speed limit, clearly posted, plus fines for reckless riding'."
+        },
+        {
+          "id": "L6Q6",
+          "label": "Question",
+          "part": "Part 6 · Viewpoints",
+          "question": "How do the two speakers mainly differ?",
+          "options": [
+            "On whether to ban or regulate e-bikes",
+            "On whether trails should be paved",
+            "On the price of e-bikes",
+            "On who owns the parks"
+          ],
+          "answerIndex": 0,
+          "explanation": "A wants a ban; B wants regulation with a speed limit and fines."
+        }
+      ]
+    },
+    {
+      "id": "R1",
+      "skill": "reading",
+      "title": "Part 1 · Reading Correspondence",
+      "instructions": "Read the email, then answer the questions that follow.",
+      "timeLimitSec": 720,
+      "passageTitle": "Scheduled water shutdown and amenity booking update",
+      "passage": "Subject: Scheduled water shutdown and amenity booking update\n\nDear Residents of Maple Court,\n\nPlease read this notice carefully, as two changes take effect on Monday, March 3.\n\nFirst, the building's main water supply will be shut off on Tuesday, March 4, from 9:00 a.m. to 3:00 p.m. so a contractor can replace a faulty valve on the fourth floor. During this time, no taps, toilets, or laundry machines will work in any unit. We recommend filling a few containers with drinking water the night before. The shutdown will not affect the building's fire-suppression system.\n\nSecond, from March 3, the party room and the rooftop terrace must be booked through the new online portal at maplecourt.ca/bookings. Walk-in use will no longer be possible. Bookings open one week in advance, are limited to two hours per household per day, and require a fifty-dollar refundable deposit paid by credit card. The deposit is returned within five business days if the space is left clean and undamaged.\n\nIf you have questions, contact the management office by email at office@maplecourt.ca before Friday, February 28. Please do not call the superintendent about bookings.\n\nSincerely,\nMaple Court Management",
+      "questions": [
+        {
+          "id": "R1Q1",
+          "label": "Question",
+          "part": "Reading Correspondence",
+          "question": "What is the main purpose of this email?",
+          "options": [
+            "To announce a rent increase",
+            "To inform residents of two upcoming changes",
+            "To advertise a vacant unit",
+            "To invite residents to a meeting"
+          ],
+          "answerIndex": 1,
+          "explanation": "The email opens by stating that 'two changes take effect on Monday, March 3'."
+        },
+        {
+          "id": "R1Q2",
+          "label": "Question",
+          "part": "Reading Correspondence",
+          "question": "When will the water be shut off?",
+          "options": [
+            "Monday, March 3, all day",
+            "Tuesday, March 4, from 9 a.m. to 3 p.m.",
+            "Friday, February 28",
+            "Every weekday in March"
+          ],
+          "answerIndex": 1,
+          "explanation": "The water is shut off 'on Tuesday, March 4, from 9:00 a.m. to 3:00 p.m.'."
+        },
+        {
+          "id": "R1Q3",
+          "label": "Question",
+          "part": "Reading Correspondence",
+          "question": "Why is the water being shut off?",
+          "options": [
+            "To clean the water tanks",
+            "To replace a faulty valve on the fourth floor",
+            "To install new laundry machines",
+            "To test the fire system"
+          ],
+          "answerIndex": 1,
+          "explanation": "The shutdown allows a contractor to 'replace a faulty valve on the fourth floor'."
+        },
+        {
+          "id": "R1Q4",
+          "label": "Question",
+          "part": "Reading Correspondence",
+          "question": "What will NOT work during the shutdown?",
+          "options": [
+            "The fire-suppression system",
+            "Taps, toilets, and laundry machines",
+            "The elevators",
+            "The front door intercom"
+          ],
+          "answerIndex": 1,
+          "explanation": "During the shutdown 'no taps, toilets, or laundry machines will work'."
+        },
+        {
+          "id": "R1Q5",
+          "label": "Question",
+          "part": "Reading Correspondence",
+          "question": "What does management recommend residents do?",
+          "options": [
+            "Leave the building for the day",
+            "Fill containers with drinking water the night before",
+            "Call the superintendent",
+            "Cancel all bookings"
+          ],
+          "answerIndex": 1,
+          "explanation": "Residents are told to 'fill a few containers with drinking water the night before'."
+        },
+        {
+          "id": "R1Q6",
+          "label": "Question",
+          "part": "Reading Correspondence",
+          "question": "What is NOT affected by the shutdown?",
+          "options": [
+            "The laundry room",
+            "The fire-suppression system",
+            "The kitchen taps",
+            "The toilets"
+          ],
+          "answerIndex": 1,
+          "explanation": "The notice states the shutdown 'will not affect the building's fire-suppression system'."
+        },
+        {
+          "id": "R1Q7",
+          "label": "Question",
+          "part": "Reading Correspondence",
+          "question": "From March 3, how must the party room be booked?",
+          "options": [
+            "In person at the office",
+            "By calling the superintendent",
+            "Through the new online portal",
+            "By leaving a note on the door"
+          ],
+          "answerIndex": 2,
+          "explanation": "The party room and terrace 'must be booked through the new online portal'."
+        },
+        {
+          "id": "R1Q8",
+          "label": "Question",
+          "part": "Reading Correspondence",
+          "question": "How far in advance do bookings open?",
+          "options": [
+            "One day",
+            "One week",
+            "Two weeks",
+            "One month"
+          ],
+          "answerIndex": 1,
+          "explanation": "Bookings 'open one week in advance'."
+        },
+        {
+          "id": "R1Q9",
+          "label": "Question",
+          "part": "Reading Correspondence",
+          "question": "What is the daily booking limit?",
+          "options": [
+            "One hour per household",
+            "Two hours per household",
+            "Three hours per household",
+            "There is no limit"
+          ],
+          "answerIndex": 1,
+          "explanation": "Bookings are 'limited to two hours per household per day'."
+        },
+        {
+          "id": "R1Q10",
+          "label": "Question",
+          "part": "Reading Correspondence",
+          "question": "What is required to make a booking?",
+          "options": [
+            "A fifty-dollar refundable deposit",
+            "A written application",
+            "A reference letter",
+            "An annual membership fee"
+          ],
+          "answerIndex": 0,
+          "explanation": "Bookings 'require a fifty-dollar refundable deposit paid by credit card'."
+        },
+        {
+          "id": "R1Q11",
+          "label": "Question",
+          "part": "Reading Correspondence",
+          "question": "Who should residents contact with questions?",
+          "options": [
+            "The superintendent, by phone",
+            "The management office, by email",
+            "The contractor",
+            "The building owner"
+          ],
+          "answerIndex": 1,
+          "explanation": "Residents should email 'the management office' before February 28."
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "skill": "reading",
+      "title": "Part 2 · Reading to Apply a Diagram",
+      "instructions": "Read the sorting guide below, then apply the information to answer each question.",
+      "timeLimitSec": 720,
+      "passageTitle": "Citywide recycling — what goes where",
+      "passage": "CITYWIDE WASTE SORTING GUIDE\n\nBLUE BIN — recyclable containers (rinse first, no lids):\n• Plastic bottles and tubs\n• Metal cans and foil\n• Glass jars and bottles\n\nGREEN BIN — food and organics (loose, never in a plastic bag):\n• Food scraps and leftovers\n• Coffee grounds and tea bags\n• Paper towels and napkins\n\nBLACK BIN — household garbage:\n• Diapers and pet waste\n• Chip bags and candy wrappers\n• Broken ceramics and old shoes\n\nSPECIAL DROP-OFF — never place these in any bin:\n• Batteries and electronics\n• Paint and household chemicals\n\nCollection is weekly. Bins must be at the curb by 7:00 a.m. and not block the sidewalk. Broken glass should be wrapped in newspaper before it goes in the blue bin.",
+      "questions": [
+        {
+          "id": "R2Q1",
+          "label": "Question",
+          "part": "Apply a Diagram",
+          "question": "Where should a rinsed glass jar go?",
+          "options": [
+            "Blue bin",
+            "Green bin",
+            "Black bin",
+            "Special drop-off"
+          ],
+          "answerIndex": 0,
+          "explanation": "Glass jars and bottles belong in the blue bin (rinse first)."
+        },
+        {
+          "id": "R2Q2",
+          "label": "Question",
+          "part": "Apply a Diagram",
+          "question": "Where do coffee grounds belong?",
+          "options": [
+            "Blue bin",
+            "Green bin",
+            "Black bin",
+            "Special drop-off"
+          ],
+          "answerIndex": 1,
+          "explanation": "Coffee grounds are listed under the green bin (organics)."
+        },
+        {
+          "id": "R2Q3",
+          "label": "Question",
+          "part": "Apply a Diagram",
+          "question": "How should food scraps be placed in the green bin?",
+          "options": [
+            "Wrapped in newspaper",
+            "Inside a plastic bag",
+            "Loose, never in a plastic bag",
+            "In a cardboard box"
+          ],
+          "answerIndex": 2,
+          "explanation": "Organics go in 'loose, never in a plastic bag'."
+        },
+        {
+          "id": "R2Q4",
+          "label": "Question",
+          "part": "Apply a Diagram",
+          "question": "Where should a used battery go?",
+          "options": [
+            "Blue bin",
+            "Green bin",
+            "Black bin",
+            "Special drop-off"
+          ],
+          "answerIndex": 3,
+          "explanation": "Batteries and electronics must go to the special drop-off, never in any bin."
+        },
+        {
+          "id": "R2Q5",
+          "label": "Question",
+          "part": "Apply a Diagram",
+          "question": "Where does a chip bag belong?",
+          "options": [
+            "Blue bin",
+            "Green bin",
+            "Black bin",
+            "Special drop-off"
+          ],
+          "answerIndex": 2,
+          "explanation": "Chip bags and candy wrappers are listed under the black bin."
+        },
+        {
+          "id": "R2Q6",
+          "label": "Question",
+          "part": "Apply a Diagram",
+          "question": "By what time must bins be at the curb?",
+          "options": [
+            "6:00 a.m.",
+            "7:00 a.m.",
+            "8:00 a.m.",
+            "9:00 a.m."
+          ],
+          "answerIndex": 1,
+          "explanation": "Bins must be at the curb 'by 7:00 a.m.'."
+        },
+        {
+          "id": "R2Q7",
+          "label": "Question",
+          "part": "Apply a Diagram",
+          "question": "How should broken glass be handled?",
+          "options": [
+            "Placed loose in the black bin",
+            "Wrapped in newspaper before the blue bin",
+            "Taken to the depot",
+            "Placed in a plastic bag"
+          ],
+          "answerIndex": 1,
+          "explanation": "Broken glass should be 'wrapped in newspaper before it goes in the blue bin'."
+        },
+        {
+          "id": "R2Q8",
+          "label": "Question",
+          "part": "Apply a Diagram",
+          "question": "What should NOT be done with the bins?",
+          "options": [
+            "Rinse recyclables",
+            "Put them out weekly",
+            "Block the sidewalk",
+            "Separate organics"
+          ],
+          "answerIndex": 2,
+          "explanation": "Bins must be at the curb by 7 a.m. 'and not block the sidewalk'."
+        }
+      ]
+    },
+    {
+      "id": "R3",
+      "skill": "reading",
+      "title": "Part 3 · Reading for Information",
+      "instructions": "Read the article, then answer the questions that follow.",
+      "timeLimitSec": 900,
+      "passageTitle": "How community gardens are changing the city",
+      "passage": "When the city launched its community-garden program ten years ago, it expected a few hundred plots. Today there are more than four thousand, spread across every neighbourhood, and the waiting list for a plot is longer than ever.\n\nThe program works by converting unused city land — vacant lots, hydro corridors, even the flat roofs of older buildings — into shared growing spaces. Each plot rents for thirty-five dollars a season, which covers soil, water access, and tool storage. Priority is given to residents who live within a fifteen-minute walk of the site and to households with no private outdoor space.\n\nThe benefits go well beyond fresh vegetables. A 2024 study by the city's health department found that gardeners reported lower stress and more physical activity than non-gardeners in the same postal codes. Plots have also become informal meeting places, especially for newcomers, many of whom grow familiar crops from home and swap seeds with neighbours.\n\nThere are challenges too. Demand far exceeds supply, and some sites have struggled with vandalism and water shortages during dry summers. To address this, the city now installs rain barrels at every new site and has added a part-time coordinator to help resolve disputes between gardeners.\n\nA second wave of expansion is planned for next spring, with forty new sites expected to open and a pilot program to place small gardens on school grounds.",
+      "questions": [
+        {
+          "id": "R3Q1",
+          "label": "Question",
+          "part": "Reading for Information",
+          "question": "How many community gardens does the city now have?",
+          "options": [
+            "A few hundred",
+            "About four thousand",
+            "Forty",
+            "Ten thousand"
+          ],
+          "answerIndex": 1,
+          "explanation": "There are 'more than four thousand' plots across the city."
+        },
+        {
+          "id": "R3Q2",
+          "label": "Question",
+          "part": "Reading for Information",
+          "question": "What kind of land does the program convert?",
+          "options": [
+            "Private farmland",
+            "Unused city land",
+            "Newly built parks",
+            "Commercial property"
+          ],
+          "answerIndex": 1,
+          "explanation": "The program converts 'unused city land' such as vacant lots and hydro corridors."
+        },
+        {
+          "id": "R3Q3",
+          "label": "Question",
+          "part": "Reading for Information",
+          "question": "How much does a plot cost per season?",
+          "options": [
+            "Twenty dollars",
+            "Thirty-five dollars",
+            "Fifty dollars",
+            "Nothing"
+          ],
+          "answerIndex": 1,
+          "explanation": "Each plot rents for 'thirty-five dollars a season'."
+        },
+        {
+          "id": "R3Q4",
+          "label": "Question",
+          "part": "Reading for Information",
+          "question": "Who gets priority for a plot?",
+          "options": [
+            "Homeowners with large yards",
+            "Residents within a 15-minute walk",
+            "New residents only",
+            "People who volunteer"
+          ],
+          "answerIndex": 1,
+          "explanation": "Priority goes to residents 'within a fifteen-minute walk' and households with no outdoor space."
+        },
+        {
+          "id": "R3Q5",
+          "label": "Question",
+          "part": "Reading for Information",
+          "question": "What did the 2024 study find?",
+          "options": [
+            "Gardeners had lower stress and more activity",
+            "Gardens lowered property values",
+            "Gardens reduced crime",
+            "Gardeners spent more money"
+          ],
+          "answerIndex": 0,
+          "explanation": "Gardeners reported 'lower stress and more physical activity' than non-gardeners."
+        },
+        {
+          "id": "R3Q6",
+          "label": "Question",
+          "part": "Reading for Information",
+          "question": "How do the plots help newcomers?",
+          "options": [
+            "They offer free housing",
+            "They become meeting places and seed swaps",
+            "They provide paid work",
+            "They teach driving"
+          ],
+          "answerIndex": 1,
+          "explanation": "Plots are 'informal meeting places, especially for newcomers', who swap seeds with neighbours."
+        },
+        {
+          "id": "R3Q7",
+          "label": "Question",
+          "part": "Reading for Information",
+          "question": "What challenge do some sites face?",
+          "options": [
+            "Too many gardeners",
+            "Vandalism and water shortages",
+            "High rent",
+            "Poor soil quality"
+          ],
+          "answerIndex": 1,
+          "explanation": "Some sites have 'struggled with vandalism and water shortages during dry summers'."
+        },
+        {
+          "id": "R3Q8",
+          "label": "Question",
+          "part": "Reading for Information",
+          "question": "What has the city done in response?",
+          "options": [
+            "Closed the problem sites",
+            "Installed rain barrels and added a coordinator",
+            "Raised the plot rent",
+            "Banned seed swapping"
+          ],
+          "answerIndex": 1,
+          "explanation": "The city now 'installs rain barrels' and 'added a part-time coordinator'."
+        },
+        {
+          "id": "R3Q9",
+          "label": "Question",
+          "part": "Reading for Information",
+          "question": "What is planned for next spring?",
+          "options": [
+            "A plot rent increase",
+            "Forty new sites and a school pilot",
+            "Reducing the program",
+            "A citywide garden contest"
+          ],
+          "answerIndex": 1,
+          "explanation": "Forty new sites are expected, plus 'a pilot program' on school grounds."
+        }
+      ]
+    },
+    {
+      "id": "R4",
+      "skill": "reading",
+      "title": "Part 4 · Reading for Viewpoints",
+      "instructions": "Read the two opinions, then answer the questions that follow.",
+      "timeLimitSec": 960,
+      "passageTitle": "Should the city build a new downtown stadium?",
+      "passage": "LETTER 1 — in favour\n\nA new downtown stadium is exactly the investment this city needs. Our current venue was built fifty years ago, has poor sightlines, and leaks whenever it rains. A modern arena would host not only our hockey team but also concerts and trade shows that currently skip our city for larger markets. Supporters point to the thousands of construction jobs it would create immediately, and the restaurants, hotels and transit revenue that would follow every game night. Critics say sports venues rarely pay for themselves, but that ignores the broader economic activity they anchor. If we build nothing, we quietly accept that our downtown will keep losing visitors to neighbouring cities that built years ago.\n\nLETTER 2 — opposed\n\nThe stadium boosters are asking taxpayers to gamble hundreds of millions of dollars on a building that will sit empty most days of the year. The promised construction jobs are temporary, and the teams that play there keep most of the ticket and broadcast revenue for themselves. Meanwhile, the city has schools with leaking roofs and a transit system that runs late every winter. A stadium is a 'want', not a 'need', and public money should fix needs first. If a stadium truly made financial sense, private investors would build it without asking the public to take the risk.",
+      "questions": [
+        {
+          "id": "R4Q1",
+          "label": "Question",
+          "part": "Reading for Viewpoints",
+          "question": "What is the main topic of the two letters?",
+          "options": [
+            "Whether to build a new downtown stadium",
+            "How to fix the transit system",
+            "Whether to raise ticket prices",
+            "Where to hold a trade show"
+          ],
+          "answerIndex": 0,
+          "explanation": "Both letters argue for and against 'a new downtown stadium'."
+        },
+        {
+          "id": "R4Q2",
+          "label": "Question",
+          "part": "Reading for Viewpoints",
+          "question": "What is wrong with the current venue, according to Letter 1?",
+          "options": [
+            "It is too expensive to rent",
+            "It is fifty years old and leaks",
+            "It is too far from downtown",
+            "It is too small"
+          ],
+          "answerIndex": 1,
+          "explanation": "The current venue is 'fifty years old, has poor sightlines, and leaks whenever it rains'."
+        },
+        {
+          "id": "R4Q3",
+          "label": "Question",
+          "part": "Reading for Viewpoints",
+          "question": "What events would a new arena host, according to Letter 1?",
+          "options": [
+            "Only hockey games",
+            "Hockey, concerts, and trade shows",
+            "School events only",
+            "Political rallies"
+          ],
+          "answerIndex": 1,
+          "explanation": "A modern arena would host 'our hockey team but also concerts and trade shows'."
+        },
+        {
+          "id": "R4Q4",
+          "label": "Question",
+          "part": "Reading for Viewpoints",
+          "question": "What immediate benefit does Letter 1 describe?",
+          "options": [
+            "Lower ticket prices",
+            "Thousands of construction jobs",
+            "Free transit",
+            "More parking"
+          ],
+          "answerIndex": 1,
+          "explanation": "Supporters point to 'the thousands of construction jobs it would create immediately'."
+        },
+        {
+          "id": "R4Q5",
+          "label": "Question",
+          "part": "Reading for Viewpoints",
+          "question": "How does Letter 1 respond to the claim that venues do not pay for themselves?",
+          "options": [
+            "It agrees completely",
+            "It says this ignores broader economic activity",
+            "It says the claim is a fact",
+            "It has no response"
+          ],
+          "answerIndex": 1,
+          "explanation": "Letter 1 says that claim 'ignores the broader economic activity they anchor'."
+        },
+        {
+          "id": "R4Q6",
+          "label": "Question",
+          "part": "Reading for Viewpoints",
+          "question": "What is Letter 2's main objection?",
+          "options": [
+            "The stadium is too small",
+            "Taxpayers would gamble on a mostly-empty building",
+            "The design is ugly",
+            "The location is wrong"
+          ],
+          "answerIndex": 1,
+          "explanation": "Letter 2 says boosters are asking taxpayers to gamble on 'a building that will sit empty most days'."
+        },
+        {
+          "id": "R4Q7",
+          "label": "Question",
+          "part": "Reading for Viewpoints",
+          "question": "What does Letter 2 say about the construction jobs?",
+          "options": [
+            "They are permanent",
+            "They are temporary",
+            "They are well paid",
+            "They are unnecessary"
+          ],
+          "answerIndex": 1,
+          "explanation": "Letter 2 says 'the promised construction jobs are temporary'."
+        },
+        {
+          "id": "R4Q8",
+          "label": "Question",
+          "part": "Reading for Viewpoints",
+          "question": "Who keeps most ticket revenue, according to Letter 2?",
+          "options": [
+            "The city",
+            "The teams",
+            "Local businesses",
+            "The construction firms"
+          ],
+          "answerIndex": 1,
+          "explanation": "The teams 'keep most of the ticket and broadcast revenue for themselves'."
+        },
+        {
+          "id": "R4Q9",
+          "label": "Question",
+          "part": "Reading for Viewpoints",
+          "question": "What example does Letter 2 give of real needs?",
+          "options": [
+            "New parks",
+            "Schools with leaking roofs and late transit",
+            "A new library",
+            "More bike lanes"
+          ],
+          "answerIndex": 1,
+          "explanation": "Letter 2 points to 'schools with leaking roofs and a transit system that runs late every winter'."
+        },
+        {
+          "id": "R4Q10",
+          "label": "Question",
+          "part": "Reading for Viewpoints",
+          "question": "What does Letter 2 suggest should happen if a stadium made financial sense?",
+          "options": [
+            "The city should build it",
+            "Private investors would build it themselves",
+            "The public should vote on it",
+            "The teams should pay rent"
+          ],
+          "answerIndex": 1,
+          "explanation": "If it truly made sense, 'private investors would build it without asking the public to take the risk'."
+        }
+      ]
+    },
+    {
+      "id": "W1",
+      "skill": "writing",
+      "title": "Writing Task 1 · Email",
+      "instructions": "Write your email in the box. Aim for 150–200 words.",
+      "timeLimitSec": 1620,
+      "questions": [],
+      "writingTask": {
+        "id": "M1W1",
+        "task": "Writing Task 1",
+        "title": "Writing an Email",
+        "timeLimit": "27 min",
+        "wordTarget": "150–200 words",
+        "scenario": "You recently stayed at the Lakeside Hotel for a two-night weekend break. During your stay, the room you were given had a broken air-conditioner and, despite reporting it twice, nobody repaired it. Write an email to the hotel manager about your experience.\n\nYour email should include:\n• Your booking details\n• A clear description of the problem\n• What you would like the hotel to do",
+        "instructions": [
+          "Address the manager appropriately in the opening salutation.",
+          "State the reason for writing early in the first paragraph.",
+          "Give enough detail for the hotel to find your booking.",
+          "Close politely with a clear request."
+        ],
+        "sampleAnswer": "Subject: Complaint about room 412 — booking LK-2209\n\nDear Hotel Manager,\n\nI am writing to let you know about a problem I had during my recent stay at the Lakeside Hotel.\n\nI stayed in room 412 for two nights from September 12 to 14, under booking LK-2209. Unfortunately, the air-conditioner in the room did not work for the entire stay. I reported it to the front desk on both the first and second morning, but it was never repaired, and the room remained uncomfortably warm at night.\n\nI would appreciate it if you could look into why my reports were not acted on. As a gesture of good will, I would also like to request a partial refund of one night's charge, since the room did not meet the standard your hotel advertises.\n\nThank you for your attention, and I look forward to your reply.\n\nBest regards,\nDevon Patel",
+        "criteria": [
+          {
+            "label": "Content",
+            "note": "Covers all three bullet points naturally and specifically."
+          },
+          {
+            "label": "Cohesion",
+            "note": "Paragraphs flow from reason → problem → request."
+          },
+          {
+            "label": "Word choice",
+            "note": "Formal but natural business phrases used accurately."
+          },
+          {
+            "label": "Grammar & tone",
+            "note": "Polite tone with correct sentence boundaries and register."
+          }
+        ]
+      }
+    },
+    {
+      "id": "W2",
+      "skill": "writing",
+      "title": "Writing Task 2 · Survey Response",
+      "instructions": "Write your response in the box. Aim for 150–200 words.",
+      "timeLimitSec": 1560,
+      "questions": [],
+      "writingTask": {
+        "id": "M1W2",
+        "task": "Writing Task 2",
+        "title": "Responding to Survey Questions",
+        "timeLimit": "26 min",
+        "wordTarget": "150–200 words",
+        "scenario": "The city is considering turning the main downtown street into a car-free, pedestrian-only zone every weekend. You received a survey with two questions.\n\nQuestion 1: Do you support or oppose the weekend car ban? Give one reason.\n\nQuestion 2: What is the most important change the city should make to support the ban?",
+        "instructions": [
+          "Answer both questions fully in one response of 150–200 words.",
+          "Give a clear opinion for each question with a reason and an example.",
+          "Use paragraph breaks so each question is addressed clearly.",
+          "Keep the tone friendly and semi-formal, as if writing to city staff."
+        ],
+        "sampleAnswer": "Dear City Planning Team,\n\nThank you for asking residents about the proposed weekend car ban downtown.\n\nOverall, I support the idea. When the street is closed for the summer festival, the area feels safer and more welcoming, and local cafés do noticeably more business. I believe a regular weekend closure would bring the same energy, so I would vote in favour.\n\nTo make the ban work, the most important change would be better transit and parking at the edge of the zone. Many visitors now drive downtown because the nearest bus stop is a twenty-minute walk away. Adding a free weekend shuttle from the two public parking lots, and running buses more often, would let people reach the area without circling for parking or giving up and driving home.\n\nThank you again for collecting feedback. I hope these suggestions help.\n\nSincerely,\nAmara Okafor",
+        "criteria": [
+          {
+            "label": "Content",
+            "note": "Both survey questions answered clearly with reasons."
+          },
+          {
+            "label": "Organization",
+            "note": "Clear paragraphs for each question with a polite frame."
+          },
+          {
+            "label": "Vocabulary",
+            "note": "Range of linking words and topic-specific terms."
+          },
+          {
+            "label": "Length control",
+            "note": "Stays inside the 150–200 word target."
+          }
+        ]
+      }
+    },
+    {
+      "id": "S1",
+      "skill": "speaking",
+      "title": "Speaking Task 1 · Giving Advice",
+      "instructions": "Prepare silently, then speak your full answer aloud.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M1S1",
+        "title": "Task 1: Giving Advice",
+        "scenario": "Your friend Maya is feeling overwhelmed at her new job and has said she is finding it hard to stay organized. What advice would you give Maya?",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Give two or three concrete pieces of advice, not general statements.",
+          "Open with a sympathetic phrase, then move into advice naturally.",
+          "Explain why each piece of advice will help, using a short example.",
+          "End with an encouraging closing line."
+        ],
+        "sampleAnswer": "That is a really tough position to be in, so I completely understand why you feel overwhelmed. First, I would suggest writing down every task at the start of each day and putting the most urgent one at the top. When you have ten things in your head, nothing feels possible, but seeing one clear priority helps you focus, and I have always found that reduces the panic. Second, try blocking out a short quiet window each morning with your phone on silent, because most people do their best work in those focused blocks. Finally, don't be afraid to ask your manager which projects can wait until next week. If you try these three things for two weeks, I'm confident you'll feel much more in control.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "S2",
+      "skill": "speaking",
+      "title": "Speaking Task 2 · Personal Experience",
+      "instructions": "Prepare silently, then speak your full answer aloud.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M1S2",
+        "title": "Task 2: Talking about a Personal Experience",
+        "scenario": "Describe a time when you helped a friend or family member solve a problem. What was the situation, and what did you do?",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Use a clear story arc: situation → action → outcome.",
+          "Include one specific detail to make the story vivid.",
+          "Keep the answer at a natural pace; do not rush the ending.",
+          "Finish with a one-line reflection on what you learned."
+        ],
+        "sampleAnswer": "Let me tell you about last winter, when my younger cousin was struggling to pass her driving test. She had failed once, and she kept making the same mistakes during parallel parking, so a week before her second attempt I offered to help. Every evening after work, we went to the nearly empty mall parking lot, set up two shopping carts as pylons, and practised the manoeuvre until she could do it without checking her mirrors constantly. On the weekend I took her onto quieter streets near the river so she could get used to real traffic. In the end she passed, and the best part was seeing how much her confidence had grown. That experience reminded me that a patient, structured helper can make a bigger difference than simply telling someone to try harder.",
+        "clb": "CLB 10 sample"
+      }
+    },
+    {
+      "id": "S3",
+      "skill": "speaking",
+      "title": "Speaking Task 3 · Describing a Scene",
+      "instructions": "Prepare silently, then speak your full answer aloud.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M1S3",
+        "title": "Task 3: Describing a Scene",
+        "scenario": "Describe a busy farmers' market you went to in the summer. What could you see, hear, and smell?",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Structure by senses: what you saw, heard, smelled, and felt.",
+          "Mention people's actions, not just objects, to keep it dynamic.",
+          "Use location words like 'towards the back' or 'near the entrance'.",
+          "Close with an overall impression of the atmosphere."
+        ],
+        "sampleAnswer": "The last farmers' market I went to was held every Saturday in the park near my apartment, and it was one of the liveliest scenes I have seen. Near the entrance, rows of white tents stretched down the main path, and farmers were stacking ripe peaches and boxes of bright tomatoes while calling out prices to the crowd. I could hear soft jazz from a small stage near the fountain, mixed with the clinking of coffee cups and the squeak of bicycle brakes. The smells were unforgettable: fresh bread from the bakery stall, spiced sausage from a grill further back, and cut flowers that sharpened the air near the south gate. As I walked toward the far end, I passed children sitting on the grass peeling oranges and parents with stuffed canvas bags heading home. It felt alive, friendly, and full of small pleasures.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "S4",
+      "skill": "speaking",
+      "title": "Speaking Task 4 · Making Predictions",
+      "instructions": "Prepare silently, then speak your full answer aloud.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M1S4",
+        "title": "Task 4: Making Predictions",
+        "scenario": "A group of cyclists is approaching a flooded section of a park trail after a heavy storm. What do you think will happen next?",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Describe the likely sequence of events step by step.",
+          "Use phrases like 'I imagine', 'probably', and 'it's likely that'.",
+          "Explain what the people might say or feel, not just what they do.",
+          "Offer two possible outcomes: the cautious one and the risky one."
+        ],
+        "sampleAnswer": "I imagine that as the cyclists get closer, the ones in front will slow down and put their feet down to judge how deep the water is. One of them will probably point toward a drier path through the grass on the right, while another, maybe the younger one, will say he can ride straight through. I think the cautious riders will choose to walk their bikes along the grass, but the confident one might try to pedal through and end up splashing water everywhere. If the water is deeper than it looks, he will likely get stuck halfway and have to push his bike out, while the others laugh and call him over. Most likely, in the end, the whole group will decide the flooded section is not worth the risk and take the longer way around.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "S5",
+      "skill": "speaking",
+      "title": "Speaking Task 5 · Comparing and Persuading",
+      "instructions": "Prepare silently, then speak your full answer aloud.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M1S5",
+        "title": "Task 5: Comparing and Persuading",
+        "scenario": "Your friend is deciding between buying a car and joining a car-share service. Compare the two options and persuade them to choose one.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Present both options fairly before giving your recommendation.",
+          "Use a clear 'on the one hand / on the other hand' structure.",
+          "Support your recommendation with a personal example.",
+          "End by restating which option you think is best."
+        ],
+        "sampleAnswer": "On the one hand, owning a car gives you total freedom — you can leave whenever you want, keep things in the trunk, and you never have to check availability. On the other hand, owning means paying for insurance, maintenance, parking and fuel every single month, even on days you never drive. A car-share service is much cheaper if you only need a car once or twice a week, because you pay only for the time you use. In my experience, I sold my car two years ago and joined a car-share, and I have saved hundreds of dollars a month. I would recommend the car-share service, because unless you drive every day, the convenience of ownership simply is not worth the cost.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "S6",
+      "skill": "speaking",
+      "title": "Speaking Task 6 · Difficult Situation",
+      "instructions": "Prepare silently, then speak your full answer aloud.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M1S6",
+        "title": "Task 6: Dealing with a Difficult Situation",
+        "scenario": "Your neighbour has been playing loud music late at night, and it is keeping you awake. Explain how you would deal with the situation.",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Describe a calm, step-by-step approach rather than an emotional reaction.",
+          "Start with a polite conversation before escalating.",
+          "Explain what you would do if the behaviour continued.",
+          "Keep the tone reasonable and neighbourly."
+        ],
+        "sampleAnswer": "I would handle this calmly, because getting angry rarely solves anything with neighbours. First, I would wait until the next day and knock on their door during the afternoon, when everyone is calmer. I would introduce myself politely, explain that the music travels through the wall late at night, and ask if they could lower it after, say, eleven o'clock. I would frame it as a friendly request, not an accusation. If the noise continued, I would leave a short, polite note, and if it still did not stop, I would mention it to the building manager or landlord rather than calling the police right away. The goal is to solve the problem while keeping a good relationship.",
+        "clb": "CLB 8 sample"
+      }
+    },
+    {
+      "id": "S7",
+      "skill": "speaking",
+      "title": "Speaking Task 7 · Expressing Opinions",
+      "instructions": "Prepare silently, then speak your full answer aloud.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M1S7",
+        "title": "Task 7: Expressing Opinions",
+        "scenario": "Some people believe children should not be given a smartphone until they are fourteen years old. What is your opinion?",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "State your opinion clearly in the first sentence.",
+          "Give two or three reasons with a short example each.",
+          "Acknowledge the other side briefly to sound balanced.",
+          "End by restating your position in one sentence."
+        ],
+        "sampleAnswer": "I agree with the idea, although I would set the limit a little lower, at around twelve. The main reason is that smartphones give children unlimited access to social media before they have the judgement to handle it, and that can affect both their sleep and their confidence. Second, many children use phones as a way to avoid real-life interaction, and I think those face-to-face skills are built best in the early years. That said, I understand why parents want to reach their children, and a simple call-and-text phone without internet is a sensible middle ground. Overall, I believe delaying the full smartphone until the early teens is the right call.",
+        "clb": "CLB 9 sample"
+      }
+    },
+    {
+      "id": "S8",
+      "skill": "speaking",
+      "title": "Speaking Task 8 · Unusual Situation",
+      "instructions": "Prepare silently, then speak your full answer aloud.",
+      "timeLimitSec": 90,
+      "questions": [],
+      "speakingTask": {
+        "id": "M1S8",
+        "title": "Task 8: Describing an Unusual Situation",
+        "scenario": "You are at a family dinner when a relative suddenly and loudly criticises the career you have chosen. What would you say and do?",
+        "prepTimeSec": 30,
+        "speakTimeSec": 60,
+        "tips": [
+          "Describe how you would stay calm and not argue back.",
+          "Explain what you would say to acknowledge the criticism politely.",
+          "Show how you would steer the conversation in a positive direction.",
+          "End by describing how you would keep the family meal pleasant."
+        ],
+        "sampleAnswer": "I would not react defensively, because answering anger with anger would only ruin the dinner for everyone. First, I would take a slow breath and give a small smile, then I would say something like, 'I appreciate that you're worried about my future, but this is a path I've thought about carefully and I'm really happy in it.' I would keep my voice calm and friendly so the conversation does not turn into an argument. Then I would try to move things forward by asking about their work or changing the subject to something we both enjoy, like the meal or a family memory. After dinner, if the tension remained, I might have a quiet one-on-one word with them, but the main goal is to keep the evening pleasant for everyone.",
+        "clb": "CLB 10 sample"
+      }
+    }
+  ]
+}
