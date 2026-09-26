@@ -9,6 +9,7 @@
 // Exit code 1 = something needs attention (missing/broken audio for a listening mock).
 
 import { d1Query } from "./lib/d1.mjs";
+import { FALLBACK_VOICE, SPEAKER_VOICES } from "./lib/gcp-tts.mjs";
 
 const noHead = process.argv.includes("--no-head");
 
@@ -20,6 +21,38 @@ function listeningSections(payload) {
   } catch {
     return 0;
   }
+}
+
+/**
+ * Speakers in one section that would be read by the same voice — the giveaway is a
+ * role missing from SPEAKER_VOICES, because every unknown role falls back to one voice.
+ */
+function voiceCollisions(payload) {
+  const collisions = [];
+  let exam;
+  try {
+    exam = JSON.parse(payload);
+  } catch {
+    return collisions;
+  }
+  for (const section of exam.sections ?? []) {
+    if (section.skill !== "listening" || !section.passage) continue;
+    const byVoice = new Map();
+    for (const line of String(section.passage).split("\n")) {
+      const match = line.match(/^([A-Z][A-Z ]*?):/);
+      if (!match) continue;
+      const speaker = match[1].trim();
+      const voice = SPEAKER_VOICES[speaker] ?? FALLBACK_VOICE;
+      if (!byVoice.has(voice)) byVoice.set(voice, new Set());
+      byVoice.get(voice).add(speaker);
+    }
+    for (const [voice, speakers] of byVoice) {
+      if (speakers.size > 1) {
+        collisions.push(`${section.id}: ${[...speakers].join(" + ")} share ${voice.replace("en-US-Chirp3-HD-", "")}`);
+      }
+    }
+  }
+  return collisions;
 }
 
 /** 32 kbps + `?v=` is the Google Cloud TTS signature; 96/48 kbps without it is the old Edge build. */
@@ -75,6 +108,9 @@ for (const row of rows) {
   if (issues.length) {
     problems += 1;
     console.log(`  ↳ ${issues.join("; ")}`);
+  }
+  for (const note of voiceCollisions(row.payload)) {
+    console.log(`  ↳ note: ${note}`);
   }
 
   summary.push({ id: row.id, status: row.status, sections: ids.length, expected, engine: engineLabel });

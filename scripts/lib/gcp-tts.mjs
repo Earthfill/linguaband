@@ -19,7 +19,9 @@ export const SENTENCE_PAUSE_MS = 130; // silence between sentence chunks within 
 export const TURN_PAUSE_MS = 320; // silence between speaker turns
 
 // One distinct en-US Chirp 3: HD voice per speaker role. Any speaker that is not
-// mapped here falls back to FALLBACK_VOICE, so keep this list ahead of new content.
+// mapped here falls back to FALLBACK_VOICE, so keep this list ahead of new content
+// (`node scripts/audit-audio.mjs --no-head` lists mocks; the manifests carry each
+// section's speakers).
 export const SPEAKER_VOICES = {
   AGENT: "en-US-Chirp3-HD-Kore",
   CUSTOMER: "en-US-Chirp3-HD-Charon",
@@ -32,6 +34,35 @@ export const SPEAKER_VOICES = {
   MARCUS: "en-US-Chirp3-HD-Schedar",
   "SPEAKER A": "en-US-Chirp3-HD-Puck",
   "SPEAKER B": "en-US-Chirp3-HD-Zubenelgenubi",
+  // Roles used by the newer mock scripts / question banks.
+  BETH: "en-US-Chirp3-HD-Vindemiatrix",
+  CALLER: "en-US-Chirp3-HD-Fenrir",
+  CHLOE: "en-US-Chirp3-HD-Despina",
+  COORDINATOR: "en-US-Chirp3-HD-Alnilam",
+  DELPHINE: "en-US-Chirp3-HD-Despina",
+  DEV: "en-US-Chirp3-HD-Iapetus",
+  FELIX: "en-US-Chirp3-HD-Enceladus",
+  GRACE: "en-US-Chirp3-HD-Sulafat",
+  HANNAH: "en-US-Chirp3-HD-Laomedeia",
+  IAN: "en-US-Chirp3-HD-Iapetus",
+  JO: "en-US-Chirp3-HD-Achird",
+  LEAH: "en-US-Chirp3-HD-Callirrhoe",
+  MIA: "en-US-Chirp3-HD-Sadachbia",
+  NADIA: "en-US-Chirp3-HD-Rasalgethi",
+  NOAH: "en-US-Chirp3-HD-Algenib",
+  OMAR: "en-US-Chirp3-HD-Algieba",
+  OWEN: "en-US-Chirp3-HD-Algenib",
+  PRIYANKA: "en-US-Chirp3-HD-Pulcherrima",
+  RAVI: "en-US-Chirp3-HD-Sadaltager",
+  RECORDING: "en-US-Chirp3-HD-Zephyr",
+  SAM: "en-US-Chirp3-HD-Achernar",
+  TARA: "en-US-Chirp3-HD-Sadachbia",
+  ZARA: "en-US-Chirp3-HD-Rasalgethi",
+  "CAFE OWNER": "en-US-Chirp3-HD-Umbriel",
+  LIBRARIAN: "en-US-Chirp3-HD-Despina",
+  MANAGER: "en-US-Chirp3-HD-Alnilam",
+  RECEPTIONIST: "en-US-Chirp3-HD-Laomedeia",
+  STUDENT: "en-US-Chirp3-HD-Achird",
 };
 export const FALLBACK_VOICE = "en-US-Chirp3-HD-Kore";
 
