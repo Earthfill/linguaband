@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { MockExam, MockSkill } from "@/data/practice";
 import { Icon } from "@/components/icons";
 import { useEffect, useMemo, useState } from "react";
+import { mockBadge, nextBadgeChange } from "@/lib/mock-badge";
 
 const SKILL_SHORT: Record<MockSkill, string> = {
   listening: "L",
@@ -58,7 +59,8 @@ function useLocalStorage<T>(key: string, initial: T): [T, (value: T) => void] {
   return [value, setValue];
 }
 
-function ExamCard({ exam }: { exam: MockExam }) {
+function ExamCard({ exam, now }: { exam: MockExam; now: number }) {
+  const badge = mockBadge(exam, now);
   const playable = exam.sections.length > 0;
   const totalSeconds = exam.sections.reduce((sum, s) => sum + s.timeLimitSec, 0);
   const mcqCount = exam.sections.reduce((sum, s) => sum + s.questions.length, 0);
@@ -74,10 +76,10 @@ function ExamCard({ exam }: { exam: MockExam }) {
         <h4 className="font-display text-base font-bold leading-snug text-zinc-900">{exam.name}</h4>
         <span
           className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${
-            exam.difficulty === "Challenging" ? "bg-rose-50 text-rose-600" : "bg-blue-50 text-blue-600"
+            badge === "Challenging" ? "bg-rose-50 text-rose-600" : "bg-blue-50 text-blue-600"
           }`}
         >
-          {exam.badge}
+          {badge}
         </span>
       </div>
 
@@ -118,7 +120,8 @@ function ExamCard({ exam }: { exam: MockExam }) {
   );
 }
 
-function ExamRow({ exam }: { exam: MockExam }) {
+function ExamRow({ exam, now }: { exam: MockExam; now: number }) {
+  const badge = mockBadge(exam, now);
   const playable = exam.sections.length > 0;
   const totalSeconds = exam.sections.reduce((sum, s) => sum + s.timeLimitSec, 0);
   const mcqCount = exam.sections.reduce((sum, s) => sum + s.questions.length, 0);
@@ -131,10 +134,10 @@ function ExamRow({ exam }: { exam: MockExam }) {
           <span className="truncate text-sm font-bold text-zinc-900">{exam.name}</span>
           <span
             className={`hidden shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide sm:inline ${
-              exam.difficulty === "Challenging" ? "bg-rose-50 text-rose-600" : "bg-blue-50 text-blue-600"
+              badge === "Challenging" ? "bg-rose-50 text-rose-600" : "bg-blue-50 text-blue-600"
             }`}
           >
-            {exam.badge}
+            {badge}
           </span>
         </div>
         <p className="mt-0.5 truncate text-xs text-zinc-500">
@@ -160,6 +163,20 @@ function ExamRow({ exam }: { exam: MockExam }) {
 
 
 export function ExamBrowser({ mocks }: { mocks: MockExam[] }) {
+  const [now, setNow] = useState<number | null>(null);
+  useEffect(() => {
+    const update = () => setNow(Date.now());
+    update();
+    const nextChange = nextBadgeChange(mocks, Date.now());
+    const timeout =
+      nextChange === null
+        ? undefined
+        : window.setTimeout(update, Math.min(nextChange - Date.now() + 1, 2_147_000_000));
+    return () => {
+      if (timeout !== undefined) window.clearTimeout(timeout);
+    };
+  }, [mocks]);
+
   const sorted = useMemo(
     () => [...mocks].sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true })),
     [mocks],
@@ -323,13 +340,13 @@ export function ExamBrowser({ mocks }: { mocks: MockExam[] }) {
                   view === "cards" ? (
                     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                       {group.items.map((exam) => (
-                        <ExamCard key={exam.id} exam={exam} />
+                        <ExamCard key={exam.id} exam={exam} now={now ?? 0} />
                       ))}
                     </div>
                   ) : (
                     <div className="divide-y divide-zinc-100 overflow-hidden rounded-2xl border border-zinc-200 bg-white">
                       {group.items.map((exam) => (
-                        <ExamRow key={exam.id} exam={exam} />
+                        <ExamRow key={exam.id} exam={exam} now={now ?? 0} />
                       ))}
                     </div>
                   )

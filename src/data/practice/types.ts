@@ -80,6 +80,8 @@ export type MockExam = {
   id: string;
   name: string;
   badge: string;
+  /** Upload/create timestamp, when available; used for time-limited "New" badges. */
+  createdAt?: string;
   difficulty: "Standard" | "Challenging";
   description: string;
   sections: MockSection[];

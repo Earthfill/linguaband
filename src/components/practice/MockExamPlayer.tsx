@@ -7,6 +7,7 @@ import { buildReport, clbLabel, type ExamReport } from "@/lib/scoring";
 import { Icon } from "@/components/icons";
 import { DialogueAudioPlayer } from "@/components/practice/DialogueAudioPlayer";
 import type { AudioEntry } from "@/data/practice/audio-manifest";
+import { mockBadge } from "@/lib/mock-badge";
 
 const SKILL_LABEL = {
   listening: "Listening",
@@ -110,8 +111,8 @@ export function MockExamPlayer({
 }) {
   const hydrated = useSyncExternalStore(
     () => () => {},
-    () => true,
-    () => false,
+    () => Date.now(),
+    () => 0,
   );
   const [attempt, setAttempt] = useState<Attempt>(() => readStoredAttempt(exam));
 
@@ -178,6 +179,7 @@ export function MockExamPlayer({
     return (
       <IntroView
         exam={exam}
+        badge={mockBadge(exam, hydrated)}
         totalSeconds={totalSeconds}
         onStart={start}
       />
@@ -213,10 +215,12 @@ export function MockExamPlayer({
 
 function IntroView({
   exam,
+  badge,
   totalSeconds,
   onStart,
 }: {
   exam: MockExam;
+  badge: string;
   totalSeconds: number;
   onStart: () => void;
 }) {
@@ -236,10 +240,10 @@ function IntroView({
         </span>
         <span
           className={`mt-4 inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide ${
-            exam.difficulty === "Challenging" ? "bg-rose-50 text-rose-600" : "bg-blue-50 text-blue-600"
+            badge === "Challenging" ? "bg-rose-50 text-rose-600" : "bg-blue-50 text-blue-600"
           }`}
         >
-          {exam.badge}
+          {badge}
         </span>
         <h1 className="mt-3 font-display text-3xl font-bold text-zinc-900">{exam.name}</h1>
         <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-zinc-500">{exam.description}</p>

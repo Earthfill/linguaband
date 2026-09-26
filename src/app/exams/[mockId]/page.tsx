@@ -12,5 +12,11 @@ export default async function MockExamPage({
   if (!found || found.exam.sections.length === 0) {
     notFound();
   }
-  return <MockExamPlayer exam={found.exam} audioEntries={found.audio} source={found.source} />;
+  return (
+    <MockExamPlayer
+      exam={found.exam}
+      audioEntries={found.audio}
+      source={found.source}
+    />
+  );
 }

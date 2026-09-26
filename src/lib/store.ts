@@ -58,11 +58,11 @@ export async function listMocks(): Promise<MockExam[]> {
   if (db) {
     try {
       const res = await db
-        .prepare("SELECT payload FROM mocks ORDER BY created_at DESC")
-        .all<{ payload: string }>();
+        .prepare("SELECT payload, created_at FROM mocks ORDER BY created_at DESC")
+        .all<{ payload: string; created_at: string }>();
       for (const row of res.results ?? []) {
         const exam = parseExam(row.payload);
-        if (exam) stored.push(exam);
+        if (exam) stored.push({ ...exam, createdAt: row.created_at });
       }
     } catch (err) {
       console.error("[store] listMocks failed, falling back to built-in", err);
@@ -81,14 +81,14 @@ export async function getMock(
   if (db) {
     try {
       const row = await db
-        .prepare("SELECT payload, audio FROM mocks WHERE id = ?")
+        .prepare("SELECT payload, audio, created_at FROM mocks WHERE id = ?")
         .bind(id)
-        .first<{ payload: string; audio: string | null }>();
+        .first<{ payload: string; audio: string | null; created_at: string }>();
       if (row) {
         const exam = parseExam(row.payload);
         if (exam) {
           return {
-            exam,
+            exam: { ...exam, createdAt: row.created_at },
             audio: row.audio ? (JSON.parse(row.audio) as Record<string, AudioEntry>) : {},
             source: "stored",
           };
