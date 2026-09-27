@@ -216,12 +216,12 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
         <span className={"rounded-full px-3 py-1.5 text-xs font-bold " + (attention ? "bg-amber-50 text-amber-800" : "bg-emerald-50 text-emerald-800")}>{attention ? String(attention) + " need attention" : "Everything looks good"}</span>
       </div>
       <div className="grid gap-5 xl:grid-cols-2">
-      <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm px-6 py-5">
-        <div className="border-b border-zinc-100"><p className="text-xs font-bold uppercase tracking-wider text-violet-600">Practice content</p><h2 className="mt-1 font-display text-lg font-bold text-zinc-900">Listening practice audio</h2></div>
+      <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
+        <div className="border-b border-zinc-100 px-6 pt-5 pb-2"><p className="text-xs font-bold uppercase tracking-wider text-violet-600">Practice content</p><h2 className="mt-1 font-display text-lg font-bold text-zinc-900">Listening practice audio</h2></div>
         {listeningTracks.length === 0 ? (
-          <p className="mt-2 text-sm text-zinc-500">No listening practice tracks uploaded yet.</p>
+          <p className="px-6 py-5 text-sm text-zinc-500">No listening practice tracks uploaded yet.</p>
         ) : (
-          <ul className="mt-3 divide-y divide-zinc-100">
+          <ul className="divide-y divide-zinc-100">
             {listeningTracks.map((track) => {
               const status = track.audioStatus ?? (track.audio ? "ready" : "content");
               const updated = track.updatedAt ? Date.parse(track.updatedAt) : NaN;
@@ -246,13 +246,13 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
       </div>
 
       <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
-        <div className="border-b border-zinc-100 px-6 py-5"><p className="text-xs font-bold uppercase tracking-wider text-blue-600">Mock library</p><h2 className="mt-1 font-display text-lg font-bold text-zinc-900">Mock exam audio</h2></div>
+        <div className="border-b border-zinc-100 px-6 pt-5 pb-2"><p className="text-xs font-bold uppercase tracking-wider text-blue-600">Mock library</p><h2 className="mt-1 font-display text-lg font-bold text-zinc-900">Mock exam audio</h2></div>
         {mocks.length === 0 ? (
           <p className="px-6 py-5 text-sm text-zinc-500">No mock exams uploaded yet. Upload a mock exam above and its audio status will appear here.</p>
         ) : (
           <ul className="divide-y divide-zinc-100">
             {mocks.map((m) => (
-              <li key={m.id} className="flex flex-wrap items-center justify-between gap-3 px-6 py-4">
+              <li key={m.id} className="flex flex-wrap items-center justify-between gap-3 px-6 py-2">
                 <span className="min-w-0 text-sm font-semibold text-zinc-700">
                   {m.name} <span className="font-normal text-zinc-400">({m.id})</span>
                 </span>
