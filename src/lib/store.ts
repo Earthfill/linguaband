@@ -1,10 +1,6 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
-import { mockExams as builtinExams } from "@/data/practice";
-import { audioManifest as builtinAudio } from "@/data/practice/audio-manifest";
 import type { MockExam } from "@/data/practice";
-import type { AudioEntry } from "@/data/practice/audio-manifest";
-import { listeningTracks as builtinListeningTracks, readingPassages as builtinReadingPassages } from "@/data/practice";
-import type { ListeningTrack, ReadingPassage } from "@/data/practice";
+import type { AudioEntry, ListeningTrack, ReadingPassage } from "@/data/practice/types";
 
 // Minimal structural types for Cloudflare's D1 binding (avoids a hard dependency
 // on @cloudflare/workers-types).
@@ -68,7 +64,7 @@ function parsePracticeSet(payload: string): ListeningTrack | ReadingPassage | nu
   }
 }
 
-/** Return uploaded sets exclusively when present; otherwise use bundled content. */
+/** Return uploaded practice sets only. No bundled listening or reading fallback is used. */
 export async function listPracticeSets(): Promise<PracticeSets> {
   const db = getDb();
   if (db) {
@@ -84,12 +80,12 @@ export async function listPracticeSets(): Promise<PracticeSets> {
         if (row.skill === "listening") listening.push(set as ListeningTrack);
         if (row.skill === "reading") reading.push(set as ReadingPassage);
       }
-      if (listening.length > 0 || reading.length > 0) return { listening, reading };
+      return { listening, reading };
     } catch (err) {
-      console.error("[store] listPracticeSets failed, falling back to bundled", err);
+      console.error("[store] listPracticeSets failed", err);
     }
   }
-  return { listening: builtinListeningTracks, reading: builtinReadingPassages };
+  return { listening: [], reading: [] };
 }
 
 export async function savePracticeSets(sets: PracticeSets): Promise<void> {
@@ -111,7 +107,7 @@ export async function savePracticeSets(sets: PracticeSets): Promise<void> {
   }
 }
 
-/** All playable mocks: stored mocks (D1) first, then built-ins not shadowed. */
+/** Return uploaded mocks only. */
 export async function listMocks(): Promise<MockExam[]> {
   const db = getDb();
   const stored: MockExam[] = [];
@@ -125,14 +121,13 @@ export async function listMocks(): Promise<MockExam[]> {
         if (exam) stored.push({ ...exam, createdAt: row.created_at });
       }
     } catch (err) {
-      console.error("[store] listMocks failed, falling back to built-in", err);
+      console.error("[store] listMocks failed", err);
     }
   }
-  const storedIds = new Set(stored.map((e) => e.id));
-  return [...stored, ...builtinExams.filter((e) => !storedIds.has(e.id))];
+  return stored;
 }
 
-export type MockSource = "stored" | "builtin";
+export type MockSource = "stored";
 
 export async function getMock(
   id: string,
@@ -158,19 +153,12 @@ export async function getMock(
       console.error("[store] getMock failed", err);
     }
   }
-  const builtin = builtinExams.find((e) => e.id === id);
-  if (builtin) return { exam: builtin, audio: builtinAudio as Record<string, AudioEntry>, source: "builtin" };
   return null;
 }
 
-/** Every section id already in use (built-in + stored) — for upload collision checks. */
+/** Section IDs already used by uploaded mocks, for upload collision checks. */
 export async function existingSectionIds(exceptMockId?: string): Promise<Set<string>> {
   const ids = new Set<string>();
-  for (const exam of builtinExams) {
-    // A mock that now lives in D1 (e.g. mock-01) may reuse its own built-in section ids.
-    if (exam.id === exceptMockId) continue;
-    for (const s of exam.sections) ids.add(s.id);
-  }
   const db = getDb();
   if (db) {
     try {
@@ -180,8 +168,8 @@ export async function existingSectionIds(exceptMockId?: string): Promise<Set<str
         const exam = parseExam(row.payload);
         if (exam) for (const s of exam.sections) ids.add(s.id);
       }
-    } catch {
-      /* ignore — collision checks degrade to built-ins only */
+    } catch (err) {
+      console.error("[store] existingSectionIds failed", err);
     }
   }
   return ids;
@@ -189,16 +177,7 @@ export async function existingSectionIds(exceptMockId?: string): Promise<Set<str
 
 export async function adminMocks(): Promise<AdminMock[]> {
   const db = getDb();
-  if (!db) {
-    return builtinExams.map((e) => ({
-      id: e.id,
-      name: e.name,
-      badge: e.badge,
-      difficulty: e.difficulty,
-      description: e.description,
-      status: "ready" as MockStatus,
-    }));
-  }
+  if (!db) return [];
   try {
     const res = await db
       .prepare(

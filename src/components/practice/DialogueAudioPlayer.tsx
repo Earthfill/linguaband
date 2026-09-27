@@ -1,8 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { audioManifest } from "@/data/practice/audio-manifest";
-import type { AudioEntry } from "@/data/practice/audio-manifest";
+import type { AudioEntry } from "@/data/practice/types";
 import { Icon } from "@/components/icons";
 
 function fmt(s: number): string {
@@ -51,21 +50,19 @@ function splitIntoSpans(
  * `practice` mode allows replay and a transcript toggle.
  */
 export function DialogueAudioPlayer({
-  id,
   transcript,
   mode,
   onEnded,
   entry: propEntry,
   source,
 }: {
-  id: string;
   transcript: string;
   mode: "exam" | "practice";
   onEnded?: () => void;
   entry?: AudioEntry;
-  source?: "stored" | "builtin" | "practice";
+  source?: "stored" | "practice";
 }) {
-  const entry = propEntry ?? audioManifest[id];
+  const entry = propEntry;
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [ended, setEnded] = useState(false);
@@ -86,8 +83,6 @@ export function DialogueAudioPlayer({
             "Audio is still being generated. If it does not appear, the audio job was not scheduled — check the GitHub token permission."
           ) : source === "practice" ? (
             "Audio is not available for this practice set yet."
-          ) : source === "builtin" ? (
-            <>Audio not generated yet — run <code className="rounded bg-zinc-100 px-1">npm run audio:bundled</code>.</>
           ) : null}
         </p>
       </div>

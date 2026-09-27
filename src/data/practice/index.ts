@@ -1,9 +1,5 @@
-import { listeningTracks } from "./listening";
-import { readingPassages } from "./reading";
-import type { PracticeQuestion } from "./types";
+import type { ListeningTrack, PracticeQuestion, ReadingPassage } from "./types";
 
-export { listeningTracks } from "./listening";
-export { readingPassages } from "./reading";
 export { writingTasks } from "./writing";
 export { speakingTasks } from "./speaking";
 export { mockExams, speakingOverview } from "./exams";
@@ -26,8 +22,8 @@ export type BankQuestion = PracticeQuestion & {
 };
 
 export function buildQuestionBank(
-  tracks: typeof listeningTracks,
-  passages: typeof readingPassages,
+  tracks: ListeningTrack[],
+  passages: ReadingPassage[],
 ): BankQuestion[] {
   return [
     ...tracks.flatMap((track) =>
@@ -38,10 +34,4 @@ export function buildQuestionBank(
     ),
   ];
 }
-
-/**
- * Combined question bank used by the /questions page.
- * Every question carries a skill + source so it can be filtered.
- */
-export const questionBank: BankQuestion[] = buildQuestionBank(listeningTracks, readingPassages);
 

@@ -16,7 +16,6 @@ export default async function MockExamPage({
     <MockExamPlayer
       exam={found.exam}
       audioEntries={found.audio}
-      source={found.source}
     />
   );
 }

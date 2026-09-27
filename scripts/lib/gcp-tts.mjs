@@ -2,7 +2,6 @@
 //
 // Used by:
 //   scripts/generate-mock-audio.mjs      — one mock from D1 → R2 (GitHub Actions)
-//   scripts/generate-bundled-audio.mjs   — bundled mock-01 + /listening practice tracks
 //   scripts/gcp-audio.mjs                — hand-run voice experiments
 //
 // Key from GOOGLE_APPLICATION_CREDENTIALS, or .secrets/gcp-tts.json.

@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { listeningTracks } from "@/data/practice";
+import type { ListeningTrack } from "@/data/practice";
 import { Icon } from "@/components/icons";
 import { ListeningPlayer } from "@/components/practice/ListeningPlayer";
 
-export function ListeningBrowser() {
+export function ListeningBrowser({ tracks }: { tracks: ListeningTrack[] }) {
   const [activeId, setActiveId] = useState<string | null>(null);
-  const active = listeningTracks.find((t) => t.id === activeId);
+  const active = tracks.find((t) => t.id === activeId);
 
   if (active) {
     return (
@@ -25,9 +25,18 @@ export function ListeningBrowser() {
     );
   }
 
+  if (tracks.length === 0) {
+    return (
+      <div className="rounded-2xl border border-dashed border-zinc-300 bg-white p-8 text-center">
+        <h2 className="font-display text-lg font-bold text-zinc-900">No listening tracks uploaded yet</h2>
+        <p className="mt-2 text-sm text-zinc-500">Listening practice will appear here after an administrator uploads a set.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="grid gap-5 sm:grid-cols-2">
-      {listeningTracks.map((track) => (
+      {tracks.map((track) => (
         <button
           key={track.id}
           type="button"

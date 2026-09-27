@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { PracticeQuestion } from "@/data/practice";
 import { Icon } from "@/components/icons";
 import { DialogueAudioPlayer } from "@/components/practice/DialogueAudioPlayer";
-import type { AudioEntry } from "@/data/practice/audio-manifest";
+import type { AudioEntry } from "@/data/practice/types";
 
 type McqPracticeProps = {
   questions: PracticeQuestion[];
@@ -108,7 +108,6 @@ export function McqPractice({ questions, accent = "blue", context }: McqPractice
             <div className="mt-3">
               <DialogueAudioPlayer
                 key={context.audio.id}
-                id={context.audio.id}
                 transcript={context.text}
                 mode="practice"
                 entry={context.audio.entry}

@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { readingPassages } from "@/data/practice";
+import type { ReadingPassage } from "@/data/practice";
 import { Icon } from "@/components/icons";
 import { ReadingPlayer } from "@/components/practice/ReadingPlayer";
 
-export function ReadingBrowser() {
+export function ReadingBrowser({ passages }: { passages: ReadingPassage[] }) {
   const [activeId, setActiveId] = useState<string | null>(null);
-  const active = readingPassages.find((p) => p.id === activeId);
+  const active = passages.find((p) => p.id === activeId);
 
   if (active) {
     return (
@@ -25,9 +25,18 @@ export function ReadingBrowser() {
     );
   }
 
+  if (passages.length === 0) {
+    return (
+      <div className="rounded-2xl border border-dashed border-zinc-300 bg-white p-8 text-center">
+        <h2 className="font-display text-lg font-bold text-zinc-900">No reading passages uploaded yet</h2>
+        <p className="mt-2 text-sm text-zinc-500">Reading practice will appear here after an administrator uploads a set.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="grid gap-5 sm:grid-cols-2">
-      {readingPassages.map((passage) => (
+      {passages.map((passage) => (
         <button
           key={passage.id}
           type="button"

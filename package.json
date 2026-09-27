@@ -8,7 +8,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "audio:bundled": "node scripts/generate-bundled-audio.mjs",
     "audio:audit": "node scripts/audit-audio.mjs",
     "audio:backfill": "node scripts/dispatch-audio-all.mjs",
     "audio:voices": "node scripts/gcp-audio.mjs",

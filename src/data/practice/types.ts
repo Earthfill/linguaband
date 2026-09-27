@@ -8,6 +8,10 @@ export type PracticeQuestion = {
   explanation: string;
 };
 
+export type AudioSentence = { start: number; duration: number; text: string };
+export type AudioSegment = { speaker: string; start: number; duration: number; sentences: AudioSentence[] };
+export type AudioEntry = { group: string; src: string; bitrate: number; durationSec: number; segments: AudioSegment[] };
+
 export type ListeningTrack = {
   id: string;
   title: string;

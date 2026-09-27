@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import type { BankQuestion, ListeningTrack, ReadingPassage } from "@/data/practice";
 import { Icon } from "@/components/icons";
 import { McqPractice } from "@/components/practice/McqPractice";
-import { audioManifest } from "@/data/practice/audio-manifest";
 
 type Skill = "All" | "Listening" | "Reading";
 type SetEntry = {
@@ -67,11 +66,11 @@ export function QuestionBank({
 
   const counts = useMemo(
     () => ({
-      All: questions.length,
-      Listening: questions.filter((q) => q.skill === "Listening").length,
-      Reading: questions.filter((q) => q.skill === "Reading").length,
+      All: sets.listening.length + sets.reading.length,
+      Listening: sets.listening.length,
+      Reading: sets.reading.length,
     }),
-    [questions],
+    [sets],
   );
 
   if (practicingEntry) {
@@ -102,7 +101,7 @@ export function QuestionBank({
               ? {
                   audio: {
                     id: practicingEntry.audioId,
-                    entry: audioManifest[practicingEntry.audioId],
+                    entry: undefined,
                   },
                 }
               : {}),
@@ -175,7 +174,8 @@ export function QuestionBank({
         <div className="space-y-6">
           {filteredEntries.map((entry) => (
             <section key={entry.id} className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
-              <div className="border-b border-zinc-100 p-5 sm:p-6">
+              <div className="flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6">
+                <div>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide ${entry.skill === "Listening" ? "bg-violet-50 text-violet-600" : "bg-blue-50 text-blue-600"}`}>
                     {entry.skill}
@@ -183,28 +183,8 @@ export function QuestionBank({
                   <span className="text-xs font-semibold text-zinc-400">{entry.part}</span>
                 </div>
                 <h2 className="mt-2 font-display text-xl font-bold text-zinc-900">{entry.title}</h2>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-zinc-400">
-                  {entry.skill === "Listening" ? "Transcript" : "Passage"}
-                </p>
-                <div className="mt-2 max-h-64 overflow-y-auto whitespace-pre-wrap rounded-xl bg-zinc-50 p-4 text-sm leading-7 text-zinc-700">
-                  {entry.text}
                 </div>
-              </div>
-              <div className="divide-y divide-zinc-100">
-                {entry.questions.map((q) => (
-                  <article key={q.id} className="flex items-start justify-between gap-4 p-5">
-                    <div className="min-w-0">
-                      <p className="text-xs font-semibold text-zinc-400">{q.label} · {q.part}</p>
-                      <p className="mt-1 text-[15px] font-medium leading-6 text-zinc-800">{q.question}</p>
-                      <ol className="mt-2 grid gap-1 text-sm leading-6 text-zinc-600 sm:grid-cols-2">
-                        {q.options.map((option, index) => <li key={index}><span className="mr-1 font-semibold text-zinc-400">{String.fromCharCode(65 + index)}.</span>{option}</li>)}
-                      </ol>
-                    </div>
-                  </article>
-                ))}
-              </div>
-              <div className="flex flex-wrap items-center justify-between gap-3 border-t border-zinc-100 bg-zinc-50/70 p-4 sm:px-6">
-                <span className="text-sm text-zinc-500">{entry.questions.length} question{entry.questions.length === 1 ? "" : "s"}</span>
+                <span className="text-sm text-zinc-500">{entry.skill === "Listening" ? "Listening passage" : "Reading passage"}</span>
                 <button type="button" onClick={() => setPracticingSetId(entry.id)} className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700">
                   <Icon name="play" size={14} /> Practice this set
                 </button>

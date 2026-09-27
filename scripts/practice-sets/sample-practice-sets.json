@@ -43,14 +43,117 @@
           "label": "Question 3",
           "part": "Part 1 · Problem Solving",
           "question": "When can the customer expect the replacement?",
-          "options": [
-            "Within 1–2 business days",
-            "In 3–5 business days",
-            "By the end of the week",
-            "The next calendar week"
-          ],
+          "options": ["Within 1–2 business days", "In 3–5 business days", "By the end of the week", "The next calendar week"],
           "answerIndex": 1,
-          "explanation": "The agent says the replacement will take 'around three to five business days' and that a tracking email will follow."
+          "explanation": "The agent says the replacement will take around three to five business days."
+        },
+        {
+          "id": "lst-01-q4",
+          "label": "Question 4",
+          "part": "Part 1 · Problem Solving",
+          "question": "What physical problem does the customer describe besides the cracked charger casing?",
+          "options": ["The plug is bent out of shape", "The cable is frayed near the tip", "The charger becomes unusually hot", "The power light will not turn on"],
+          "answerIndex": 1,
+          "explanation": "The customer specifically says the cable is frayed near the tip."
+        },
+        {
+          "id": "lst-01-q5",
+          "label": "Question 5",
+          "part": "Part 1 · Problem Solving",
+          "question": "How long ago was the order placed?",
+          "options": ["Three days ago", "Six days ago", "One week ago", "Two weeks ago"],
+          "answerIndex": 1,
+          "explanation": "The agent checks the order and says it was placed six days ago."
+        },
+        {
+          "id": "lst-01-q6",
+          "label": "Question 6",
+          "part": "Part 1 · Problem Solving",
+          "question": "Which detail does the agent ask the customer to provide?",
+          "options": ["The laptop's serial number", "The delivery address", "The order number", "The date the charger was first used"],
+          "answerIndex": 2,
+          "explanation": "Maya asks for the order number so she can look up the purchase."
+        },
+        {
+          "id": "lst-01-q7",
+          "label": "Question 7",
+          "part": "Part 1 · Problem Solving",
+          "question": "What is the customer's order number?",
+          "options": ["8-3-2-1-7-0-4", "8-3-1-2-7-0-4", "8-3-2-1-6-0-4", "8-2-3-1-7-0-4"],
+          "answerIndex": 0,
+          "explanation": "The customer reads the number aloud as 8-3-2-1-7-0-4."
+        },
+        {
+          "id": "lst-01-q8",
+          "label": "Question 8",
+          "part": "Part 1 · Problem Solving",
+          "question": "What does the agent say the customer should do with the damaged charger?",
+          "options": ["Mail it to the repair centre", "Bring it to a local shop", "Return it with the replacement", "Keep it; no return is needed"],
+          "answerIndex": 3,
+          "explanation": "The agent says the customer does not need to return the damaged charger."
+        },
+        {
+          "id": "lst-01-q9",
+          "label": "Question 9",
+          "part": "Part 1 · Problem Solving",
+          "question": "Will the customer be charged for the replacement?",
+          "options": ["No, it will be sent free of charge", "Yes, but only for shipping", "Yes, at a discounted price", "The agent has not decided"],
+          "answerIndex": 0,
+          "explanation": "Maya offers a replacement free of charge."
+        },
+        {
+          "id": "lst-01-q10",
+          "label": "Question 10",
+          "part": "Part 1 · Problem Solving",
+          "question": "How will the customer learn that the replacement has shipped?",
+          "options": ["By a phone call", "Through a tracking email", "By a text from the courier", "By checking the store in person"],
+          "answerIndex": 1,
+          "explanation": "The agent says a tracking email will arrive shortly."
+        },
+        {
+          "id": "lst-01-q11",
+          "label": "Question 11",
+          "part": "Part 1 · Problem Solving",
+          "question": "Which best describes the agent's response to the complaint?",
+          "options": ["She denies that the item was damaged", "She asks the customer to contact the courier", "She apologizes and arranges a replacement", "She offers store credit instead of help"],
+          "answerIndex": 2,
+          "explanation": "Maya apologizes, verifies the order, and arranges a free replacement."
+        },
+        {
+          "id": "lst-01-q12",
+          "label": "Question 12",
+          "part": "Part 1 · Problem Solving",
+          "question": "What can be inferred about the customer's purchase?",
+          "options": ["It was made through TechFix's website", "It was bought from a neighbour", "It was purchased in a repair shop", "It was included with a new laptop"],
+          "answerIndex": 0,
+          "explanation": "The customer says the charger was bought from the company's website."
+        },
+        {
+          "id": "lst-01-q13",
+          "label": "Question 13",
+          "part": "Part 1 · Problem Solving",
+          "question": "Which action is the agent taking before offering a solution?",
+          "options": ["Checking the order record", "Calling the delivery driver", "Testing the charger's voltage", "Submitting an insurance claim"],
+          "answerIndex": 0,
+          "explanation": "Maya asks for the order number and looks up the order in the system."
+        },
+        {
+          "id": "lst-01-q14",
+          "label": "Question 14",
+          "part": "Part 1 · Problem Solving",
+          "question": "What is the most likely next step for the customer?",
+          "options": ["Purchase another charger immediately", "Wait for the tracking email and replacement", "Send the charger back for inspection", "Visit TechFix to collect a refund"],
+          "answerIndex": 1,
+          "explanation": "The replacement is being sent, and the customer will receive tracking information by email."
+        },
+        {
+          "id": "lst-01-q15",
+          "label": "Question 15",
+          "part": "Part 1 · Problem Solving",
+          "question": "How does the customer react to the proposed solution?",
+          "options": ["They reject it and ask for a refund", "They are pleased that the issue is solved", "They ask to speak with a manager", "They request a different model"],
+          "answerIndex": 1,
+          "explanation": "The customer responds 'That's great' and says the solution solves the problem."
         }
       ]
     }
@@ -105,6 +208,114 @@
           ],
           "answerIndex": 2,
           "explanation": "Residents are told to 'email the building office before October 2' and explicitly not to contact the contractors."
+        },
+        {
+          "id": "rd-01-q4",
+          "label": "Question 4",
+          "part": "Reading Correspondence",
+          "question": "Where is the laundry room located?",
+          "options": ["On the ground floor", "In the basement", "On the roof", "Beside the west parking lot"],
+          "answerIndex": 0,
+          "explanation": "The notice identifies the laundry room as being on the ground floor."
+        },
+        {
+          "id": "rd-01-q5",
+          "label": "Question 5",
+          "part": "Reading Correspondence",
+          "question": "What will the new daily operating hours be?",
+          "options": ["6 a.m. to 8 p.m.", "7 a.m. to 10 p.m.", "8 a.m. to 9 p.m.", "9 a.m. to 9 p.m."],
+          "answerIndex": 2,
+          "explanation": "Machines will run from 8:00 a.m. until 9:00 p.m."
+        },
+        {
+          "id": "rd-01-q6",
+          "label": "Question 6",
+          "part": "Reading Correspondence",
+          "question": "How often will the laundry room operate under the new schedule?",
+          "options": ["Monday through Friday", "Six days a week", "Seven days a week", "Only on weekdays"],
+          "answerIndex": 2,
+          "explanation": "The notice says the new hours apply seven days a week."
+        },
+        {
+          "id": "rd-01-q7",
+          "label": "Question 7",
+          "part": "Reading Correspondence",
+          "question": "What prompted the reduction in operating hours?",
+          "options": ["A plumbing upgrade requested by the insurer", "A shortage of laundry-room staff", "A replacement of every washing machine", "A request from the maintenance contractors"],
+          "answerIndex": 0,
+          "explanation": "The reduced schedule is needed for a plumbing upgrade requested by the building's insurer."
+        },
+        {
+          "id": "rd-01-q8",
+          "label": "Question 8",
+          "part": "Reading Correspondence",
+          "question": "Which dryers will be unavailable during the first week?",
+          "options": ["The two nearest the entrance", "The two on the far wall", "All dryers on the ground floor", "Only the newest dryer"],
+          "answerIndex": 1,
+          "explanation": "The two dryers on the far wall will be out of service while they are replaced."
+        },
+        {
+          "id": "rd-01-q9",
+          "label": "Question 9",
+          "part": "Reading Correspondence",
+          "question": "Why are the two dryers being replaced?",
+          "options": ["They use too much water", "They are being replaced with quieter models", "They cannot be reserved", "They are being moved to another floor"],
+          "answerIndex": 1,
+          "explanation": "Management says the dryers are being replaced with quieter models."
+        },
+        {
+          "id": "rd-01-q10",
+          "label": "Question 10",
+          "part": "Reading Correspondence",
+          "question": "How should a resident reserve a machine?",
+          "options": ["Leave a laundry basket on top of it", "Write their name on the door", "Email the building office", "Ask a contractor to hold it"],
+          "answerIndex": 0,
+          "explanation": "Residents reserve a machine by placing a laundry basket on top of it."
+        },
+        {
+          "id": "rd-01-q11",
+          "label": "Question 11",
+          "part": "Reading Correspondence",
+          "question": "What happens to a basket left for longer than 45 minutes?",
+          "options": ["It is taken to a cart by the door", "It is placed in the building office", "It is discarded immediately", "It is moved to another machine"],
+          "answerIndex": 0,
+          "explanation": "Baskets left over 45 minutes are removed to a cart by the door."
+        },
+        {
+          "id": "rd-01-q12",
+          "label": "Question 12",
+          "part": "Reading Correspondence",
+          "question": "By when should residents email the building office with questions?",
+          "options": ["Before October 2", "By October 3", "Before the first week ends", "By the end of November"],
+          "answerIndex": 0,
+          "explanation": "Residents are asked to email the office before October 2."
+        },
+        {
+          "id": "rd-01-q13",
+          "label": "Question 13",
+          "part": "Reading Correspondence",
+          "question": "Whom are residents specifically asked not to contact?",
+          "options": ["The building office", "Other residents", "The maintenance contractors", "The insurer"],
+          "answerIndex": 2,
+          "explanation": "The notice explicitly says not to contact the maintenance contractors directly."
+        },
+        {
+          "id": "rd-01-q14",
+          "label": "Question 14",
+          "part": "Reading Correspondence",
+          "question": "What could management do if construction is delayed?",
+          "options": ["Close the entire building", "Extend the reduced hours", "Cancel the dryer replacement", "Move laundry service off-site"],
+          "answerIndex": 1,
+          "explanation": "Management reserves the right to keep the reduced schedule longer if construction is delayed."
+        },
+        {
+          "id": "rd-01-q15",
+          "label": "Question 15",
+          "part": "Reading Correspondence",
+          "question": "Which statement about the schedule change is accurate?",
+          "options": ["The room will remain open around the clock", "The new hours are the same every day of the week", "The laundry room will close permanently", "Only the dryers will operate after 9 p.m."],
+          "answerIndex": 1,
+          "explanation": "The notice gives the same 8 a.m.–9 p.m. operating window seven days a week."
         }
       ]
     }

@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
 import { PracticeHero } from "@/components/practice/PracticeHero";
 import { ListeningBrowser } from "@/components/practice/ListeningBrowser";
+import { listPracticeSets } from "@/lib/store";
 
 const parts = [
   "Problem Solving",
@@ -13,7 +14,9 @@ const parts = [
   "Viewpoints",
 ];
 
-export default function ListeningPage() {
+export default async function ListeningPage() {
+  const { listening } = await listPracticeSets();
+
   return (
     <>
       <Header />
@@ -37,7 +40,7 @@ export default function ListeningPage() {
                 </span>
               ))}
             </div>
-            <ListeningBrowser />
+            <ListeningBrowser tracks={listening} />
           </Container>
         </section>
       </main>

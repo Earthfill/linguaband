@@ -6,7 +6,7 @@ import type { MockExam, MockSection, PracticeQuestion } from "@/data/practice";
 import { buildReport, clbLabel, type ExamReport } from "@/lib/scoring";
 import { Icon } from "@/components/icons";
 import { DialogueAudioPlayer } from "@/components/practice/DialogueAudioPlayer";
-import type { AudioEntry } from "@/data/practice/audio-manifest";
+import type { AudioEntry } from "@/data/practice/types";
 import { mockBadge } from "@/lib/mock-badge";
 
 const SKILL_LABEL = {
@@ -103,11 +103,9 @@ function submitCurrent(prev: Attempt, exam: MockExam): Attempt {
 export function MockExamPlayer({
   exam,
   audioEntries,
-  source,
 }: {
   exam: MockExam;
   audioEntries?: Record<string, AudioEntry>;
-  source?: "stored" | "builtin";
 }) {
   const hydrated = useSyncExternalStore(
     () => () => {},
@@ -192,7 +190,6 @@ export function MockExamPlayer({
       section={section}
       attempt={attempt}
       audioEntries={audioEntries}
-      source={source}
       onAnswer={(questionId, value) =>
         setAttempt((prev) => ({ ...prev, answers: { ...prev.answers, [questionId]: value } }))
       }
@@ -286,7 +283,6 @@ function RunningView({
   section,
   attempt,
   audioEntries,
-  source,
   onAnswer,
   onWrite,
   onSpeak,
@@ -296,7 +292,6 @@ function RunningView({
   section: MockSection;
   attempt: Attempt;
   audioEntries?: Record<string, AudioEntry>;
-  source?: "stored" | "builtin";
   onAnswer: (questionId: string, value: number | null) => void;
   onWrite: (text: string) => void;
   onSpeak: (clb: number | null) => void;
@@ -361,7 +356,6 @@ function RunningView({
             answers={attempt.answers}
             onAnswer={onAnswer}
             audioEntry={audioEntries?.[section.id]}
-            source={source}
           />
         ) : null}
 
@@ -409,18 +403,16 @@ function McqSectionView({
   answers,
   onAnswer,
   audioEntry,
-  source,
 }: {
   section: MockSection;
   answers: Record<string, number | null>;
   onAnswer: (questionId: string, value: number | null) => void;
   audioEntry?: AudioEntry;
-  source?: "stored" | "builtin";
 }) {
   if (section.skill === "listening") {
     return (
       <div className="space-y-6">
-        <DialogueAudioPlayer key={section.id} id={section.id} transcript={section.passage ?? ""} mode="exam" entry={audioEntry} source={source} />
+        <DialogueAudioPlayer key={section.id} transcript={section.passage ?? ""} mode="exam" entry={audioEntry} source="stored" />
         <div className="space-y-5">
           {section.questions.map((question, i) => (
             <QuestionCard

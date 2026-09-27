@@ -1,6 +1,9 @@
 import type { ListeningTrack, PracticeQuestion, ReadingPassage } from "@/data/practice";
 import type { PracticeSets } from "@/lib/store";
 
+const MIN_QUESTIONS_PER_SET = 15;
+const MAX_QUESTIONS_PER_SET = 20;
+
 type ValidationResult = { sets: PracticeSets | null; errors: string[] };
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -12,8 +15,8 @@ function nonEmptyString(value: unknown): value is string {
 }
 
 function validateQuestions(value: unknown, path: string, errors: string[]): value is PracticeQuestion[] {
-  if (!Array.isArray(value) || value.length === 0) {
-    errors.push(`${path} must contain at least one question.`);
+  if (!Array.isArray(value) || value.length < MIN_QUESTIONS_PER_SET || value.length > MAX_QUESTIONS_PER_SET) {
+    errors.push(`${path} must contain ${MIN_QUESTIONS_PER_SET}–${MAX_QUESTIONS_PER_SET} questions (received ${Array.isArray(value) ? value.length : 0}).`);
     return false;
   }
   const ids = new Set<string>();

@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
 import { PracticeHero } from "@/components/practice/PracticeHero";
 import { ReadingBrowser } from "@/components/practice/ReadingBrowser";
+import { listPracticeSets } from "@/lib/store";
 
 const parts = [
   "Correspondence",
@@ -11,7 +12,9 @@ const parts = [
   "Viewpoints",
 ];
 
-export default function ReadingPage() {
+export default async function ReadingPage() {
+  const { reading } = await listPracticeSets();
+
   return (
     <>
       <Header />
@@ -35,7 +38,7 @@ export default function ReadingPage() {
                 </span>
               ))}
             </div>
-            <ReadingBrowser />
+            <ReadingBrowser passages={reading} />
           </Container>
         </section>
       </main>

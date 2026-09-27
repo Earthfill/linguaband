@@ -20,7 +20,7 @@ export function ListeningPlayer({ track }: { track: ListeningTrack }) {
         </span>
       </div>
 
-      <DialogueAudioPlayer key={track.id} id={track.id} transcript={track.transcript} mode="practice" />
+      <DialogueAudioPlayer key={track.id} transcript={track.transcript} mode="practice" source="practice" />
 
       <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6">
         <McqPractice questions={track.questions} accent="violet" />
