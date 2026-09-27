@@ -269,7 +269,7 @@ export function ExamBrowser({ mocks }: { mocks: MockExam[] }) {
             ))}
           </div>
 
-          <div className="flex items-center gap-1 rounded-full border border-zinc-200 bg-zinc-50 p-1">
+          <div className="hidden items-center gap-1 rounded-full border border-zinc-200 bg-zinc-50 p-1 sm:flex">
             {(["cards", "list"] as ViewMode[]).map((v) => (
               <button
                 key={v}
@@ -337,19 +337,26 @@ export function ExamBrowser({ mocks }: { mocks: MockExam[] }) {
                 </div>
 
                 {!isCollapsed ? (
-                  view === "cards" ? (
-                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                      {group.items.map((exam) => (
-                        <ExamCard key={exam.id} exam={exam} now={now ?? 0} />
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="divide-y divide-zinc-100 overflow-hidden rounded-2xl border border-zinc-200 bg-white">
+                  <>
+                    <div className="divide-y divide-zinc-100 overflow-hidden rounded-2xl border border-zinc-200 bg-white sm:hidden">
                       {group.items.map((exam) => (
                         <ExamRow key={exam.id} exam={exam} now={now ?? 0} />
                       ))}
                     </div>
-                  )
+                    {view === "cards" ? (
+                      <div className="hidden gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        {group.items.map((exam) => (
+                          <ExamCard key={exam.id} exam={exam} now={now ?? 0} />
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="hidden divide-y divide-zinc-100 overflow-hidden rounded-2xl border border-zinc-200 bg-white sm:block">
+                        {group.items.map((exam) => (
+                          <ExamRow key={exam.id} exam={exam} now={now ?? 0} />
+                        ))}
+                      </div>
+                    )}
+                  </>
                 ) : null}
               </section>
             );
