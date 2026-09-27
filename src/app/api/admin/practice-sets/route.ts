@@ -3,7 +3,7 @@ import { savePracticeSets, setPracticeAudioStatus } from "@/lib/store";
 import { validatePracticeSets } from "@/lib/validate-practice-sets";
 import { dispatchPracticeAudio } from "@/lib/audio";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
-import type { ListeningTrack } from "@/data/practice/types";
+import type { ListeningTrack, ReadingPassage } from "@/data/practice/types";
 
 type R2Bucket = {
   put(key: string, value: ArrayBuffer, options: { httpMetadata: { contentType: string } }): Promise<unknown>;
@@ -55,25 +55,27 @@ export async function POST(request: Request) {
   const { sets, errors } = validatePracticeSets(parsed);
   if (!sets) return Response.json({ errors }, { status: 400 });
 
-  const referencedImages = new Set(sets.listening.flatMap((track) => track.image ? [track.image] : []));
+  const allSets = [...sets.listening, ...sets.reading];
+  const referencedImages = new Set(allSets.flatMap((set) => set.image ? [set.image] : []));
   const missingImages = [...referencedImages].filter((name) => !imageFiles.has(name));
   if (missingImages.length) {
     return Response.json({ error: `Select the image file(s) referenced in the JSON: ${missingImages.join(", ")}.` }, { status: 400 });
   }
   const unreferencedImages = [...imageFiles.keys()].filter((name) => !referencedImages.has(name));
   if (unreferencedImages.length) {
-    return Response.json({ error: `These selected images are not referenced by a listening track: ${unreferencedImages.join(", ")}.` }, { status: 400 });
+    return Response.json({ error: `These selected images are not referenced by a listening track or reading passage: ${unreferencedImages.join(", ")}. The running app may need to be restarted or redeployed to load the latest upload handler.` }, { status: 400 });
   }
 
   try {
     const bucket = (getCloudflareContext().env as { BUCKET?: R2Bucket }).BUCKET;
     if (referencedImages.size && !bucket) throw new Error("R2 bucket binding is not configured.");
-    for (const track of sets.listening) {
-      if (!track.image) continue;
-      const image = imageFiles.get(track.image)!;
-      await bucket!.put(`practice/${track.id}/image`, await image.arrayBuffer(), { httpMetadata: { contentType: image.type } });
-      track.imageUrl = `/api/practice-images/${encodeURIComponent(track.id)}`;
-      delete (track as ListeningTrack & { image?: string }).image;
+    for (const set of allSets) {
+      if (!set.image) continue;
+      const image = imageFiles.get(set.image)!;
+      await bucket!.put(`practice/${set.id}/image`, await image.arrayBuffer(), { httpMetadata: { contentType: image.type } });
+      set.imageUrl = `/api/practice-images/${encodeURIComponent(set.id)}`;
+      if ("transcript" in set) delete (set as ListeningTrack & { image?: string }).image;
+      else delete (set as ReadingPassage & { image?: string }).image;
     }
   } catch (err) {
     console.error("[admin/practice-sets] image upload failed", err);

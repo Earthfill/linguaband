@@ -162,10 +162,10 @@ an upload replaces any stored set with the same ID. There is no bundled listenin
 reading fallback; practice pages remain empty until sets are uploaded. Uploaded sets
 feed the `/listening`, `/reading`, and `/questions` pages.
 
-Listening tracks may include an optional `image` filename and `imageAlt` description.
+Listening tracks and reading passages may include an optional `image` filename and `imageAlt` description.
 Select every referenced image alongside the JSON in `/admin`; supported formats are PNG,
 JPEG, and WebP (up to 8 MB each). Images are stored in the existing R2 bucket and shown
-with the listening track and in Question Bank practice. For example:
+with the listening track or reading passage and in Question Bank practice. For example:
 
 ```json
 {

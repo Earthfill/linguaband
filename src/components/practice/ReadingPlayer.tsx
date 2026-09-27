@@ -37,6 +37,14 @@ export function ReadingPlayer({ passage }: { passage: ReadingPassage }) {
 
           {showPassage ? (
             <div className="p-5">
+              {passage.imageUrl ? (
+                <figure className="mb-4 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
+                  {/* Native img is intentional: passage images are served by the app's R2 proxy. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={passage.imageUrl} alt={passage.imageAlt || `Visual for ${passage.title}`} className="mx-auto max-h-[28rem] w-full object-contain" />
+                  {passage.imageAlt ? <figcaption className="border-t border-zinc-100 px-3 py-2 text-center text-xs text-zinc-500">{passage.imageAlt}</figcaption> : null}
+                </figure>
+              ) : null}
               <div className="mb-3 flex flex-wrap gap-2 text-xs font-semibold text-zinc-400">
                 <span className="rounded-full bg-zinc-100 px-2.5 py-1">
                   {passage.wordCount} words

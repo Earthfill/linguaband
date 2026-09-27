@@ -37,6 +37,10 @@ export type ReadingPassage = {
   wordCount: number;
   timeLimit: string;
   passage: string;
+  /** Filename supplied alongside the JSON during admin upload; removed before storage. */
+  image?: string;
+  imageUrl?: string;
+  imageAlt?: string;
   questions: PracticeQuestion[];
 };
 

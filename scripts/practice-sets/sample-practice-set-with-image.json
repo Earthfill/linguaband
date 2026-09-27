@@ -1,0 +1,302 @@
+{
+  "listening": [
+    {
+      "id": "lst-image-demo",
+      "title": "Finding the community centre",
+      "part": "Part 2 · Listening to a Daily Life Conversation",
+      "setting": "A visitor asks a local resident for directions",
+      "speaker": "Maya (visitor) ↔ Jordan (local resident)",
+      "durationSec": 48,
+      "trackLabel": "Image demo · 0:48",
+      "transcript": "MAYA: Excuse me, I'm trying to get to the community centre. Is it far from here?\nJORDAN: Not too far. You're at the library now. Walk east along King Street until you reach Pine Avenue.\nMAYA: Is Pine Avenue before or after the park?\nJORDAN: It's just after the park. Turn left onto Pine, then take the second right onto Cedar Road. The community centre is beside the pharmacy, across from the school.\nMAYA: I see the school on this map. So I cross Cedar Road from the school?\nJORDAN: That's right. The entrance is on the south side of the building. If you reach the grocery store, you've gone one block too far.",
+      "image": "community-centre-map.png",
+      "imageAlt": "Neighborhood map showing the library, park, school, pharmacy, grocery store, and community centre",
+      "questions": [
+        {
+          "id": "lst-image-demo-q1",
+          "label": "Question 1",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "Where does the conversation take place at the beginning?",
+          "options": ["At the school", "At the library", "At the pharmacy", "At the grocery store"],
+          "answerIndex": 1,
+          "explanation": "Jordan tells Maya, 'You're at the library now.'"
+        },
+        {
+          "id": "lst-image-demo-q2",
+          "label": "Question 2",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "Which direction should Maya walk along King Street?",
+          "options": ["North", "South", "East", "West"],
+          "answerIndex": 2,
+          "explanation": "Jordan says to walk east along King Street."
+        },
+        {
+          "id": "lst-image-demo-q3",
+          "label": "Question 3",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "When should Maya turn onto Pine Avenue?",
+          "options": ["Before reaching the park", "Just after the park", "At the school", "After the grocery store"],
+          "answerIndex": 1,
+          "explanation": "Jordan says Pine Avenue is just after the park."
+        },
+        {
+          "id": "lst-image-demo-q4",
+          "label": "Question 4",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "Which turn should Maya take from Pine Avenue onto Cedar Road?",
+          "options": ["The first left", "The second left", "The first right", "The second right"],
+          "answerIndex": 3,
+          "explanation": "Jordan directs Maya to take the second right onto Cedar Road."
+        },
+        {
+          "id": "lst-image-demo-q5",
+          "label": "Question 5",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "What landmark is beside the community centre?",
+          "options": ["The pharmacy", "The library", "The park", "The grocery store"],
+          "answerIndex": 0,
+          "explanation": "Jordan says the community centre is beside the pharmacy."
+        },
+        {
+          "id": "lst-image-demo-q6",
+          "label": "Question 6",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "What is directly across from the community centre?",
+          "options": ["The library", "The school", "The park", "The pharmacy"],
+          "answerIndex": 1,
+          "explanation": "Jordan says the centre is across from the school."
+        },
+        {
+          "id": "lst-image-demo-q7",
+          "label": "Question 7",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "Which side of the community centre has its entrance?",
+          "options": ["North", "East", "West", "South"],
+          "answerIndex": 3,
+          "explanation": "Jordan says the entrance is on the south side of the building."
+        },
+        {
+          "id": "lst-image-demo-q8",
+          "label": "Question 8",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "What would indicate that Maya has walked too far?",
+          "options": ["She reaches the grocery store", "She reaches the park", "She sees the library", "She crosses King Street"],
+          "answerIndex": 0,
+          "explanation": "Jordan says that reaching the grocery store means Maya has gone one block too far."
+        },
+        {
+          "id": "lst-image-demo-q9",
+          "label": "Question 9",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "What does Maya use to check the location of the school?",
+          "options": ["A bus schedule", "A neighborhood map", "A phone number", "A street sign"],
+          "answerIndex": 1,
+          "explanation": "Maya says, 'I see the school on this map.'"
+        },
+        {
+          "id": "lst-image-demo-q10",
+          "label": "Question 10",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "How does Jordan describe the distance to the community centre?",
+          "options": ["It is very far", "It is nearby", "It is across town", "It requires a bus"],
+          "answerIndex": 1,
+          "explanation": "Jordan says, 'Not too far,' indicating the centre is nearby."
+        },
+        {
+          "id": "lst-image-demo-q11",
+          "label": "Question 11",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "What should Maya do at Pine Avenue?",
+          "options": ["Turn left", "Turn right", "Cross the park", "Return to the library"],
+          "answerIndex": 0,
+          "explanation": "Jordan says to turn left onto Pine Avenue."
+        },
+        {
+          "id": "lst-image-demo-q12",
+          "label": "Question 12",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "What type of place is Maya trying to find?",
+          "options": ["A community centre", "A hospital", "A train station", "A post office"],
+          "answerIndex": 0,
+          "explanation": "Maya opens by saying she is trying to get to the community centre."
+        },
+        {
+          "id": "lst-image-demo-q13",
+          "label": "Question 13",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "Which pair of places helps Maya identify her destination on the map?",
+          "options": ["The library and the park", "The school and the pharmacy", "The park and the grocery store", "The library and the school"],
+          "answerIndex": 1,
+          "explanation": "Jordan locates the centre beside the pharmacy and across from the school."
+        },
+        {
+          "id": "lst-image-demo-q14",
+          "label": "Question 14",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "What should Maya do after turning onto Cedar Road?",
+          "options": ["Look for the community centre by the pharmacy", "Walk back to the park", "Turn onto King Street", "Enter the grocery store"],
+          "answerIndex": 0,
+          "explanation": "After turning onto Cedar Road, the directions place the centre beside the pharmacy."
+        },
+        {
+          "id": "lst-image-demo-q15",
+          "label": "Question 15",
+          "part": "Part 2 · Daily Life Conversation",
+          "question": "Why is the map useful to Maya during the conversation?",
+          "options": ["It shows the school and nearby streets", "It lists the centre's opening hours", "It identifies the bus fare", "It shows the pharmacy's phone number"],
+          "answerIndex": 0,
+          "explanation": "Maya refers to seeing the school on the map while confirming the directions."
+        }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "rd-image-demo",
+      "title": "Community garden volunteer notice",
+      "part": "Part 2 · Information",
+      "wordCount": 38,
+      "timeLimit": "3 min",
+      "passage": "COMMUNITY GARDEN VOLUNTEERS\n\nSaturday, May 18 · 9:00 a.m.–12:00 p.m.\nMeet at the garden entrance beside the tool shed. Volunteers will prepare planting beds and label the new herb section. Bring gloves if you have them; shared tools and water will be provided. In case of heavy rain, the session will move to Sunday, May 19, at the same time. To join, register at the community centre by Thursday, May 16.",
+      "image": "community-garden-layout.png",
+      "imageAlt": "Garden layout showing the entrance, tool shed, planting beds, and herb section",
+      "questions": [
+        {
+          "id": "rd-image-demo-q1",
+          "label": "Question 1",
+          "part": "Part 2 · Information",
+          "question": "When is the volunteer session scheduled?",
+          "options": ["Saturday morning", "Saturday afternoon", "Sunday morning", "Sunday afternoon"],
+          "answerIndex": 0,
+          "explanation": "The notice schedules the session for Saturday, May 18, from 9:00 a.m. to 12:00 p.m."
+        },
+        {
+          "id": "rd-image-demo-q2",
+          "label": "Question 2",
+          "part": "Part 2 · Information",
+          "question": "Where should volunteers meet?",
+          "options": ["At the school entrance", "Beside the garden tool shed", "At the community centre", "In the herb section"],
+          "answerIndex": 1,
+          "explanation": "The notice says to meet at the garden entrance beside the tool shed."
+        },
+        {
+          "id": "rd-image-demo-q3",
+          "label": "Question 3",
+          "part": "Part 2 · Information",
+          "question": "What should volunteers bring if possible?",
+          "options": ["Water", "Shared tools", "Gloves", "Plant labels"],
+          "answerIndex": 2,
+          "explanation": "Volunteers are asked to bring gloves if they have them."
+        },
+        {
+          "id": "rd-image-demo-q4",
+          "label": "Question 4",
+          "part": "Part 2 · Information",
+          "question": "What will happen if there is heavy rain?",
+          "options": ["The session will be cancelled", "The session will move to Sunday", "The work will move indoors", "The session will start later"],
+          "answerIndex": 1,
+          "explanation": "In case of heavy rain, the notice moves the session to Sunday, May 19, at the same time."
+        },
+        {
+          "id": "rd-image-demo-q5",
+          "label": "Question 5",
+          "part": "Part 2 · Information",
+          "question": "By when must volunteers register?",
+          "options": ["Wednesday, May 15", "Thursday, May 16", "Friday, May 17", "Saturday, May 18"],
+          "answerIndex": 1,
+          "explanation": "Registration at the community centre is required by Thursday, May 16."
+        },
+        {
+          "id": "rd-image-demo-q6",
+          "label": "Question 6",
+          "part": "Part 2 · Information",
+          "question": "Which area will volunteers label?",
+          "options": ["The entrance", "The planting beds", "The new herb section", "The tool shed"],
+          "answerIndex": 2,
+          "explanation": "The notice says volunteers will label the new herb section."
+        },
+        {
+          "id": "rd-image-demo-q7",
+          "label": "Question 7",
+          "part": "Part 2 · Information",
+          "question": "Which supplies are provided?",
+          "options": ["Gloves and labels", "Tools and water", "Seeds and gloves", "Water and raincoats"],
+          "answerIndex": 1,
+          "explanation": "The notice says shared tools and water will be provided."
+        },
+        {
+          "id": "rd-image-demo-q8",
+          "label": "Question 8",
+          "part": "Part 2 · Information",
+          "question": "What is the main purpose of this notice?",
+          "options": ["To recruit volunteers for a garden session", "To announce a garden closure", "To sell gardening tools", "To teach visitors how to plant herbs"],
+          "answerIndex": 0,
+          "explanation": "The notice provides details for people volunteering at a community garden work session."
+        },
+        {
+          "id": "rd-image-demo-q9",
+          "label": "Question 9",
+          "part": "Part 2 · Information",
+          "question": "Where can a person register?",
+          "options": ["At the garden entrance", "At the tool shed", "At the community centre", "In the herb section"],
+          "answerIndex": 2,
+          "explanation": "The notice directs volunteers to register at the community centre."
+        },
+        {
+          "id": "rd-image-demo-q10",
+          "label": "Question 10",
+          "part": "Part 2 · Information",
+          "question": "If the session moves because of rain, what remains unchanged?",
+          "options": ["The date", "The meeting place", "The time", "The registration deadline"],
+          "answerIndex": 2,
+          "explanation": "The notice says the Sunday session will take place at the same time."
+        },
+        {
+          "id": "rd-image-demo-q11",
+          "label": "Question 11",
+          "part": "Part 2 · Information",
+          "question": "What is one task volunteers will do?",
+          "options": ["Repair the tool shed", "Prepare planting beds", "Build a garden entrance", "Deliver water to the community centre"],
+          "answerIndex": 1,
+          "explanation": "Preparing planting beds is one of the listed volunteer tasks."
+        },
+        {
+          "id": "rd-image-demo-q12",
+          "label": "Question 12",
+          "part": "Part 2 · Information",
+          "question": "How long is the scheduled work session?",
+          "options": ["Two hours", "Three hours", "Four hours", "Five hours"],
+          "answerIndex": 1,
+          "explanation": "The session runs from 9:00 a.m. until 12:00 p.m., a total of three hours."
+        },
+        {
+          "id": "rd-image-demo-q13",
+          "label": "Question 13",
+          "part": "Part 2 · Information",
+          "question": "Which statement about gloves is correct?",
+          "options": ["They are required and supplied", "Volunteers may bring their own", "They can be collected at the school", "They are only needed in heavy rain"],
+          "answerIndex": 1,
+          "explanation": "The notice says to bring gloves if you have them, so bringing them is optional."
+        },
+        {
+          "id": "rd-image-demo-q14",
+          "label": "Question 14",
+          "part": "Part 2 · Information",
+          "question": "What does the accompanying layout help a reader identify?",
+          "options": ["The locations of garden areas and the entrance", "The Sunday weather forecast", "The community centre registration desk", "The volunteer schedule"],
+          "answerIndex": 0,
+          "explanation": "The image is a garden layout labeling the entrance and work areas."
+        },
+        {
+          "id": "rd-image-demo-q15",
+          "label": "Question 15",
+          "part": "Part 2 · Information",
+          "question": "What should someone do to take part in the session?",
+          "options": ["Register by Thursday at the community centre", "Arrive Sunday without registering", "Call the tool shed on Saturday", "Bring all tools and water"],
+          "answerIndex": 0,
+          "explanation": "The notice requires registration at the community centre by Thursday, May 16."
+        }
+      ]
+    }
+  ]
+}

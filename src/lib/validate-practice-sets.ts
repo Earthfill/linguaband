@@ -67,11 +67,11 @@ export function validatePracticeSets(value: unknown): ValidationResult {
       : ["title", "part", "timeLimit", "passage"]) {
       if (!nonEmptyString(item[field])) errors.push(`${path}.${field} must be a non-empty string.`);
     }
-    if (kind === "listening" && item.image !== undefined &&
+    if (item.image !== undefined &&
       (typeof item.image !== "string" || !/^[\w.-]+\.(?:png|jpe?g|webp)$/i.test(item.image))) {
       errors.push(`${path}.image must be a filename ending in .png, .jpg, .jpeg, or .webp.`);
     }
-    if (kind === "listening" && item.imageAlt !== undefined && !nonEmptyString(item.imageAlt)) {
+    if (item.imageAlt !== undefined && !nonEmptyString(item.imageAlt)) {
       errors.push(`${path}.imageAlt must be a non-empty string when provided.`);
     }
     if (kind === "listening" && (!Number.isInteger(item.durationSec) || (item.durationSec as number) <= 0)) {

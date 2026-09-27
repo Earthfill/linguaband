@@ -51,6 +51,8 @@ export function QuestionBank({
       part: passage.part,
       skill: "Reading" as const,
       text: passage.passage,
+      imageUrl: passage.imageUrl,
+      imageAlt: passage.imageAlt,
       questions: questions.filter((q) => q.skill === "Reading" && q.setId === passage.id),
     })),
   ], [questions, sets]);
