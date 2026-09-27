@@ -227,7 +227,7 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
               const updated = track.updatedAt ? Date.parse(track.updatedAt) : NaN;
               const stuck = status === "generating" && now > 0 && (Number.isNaN(updated) || now - updated > STUCK_AFTER_MS);
               return (
-                <li key={track.id} className="flex items-center justify-between gap-3 py-2">
+                <li key={track.id} className="flex items-center justify-between gap-3 px-6 py-2">
                   <span className="text-sm text-zinc-700">{track.title} <span className="text-zinc-400">({track.id})</span></span>
                   <div className="flex items-center gap-2">
                     {status !== "ready" || stuck ? (
