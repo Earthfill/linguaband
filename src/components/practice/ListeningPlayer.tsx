@@ -20,6 +20,15 @@ export function ListeningPlayer({ track }: { track: ListeningTrack }) {
         </span>
       </div>
 
+      {track.imageUrl ? (
+        <figure className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
+          {/* Native img is intentional: track images are served by the app's R2 proxy. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={track.imageUrl} alt={track.imageAlt || `Visual for ${track.title}`} className="mx-auto max-h-[32rem] w-full object-contain" />
+          {track.imageAlt ? <figcaption className="border-t border-zinc-100 px-4 py-2 text-center text-xs text-zinc-500">{track.imageAlt}</figcaption> : null}
+        </figure>
+      ) : null}
+
       <DialogueAudioPlayer key={track.id} transcript={track.transcript} mode="practice" entry={track.audio} source="practice" />
 
       <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6">

@@ -21,6 +21,10 @@ export type ListeningTrack = {
   durationSec: number;
   trackLabel: string;
   transcript: string;
+  /** Filename supplied alongside the JSON during admin upload; removed before storage. */
+  image?: string;
+  imageUrl?: string;
+  imageAlt?: string;
   audio?: AudioEntry;
   audioStatus?: "content" | "generating" | "ready" | "failed";
   questions: PracticeQuestion[];

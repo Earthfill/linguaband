@@ -12,6 +12,8 @@ type SetEntry = {
   part: string;
   skill: Exclude<Skill, "All">;
   text: string;
+  imageUrl?: string;
+  imageAlt?: string;
   audio?: ListeningTrack["audio"];
   audioId?: string;
   audioStatus?: ListeningTrack["audioStatus"];
@@ -37,6 +39,8 @@ export function QuestionBank({
       skill: "Listening" as const,
       text: track.transcript,
       audio: track.audio,
+      imageUrl: track.imageUrl,
+      imageAlt: track.imageAlt,
       audioId: track.id,
       audioStatus: track.audioStatus,
       questions: questions.filter((q) => q.skill === "Listening" && q.setId === track.id),
@@ -101,6 +105,8 @@ export function QuestionBank({
             title: practicingEntry.title,
             text: practicingEntry.text,
             label: practicingEntry.skill === "Listening" ? "Listening transcript" : "Reading passage",
+            imageUrl: practicingEntry.imageUrl,
+            imageAlt: practicingEntry.imageAlt,
             ...(practicingEntry.audioId
               ? {
                   audio: {

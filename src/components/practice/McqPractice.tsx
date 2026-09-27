@@ -9,7 +9,7 @@ import type { AudioEntry } from "@/data/practice/types";
 type McqPracticeProps = {
   questions: PracticeQuestion[];
   accent?: "blue" | "violet";
-  context?: { title: string; text: string; label: string; audio?: { id: string; entry?: AudioEntry; status?: "content" | "generating" | "ready" | "failed" } };
+  context?: { title: string; text: string; label: string; imageUrl?: string; imageAlt?: string; audio?: { id: string; entry?: AudioEntry; status?: "content" | "generating" | "ready" | "failed" } };
 };
 
 const accents = {
@@ -104,6 +104,13 @@ export function McqPractice({ questions, accent = "blue", context }: McqPractice
         <section className="mb-6 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6" aria-label={context.label}>
           <p className="text-xs font-bold uppercase tracking-wide text-zinc-400">{context.label}</p>
           <h3 className="mt-1 font-display text-lg font-bold text-zinc-900">{context.title}</h3>
+          {context.imageUrl ? (
+            <figure className="mt-3 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={context.imageUrl} alt={context.imageAlt || `Visual for ${context.title}`} className="mx-auto max-h-[28rem] w-full object-contain" />
+              {context.imageAlt ? <figcaption className="border-t border-zinc-100 px-3 py-2 text-center text-xs text-zinc-500">{context.imageAlt}</figcaption> : null}
+            </figure>
+          ) : null}
           {context.audio ? (
             <div className="mt-3">
               <DialogueAudioPlayer

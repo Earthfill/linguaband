@@ -173,76 +173,51 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
     }
   }
 
+  const practiceReady = listeningTracks.filter((track) => (track.audioStatus ?? (track.audio ? "ready" : "content")) === "ready").length;
+  const mocksReady = mocks.filter((mock) => mock.status === "ready").length;
+  const attention = listeningTracks.filter((track) => { const status = track.audioStatus ?? (track.audio ? "ready" : "content"); const updated = track.updatedAt ? Date.parse(track.updatedAt) : NaN; return status === "content" || status === "failed" || (status === "generating" && now > 0 && (Number.isNaN(updated) || now - updated > STUCK_AFTER_MS)); }).length + mocks.filter((mock) => mock.status === "content" || mock.status === "failed" || isStuck(mock, now)).length;
   return (
-    <div className="space-y-6">
-      <form
-        onSubmit={onSubmit}
-        className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
-      >
-        <h2 className="font-display text-lg font-bold text-zinc-900">Upload a mock test</h2>
-        <p className="mt-1 text-sm text-zinc-500">
-          One JSON file, shaped exactly like the template (see README).
-        </p>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
-          <input
-            type="file"
-            name="file"
-            accept="application/json"
-            required
-            className="text-sm text-zinc-600 file:mr-3 file:rounded-full file:border-0 file:bg-blue-600 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white"
-          />
-          <button
-            type="submit"
-            disabled={busy}
-            className="rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
-          >
-            {busy ? "Uploading…" : "Upload"}
-          </button>
+    <div className="space-y-8">
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-950 via-zinc-900 to-violet-950 px-6 py-8 text-white shadow-xl shadow-violet-950/10 sm:px-9 sm:py-10">
+        <div className="pointer-events-none absolute -right-14 -top-28 h-72 w-72 rounded-full border border-white/10" />
+        <div className="relative flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <div><span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-violet-100"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />Content studio</span><h1 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Admin dashboard</h1><p className="mt-2 max-w-xl text-sm leading-6 text-zinc-300">Manage practice content and keep audio generation on track from one place.</p></div>
+          <a href="#uploads" className="inline-flex w-fit rounded-full bg-white px-5 py-3 text-sm font-bold text-zinc-900 transition hover:bg-violet-50">Upload content <span className="ml-2" aria-hidden="true">↓</span></a>
         </div>
-        {result ? (
-          <p
-            className={`mt-3 rounded-lg px-3 py-2 text-sm ${
-              result.ok ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"
-            }`}
-          >
-            {result.message}
-          </p>
-        ) : null}
-      </form>
+      </section>
+      <section aria-label="Content and audio overview" className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <MetricCard label="Mock exams" value={mocks.length} detail="Uploaded tests" tone="blue" />
+        <MetricCard label="Listening tracks" value={listeningTracks.length} detail="Practice audio jobs" tone="violet" />
+        <MetricCard label="Audio ready" value={practiceReady + mocksReady} detail="Available for playback" tone="green" />
+        <MetricCard label="Needs attention" value={attention} detail="Audio jobs to review" tone="amber" />
+      </section>
+      <section id="uploads" className="scroll-mt-24">
+        <SectionTitle eyebrow="Content management" title="Upload new content" description="Add mock exams and publish listening or reading practice sets." />
+        <div className="mt-4 grid gap-5 xl:grid-cols-2">
+        <form onSubmit={onSubmit} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+          <div className="mb-5 flex items-start gap-3"><span className="grid h-11 w-11 place-items-center rounded-xl bg-blue-50 text-lg font-bold text-blue-700">▤</span><div><h3 className="font-display text-lg font-bold text-zinc-900">Mock exam</h3><p className="mt-1 text-sm leading-5 text-zinc-500">Upload one JSON file shaped like the mock template.</p></div></div>
+          <label className="block text-sm font-medium text-zinc-700">Mock exam JSON<input type="file" name="file" accept="application/json,.json" required className="mt-2 block w-full rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-3 text-sm text-zinc-600 file:mr-3 file:rounded-full file:border-0 file:bg-blue-600 file:px-4 file:py-2 file:text-xs file:font-bold file:text-white" /></label>
+          <button type="submit" disabled={busy} className="mt-4 rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-zinc-700 disabled:opacity-50">{busy ? "Uploading…" : "Upload mock exam"}</button>
+          {result ? <p role="status" className={"mt-4 rounded-xl px-4 py-3 text-sm leading-6 " + (result.ok ? "bg-emerald-50 text-emerald-800" : "bg-rose-50 text-rose-700")}>{result.message}</p> : null}
+        </form>
 
-      <form
-        onSubmit={uploadPracticeSets}
-        className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
-      >
-        <h2 className="font-display text-lg font-bold text-zinc-900">Upload listening and reading practice sets</h2>
-        <p className="mt-1 text-sm text-zinc-500">
-          Upload JSON with <code>listening</code> and <code>reading</code> arrays, like <code>scripts/practice-sets/sample-practice-sets.json</code>. A matching set ID replaces the stored set.
-        </p>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
-          <input
-            type="file"
-            name="file"
-            accept="application/json,.json"
-            required
-            className="text-sm text-zinc-600 file:mr-3 file:rounded-full file:border-0 file:bg-violet-600 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white"
-          />
-          <button
-            type="submit"
-            disabled={practiceBusy}
-            className="rounded-full bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
-          >
-            {practiceBusy ? "Uploading…" : "Upload practice sets"}
-          </button>
-        </div>
-        {practiceResult ? (
-          <p className={`mt-3 rounded-lg px-3 py-2 text-sm ${practiceResult.ok ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"}`}>
-            {practiceResult.message}
-          </p>
-        ) : null}
-      </form>
+        <form onSubmit={uploadPracticeSets} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+          <div className="mb-5 flex items-start gap-3"><span className="grid h-11 w-11 place-items-center rounded-xl bg-violet-50 text-lg font-bold text-violet-700">♫</span><div><h3 className="font-display text-lg font-bold text-zinc-900">Practice sets</h3><p className="mt-1 text-sm leading-5 text-zinc-500">Upload listening and reading JSON with any referenced track images.</p></div></div>
+          <div className="grid gap-4"><label className="block text-sm font-medium text-zinc-700">Practice-set JSON<input type="file" name="file" accept="application/json,.json" required className="mt-2 block w-full rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-3 text-sm text-zinc-600 file:mr-3 file:rounded-full file:border-0 file:bg-violet-600 file:px-4 file:py-2 file:text-xs file:font-bold file:text-white" /></label><label className="block text-sm font-medium text-zinc-700">Track images <span className="font-normal text-zinc-400">(optional)</span><input type="file" name="images" accept="image/png,image/jpeg,image/webp" multiple className="mt-2 block w-full rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-3 text-sm text-zinc-600 file:mr-3 file:rounded-full file:border-0 file:bg-violet-100 file:px-4 file:py-2 file:text-xs file:font-bold file:text-violet-700" /></label></div>
+          <button type="submit" disabled={practiceBusy} className="mt-4 rounded-full bg-violet-600 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-violet-700 disabled:opacity-50">{practiceBusy ? "Uploading…" : "Upload practice sets"}</button>
+          {practiceResult ? <p role="status" className={"mt-4 rounded-xl px-4 py-3 text-sm leading-6 " + (practiceResult.ok ? "bg-emerald-50 text-emerald-800" : "bg-rose-50 text-rose-700")}>{practiceResult.message}</p> : null}
+        </form>
+      </div>
+      </section>
 
-      <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <h2 className="font-display text-lg font-bold text-zinc-900">Listening practice audio</h2>
+      <section id="audio-jobs" className="scroll-mt-24">
+      <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+        <SectionTitle eyebrow="Generation queue" title="Audio jobs" description="Monitor generated audio and retry tracks that need attention." />
+        <span className={"rounded-full px-3 py-1.5 text-xs font-bold " + (attention ? "bg-amber-50 text-amber-800" : "bg-emerald-50 text-emerald-800")}>{attention ? String(attention) + " need attention" : "Everything looks good"}</span>
+      </div>
+      <div className="grid gap-5 xl:grid-cols-2">
+      <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
+        <div className="border-b border-zinc-100 px-6 py-5"><p className="text-xs font-bold uppercase tracking-wider text-violet-600">Practice content</p><h2 className="mt-1 font-display text-lg font-bold text-zinc-900">Listening practice audio</h2></div>
         {listeningTracks.length === 0 ? (
           <p className="mt-2 text-sm text-zinc-500">No listening practice tracks uploaded yet.</p>
         ) : (
@@ -270,8 +245,8 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
         )}
       </div>
 
-      <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <h2 className="font-display text-lg font-bold text-zinc-900">Mocks</h2>
+      <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
+        <div className="border-b border-zinc-100 px-6 py-5"><p className="text-xs font-bold uppercase tracking-wider text-blue-600">Mock library</p><h2 className="mt-1 font-display text-lg font-bold text-zinc-900">Mock exam audio</h2></div>
         {mocks.length === 0 ? (
           <p className="mt-2 text-sm text-zinc-500">None uploaded yet.</p>
         ) : (
@@ -304,8 +279,19 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
           </ul>
         )}
       </div>
+      </div>
+      </section>
     </div>
   );
+}
+
+function MetricCard({ label, value, detail, tone }: { label: string; value: number; detail: string; tone: "blue" | "violet" | "green" | "amber" }) {
+  const tones = { blue: "bg-blue-50 text-blue-700", violet: "bg-violet-50 text-violet-700", green: "bg-emerald-50 text-emerald-700", amber: "bg-amber-50 text-amber-700" };
+  return <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"><div className="flex items-start justify-between gap-3"><p className="text-sm font-semibold text-zinc-500">{label}</p><span className={"rounded-lg px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide " + tones[tone]}>Live</span></div><p className="mt-3 font-display text-3xl font-bold tracking-tight text-zinc-900">{value}</p><p className="mt-1 text-xs text-zinc-500">{detail}</p></div>;
+}
+
+function SectionTitle({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {
+  return <div><p className="text-xs font-bold uppercase tracking-[0.16em] text-violet-600">{eyebrow}</p><h2 className="mt-1 font-display text-2xl font-bold tracking-tight text-zinc-900">{title}</h2><p className="mt-1 text-sm text-zinc-500">{description}</p></div>;
 }
 
 function StatusBadge({ status }: { status: string }) {

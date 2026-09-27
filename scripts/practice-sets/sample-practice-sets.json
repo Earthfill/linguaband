@@ -1,406 +1,411 @@
 {
   "listening": [
     {
-      "id": "lst-08",
-      "title": "Corporate training webinar — new expense card tiers and rollover rules",
-      "part": "Part 2 · Short Talks",
-      "setting": "Recorded internal training webinar",
-      "speaker": "Single HR presenter",
-      "durationSec": 79,
-      "trackLabel": "Track 8 · 1:19",
-      "transcript": "PRESENTER: Thanks for joining this short training on the new corporate card system, rolling out company-wide starting the first of next month. Every employee will be assigned to one of three card tiers based on role, not seniority — this is a common point of confusion, since some newer employees in client-facing roles will actually receive a higher tier than long-tenured staff in internal roles. Tier A, for roles involving regular client travel, carries a monthly limit of $2,000, and unused amounts roll over up to a maximum accumulated balance of $3,000 — so if you spend nothing one month, you don't simply gain another $2,000 on top, you're capped at that $3,000 ceiling regardless of how many months you save. Tier B, for occasional travel roles, has a $900 monthly limit with no rollover at all; whatever isn't used resets to zero at the start of each month. Tier C, for non-travel roles, isn't a monthly allowance at all, but rather a $500 per-quarter limit intended mainly for client meals and small local expenses, and this one does roll over fully between quarters within the same calendar year, though it resets to zero every January regardless of what's remaining. Now, here's an important exception: regardless of your assigned tier, any single purchase over $750 requires pre-approval from your manager through the portal before the charge is made, not after — charges made without that pre-approval, even if they're within your monthly or quarterly limit, will be flagged for mandatory review and may result in personal reimbursement liability if not resolved within five business days. One more note specific to Tier A: because travel bookings often span two calendar months, a hotel or flight booking that begins in one month and is paid in full at booking may count against either month's limit, whichever the traveler selects at the time of booking, but this choice cannot be changed retroactively once submitted. Please direct questions to the finance help desk, not your manager, since managers only handle pre-approvals, not general policy questions.",
+      "id": "lst-09",
+      "title": "Team meeting — vendor contract renewal decision",
+      "part": "Part 3 · Conversations",
+      "setting": "Internal business meeting, three speakers",
+      "speaker": "Priya (Procurement) ↔ Tom (Operations) ↔ Nadia (Finance)",
+      "durationSec": 92,
+      "trackLabel": "Track 9 · 1:32",
+      "transcript": "PRIYA: Thanks for jumping on this. We need to decide on the Meridian Logistics contract before Friday, since their current agreement expires end of month. Tom, what's your read from the operations side?\nTOM: Honestly, mixed. Their on-time delivery rate has been solid, 97% over the last two quarters, but their customer service response time has gotten worse — we've had three separate incidents where it took over 48 hours to get a reply about a delayed shipment.\nPRIYA: That matches what I'm seeing too. Nadia, what does the renewal actually cost us compared to switching?\nNADIA: The renewal as written raises our monthly rate by 12%, mostly citing fuel costs. If we switch to Harborline, their quote is actually 5% lower than what we currently pay, not just lower than Meridian's new rate, but the catch is they can't onboard until at least six weeks out, and Tom, you mentioned we have that holiday shipping surge starting in five weeks.\nTOM: Right, that's the real problem. If we switch, we'd have maybe a one-week gap where Harborline isn't ready but our current contract with Meridian would have already ended. That's not something we can risk during peak season.\nPRIYA: So it sounds like a straight switch right now is too risky, but staying at the new 12% rate isn't great either.\nNADIA: There's actually a third option I want to float. We could sign a short-term, three-month extension with Meridian at their new rate specifically to bridge the surge period, then switch to Harborline once that extension ends, once they're fully onboarded and there's no gap.\nTOM: I like that in theory, but would Meridian even agree to a short extension instead of the full annual renewal they're pushing for?\nPRIYA: I can find out — I spoke with their account rep last week and got the sense they're more worried about losing us entirely than about contract length specifically.\nNADIA: If Priya can get that shorter deal, my recommendation is to do exactly that: three-month bridge with Meridian, then transition to Harborline, since the long-term savings make up for the short-term extra cost within about four months.\nTOM: I can support that, as long as the transition timeline is documented and Harborline's onboarding doesn't slip further.\nPRIYA: Agreed. I'll call the Meridian rep this afternoon and report back by tomorrow morning. If they won't budge on a short-term deal, we'll need to reconvene and reconsider the full annual renewal instead, since we can't risk the surge period regardless.",
       "questions": [
         {
-          "id": "lst-08-q1",
+          "id": "lst-09-q1",
           "label": "Question 1",
-          "part": "Part 2 · Short Talks",
-          "question": "What determines an employee's card tier?",
+          "part": "Part 3 · Conversations",
+          "question": "Why does this decision need to be made before Friday?",
           "options": [
-            "Seniority within the company",
-            "Role, not seniority",
-            "Department budget size",
-            "Length of time with the company"
+            "The holiday surge begins on Friday",
+            "Meridian's current agreement expires at the end of the month",
+            "Harborline's quote expires on Friday",
+            "The finance department's budget closes on Friday"
           ],
           "answerIndex": 1,
-          "explanation": "The presenter states tiers are assigned 'based on role, not seniority.'"
+          "explanation": "Priya says the decision is needed 'since their current agreement expires end of month.'"
         },
         {
-          "id": "lst-08-q2",
+          "id": "lst-09-q2",
           "label": "Question 2",
-          "part": "Part 2 · Short Talks",
-          "question": "Why does the presenter call the tier system 'a common point of confusion'?",
+          "part": "Part 3 · Conversations",
+          "question": "What has been positive about Meridian's performance, according to Tom?",
           "options": [
-            "Because the tiers change every month",
-            "Because some newer client-facing employees may receive a higher tier than long-tenured internal staff",
-            "Because tiers are assigned randomly",
-            "Because tier names are not standardized across departments"
+            "Their customer service response time",
+            "Their on-time delivery rate of 97%",
+            "Their pricing stability",
+            "Their onboarding speed"
           ],
           "answerIndex": 1,
-          "explanation": "The presenter notes newer client-facing employees 'will actually receive a higher tier than long-tenured staff in internal roles.'"
+          "explanation": "Tom says 'their on-time delivery rate has been solid, 97% over the last two quarters.'"
         },
         {
-          "id": "lst-08-q3",
+          "id": "lst-09-q3",
           "label": "Question 3",
-          "part": "Part 2 · Short Talks",
-          "question": "What is the monthly limit for Tier A?",
-          "options": ["$500", "$900", "$2,000", "$3,000"],
+          "part": "Part 3 · Conversations",
+          "question": "What problem has occurred multiple times with Meridian?",
+          "options": [
+            "Late deliveries",
+            "Overcharging on invoices",
+            "Slow customer service response, over 48 hours in three incidents",
+            "Incorrect shipment tracking"
+          ],
           "answerIndex": 2,
-          "explanation": "Tier A 'carries a monthly limit of $2,000.'"
+          "explanation": "Tom cites 'three separate incidents where it took over 48 hours to get a reply.'"
         },
         {
-          "id": "lst-08-q4",
+          "id": "lst-09-q4",
           "label": "Question 4",
-          "part": "Part 2 · Short Talks",
-          "question": "What is the maximum accumulated rollover balance for Tier A?",
-          "options": ["$2,000", "$2,500", "$3,000", "$4,000"],
+          "part": "Part 3 · Conversations",
+          "question": "By how much would Meridian's renewal raise the monthly rate?",
+          "options": ["5%", "8%", "12%", "15%"],
           "answerIndex": 2,
-          "explanation": "Unused Tier A amounts roll over 'up to a maximum accumulated balance of $3,000.'"
+          "explanation": "Nadia says the renewal 'raises our monthly rate by 12%.'"
         },
         {
-          "id": "lst-08-q5",
+          "id": "lst-09-q5",
           "label": "Question 5",
-          "part": "Part 2 · Short Talks",
-          "question": "If a Tier A employee spends nothing for two consecutive months, how much will they have available in month three?",
-          "options": [
-            "$4,000, since $2,000 accumulates each month",
-            "$6,000, the full sum of three months",
-            "$3,000, the capped ceiling regardless of savings",
-            "$2,000, since rollover doesn't apply after two months"
-          ],
-          "answerIndex": 2,
-          "explanation": "The presenter explicitly says the balance is 'capped at that $3,000 ceiling regardless of how many months you save.'"
+          "part": "Part 3 · Conversations",
+          "question": "What reason does Meridian cite for the rate increase?",
+          "options": ["Rising fuel costs", "New government regulations", "Increased labor costs", "Currency exchange changes"],
+          "answerIndex": 0,
+          "explanation": "Nadia says the increase is cited as 'mostly citing fuel costs.'"
         },
         {
-          "id": "lst-08-q6",
+          "id": "lst-09-q6",
           "label": "Question 6",
-          "part": "Part 2 · Short Talks",
-          "question": "What is the monthly limit for Tier B?",
-          "options": ["$500", "$750", "$900", "$2,000"],
-          "answerIndex": 2,
-          "explanation": "Tier B 'has a $900 monthly limit.'"
+          "part": "Part 3 · Conversations",
+          "question": "How does Harborline's quote compare to the company's current rate (not Meridian's new rate)?",
+          "options": [
+            "5% higher than the current rate",
+            "5% lower than the current rate",
+            "12% lower than the current rate",
+            "Equal to the current rate"
+          ],
+          "answerIndex": 1,
+          "explanation": "Nadia clarifies Harborline's quote is '5% lower than what we currently pay, not just lower than Meridian's new rate.'"
         },
         {
-          "id": "lst-08-q7",
+          "id": "lst-09-q7",
           "label": "Question 7",
-          "part": "Part 2 · Short Talks",
-          "question": "Does Tier B allow any rollover?",
+          "part": "Part 3 · Conversations",
+          "question": "What is the main drawback of switching to Harborline immediately?",
           "options": [
-            "Yes, up to $3,000",
-            "Yes, but only for one month",
-            "No, unused amounts reset to zero each month",
-            "Yes, fully, like Tier C"
+            "Their delivery rate is worse than Meridian's",
+            "They can't onboard for at least six weeks, creating a gap during the holiday surge",
+            "Their quote is more expensive overall",
+            "They don't offer contracts shorter than one year"
           ],
-          "answerIndex": 2,
-          "explanation": "Tier B has 'no rollover at all; whatever isn't used resets to zero at the start of each month.'"
+          "answerIndex": 1,
+          "explanation": "Harborline 'can't onboard until at least six weeks out,' which conflicts with the surge starting in five weeks, creating a coverage gap."
         },
         {
-          "id": "lst-08-q8",
+          "id": "lst-09-q8",
           "label": "Question 8",
-          "part": "Part 2 · Short Talks",
-          "question": "How is Tier C structured differently from Tiers A and B?",
-          "options": [
-            "It has no limit at all",
-            "It is a per-quarter limit rather than a monthly allowance",
-            "It only applies to travel expenses",
-            "It requires pre-approval for every purchase"
-          ],
+          "part": "Part 3 · Conversations",
+          "question": "When does the holiday shipping surge begin, according to Tom?",
+          "options": ["In three weeks", "In five weeks", "In six weeks", "Next month"],
           "answerIndex": 1,
-          "explanation": "Tier C 'isn't a monthly allowance at all, but rather a $500 per-quarter limit.'"
+          "explanation": "Nadia references 'that holiday shipping surge starting in five weeks,' which Tom confirms."
         },
         {
-          "id": "lst-08-q9",
+          "id": "lst-09-q9",
           "label": "Question 9",
-          "part": "Part 2 · Short Talks",
-          "question": "Does Tier C's balance roll over between quarters?",
+          "part": "Part 3 · Conversations",
+          "question": "What third option does Nadia propose?",
           "options": [
-            "No, it resets every quarter",
-            "Yes, fully between quarters within the same calendar year, but resets every January",
-            "Yes, indefinitely with no annual reset",
-            "Only if pre-approved by a manager"
+            "Renewing with Meridian for a full year at the new rate",
+            "Switching to Harborline immediately despite the gap",
+            "A three-month bridge extension with Meridian, then switching to Harborline",
+            "Splitting shipments between both companies permanently"
           ],
-          "answerIndex": 1,
-          "explanation": "Tier C 'roll[s] over fully between quarters within the same calendar year, though it resets to zero every January.'"
+          "answerIndex": 2,
+          "explanation": "Nadia proposes 'a short-term, three-month extension with Meridian... then switch to Harborline once that extension ends.'"
         },
         {
-          "id": "lst-08-q10",
+          "id": "lst-09-q10",
           "label": "Question 10",
-          "part": "Part 2 · Short Talks",
-          "question": "If a Tier C employee accumulates $1,200 by the end of Q3 but doesn't spend it, what happens to that balance in January?",
+          "part": "Part 3 · Conversations",
+          "question": "What concern does Tom raise about Nadia's proposal?",
           "options": [
-            "It carries over into the new year automatically",
-            "It resets to zero regardless of the remaining balance",
-            "Half of it carries over",
-            "It converts to Tier B limits"
-          ],
-          "answerIndex": 1,
-          "explanation": "Tier C 'resets to zero every January regardless of what's remaining,' even with accumulated unspent funds."
-        },
-        {
-          "id": "lst-08-q11",
-          "label": "Question 11",
-          "part": "Part 2 · Short Talks",
-          "question": "What purchase amount triggers the mandatory pre-approval rule, regardless of tier?",
-          "options": ["$500", "$750", "$900", "$2,000"],
-          "answerIndex": 1,
-          "explanation": "The presenter says 'any single purchase over $750 requires pre-approval from your manager.'"
-        },
-        {
-          "id": "lst-08-q12",
-          "label": "Question 12",
-          "part": "Part 2 · Short Talks",
-          "question": "What happens if an employee makes a $900 purchase within their monthly limit but without required pre-approval?",
-          "options": [
-            "Nothing, since it's within the limit",
-            "It is automatically declined by the card",
-            "It will be flagged for mandatory review and may result in personal reimbursement liability if unresolved within five business days",
-            "The employee's tier is downgraded immediately"
-          ],
-          "answerIndex": 2,
-          "explanation": "The presenter warns that charges made without pre-approval, 'even if they're within your monthly or quarterly limit,' will be flagged and may create personal liability if unresolved in five business days."
-        },
-        {
-          "id": "lst-08-q13",
-          "label": "Question 13",
-          "part": "Part 2 · Short Talks",
-          "question": "When must pre-approval be obtained for a purchase over $750?",
-          "options": [
-            "Within 24 hours after the charge",
-            "Before the charge is made",
-            "Within five business days after the charge",
-            "At the end of the quarter"
-          ],
-          "answerIndex": 1,
-          "explanation": "Pre-approval is required 'before the charge is made, not after.'"
-        },
-        {
-          "id": "lst-08-q14",
-          "label": "Question 14",
-          "part": "Part 2 · Short Talks",
-          "question": "For a Tier A travel booking spanning two months, who decides which month's limit it counts against?",
-          "options": [
-            "The manager, at the time of pre-approval",
-            "The finance help desk, after the trip",
-            "The traveler, at the time of booking, and this choice cannot be changed later",
-            "It automatically counts against the earlier month"
-          ],
-          "answerIndex": 2,
-          "explanation": "The traveler selects which month it counts against 'at the time of booking, but this choice cannot be changed retroactively.'"
-        },
-        {
-          "id": "lst-08-q15",
-          "label": "Question 15",
-          "part": "Part 2 · Short Talks",
-          "question": "A Tier A employee books a $1,600 flight in March for an April trip, selecting it to count against March's limit, and separately wants to make an $800 hotel purchase in March. Based on the announcement, what must this employee do regarding the hotel purchase, and who should they contact if they have a general question about how the tier system works overall?",
-          "options": [
-            "Get manager pre-approval for the hotel since it exceeds $750, and direct general policy questions to the finance help desk, not the manager",
-            "No pre-approval is needed for the hotel since the flight already used the March limit; general questions go to the manager",
-            "Get pre-approval for both the flight and hotel from the finance help desk, since both exceed $750",
-            "No action needed for either purchase since the employee is Tier A; policy questions go to the finance help desk"
+            "Whether Meridian would agree to a short-term extension instead of a full annual renewal",
+            "Whether Harborline can lower their quote further",
+            "Whether the finance team will approve the extra cost",
+            "Whether the surge will actually happen this year"
           ],
           "answerIndex": 0,
-          "explanation": "The $800 hotel charge exceeds the $750 pre-approval threshold regardless of tier or remaining balance, requiring manager pre-approval before the charge; general policy questions are directed to the finance help desk, since managers only handle pre-approvals."
+          "explanation": "Tom asks 'would Meridian even agree to a short extension instead of the full annual renewal they're pushing for?'"
+        },
+        {
+          "id": "lst-09-q11",
+          "label": "Question 11",
+          "part": "Part 3 · Conversations",
+          "question": "What gives Priya reason to believe Meridian might agree to a shorter deal?",
+          "options": [
+            "A written offer Meridian already sent",
+            "Her impression from speaking with their account rep that they're more worried about losing the client entirely",
+            "A public statement from Meridian's CEO",
+            "A prior short-term deal Meridian offered another client"
+          ],
+          "answerIndex": 1,
+          "explanation": "Priya says she got 'the sense they're more worried about losing us entirely than about contract length specifically.'"
+        },
+        {
+          "id": "lst-09-q12",
+          "label": "Question 12",
+          "part": "Part 3 · Conversations",
+          "question": "According to Nadia, why does the bridge-then-switch plan make financial sense?",
+          "options": [
+            "It avoids paying Meridian anything further",
+            "The long-term savings make up for the short-term extra cost within about four months",
+            "Harborline offers a discount for delayed onboarding",
+            "It eliminates the need for a formal contract entirely"
+          ],
+          "answerIndex": 1,
+          "explanation": "Nadia says 'the long-term savings make up for the short-term extra cost within about four months.'"
+        },
+        {
+          "id": "lst-09-q13",
+          "label": "Question 13",
+          "part": "Part 3 · Conversations",
+          "question": "What condition does Tom attach to his support for the plan?",
+          "options": [
+            "That Meridian lowers its rate further",
+            "That the transition timeline is documented and Harborline's onboarding doesn't slip further",
+            "That operations gets final approval over finance",
+            "That the surge period is delayed"
+          ],
+          "answerIndex": 1,
+          "explanation": "Tom supports the plan 'as long as the transition timeline is documented and Harborline's onboarding doesn't slip further.'"
+        },
+        {
+          "id": "lst-09-q14",
+          "label": "Question 14",
+          "part": "Part 3 · Conversations",
+          "question": "What is Priya's immediate next step?",
+          "options": [
+            "Sign the Harborline contract today",
+            "Call the Meridian account rep this afternoon and report back by tomorrow morning",
+            "Schedule a follow-up meeting next week",
+            "Ask Nadia to draft a formal proposal first"
+          ],
+          "answerIndex": 1,
+          "explanation": "Priya says 'I'll call the Meridian rep this afternoon and report back by tomorrow morning.'"
+        },
+        {
+          "id": "lst-09-q15",
+          "label": "Question 15",
+          "part": "Part 3 · Conversations",
+          "question": "If Meridian refuses a short-term deal, what does the group agree to do, and why?",
+          "options": [
+            "Switch to Harborline anyway and accept the coverage gap",
+            "Reconvene and likely accept the full annual renewal, since the surge period risk cannot be taken regardless",
+            "Cancel Meridian's contract immediately with no replacement",
+            "Delay the entire decision until after the holiday surge"
+          ],
+          "answerIndex": 1,
+          "explanation": "Priya states that if Meridian won't budge, they'll 'reconvene and reconsider the full annual renewal instead, since we can't risk the surge period regardless' — tying back to Tom's earlier point about the unacceptable risk of a coverage gap."
         }
       ]
     }
   ],
   "reading": [
     {
-      "id": "rd-08",
-      "title": "Municipal utility notice — tiered water rate restructuring and conservation credits",
-      "part": "Part 2 · Reading for Information",
-      "wordCount": 289,
+      "id": "rd-09",
+      "title": "Double correspondence — freelancer invoice dispute and policy reference",
+      "part": "Part 3 · Double Passages",
+      "wordCount": 312,
       "timeLimit": "6 min",
-      "passage": "City of Fairhaven Water Utility — Rate Restructuring Notice\n\nBeginning with the billing cycle starting January 1, residential water rates will shift from a single flat rate to a four-tier consumption model, intended to encourage conservation while keeping basic usage affordable. Tier 1 covers the first 4,000 gallons used per month and is billed at the current rate of $0.004 per gallon, unchanged from today. Tier 2 covers usage from 4,001 to 8,000 gallons and is billed at $0.006 per gallon — note that this rate applies only to the gallons within that range, not retroactively to the entire bill, so a household using 6,000 gallons pays the Tier 1 rate on the first 4,000 gallons and the Tier 2 rate only on the remaining 2,000.\n\nTier 3 covers 8,001 to 15,000 gallons at $0.009 per gallon, and Tier 4 covers any usage above 15,000 gallons at $0.014 per gallon, more than triple the base rate, intended primarily to discourage non-essential high-volume use such as excessive landscape irrigation.\n\nHouseholds that reduce their consumption by at least 15% compared to the same month last year qualify for a conservation credit equal to 10% of that month's total bill, applied automatically the following billing cycle; however, this credit is only available to households whose usage last year was already at or below 10,000 gallons for that month, since the credit program is designed to reward households with already-modest usage rather than those cutting back from very high baselines.\n\nHouseholds with a documented medical necessity for higher water use, such as certain home dialysis equipment, may apply for a Tier 1 rate extension covering up to 10,000 gallons monthly instead of the standard 4,000-gallon threshold, but this exemption must be renewed annually with updated medical documentation and does not apply retroactively to bills issued before the exemption is approved.\n\nCustomers disputing a bill under the new structure have 45 days from the billing date to file an appeal, but appeals filed after usage has already been paid in full will only be eligible for a bill credit toward a future statement, not a direct refund, unless the dispute involves a confirmed meter malfunction, in which case a direct refund remains available regardless of payment status.",
+      "passage": "EMAIL 1: Freelancer to Client (October 14)\n\nSubject: Invoice #2231 — Payment Status\n\nHi Marcus,\n\nI'm following up on Invoice #2231 for the website copywriting project, submitted September 28. Per our agreement, payment is due within 15 business days of submission, which would have made the deadline October 20. However, I noticed your company's contractor portal shows a separate \"net-30 calendar days\" policy for all invoices over $2,000, and my invoice total is $2,400.\n\nI want to make sure I understand which timeline applies here, since the two policies seem to conflict, and I'd rather clarify now than assume incorrectly. Also, a smaller note: I revised the homepage section twice at your team's request after initial submission — do those revisions reset the invoice date, or does the clock still run from the original September 28 submission?\n\nCould you confirm with your finance team and let me know? I don't want to send a formal late notice prematurely if I'm simply misunderstanding the applicable policy.\n\nThanks,\nElena\n\n---\n\nEMAIL 2: Client's Finance Team to Freelancer (October 16)\n\nSubject: RE: Invoice #2231 — Payment Status\n\nHi Elena,\n\nThanks for flagging this, and apologies for the confusing overlap in our documentation — we're aware the contractor portal language needs updating. Here's the clarification: the 15-business-day term in your contract applies to standard invoices, but our net-30-calendar-day policy specifically overrides that for any invoice at or above $2,000, precisely because larger invoices require an additional internal budget sign-off step that shorter timelines don't accommodate. Since your invoice is $2,400, the net-30 policy applies, not the 15-business-day term.\n\nRegarding your revision question: per our contractor handbook, revisions requested within 10 days of original submission do not reset the invoice date, but revisions requested after that 10-day window do reset the clock to the date the final revision was delivered. Your first revision request came on October 3, which is within that 10-day window from your September 28 submission, so it does not affect the date. However, I don't see a record of a second revision request in our system — could you confirm the date of that second request, since if it fell outside the 10-day window, the clock would reset accordingly?\n\nOnce we confirm that, we'll calculate the exact due date and process payment shortly after. Thanks for your patience.\n\nBest,\nDaniel, Finance Team",
       "questions": [
         {
-          "id": "rd-08-q1",
+          "id": "rd-09-q1",
           "label": "Question 1",
-          "part": "Part 2 · Reading for Information",
-          "question": "What billing model is replacing the flat rate?",
-          "options": [
-            "A two-tier model",
-            "A three-tier model",
-            "A four-tier consumption model",
-            "A fully usage-independent flat fee"
-          ],
-          "answerIndex": 2,
-          "explanation": "Rates will shift 'from a single flat rate to a four-tier consumption model.'"
+          "part": "Part 3 · Double Passages",
+          "question": "What is Elena's invoice for?",
+          "options": ["Graphic design work", "Website copywriting", "Software development", "Marketing consulting"],
+          "answerIndex": 1,
+          "explanation": "Elena's email states the invoice is 'for the website copywriting project.'"
         },
         {
-          "id": "rd-08-q2",
+          "id": "rd-09-q2",
           "label": "Question 2",
-          "part": "Part 2 · Reading for Information",
-          "question": "What is the rate for Tier 1 usage?",
-          "options": ["$0.004 per gallon", "$0.006 per gallon", "$0.009 per gallon", "$0.014 per gallon"],
-          "answerIndex": 0,
-          "explanation": "Tier 1 is 'billed at the current rate of $0.004 per gallon, unchanged from today.'"
+          "part": "Part 3 · Double Passages",
+          "question": "According to Elena's contract, payment is normally due within how many business days?",
+          "options": ["10 business days", "15 business days", "20 business days", "30 business days"],
+          "answerIndex": 1,
+          "explanation": "Elena states payment 'is due within 15 business days of submission.'"
         },
         {
-          "id": "rd-08-q3",
+          "id": "rd-09-q3",
           "label": "Question 3",
-          "part": "Part 2 · Reading for Information",
-          "question": "A household uses 6,000 gallons in a month. How is their bill calculated?",
+          "part": "Part 3 · Double Passages",
+          "question": "What conflicting policy did Elena notice on the contractor portal?",
           "options": [
-            "All 6,000 gallons at the Tier 2 rate",
-            "The first 4,000 gallons at Tier 1 rate, and the remaining 2,000 at Tier 2 rate",
-            "All 6,000 gallons at the Tier 1 rate",
-            "6,000 gallons split evenly between all four tiers"
+            "A 10-day rush payment option",
+            "A net-30 calendar day policy for invoices over $2,000",
+            "A requirement for all invoices to be under $2,000",
+            "A policy requiring pre-approval for revisions"
           ],
           "answerIndex": 1,
-          "explanation": "The notice explains this exact example: 'a household using 6,000 gallons pays the Tier 1 rate on the first 4,000 gallons and the Tier 2 rate only on the remaining 2,000.'"
+          "explanation": "Elena notes 'a separate \"net-30 calendar days\" policy for all invoices over $2,000.'"
         },
         {
-          "id": "rd-08-q4",
+          "id": "rd-09-q4",
           "label": "Question 4",
-          "part": "Part 2 · Reading for Information",
-          "question": "What gallon range does Tier 3 cover?",
-          "options": ["0 to 4,000 gallons", "4,001 to 8,000 gallons", "8,001 to 15,000 gallons", "Above 15,000 gallons"],
+          "part": "Part 3 · Double Passages",
+          "question": "What is Elena's invoice total?",
+          "options": ["$2,000", "$2,200", "$2,400", "$3,000"],
           "answerIndex": 2,
-          "explanation": "Tier 3 'covers 8,001 to 15,000 gallons.'"
+          "explanation": "Elena states 'my invoice total is $2,400.'"
         },
         {
-          "id": "rd-08-q5",
+          "id": "rd-09-q5",
           "label": "Question 5",
-          "part": "Part 2 · Reading for Information",
-          "question": "What is notable about the Tier 4 rate compared to the base rate?",
+          "part": "Part 3 · Double Passages",
+          "question": "Why does Elena say she is contacting the client instead of sending a late notice?",
           "options": [
-            "It is exactly double the base rate",
-            "It is more than triple the base rate",
-            "It is the same as Tier 3",
-            "It is capped regardless of usage"
+            "She wants to negotiate a higher rate",
+            "She doesn't want to send a late notice prematurely if she's misunderstanding the policy",
+            "She has already received partial payment",
+            "The client requested she wait before following up"
           ],
           "answerIndex": 1,
-          "explanation": "The Tier 4 rate of $0.014 is described as 'more than triple the base rate.'"
+          "explanation": "Elena says she doesn't 'want to send a formal late notice prematurely if I'm simply misunderstanding the applicable policy.'"
         },
         {
-          "id": "rd-08-q6",
+          "id": "rd-09-q6",
           "label": "Question 6",
-          "part": "Part 2 · Reading for Information",
-          "question": "What is the primary purpose of the Tier 4 rate?",
+          "part": "Part 3 · Double Passages",
+          "question": "According to Daniel's reply, which policy actually applies to Elena's invoice?",
           "options": [
-            "To fund new infrastructure exclusively",
-            "To discourage non-essential high-volume use such as excessive landscape irrigation",
-            "To subsidize Tier 1 households",
-            "To phase out residential water service"
+            "The 15-business-day term",
+            "The net-30-calendar-day policy, since the invoice is at or above $2,000",
+            "Neither policy applies to this invoice",
+            "Both policies apply equally, split by amount"
           ],
           "answerIndex": 1,
-          "explanation": "Tier 4 is 'intended primarily to discourage non-essential high-volume use such as excessive landscape irrigation.'"
+          "explanation": "Daniel confirms 'the net-30 policy applies, not the 15-business-day term,' since the invoice meets the $2,000 threshold."
         },
         {
-          "id": "rd-08-q7",
+          "id": "rd-09-q7",
           "label": "Question 7",
-          "part": "Part 2 · Reading for Information",
-          "question": "What consumption reduction qualifies a household for the conservation credit?",
+          "part": "Part 3 · Double Passages",
+          "question": "Why does the company apply a longer timeline to larger invoices?",
           "options": [
-            "Any reduction at all",
-            "At least 10%",
-            "At least 15% compared to the same month last year",
-            "Exactly 20%"
+            "Larger invoices require an additional internal budget sign-off step",
+            "Larger invoices are processed by a different department entirely",
+            "The company has less cash flow for large payments",
+            "Freelancers prefer longer timelines for large invoices"
           ],
-          "answerIndex": 2,
-          "explanation": "Households must reduce consumption 'by at least 15% compared to the same month last year.'"
+          "answerIndex": 0,
+          "explanation": "Daniel explains larger invoices 'require an additional internal budget sign-off step that shorter timelines don't accommodate.'"
         },
         {
-          "id": "rd-08-q8",
+          "id": "rd-09-q8",
           "label": "Question 8",
-          "part": "Part 2 · Reading for Information",
-          "question": "What is the size of the conservation credit?",
+          "part": "Part 3 · Double Passages",
+          "question": "According to the contractor handbook, what determines whether a revision resets the invoice date?",
           "options": [
-            "5% of that month's bill",
-            "10% of that month's total bill",
-            "15% of that month's total bill",
-            "A flat $10 credit"
+            "Whether the revision was requested within or after a 10-day window from original submission",
+            "Whether the revision was requested by phone or email",
+            "Whether the revision changed the invoice amount",
+            "Whether the client's finance team approved it in advance"
           ],
-          "answerIndex": 1,
-          "explanation": "Qualifying households receive 'a conservation credit equal to 10% of that month's total bill.'"
+          "answerIndex": 0,
+          "explanation": "Revisions requested 'within 10 days of original submission do not reset the invoice date,' while later ones do."
         },
         {
-          "id": "rd-08-q9",
+          "id": "rd-09-q9",
           "label": "Question 9",
-          "part": "Part 2 · Reading for Information",
-          "question": "A household used 12,000 gallons last year and reduces usage by 20% this year. Do they qualify for the conservation credit?",
-          "options": [
-            "Yes, since their reduction exceeds 15%",
-            "No, because their prior usage exceeded the 10,000-gallon eligibility threshold",
-            "Yes, but only for a partial credit",
-            "No, because the credit doesn't apply to any household using more than 4,000 gallons"
-          ],
+          "part": "Part 3 · Double Passages",
+          "question": "When was Elena's original invoice submitted?",
+          "options": ["September 18", "September 28", "October 3", "October 14"],
           "answerIndex": 1,
-          "explanation": "The credit is 'only available to households whose usage last year was already at or below 10,000 gallons,' so 12,000 gallons disqualifies them despite the 20% reduction."
+          "explanation": "Elena's email states the invoice was 'submitted September 28.'"
         },
         {
-          "id": "rd-08-q10",
+          "id": "rd-09-q10",
           "label": "Question 10",
-          "part": "Part 2 · Reading for Information",
-          "question": "Why does the utility restrict the conservation credit to households with modest prior usage?",
+          "part": "Part 3 · Double Passages",
+          "question": "Did Elena's first revision request affect the invoice date, according to Daniel?",
           "options": [
-            "To reduce total administrative costs",
-            "Because the program is designed to reward already-modest usage rather than cuts from very high baselines",
-            "Because higher-usage households are ineligible for any city programs",
-            "Because the credit only applies to Tier 1 customers"
+            "Yes, since it fell outside the 10-day window",
+            "No, since it fell within the 10-day window from the original submission",
+            "Yes, all revisions automatically reset the date",
+            "It cannot be determined from the information given"
           ],
           "answerIndex": 1,
-          "explanation": "The program 'is designed to reward households with already-modest usage rather than those cutting back from very high baselines.'"
+          "explanation": "Daniel confirms the first revision request 'came on October 3, which is within that 10-day window... so it does not affect the date.'"
         },
         {
-          "id": "rd-08-q11",
+          "id": "rd-09-q11",
           "label": "Question 11",
-          "part": "Part 2 · Reading for Information",
-          "question": "What does the medical necessity exemption allow?",
+          "part": "Part 3 · Double Passages",
+          "question": "What information does Daniel say is missing from the company's records?",
           "options": [
-            "Unlimited water use at Tier 1 rates",
-            "A Tier 1 rate extension covering up to 10,000 gallons monthly instead of 4,000",
-            "A complete waiver of all water charges",
-            "Automatic enrollment in the conservation credit program"
+            "The invoice total",
+            "A record of the second revision request",
+            "Elena's contact information",
+            "The original contract terms"
           ],
           "answerIndex": 1,
-          "explanation": "Qualifying households 'may apply for a Tier 1 rate extension covering up to 10,000 gallons monthly instead of the standard 4,000-gallon threshold.'"
+          "explanation": "Daniel writes, 'I don't see a record of a second revision request in our system.'"
         },
         {
-          "id": "rd-08-q12",
+          "id": "rd-09-q12",
           "label": "Question 12",
-          "part": "Part 2 · Reading for Information",
-          "question": "Does the medical exemption apply retroactively to past bills?",
+          "part": "Part 3 · Double Passages",
+          "question": "Why does Daniel need the date of the second revision request before finalizing the due date?",
           "options": [
-            "Yes, to any bill issued that year",
-            "No, it does not apply retroactively to bills issued before approval",
-            "Yes, but only for the current billing cycle",
-            "The notice does not address this"
+            "To determine whether it fell outside the 10-day window and would reset the clock",
+            "To verify Elena completed the work correctly",
+            "To decide whether the invoice qualifies for the net-30 policy",
+            "To calculate a late fee"
+          ],
+          "answerIndex": 0,
+          "explanation": "Daniel explains that if the second revision 'fell outside the 10-day window, the clock would reset accordingly,' so he needs the date to calculate the correct due date."
+        },
+        {
+          "id": "rd-09-q13",
+          "label": "Question 13",
+          "part": "Part 3 · Double Passages",
+          "question": "What does Daniel acknowledge about the company's documentation?",
+          "options": [
+            "It is fully accurate and up to date",
+            "The contractor portal language needs updating due to confusing overlap",
+            "It was recently rewritten to fix all conflicts",
+            "It does not apply to any freelance contracts"
           ],
           "answerIndex": 1,
-          "explanation": "The exemption 'does not apply retroactively to bills issued before the exemption is approved.'"
+          "explanation": "Daniel apologizes 'for the confusing overlap in our documentation — we're aware the contractor portal language needs updating.'"
         },
         {
-          "id": "rd-08-q13",
-          "label": "Question 13",
-          "part": "Part 2 · Reading for Information",
-          "question": "How often must the medical exemption be renewed?",
-          "options": ["Every month", "Every quarter", "Annually", "It is permanent once approved"],
-          "answerIndex": 2,
-          "explanation": "The exemption 'must be renewed annually with updated medical documentation.'"
-        },
-        {
-          "id": "rd-08-q14",
+          "id": "rd-09-q14",
           "label": "Question 14",
-          "part": "Part 2 · Reading for Information",
-          "question": "How many days does a customer have to file a billing appeal?",
-          "options": ["15 days", "30 days", "45 days", "60 days"],
-          "answerIndex": 2,
-          "explanation": "Customers have '45 days from the billing date to file an appeal.'"
-        },
-        {
-          "id": "rd-08-q15",
-          "label": "Question 15",
-          "part": "Part 2 · Reading for Information",
-          "question": "A customer paid their bill in full, then discovered a discrepancy and filed an appeal within the 45-day window. It is later confirmed the water meter itself was malfunctioning. Based on the notice, what remedy is this customer entitled to?",
+          "part": "Part 3 · Double Passages",
+          "question": "Suppose Elena's second revision request was made on October 12. Based on both emails, would this reset the invoice clock, and if so, from what date would net-30 begin counting?",
           "options": [
-            "Only a bill credit toward a future statement, since the bill was already paid",
-            "No remedy, since appeals after payment are generally limited to credits",
-            "A direct refund, since confirmed meter malfunctions remain eligible for direct refunds regardless of payment status",
-            "A partial credit equal to 10%, the same as the conservation credit"
+            "No reset; the clock still counts from September 28",
+            "Yes, reset; net-30 would count from October 3, the first revision date",
+            "Yes, reset; net-30 would count from October 12, since it falls outside the 10-day window from September 28",
+            "No reset; only the first revision date matters"
           ],
           "answerIndex": 2,
-          "explanation": "While appeals after payment are normally limited to a bill credit, the notice creates an exception: 'unless the dispute involves a confirmed meter malfunction, in which case a direct refund remains available regardless of payment status.'"
+          "explanation": "The 10-day window from September 28 ends around October 8; October 12 falls outside that window, so per the handbook the clock resets 'to the date the final revision was delivered' — October 12."
+        },
+        {
+          "id": "rd-09-q15",
+          "label": "Question 15",
+          "part": "Part 3 · Double Passages",
+          "question": "Based on both emails together, what is the overall relationship between Elena's contract terms and the contractor portal policy for invoices like hers?",
+          "options": [
+            "The contract's 15-business-day term always takes precedence over the portal policy",
+            "The two policies apply simultaneously, and Elena is paid whichever comes first",
+            "The portal's net-30 policy overrides the contract's 15-business-day term specifically for invoices at or above $2,000",
+            "Neither policy applies, and payment timing is decided case-by-case with no fixed rule"
+          ],
+          "answerIndex": 2,
+          "explanation": "Daniel's email clarifies that the net-30 policy 'specifically overrides' the standard 15-business-day term, but only for invoices meeting the $2,000 threshold — a rule that must be pieced together from both the initial policy mention in Elena's email and Daniel's confirming explanation."
         }
       ]
     }

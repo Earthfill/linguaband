@@ -2,6 +2,20 @@ import { isAdmin } from "@/lib/auth";
 import { savePracticeSets, setPracticeAudioStatus } from "@/lib/store";
 import { validatePracticeSets } from "@/lib/validate-practice-sets";
 import { dispatchPracticeAudio } from "@/lib/audio";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
+import type { ListeningTrack } from "@/data/practice/types";
+
+type R2Bucket = {
+  put(key: string, value: ArrayBuffer, options: { httpMetadata: { contentType: string } }): Promise<unknown>;
+};
+
+const MAX_IMAGE_SIZE = 8_000_000;
+const MAX_TOTAL_IMAGE_SIZE = 20_000_000;
+const IMAGE_TYPES: Record<string, string> = {
+  "image/png": ".png",
+  "image/jpeg": ".jpg",
+  "image/webp": ".webp",
+};
 
 export async function POST(request: Request) {
   if (!(await isAdmin())) return new Response("Unauthorized", { status: 401 });
@@ -10,6 +24,26 @@ export async function POST(request: Request) {
   const file = form.get("file");
   if (!(file instanceof File)) return Response.json({ error: "Missing JSON file." }, { status: 400 });
   if (file.size > 2_000_000) return Response.json({ error: "File too large (max 2 MB)." }, { status: 413 });
+
+  const imageFiles = new Map<string, File>();
+  let totalImageSize = 0;
+  for (const entry of form.getAll("images")) {
+    if (!(entry instanceof File) || entry.size === 0) continue;
+    if (!Object.hasOwn(IMAGE_TYPES, entry.type)) {
+      return Response.json({ error: `Unsupported image type for "${entry.name}". Use PNG, JPEG, or WebP.` }, { status: 400 });
+    }
+    if (entry.size > MAX_IMAGE_SIZE) {
+      return Response.json({ error: `Image "${entry.name}" is too large (max 8 MB).` }, { status: 413 });
+    }
+    totalImageSize += entry.size;
+    if (totalImageSize > MAX_TOTAL_IMAGE_SIZE) {
+      return Response.json({ error: "Combined image files are too large (max 20 MB per upload)." }, { status: 413 });
+    }
+    if (imageFiles.has(entry.name)) {
+      return Response.json({ error: `Image filename "${entry.name}" was selected more than once.` }, { status: 400 });
+    }
+    imageFiles.set(entry.name, entry);
+  }
 
   let parsed: unknown;
   try {
@@ -20,6 +54,31 @@ export async function POST(request: Request) {
 
   const { sets, errors } = validatePracticeSets(parsed);
   if (!sets) return Response.json({ errors }, { status: 400 });
+
+  const referencedImages = new Set(sets.listening.flatMap((track) => track.image ? [track.image] : []));
+  const missingImages = [...referencedImages].filter((name) => !imageFiles.has(name));
+  if (missingImages.length) {
+    return Response.json({ error: `Select the image file(s) referenced in the JSON: ${missingImages.join(", ")}.` }, { status: 400 });
+  }
+  const unreferencedImages = [...imageFiles.keys()].filter((name) => !referencedImages.has(name));
+  if (unreferencedImages.length) {
+    return Response.json({ error: `These selected images are not referenced by a listening track: ${unreferencedImages.join(", ")}.` }, { status: 400 });
+  }
+
+  try {
+    const bucket = (getCloudflareContext().env as { BUCKET?: R2Bucket }).BUCKET;
+    if (referencedImages.size && !bucket) throw new Error("R2 bucket binding is not configured.");
+    for (const track of sets.listening) {
+      if (!track.image) continue;
+      const image = imageFiles.get(track.image)!;
+      await bucket!.put(`practice/${track.id}/image`, await image.arrayBuffer(), { httpMetadata: { contentType: image.type } });
+      track.imageUrl = `/api/practice-images/${encodeURIComponent(track.id)}`;
+      delete (track as ListeningTrack & { image?: string }).image;
+    }
+  } catch (err) {
+    console.error("[admin/practice-sets] image upload failed", err);
+    return Response.json({ error: err instanceof Error ? err.message : String(err) }, { status: 500 });
+  }
 
   try {
     await savePracticeSets(sets);
