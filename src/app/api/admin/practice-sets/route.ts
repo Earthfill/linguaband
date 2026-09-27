@@ -1,6 +1,7 @@
 import { isAdmin } from "@/lib/auth";
-import { savePracticeSets } from "@/lib/store";
+import { savePracticeSets, setPracticeAudioStatus } from "@/lib/store";
 import { validatePracticeSets } from "@/lib/validate-practice-sets";
+import { dispatchPracticeAudio } from "@/lib/audio";
 
 export async function POST(request: Request) {
   if (!(await isAdmin())) return new Response("Unauthorized", { status: 401 });
@@ -27,10 +28,23 @@ export async function POST(request: Request) {
     return Response.json({ error: err instanceof Error ? err.message : String(err) }, { status: 500 });
   }
 
+  const audioResults = await Promise.all(
+    sets.listening.map(async (track) => {
+      try {
+        const result = await dispatchPracticeAudio(track.id);
+        if (result.ok) await setPracticeAudioStatus(track.id, "generating");
+        return { id: track.id, ...result };
+      } catch (err) {
+        return { id: track.id, ok: false, error: err instanceof Error ? err.message : String(err) };
+      }
+    }),
+  );
+
   return Response.json({
     ok: true,
     listening: sets.listening.length,
     reading: sets.reading.length,
     replacedIds: [...sets.listening, ...sets.reading].map((set) => set.id),
+    audio: audioResults,
   });
 }

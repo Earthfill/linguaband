@@ -6,6 +6,14 @@ export type DispatchResult = {
 };
 
 export async function dispatchAudio(mockId: string): Promise<DispatchResult> {
+  return dispatchWorkflow("generate-audio", { mockId });
+}
+
+export async function dispatchPracticeAudio(trackId: string): Promise<DispatchResult> {
+  return dispatchWorkflow("generate-practice-audio", { trackId });
+}
+
+async function dispatchWorkflow(eventType: string, payload: Record<string, string>): Promise<DispatchResult> {
   const token = process.env.GITHUB_TOKEN;
   const repo = process.env.GITHUB_REPO;
   if (!token || !repo) {
@@ -20,7 +28,7 @@ export async function dispatchAudio(mockId: string): Promise<DispatchResult> {
         "User-Agent": "linguaband-admin",
         "X-GitHub-Api-Version": "2022-11-28",
       },
-      body: JSON.stringify({ event_type: "generate-audio", client_payload: { mockId } }),
+      body: JSON.stringify({ event_type: eventType, client_payload: payload }),
     });
     if (res.ok) return { ok: true, status: res.status };
 

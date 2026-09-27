@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { isAdmin } from "@/lib/auth";
-import { adminMocks } from "@/lib/store";
+import { adminMocks, adminPracticeTracks } from "@/lib/store";
 import { LoginForm } from "@/components/admin/LoginForm";
 import { AdminPanel } from "@/components/admin/AdminPanel";
 
@@ -26,14 +26,14 @@ export default async function AdminPage() {
     );
   }
 
-  const mocks = await adminMocks();
+  const [mocks, listeningTracks] = await Promise.all([adminMocks(), adminPracticeTracks()]);
   return (
     <>
       <Header />
       <main className="flex-1">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
           <h1 className="mb-6 font-display text-2xl font-bold text-zinc-900">Admin</h1>
-          <AdminPanel mocks={mocks} />
+          <AdminPanel mocks={mocks} listeningTracks={listeningTracks} />
         </div>
       </main>
       <Footer />

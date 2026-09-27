@@ -55,12 +55,14 @@ export function DialogueAudioPlayer({
   onEnded,
   entry: propEntry,
   source,
+  audioStatus,
 }: {
   transcript: string;
   mode: "exam" | "practice";
   onEnded?: () => void;
   entry?: AudioEntry;
   source?: "stored" | "practice";
+  audioStatus?: "content" | "generating" | "ready" | "failed";
 }) {
   const entry = propEntry;
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -82,7 +84,11 @@ export function DialogueAudioPlayer({
           {source === "stored" ? (
             "Audio is still being generated. If it does not appear, the audio job was not scheduled — check the GitHub token permission."
           ) : source === "practice" ? (
-            "Audio is not available for this practice set yet."
+            audioStatus === "generating"
+              ? "Audio is being generated for this practice track."
+              : audioStatus === "failed"
+                ? "Audio generation failed. An administrator can retry it from /admin."
+                : "Audio is not available for this practice set yet."
           ) : null}
         </p>
       </div>

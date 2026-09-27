@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { AdminMock } from "@/lib/store";
+import type { AdminPracticeTrack } from "@/lib/store";
 
 /** A "generating" row older than this is treated as stuck (the job failed or never ran). */
 const STUCK_AFTER_MS = 15 * 60 * 1000;
@@ -15,10 +16,11 @@ function isStuck(mock: AdminMock, now: number): boolean {
   return now - updated > STUCK_AFTER_MS;
 }
 
-export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
+export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; listeningTracks: AdminPracticeTrack[] }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [retrying, setRetrying] = useState<string | null>(null);
+  const [retryingPractice, setRetryingPractice] = useState<string | null>(null);
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
   const [practiceBusy, setPracticeBusy] = useState(false);
   const [practiceResult, setPracticeResult] = useState<{ ok: boolean; message: string } | null>(null);
@@ -105,6 +107,27 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
     }
   }
 
+  async function retryPracticeAudio(trackId: string) {
+    setRetryingPractice(trackId);
+    try {
+      const form = new FormData();
+      form.append("trackId", trackId);
+      const res = await fetch("/api/admin/regenerate-practice-audio", { method: "POST", body: form });
+      const data = (await res.json().catch(() => null)) as { dispatched?: boolean; status?: number; error?: string } | null;
+      setPracticeResult({
+        ok: res.ok && Boolean(data?.dispatched),
+        message: data?.dispatched
+          ? `Audio generation queued for ${trackId}.`
+          : `Could not queue ${trackId} audio — ${data?.status ?? res.status} ${data?.error ?? "unknown error"}`,
+      });
+      router.refresh();
+    } catch {
+      setPracticeResult({ ok: false, message: `Retry failed for ${trackId} (network error).` });
+    } finally {
+      setRetryingPractice(null);
+    }
+  }
+
   async function uploadPracticeSets(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formElement = e.currentTarget;
@@ -120,6 +143,7 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
         listening?: number;
         reading?: number;
         replacedIds?: string[];
+        audio?: { id: string; ok: boolean; status?: number; error?: string }[];
         errors?: string[];
         error?: string;
       } | null;
@@ -131,9 +155,14 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
         return;
       }
       const replaced = data?.replacedIds?.length ? ` Replaced matching IDs: ${data.replacedIds.join(", ")}.` : "";
+      const failedAudio = data?.audio?.filter((item) => !item.ok) ?? [];
+      const pendingAudio = data?.audio?.filter((item) => item.ok) ?? [];
+      const audioMessage = (data?.audio?.length ?? 0) === 0
+        ? ""
+        : `${pendingAudio.length ? ` Audio generation queued for ${pendingAudio.map((item) => item.id).join(", ")}.` : ""}${failedAudio.length ? ` Audio could not be queued for ${failedAudio.map((item) => `${item.id} (${item.status ?? ""} ${item.error ?? ""})`).join(", ")}.` : ""}`;
       setPracticeResult({
         ok: true,
-        message: `Uploaded ${data?.listening ?? 0} listening and ${data?.reading ?? 0} reading set(s).${replaced}`,
+        message: `Uploaded ${data?.listening ?? 0} listening and ${data?.reading ?? 0} reading set(s).${replaced}${audioMessage}`,
       });
       formElement.reset();
       router.refresh();
@@ -211,6 +240,35 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
           </p>
         ) : null}
       </form>
+
+      <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+        <h2 className="font-display text-lg font-bold text-zinc-900">Listening practice audio</h2>
+        {listeningTracks.length === 0 ? (
+          <p className="mt-2 text-sm text-zinc-500">No listening practice tracks uploaded yet.</p>
+        ) : (
+          <ul className="mt-3 divide-y divide-zinc-100">
+            {listeningTracks.map((track) => {
+              const status = track.audioStatus ?? (track.audio ? "ready" : "content");
+              const updated = track.updatedAt ? Date.parse(track.updatedAt) : NaN;
+              const stuck = status === "generating" && now > 0 && (Number.isNaN(updated) || now - updated > STUCK_AFTER_MS);
+              return (
+                <li key={track.id} className="flex items-center justify-between gap-3 py-2">
+                  <span className="text-sm text-zinc-700">{track.title} <span className="text-zinc-400">({track.id})</span></span>
+                  <div className="flex items-center gap-2">
+                    {status !== "ready" || stuck ? (
+                      <button type="button" onClick={() => retryPracticeAudio(track.id)} disabled={retryingPractice === track.id}
+                        className="rounded-full border border-zinc-200 px-3 py-1 text-xs font-semibold text-zinc-600 hover:border-violet-300 hover:text-violet-600 disabled:opacity-50">
+                        {retryingPractice === track.id ? "…" : status === "generating" || stuck ? "Re-queue audio" : "Generate audio"}
+                      </button>
+                    ) : null}
+                    <StatusBadge status={status} />
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
 
       <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
         <h2 className="font-display text-lg font-bold text-zinc-900">Mocks</h2>

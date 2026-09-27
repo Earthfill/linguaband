@@ -12,7 +12,9 @@ type SetEntry = {
   part: string;
   skill: Exclude<Skill, "All">;
   text: string;
+  audio?: ListeningTrack["audio"];
   audioId?: string;
+  audioStatus?: ListeningTrack["audioStatus"];
   questions: BankQuestion[];
 };
 
@@ -34,7 +36,9 @@ export function QuestionBank({
       part: track.part,
       skill: "Listening" as const,
       text: track.transcript,
+      audio: track.audio,
       audioId: track.id,
+      audioStatus: track.audioStatus,
       questions: questions.filter((q) => q.skill === "Listening" && q.setId === track.id),
     })),
     ...sets.reading.map((passage) => ({
@@ -101,7 +105,8 @@ export function QuestionBank({
               ? {
                   audio: {
                     id: practicingEntry.audioId,
-                    entry: undefined,
+                    entry: practicingEntry.audio,
+                    status: practicingEntry.audioStatus,
                   },
                 }
               : {}),

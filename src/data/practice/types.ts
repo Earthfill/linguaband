@@ -21,6 +21,8 @@ export type ListeningTrack = {
   durationSec: number;
   trackLabel: string;
   transcript: string;
+  audio?: AudioEntry;
+  audioStatus?: "content" | "generating" | "ready" | "failed";
   questions: PracticeQuestion[];
 };
 

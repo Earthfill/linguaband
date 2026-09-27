@@ -32,7 +32,18 @@ export type PracticeSets = {
   reading: ReadingPassage[];
 };
 
-type StoredPracticeSet = { id: string; skill: "listening" | "reading"; payload: string };
+export type AdminPracticeTrack = Pick<ListeningTrack, "id" | "title" | "audio" | "audioStatus"> & {
+  updatedAt?: string;
+};
+
+type StoredPracticeSet = {
+  id: string;
+  skill: "listening" | "reading";
+  payload: string;
+  audio?: string | null;
+  audio_status?: ListeningTrack["audioStatus"];
+  updated_at?: string;
+};
 
 function getDb(): D1Database | null {
   try {
@@ -70,14 +81,19 @@ export async function listPracticeSets(): Promise<PracticeSets> {
   if (db) {
     try {
       const res = await db
-        .prepare("SELECT id, skill, payload FROM practice_sets ORDER BY updated_at DESC")
+        .prepare("SELECT id, skill, payload, audio, audio_status FROM practice_sets ORDER BY updated_at DESC")
         .all<StoredPracticeSet>();
       const listening: ListeningTrack[] = [];
       const reading: ReadingPassage[] = [];
       for (const row of res.results ?? []) {
         const set = parsePracticeSet(row.payload);
         if (!set) continue;
-        if (row.skill === "listening") listening.push(set as ListeningTrack);
+        if (row.skill === "listening") {
+          const track = set as ListeningTrack;
+          track.audio = row.audio ? (JSON.parse(row.audio) as AudioEntry) : undefined;
+          track.audioStatus = row.audio_status ?? (track.audio ? "ready" : "content");
+          listening.push(track);
+        }
         if (row.skill === "reading") reading.push(set as ReadingPassage);
       }
       return { listening, reading };
@@ -99,12 +115,63 @@ export async function savePracticeSets(sets: PracticeSets): Promise<void> {
   for (const row of rows) {
     await db
       .prepare(
-        "INSERT INTO practice_sets (id, skill, payload, updated_at) VALUES (?, ?, ?, ?) " +
-          "ON CONFLICT(id) DO UPDATE SET skill = excluded.skill, payload = excluded.payload, updated_at = excluded.updated_at",
+        "INSERT INTO practice_sets (id, skill, payload, updated_at, audio, audio_status) VALUES (?, ?, ?, ?, NULL, ?) " +
+          "ON CONFLICT(id) DO UPDATE SET skill = excluded.skill, payload = excluded.payload, updated_at = excluded.updated_at, " +
+          "audio = CASE WHEN json_extract(practice_sets.payload, '$.transcript') = json_extract(excluded.payload, '$.transcript') THEN practice_sets.audio ELSE NULL END, " +
+          "audio_status = CASE WHEN json_extract(practice_sets.payload, '$.transcript') = json_extract(excluded.payload, '$.transcript') THEN practice_sets.audio_status ELSE excluded.audio_status END",
       )
-      .bind(row.id, row.skill, JSON.stringify(row.set), now)
+      .bind(row.id, row.skill, JSON.stringify(row.set), now, row.skill === "listening" ? "content" : "ready")
       .run();
   }
+}
+
+export async function adminPracticeTracks(): Promise<AdminPracticeTrack[]> {
+  const db = getDb();
+  if (!db) return [];
+  try {
+    const res = await db
+      .prepare("SELECT id, payload, audio, audio_status, updated_at FROM practice_sets WHERE skill = 'listening' ORDER BY updated_at DESC")
+      .all<StoredPracticeSet>();
+    return (res.results ?? []).flatMap((row) => {
+      const set = parsePracticeSet(row.payload);
+      if (!set) return [];
+      const track = set as ListeningTrack;
+      track.audio = row.audio ? (JSON.parse(row.audio) as AudioEntry) : undefined;
+      track.audioStatus = row.audio_status ?? (track.audio ? "ready" : "content");
+      return [{ id: row.id, title: track.title, audio: track.audio, audioStatus: track.audioStatus, updatedAt: row.updated_at }];
+    });
+  } catch (err) {
+    console.error("[store] adminPracticeTracks failed", err);
+    return [];
+  }
+}
+
+export async function practiceTrackExists(id: string): Promise<boolean> {
+  const db = getDb();
+  if (!db) return false;
+  const row = await db.prepare("SELECT id FROM practice_sets WHERE id = ? AND skill = 'listening'").bind(id).first<{ id: string }>();
+  return Boolean(row);
+}
+
+export async function setPracticeAudioStatus(
+  id: string,
+  status: NonNullable<ListeningTrack["audioStatus"]>,
+): Promise<void> {
+  const db = getDb();
+  if (!db) return;
+  await db
+    .prepare("UPDATE practice_sets SET audio_status = ?, updated_at = ? WHERE id = ? AND skill = 'listening'")
+    .bind(status, new Date().toISOString(), id)
+    .run();
+}
+
+export async function setPracticeAudio(id: string, audio: AudioEntry): Promise<void> {
+  const db = getDb();
+  if (!db) return;
+  await db
+    .prepare("UPDATE practice_sets SET audio = ?, audio_status = 'ready', updated_at = ? WHERE id = ? AND skill = 'listening'")
+    .bind(JSON.stringify(audio), new Date().toISOString(), id)
+    .run();
 }
 
 /** Return uploaded mocks only. */

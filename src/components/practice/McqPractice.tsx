@@ -9,7 +9,7 @@ import type { AudioEntry } from "@/data/practice/types";
 type McqPracticeProps = {
   questions: PracticeQuestion[];
   accent?: "blue" | "violet";
-  context?: { title: string; text: string; label: string; audio?: { id: string; entry?: AudioEntry } };
+  context?: { title: string; text: string; label: string; audio?: { id: string; entry?: AudioEntry; status?: "content" | "generating" | "ready" | "failed" } };
 };
 
 const accents = {
@@ -111,6 +111,7 @@ export function McqPractice({ questions, accent = "blue", context }: McqPractice
                 transcript={context.text}
                 mode="practice"
                 entry={context.audio.entry}
+                audioStatus={context.audio.status}
                 source={context.audio.entry ? undefined : "practice"}
               />
             </div>
