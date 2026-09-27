@@ -1,321 +1,406 @@
 {
   "listening": [
     {
-      "id": "lst-01",
-      "title": "Refund for a damaged laptop charger",
-      "part": "Part 1 · Problem Solving",
-      "setting": "Customer service call",
-      "speaker": "Customer ↔ Agent",
-      "durationSec": 36,
-      "trackLabel": "Track 1 · 0:36",
-      "transcript": "AGENT: TechFix support, Maya speaking. How can I help you?\nCUSTOMER: Hi — I bought a laptop charger from your website last week and it arrived already cracked. The cable's frayed near the tip.\nAGENT: I'm sorry about that. Could you share your order number so I can look it up?\nCUSTOMER: Sure, it's 8-3-2-1-7-0-4.\nAGENT: Thanks. I can see the order was placed six days ago. We'll send a replacement free of charge, and you don't need to return the damaged one.\nCUSTOMER: That's great. How long will it take?\nAGENT: Around three to five business days. You'll receive a tracking email shortly.\nCUSTOMER: Perfect, that solves it.",
+      "id": "lst-08",
+      "title": "Corporate training webinar — new expense card tiers and rollover rules",
+      "part": "Part 2 · Short Talks",
+      "setting": "Recorded internal training webinar",
+      "speaker": "Single HR presenter",
+      "durationSec": 79,
+      "trackLabel": "Track 8 · 1:19",
+      "transcript": "PRESENTER: Thanks for joining this short training on the new corporate card system, rolling out company-wide starting the first of next month. Every employee will be assigned to one of three card tiers based on role, not seniority — this is a common point of confusion, since some newer employees in client-facing roles will actually receive a higher tier than long-tenured staff in internal roles. Tier A, for roles involving regular client travel, carries a monthly limit of $2,000, and unused amounts roll over up to a maximum accumulated balance of $3,000 — so if you spend nothing one month, you don't simply gain another $2,000 on top, you're capped at that $3,000 ceiling regardless of how many months you save. Tier B, for occasional travel roles, has a $900 monthly limit with no rollover at all; whatever isn't used resets to zero at the start of each month. Tier C, for non-travel roles, isn't a monthly allowance at all, but rather a $500 per-quarter limit intended mainly for client meals and small local expenses, and this one does roll over fully between quarters within the same calendar year, though it resets to zero every January regardless of what's remaining. Now, here's an important exception: regardless of your assigned tier, any single purchase over $750 requires pre-approval from your manager through the portal before the charge is made, not after — charges made without that pre-approval, even if they're within your monthly or quarterly limit, will be flagged for mandatory review and may result in personal reimbursement liability if not resolved within five business days. One more note specific to Tier A: because travel bookings often span two calendar months, a hotel or flight booking that begins in one month and is paid in full at booking may count against either month's limit, whichever the traveler selects at the time of booking, but this choice cannot be changed retroactively once submitted. Please direct questions to the finance help desk, not your manager, since managers only handle pre-approvals, not general policy questions.",
       "questions": [
         {
-          "id": "lst-01-q1",
+          "id": "lst-08-q1",
           "label": "Question 1",
-          "part": "Part 1 · Problem Solving",
-          "question": "Why is the customer calling TechFix?",
+          "part": "Part 2 · Short Talks",
+          "question": "What determines an employee's card tier?",
           "options": [
-            "To cancel an order they no longer need",
-            "To report a charger that arrived damaged",
-            "To ask about a missing tracking number",
-            "To upgrade their laptop charger model"
+            "Seniority within the company",
+            "Role, not seniority",
+            "Department budget size",
+            "Length of time with the company"
           ],
           "answerIndex": 1,
-          "explanation": "The customer explains that the charger 'arrived already cracked' and the cable is frayed. An easy keyword to catch: 'damaged charger' rather than 'cancel' or 'upgrade'."
+          "explanation": "The presenter states tiers are assigned 'based on role, not seniority.'"
         },
         {
-          "id": "lst-01-q2",
+          "id": "lst-08-q2",
           "label": "Question 2",
-          "part": "Part 1 · Problem Solving",
-          "question": "What does the agent offer to do?",
+          "part": "Part 2 · Short Talks",
+          "question": "Why does the presenter call the tier system 'a common point of confusion'?",
           "options": [
-            "Issue a refund and collect the old charger",
-            "Repair the charger at the customer's home",
-            "Send a free replacement without requiring a return",
-            "Place a new order at a discounted price"
+            "Because the tiers change every month",
+            "Because some newer client-facing employees may receive a higher tier than long-tenured internal staff",
+            "Because tiers are assigned randomly",
+            "Because tier names are not standardized across departments"
+          ],
+          "answerIndex": 1,
+          "explanation": "The presenter notes newer client-facing employees 'will actually receive a higher tier than long-tenured staff in internal roles.'"
+        },
+        {
+          "id": "lst-08-q3",
+          "label": "Question 3",
+          "part": "Part 2 · Short Talks",
+          "question": "What is the monthly limit for Tier A?",
+          "options": ["$500", "$900", "$2,000", "$3,000"],
+          "answerIndex": 2,
+          "explanation": "Tier A 'carries a monthly limit of $2,000.'"
+        },
+        {
+          "id": "lst-08-q4",
+          "label": "Question 4",
+          "part": "Part 2 · Short Talks",
+          "question": "What is the maximum accumulated rollover balance for Tier A?",
+          "options": ["$2,000", "$2,500", "$3,000", "$4,000"],
+          "answerIndex": 2,
+          "explanation": "Unused Tier A amounts roll over 'up to a maximum accumulated balance of $3,000.'"
+        },
+        {
+          "id": "lst-08-q5",
+          "label": "Question 5",
+          "part": "Part 2 · Short Talks",
+          "question": "If a Tier A employee spends nothing for two consecutive months, how much will they have available in month three?",
+          "options": [
+            "$4,000, since $2,000 accumulates each month",
+            "$6,000, the full sum of three months",
+            "$3,000, the capped ceiling regardless of savings",
+            "$2,000, since rollover doesn't apply after two months"
           ],
           "answerIndex": 2,
-          "explanation": "Maya says 'we'll send a replacement free of charge, and you don't need to return the damaged one.' That matches option C exactly."
+          "explanation": "The presenter explicitly says the balance is 'capped at that $3,000 ceiling regardless of how many months you save.'"
         },
         {
-          "id": "lst-01-q3",
-          "label": "Question 3",
-          "part": "Part 1 · Problem Solving",
-          "question": "When can the customer expect the replacement?",
-          "options": ["Within 1–2 business days", "In 3–5 business days", "By the end of the week", "The next calendar week"],
-          "answerIndex": 1,
-          "explanation": "The agent says the replacement will take around three to five business days."
-        },
-        {
-          "id": "lst-01-q4",
-          "label": "Question 4",
-          "part": "Part 1 · Problem Solving",
-          "question": "What physical problem does the customer describe besides the cracked charger casing?",
-          "options": ["The plug is bent out of shape", "The cable is frayed near the tip", "The charger becomes unusually hot", "The power light will not turn on"],
-          "answerIndex": 1,
-          "explanation": "The customer specifically says the cable is frayed near the tip."
-        },
-        {
-          "id": "lst-01-q5",
-          "label": "Question 5",
-          "part": "Part 1 · Problem Solving",
-          "question": "How long ago was the order placed?",
-          "options": ["Three days ago", "Six days ago", "One week ago", "Two weeks ago"],
-          "answerIndex": 1,
-          "explanation": "The agent checks the order and says it was placed six days ago."
-        },
-        {
-          "id": "lst-01-q6",
+          "id": "lst-08-q6",
           "label": "Question 6",
-          "part": "Part 1 · Problem Solving",
-          "question": "Which detail does the agent ask the customer to provide?",
-          "options": ["The laptop's serial number", "The delivery address", "The order number", "The date the charger was first used"],
+          "part": "Part 2 · Short Talks",
+          "question": "What is the monthly limit for Tier B?",
+          "options": ["$500", "$750", "$900", "$2,000"],
           "answerIndex": 2,
-          "explanation": "Maya asks for the order number so she can look up the purchase."
+          "explanation": "Tier B 'has a $900 monthly limit.'"
         },
         {
-          "id": "lst-01-q7",
+          "id": "lst-08-q7",
           "label": "Question 7",
-          "part": "Part 1 · Problem Solving",
-          "question": "What is the customer's order number?",
-          "options": ["8-3-2-1-7-0-4", "8-3-1-2-7-0-4", "8-3-2-1-6-0-4", "8-2-3-1-7-0-4"],
-          "answerIndex": 0,
-          "explanation": "The customer reads the number aloud as 8-3-2-1-7-0-4."
-        },
-        {
-          "id": "lst-01-q8",
-          "label": "Question 8",
-          "part": "Part 1 · Problem Solving",
-          "question": "What does the agent say the customer should do with the damaged charger?",
-          "options": ["Mail it to the repair centre", "Bring it to a local shop", "Return it with the replacement", "Keep it; no return is needed"],
-          "answerIndex": 3,
-          "explanation": "The agent says the customer does not need to return the damaged charger."
-        },
-        {
-          "id": "lst-01-q9",
-          "label": "Question 9",
-          "part": "Part 1 · Problem Solving",
-          "question": "Will the customer be charged for the replacement?",
-          "options": ["No, it will be sent free of charge", "Yes, but only for shipping", "Yes, at a discounted price", "The agent has not decided"],
-          "answerIndex": 0,
-          "explanation": "Maya offers a replacement free of charge."
-        },
-        {
-          "id": "lst-01-q10",
-          "label": "Question 10",
-          "part": "Part 1 · Problem Solving",
-          "question": "How will the customer learn that the replacement has shipped?",
-          "options": ["By a phone call", "Through a tracking email", "By a text from the courier", "By checking the store in person"],
-          "answerIndex": 1,
-          "explanation": "The agent says a tracking email will arrive shortly."
-        },
-        {
-          "id": "lst-01-q11",
-          "label": "Question 11",
-          "part": "Part 1 · Problem Solving",
-          "question": "Which best describes the agent's response to the complaint?",
-          "options": ["She denies that the item was damaged", "She asks the customer to contact the courier", "She apologizes and arranges a replacement", "She offers store credit instead of help"],
+          "part": "Part 2 · Short Talks",
+          "question": "Does Tier B allow any rollover?",
+          "options": [
+            "Yes, up to $3,000",
+            "Yes, but only for one month",
+            "No, unused amounts reset to zero each month",
+            "Yes, fully, like Tier C"
+          ],
           "answerIndex": 2,
-          "explanation": "Maya apologizes, verifies the order, and arranges a free replacement."
+          "explanation": "Tier B has 'no rollover at all; whatever isn't used resets to zero at the start of each month.'"
         },
         {
-          "id": "lst-01-q12",
+          "id": "lst-08-q8",
+          "label": "Question 8",
+          "part": "Part 2 · Short Talks",
+          "question": "How is Tier C structured differently from Tiers A and B?",
+          "options": [
+            "It has no limit at all",
+            "It is a per-quarter limit rather than a monthly allowance",
+            "It only applies to travel expenses",
+            "It requires pre-approval for every purchase"
+          ],
+          "answerIndex": 1,
+          "explanation": "Tier C 'isn't a monthly allowance at all, but rather a $500 per-quarter limit.'"
+        },
+        {
+          "id": "lst-08-q9",
+          "label": "Question 9",
+          "part": "Part 2 · Short Talks",
+          "question": "Does Tier C's balance roll over between quarters?",
+          "options": [
+            "No, it resets every quarter",
+            "Yes, fully between quarters within the same calendar year, but resets every January",
+            "Yes, indefinitely with no annual reset",
+            "Only if pre-approved by a manager"
+          ],
+          "answerIndex": 1,
+          "explanation": "Tier C 'roll[s] over fully between quarters within the same calendar year, though it resets to zero every January.'"
+        },
+        {
+          "id": "lst-08-q10",
+          "label": "Question 10",
+          "part": "Part 2 · Short Talks",
+          "question": "If a Tier C employee accumulates $1,200 by the end of Q3 but doesn't spend it, what happens to that balance in January?",
+          "options": [
+            "It carries over into the new year automatically",
+            "It resets to zero regardless of the remaining balance",
+            "Half of it carries over",
+            "It converts to Tier B limits"
+          ],
+          "answerIndex": 1,
+          "explanation": "Tier C 'resets to zero every January regardless of what's remaining,' even with accumulated unspent funds."
+        },
+        {
+          "id": "lst-08-q11",
+          "label": "Question 11",
+          "part": "Part 2 · Short Talks",
+          "question": "What purchase amount triggers the mandatory pre-approval rule, regardless of tier?",
+          "options": ["$500", "$750", "$900", "$2,000"],
+          "answerIndex": 1,
+          "explanation": "The presenter says 'any single purchase over $750 requires pre-approval from your manager.'"
+        },
+        {
+          "id": "lst-08-q12",
           "label": "Question 12",
-          "part": "Part 1 · Problem Solving",
-          "question": "What can be inferred about the customer's purchase?",
-          "options": ["It was made through TechFix's website", "It was bought from a neighbour", "It was purchased in a repair shop", "It was included with a new laptop"],
-          "answerIndex": 0,
-          "explanation": "The customer says the charger was bought from the company's website."
+          "part": "Part 2 · Short Talks",
+          "question": "What happens if an employee makes a $900 purchase within their monthly limit but without required pre-approval?",
+          "options": [
+            "Nothing, since it's within the limit",
+            "It is automatically declined by the card",
+            "It will be flagged for mandatory review and may result in personal reimbursement liability if unresolved within five business days",
+            "The employee's tier is downgraded immediately"
+          ],
+          "answerIndex": 2,
+          "explanation": "The presenter warns that charges made without pre-approval, 'even if they're within your monthly or quarterly limit,' will be flagged and may create personal liability if unresolved in five business days."
         },
         {
-          "id": "lst-01-q13",
+          "id": "lst-08-q13",
           "label": "Question 13",
-          "part": "Part 1 · Problem Solving",
-          "question": "Which action is the agent taking before offering a solution?",
-          "options": ["Checking the order record", "Calling the delivery driver", "Testing the charger's voltage", "Submitting an insurance claim"],
-          "answerIndex": 0,
-          "explanation": "Maya asks for the order number and looks up the order in the system."
+          "part": "Part 2 · Short Talks",
+          "question": "When must pre-approval be obtained for a purchase over $750?",
+          "options": [
+            "Within 24 hours after the charge",
+            "Before the charge is made",
+            "Within five business days after the charge",
+            "At the end of the quarter"
+          ],
+          "answerIndex": 1,
+          "explanation": "Pre-approval is required 'before the charge is made, not after.'"
         },
         {
-          "id": "lst-01-q14",
+          "id": "lst-08-q14",
           "label": "Question 14",
-          "part": "Part 1 · Problem Solving",
-          "question": "What is the most likely next step for the customer?",
-          "options": ["Purchase another charger immediately", "Wait for the tracking email and replacement", "Send the charger back for inspection", "Visit TechFix to collect a refund"],
-          "answerIndex": 1,
-          "explanation": "The replacement is being sent, and the customer will receive tracking information by email."
+          "part": "Part 2 · Short Talks",
+          "question": "For a Tier A travel booking spanning two months, who decides which month's limit it counts against?",
+          "options": [
+            "The manager, at the time of pre-approval",
+            "The finance help desk, after the trip",
+            "The traveler, at the time of booking, and this choice cannot be changed later",
+            "It automatically counts against the earlier month"
+          ],
+          "answerIndex": 2,
+          "explanation": "The traveler selects which month it counts against 'at the time of booking, but this choice cannot be changed retroactively.'"
         },
         {
-          "id": "lst-01-q15",
+          "id": "lst-08-q15",
           "label": "Question 15",
-          "part": "Part 1 · Problem Solving",
-          "question": "How does the customer react to the proposed solution?",
-          "options": ["They reject it and ask for a refund", "They are pleased that the issue is solved", "They ask to speak with a manager", "They request a different model"],
-          "answerIndex": 1,
-          "explanation": "The customer responds 'That's great' and says the solution solves the problem."
+          "part": "Part 2 · Short Talks",
+          "question": "A Tier A employee books a $1,600 flight in March for an April trip, selecting it to count against March's limit, and separately wants to make an $800 hotel purchase in March. Based on the announcement, what must this employee do regarding the hotel purchase, and who should they contact if they have a general question about how the tier system works overall?",
+          "options": [
+            "Get manager pre-approval for the hotel since it exceeds $750, and direct general policy questions to the finance help desk, not the manager",
+            "No pre-approval is needed for the hotel since the flight already used the March limit; general questions go to the manager",
+            "Get pre-approval for both the flight and hotel from the finance help desk, since both exceed $750",
+            "No action needed for either purchase since the employee is Tier A; policy questions go to the finance help desk"
+          ],
+          "answerIndex": 0,
+          "explanation": "The $800 hotel charge exceeds the $750 pre-approval threshold regardless of tier or remaining balance, requiring manager pre-approval before the charge; general policy questions are directed to the finance help desk, since managers only handle pre-approvals."
         }
       ]
     }
   ],
   "reading": [
     {
-      "id": "rd-01",
-      "title": "Apartment notice — laundry room hours",
-      "part": "Reading Correspondence",
-      "wordCount": 152,
-      "timeLimit": "3 min",
-      "passage": "To all residents of Glencove Apartments,\n\nStarting Monday, October 3, the laundry room on the ground floor will operate on reduced hours. Machines will run from 8:00 a.m. to 9:00 p.m., seven days a week, instead of the current 24-hour schedule. This change is required to complete a plumbing upgrade requested by the building's insurer.\n\nThe two dryers on the far wall will be out of service during the first week while they are replaced with quieter models. To reserve a machine, please place a laundry basket on top of it — baskets left for longer than 45 minutes will be removed to a cart by the door.\n\nIf you have questions about the new schedule, email the building office before October 2. Please do not contact the maintenance contractors directly.\n\nManagement reserves the right to extend the reduced hours if construction is delayed.",
+      "id": "rd-08",
+      "title": "Municipal utility notice — tiered water rate restructuring and conservation credits",
+      "part": "Part 2 · Reading for Information",
+      "wordCount": 289,
+      "timeLimit": "6 min",
+      "passage": "City of Fairhaven Water Utility — Rate Restructuring Notice\n\nBeginning with the billing cycle starting January 1, residential water rates will shift from a single flat rate to a four-tier consumption model, intended to encourage conservation while keeping basic usage affordable. Tier 1 covers the first 4,000 gallons used per month and is billed at the current rate of $0.004 per gallon, unchanged from today. Tier 2 covers usage from 4,001 to 8,000 gallons and is billed at $0.006 per gallon — note that this rate applies only to the gallons within that range, not retroactively to the entire bill, so a household using 6,000 gallons pays the Tier 1 rate on the first 4,000 gallons and the Tier 2 rate only on the remaining 2,000.\n\nTier 3 covers 8,001 to 15,000 gallons at $0.009 per gallon, and Tier 4 covers any usage above 15,000 gallons at $0.014 per gallon, more than triple the base rate, intended primarily to discourage non-essential high-volume use such as excessive landscape irrigation.\n\nHouseholds that reduce their consumption by at least 15% compared to the same month last year qualify for a conservation credit equal to 10% of that month's total bill, applied automatically the following billing cycle; however, this credit is only available to households whose usage last year was already at or below 10,000 gallons for that month, since the credit program is designed to reward households with already-modest usage rather than those cutting back from very high baselines.\n\nHouseholds with a documented medical necessity for higher water use, such as certain home dialysis equipment, may apply for a Tier 1 rate extension covering up to 10,000 gallons monthly instead of the standard 4,000-gallon threshold, but this exemption must be renewed annually with updated medical documentation and does not apply retroactively to bills issued before the exemption is approved.\n\nCustomers disputing a bill under the new structure have 45 days from the billing date to file an appeal, but appeals filed after usage has already been paid in full will only be eligible for a bill credit toward a future statement, not a direct refund, unless the dispute involves a confirmed meter malfunction, in which case a direct refund remains available regardless of payment status.",
       "questions": [
         {
-          "id": "rd-01-q1",
+          "id": "rd-08-q1",
           "label": "Question 1",
-          "part": "Reading Correspondence",
-          "question": "Why is the laundry room schedule changing?",
+          "part": "Part 2 · Reading for Information",
+          "question": "What billing model is replacing the flat rate?",
           "options": [
-            "The building office is hiring new staff",
-            "A plumbing upgrade was required by the insurer",
-            "Residents complained about noise at night",
-            "The machines are being permanently removed"
+            "A two-tier model",
+            "A three-tier model",
+            "A four-tier consumption model",
+            "A fully usage-independent flat fee"
           ],
-          "answerIndex": 1,
-          "explanation": "The notice states the reduced hours 'are required to complete a plumbing upgrade requested by the building's insurer.'"
+          "answerIndex": 2,
+          "explanation": "Rates will shift 'from a single flat rate to a four-tier consumption model.'"
         },
         {
-          "id": "rd-01-q2",
+          "id": "rd-08-q2",
           "label": "Question 2",
-          "part": "Reading Correspondence",
-          "question": "What might happen if a laundry basket is left on a machine too long?",
-          "options": [
-            "It will be placed in a cart by the door",
-            "The owner must pay a storage fee",
-            "The items will be thrown away",
-            "It will be moved to the office"
-          ],
+          "part": "Part 2 · Reading for Information",
+          "question": "What is the rate for Tier 1 usage?",
+          "options": ["$0.004 per gallon", "$0.006 per gallon", "$0.009 per gallon", "$0.014 per gallon"],
           "answerIndex": 0,
-          "explanation": "The notice explains that 'baskets left for longer than 45 minutes will be removed to a cart by the door.'"
+          "explanation": "Tier 1 is 'billed at the current rate of $0.004 per gallon, unchanged from today.'"
         },
         {
-          "id": "rd-01-q3",
+          "id": "rd-08-q3",
           "label": "Question 3",
-          "part": "Reading Correspondence",
-          "question": "How should residents ask questions about the change?",
+          "part": "Part 2 · Reading for Information",
+          "question": "A household uses 6,000 gallons in a month. How is their bill calculated?",
           "options": [
-            "Call the maintenance contractors directly",
-            "Speak to the plumber on site",
-            "Email the building office before October 2",
-            "Wait until the machines reopen"
+            "All 6,000 gallons at the Tier 2 rate",
+            "The first 4,000 gallons at Tier 1 rate, and the remaining 2,000 at Tier 2 rate",
+            "All 6,000 gallons at the Tier 1 rate",
+            "6,000 gallons split evenly between all four tiers"
+          ],
+          "answerIndex": 1,
+          "explanation": "The notice explains this exact example: 'a household using 6,000 gallons pays the Tier 1 rate on the first 4,000 gallons and the Tier 2 rate only on the remaining 2,000.'"
+        },
+        {
+          "id": "rd-08-q4",
+          "label": "Question 4",
+          "part": "Part 2 · Reading for Information",
+          "question": "What gallon range does Tier 3 cover?",
+          "options": ["0 to 4,000 gallons", "4,001 to 8,000 gallons", "8,001 to 15,000 gallons", "Above 15,000 gallons"],
+          "answerIndex": 2,
+          "explanation": "Tier 3 'covers 8,001 to 15,000 gallons.'"
+        },
+        {
+          "id": "rd-08-q5",
+          "label": "Question 5",
+          "part": "Part 2 · Reading for Information",
+          "question": "What is notable about the Tier 4 rate compared to the base rate?",
+          "options": [
+            "It is exactly double the base rate",
+            "It is more than triple the base rate",
+            "It is the same as Tier 3",
+            "It is capped regardless of usage"
+          ],
+          "answerIndex": 1,
+          "explanation": "The Tier 4 rate of $0.014 is described as 'more than triple the base rate.'"
+        },
+        {
+          "id": "rd-08-q6",
+          "label": "Question 6",
+          "part": "Part 2 · Reading for Information",
+          "question": "What is the primary purpose of the Tier 4 rate?",
+          "options": [
+            "To fund new infrastructure exclusively",
+            "To discourage non-essential high-volume use such as excessive landscape irrigation",
+            "To subsidize Tier 1 households",
+            "To phase out residential water service"
+          ],
+          "answerIndex": 1,
+          "explanation": "Tier 4 is 'intended primarily to discourage non-essential high-volume use such as excessive landscape irrigation.'"
+        },
+        {
+          "id": "rd-08-q7",
+          "label": "Question 7",
+          "part": "Part 2 · Reading for Information",
+          "question": "What consumption reduction qualifies a household for the conservation credit?",
+          "options": [
+            "Any reduction at all",
+            "At least 10%",
+            "At least 15% compared to the same month last year",
+            "Exactly 20%"
           ],
           "answerIndex": 2,
-          "explanation": "Residents are told to 'email the building office before October 2' and explicitly not to contact the contractors."
+          "explanation": "Households must reduce consumption 'by at least 15% compared to the same month last year.'"
         },
         {
-          "id": "rd-01-q4",
-          "label": "Question 4",
-          "part": "Reading Correspondence",
-          "question": "Where is the laundry room located?",
-          "options": ["On the ground floor", "In the basement", "On the roof", "Beside the west parking lot"],
-          "answerIndex": 0,
-          "explanation": "The notice identifies the laundry room as being on the ground floor."
-        },
-        {
-          "id": "rd-01-q5",
-          "label": "Question 5",
-          "part": "Reading Correspondence",
-          "question": "What will the new daily operating hours be?",
-          "options": ["6 a.m. to 8 p.m.", "7 a.m. to 10 p.m.", "8 a.m. to 9 p.m.", "9 a.m. to 9 p.m."],
-          "answerIndex": 2,
-          "explanation": "Machines will run from 8:00 a.m. until 9:00 p.m."
-        },
-        {
-          "id": "rd-01-q6",
-          "label": "Question 6",
-          "part": "Reading Correspondence",
-          "question": "How often will the laundry room operate under the new schedule?",
-          "options": ["Monday through Friday", "Six days a week", "Seven days a week", "Only on weekdays"],
-          "answerIndex": 2,
-          "explanation": "The notice says the new hours apply seven days a week."
-        },
-        {
-          "id": "rd-01-q7",
-          "label": "Question 7",
-          "part": "Reading Correspondence",
-          "question": "What prompted the reduction in operating hours?",
-          "options": ["A plumbing upgrade requested by the insurer", "A shortage of laundry-room staff", "A replacement of every washing machine", "A request from the maintenance contractors"],
-          "answerIndex": 0,
-          "explanation": "The reduced schedule is needed for a plumbing upgrade requested by the building's insurer."
-        },
-        {
-          "id": "rd-01-q8",
+          "id": "rd-08-q8",
           "label": "Question 8",
-          "part": "Reading Correspondence",
-          "question": "Which dryers will be unavailable during the first week?",
-          "options": ["The two nearest the entrance", "The two on the far wall", "All dryers on the ground floor", "Only the newest dryer"],
+          "part": "Part 2 · Reading for Information",
+          "question": "What is the size of the conservation credit?",
+          "options": [
+            "5% of that month's bill",
+            "10% of that month's total bill",
+            "15% of that month's total bill",
+            "A flat $10 credit"
+          ],
           "answerIndex": 1,
-          "explanation": "The two dryers on the far wall will be out of service while they are replaced."
+          "explanation": "Qualifying households receive 'a conservation credit equal to 10% of that month's total bill.'"
         },
         {
-          "id": "rd-01-q9",
+          "id": "rd-08-q9",
           "label": "Question 9",
-          "part": "Reading Correspondence",
-          "question": "Why are the two dryers being replaced?",
-          "options": ["They use too much water", "They are being replaced with quieter models", "They cannot be reserved", "They are being moved to another floor"],
+          "part": "Part 2 · Reading for Information",
+          "question": "A household used 12,000 gallons last year and reduces usage by 20% this year. Do they qualify for the conservation credit?",
+          "options": [
+            "Yes, since their reduction exceeds 15%",
+            "No, because their prior usage exceeded the 10,000-gallon eligibility threshold",
+            "Yes, but only for a partial credit",
+            "No, because the credit doesn't apply to any household using more than 4,000 gallons"
+          ],
           "answerIndex": 1,
-          "explanation": "Management says the dryers are being replaced with quieter models."
+          "explanation": "The credit is 'only available to households whose usage last year was already at or below 10,000 gallons,' so 12,000 gallons disqualifies them despite the 20% reduction."
         },
         {
-          "id": "rd-01-q10",
+          "id": "rd-08-q10",
           "label": "Question 10",
-          "part": "Reading Correspondence",
-          "question": "How should a resident reserve a machine?",
-          "options": ["Leave a laundry basket on top of it", "Write their name on the door", "Email the building office", "Ask a contractor to hold it"],
-          "answerIndex": 0,
-          "explanation": "Residents reserve a machine by placing a laundry basket on top of it."
+          "part": "Part 2 · Reading for Information",
+          "question": "Why does the utility restrict the conservation credit to households with modest prior usage?",
+          "options": [
+            "To reduce total administrative costs",
+            "Because the program is designed to reward already-modest usage rather than cuts from very high baselines",
+            "Because higher-usage households are ineligible for any city programs",
+            "Because the credit only applies to Tier 1 customers"
+          ],
+          "answerIndex": 1,
+          "explanation": "The program 'is designed to reward households with already-modest usage rather than those cutting back from very high baselines.'"
         },
         {
-          "id": "rd-01-q11",
+          "id": "rd-08-q11",
           "label": "Question 11",
-          "part": "Reading Correspondence",
-          "question": "What happens to a basket left for longer than 45 minutes?",
-          "options": ["It is taken to a cart by the door", "It is placed in the building office", "It is discarded immediately", "It is moved to another machine"],
-          "answerIndex": 0,
-          "explanation": "Baskets left over 45 minutes are removed to a cart by the door."
+          "part": "Part 2 · Reading for Information",
+          "question": "What does the medical necessity exemption allow?",
+          "options": [
+            "Unlimited water use at Tier 1 rates",
+            "A Tier 1 rate extension covering up to 10,000 gallons monthly instead of 4,000",
+            "A complete waiver of all water charges",
+            "Automatic enrollment in the conservation credit program"
+          ],
+          "answerIndex": 1,
+          "explanation": "Qualifying households 'may apply for a Tier 1 rate extension covering up to 10,000 gallons monthly instead of the standard 4,000-gallon threshold.'"
         },
         {
-          "id": "rd-01-q12",
+          "id": "rd-08-q12",
           "label": "Question 12",
-          "part": "Reading Correspondence",
-          "question": "By when should residents email the building office with questions?",
-          "options": ["Before October 2", "By October 3", "Before the first week ends", "By the end of November"],
-          "answerIndex": 0,
-          "explanation": "Residents are asked to email the office before October 2."
+          "part": "Part 2 · Reading for Information",
+          "question": "Does the medical exemption apply retroactively to past bills?",
+          "options": [
+            "Yes, to any bill issued that year",
+            "No, it does not apply retroactively to bills issued before approval",
+            "Yes, but only for the current billing cycle",
+            "The notice does not address this"
+          ],
+          "answerIndex": 1,
+          "explanation": "The exemption 'does not apply retroactively to bills issued before the exemption is approved.'"
         },
         {
-          "id": "rd-01-q13",
+          "id": "rd-08-q13",
           "label": "Question 13",
-          "part": "Reading Correspondence",
-          "question": "Whom are residents specifically asked not to contact?",
-          "options": ["The building office", "Other residents", "The maintenance contractors", "The insurer"],
+          "part": "Part 2 · Reading for Information",
+          "question": "How often must the medical exemption be renewed?",
+          "options": ["Every month", "Every quarter", "Annually", "It is permanent once approved"],
           "answerIndex": 2,
-          "explanation": "The notice explicitly says not to contact the maintenance contractors directly."
+          "explanation": "The exemption 'must be renewed annually with updated medical documentation.'"
         },
         {
-          "id": "rd-01-q14",
+          "id": "rd-08-q14",
           "label": "Question 14",
-          "part": "Reading Correspondence",
-          "question": "What could management do if construction is delayed?",
-          "options": ["Close the entire building", "Extend the reduced hours", "Cancel the dryer replacement", "Move laundry service off-site"],
-          "answerIndex": 1,
-          "explanation": "Management reserves the right to keep the reduced schedule longer if construction is delayed."
+          "part": "Part 2 · Reading for Information",
+          "question": "How many days does a customer have to file a billing appeal?",
+          "options": ["15 days", "30 days", "45 days", "60 days"],
+          "answerIndex": 2,
+          "explanation": "Customers have '45 days from the billing date to file an appeal.'"
         },
         {
-          "id": "rd-01-q15",
+          "id": "rd-08-q15",
           "label": "Question 15",
-          "part": "Reading Correspondence",
-          "question": "Which statement about the schedule change is accurate?",
-          "options": ["The room will remain open around the clock", "The new hours are the same every day of the week", "The laundry room will close permanently", "Only the dryers will operate after 9 p.m."],
-          "answerIndex": 1,
-          "explanation": "The notice gives the same 8 a.m.–9 p.m. operating window seven days a week."
+          "part": "Part 2 · Reading for Information",
+          "question": "A customer paid their bill in full, then discovered a discrepancy and filed an appeal within the 45-day window. It is later confirmed the water meter itself was malfunctioning. Based on the notice, what remedy is this customer entitled to?",
+          "options": [
+            "Only a bill credit toward a future statement, since the bill was already paid",
+            "No remedy, since appeals after payment are generally limited to credits",
+            "A direct refund, since confirmed meter malfunctions remain eligible for direct refunds regardless of payment status",
+            "A partial credit equal to 10%, the same as the conservation credit"
+          ],
+          "answerIndex": 2,
+          "explanation": "While appeals after payment are normally limited to a bill credit, the notice creates an exception: 'unless the dispute involves a confirmed meter malfunction, in which case a direct refund remains available regardless of payment status.'"
         }
       ]
     }

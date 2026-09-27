@@ -189,7 +189,6 @@ export function QuestionBank({
                 </div>
                 <h2 className="mt-2 font-display text-xl font-bold text-zinc-900">{entry.title}</h2>
                 </div>
-                <span className="text-sm text-zinc-500">{entry.skill === "Listening" ? "Listening passage" : "Reading passage"}</span>
                 <button type="button" onClick={() => setPracticingSetId(entry.id)} className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700">
                   <Icon name="play" size={14} /> Practice this set
                 </button>
