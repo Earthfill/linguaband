@@ -3,10 +3,13 @@
 import { useState } from "react";
 import type { PracticeQuestion } from "@/data/practice";
 import { Icon } from "@/components/icons";
+import { DialogueAudioPlayer } from "@/components/practice/DialogueAudioPlayer";
+import type { AudioEntry } from "@/data/practice/audio-manifest";
 
 type McqPracticeProps = {
   questions: PracticeQuestion[];
   accent?: "blue" | "violet";
+  context?: { title: string; text: string; label: string; audio?: { id: string; entry?: AudioEntry } };
 };
 
 const accents = {
@@ -26,7 +29,7 @@ const accents = {
   },
 };
 
-export function McqPractice({ questions, accent = "blue" }: McqPracticeProps) {
+export function McqPractice({ questions, accent = "blue", context }: McqPracticeProps) {
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [checked, setChecked] = useState(false);
@@ -97,6 +100,28 @@ export function McqPractice({ questions, accent = "blue" }: McqPracticeProps) {
 
   return (
     <div>
+      {context ? (
+        <section className="mb-6 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6" aria-label={context.label}>
+          <p className="text-xs font-bold uppercase tracking-wide text-zinc-400">{context.label}</p>
+          <h3 className="mt-1 font-display text-lg font-bold text-zinc-900">{context.title}</h3>
+          {context.audio ? (
+            <div className="mt-3">
+              <DialogueAudioPlayer
+                key={context.audio.id}
+                id={context.audio.id}
+                transcript={context.text}
+                mode="practice"
+                entry={context.audio.entry}
+                source={context.audio.entry ? undefined : "practice"}
+              />
+            </div>
+          ) : (
+            <div className="mt-3 max-h-96 overflow-y-auto whitespace-pre-wrap text-sm leading-7 text-zinc-700">
+              {context.text}
+            </div>
+          )}
+        </section>
+      ) : null}
       {/* Progress */}
       <div className="mb-4 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">

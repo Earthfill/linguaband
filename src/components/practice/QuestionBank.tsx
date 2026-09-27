@@ -1,28 +1,69 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { BankQuestion } from "@/data/practice";
+import type { BankQuestion, ListeningTrack, ReadingPassage } from "@/data/practice";
 import { Icon } from "@/components/icons";
 import { McqPractice } from "@/components/practice/McqPractice";
+import { audioManifest } from "@/data/practice/audio-manifest";
 
 type Skill = "All" | "Listening" | "Reading";
+type SetEntry = {
+  id: string;
+  title: string;
+  part: string;
+  skill: Exclude<Skill, "All">;
+  text: string;
+  audioId?: string;
+  questions: BankQuestion[];
+};
 
-export function QuestionBank({ questions }: { questions: BankQuestion[] }) {
+export function QuestionBank({
+  questions,
+  sets,
+}: {
+  questions: BankQuestion[];
+  sets: { listening: ListeningTrack[]; reading: ReadingPassage[] };
+}) {
   const [skill, setSkill] = useState<Skill>("All");
   const [query, setQuery] = useState("");
-  const [practicing, setPracticing] = useState(false);
+  const [practicingSetId, setPracticingSetId] = useState<string | null>(null);
 
-  const filtered = useMemo(() => {
-    return questions.filter((q) => {
-      if (skill !== "All" && q.skill !== skill) return false;
-      if (query.trim()) {
-        const needle = query.trim().toLowerCase();
-        const haystack = `${q.question} ${q.source} ${q.part}`.toLowerCase();
-        if (!haystack.includes(needle)) return false;
-      }
-      return true;
+  const entries = useMemo<SetEntry[]>(() => [
+    ...sets.listening.map((track) => ({
+      id: `Listening:${track.id}`,
+      title: track.title,
+      part: track.part,
+      skill: "Listening" as const,
+      text: track.transcript,
+      audioId: track.id,
+      questions: questions.filter((q) => q.skill === "Listening" && q.setId === track.id),
+    })),
+    ...sets.reading.map((passage) => ({
+      id: `Reading:${passage.id}`,
+      title: passage.title,
+      part: passage.part,
+      skill: "Reading" as const,
+      text: passage.passage,
+      questions: questions.filter((q) => q.skill === "Reading" && q.setId === passage.id),
+    })),
+  ], [questions, sets]);
+
+  const filteredEntries = useMemo(() => {
+    const needle = query.trim().toLowerCase();
+    return entries.flatMap((entry) => {
+      if (skill !== "All" && entry.skill !== skill) return [];
+      const setMatches = needle.length > 0 &&
+        `${entry.title} ${entry.part} ${entry.text}`.toLowerCase().includes(needle);
+      const matchingQuestions = needle && !setMatches
+        ? entry.questions.filter((q) => `${q.question} ${q.part} ${q.options.join(" ")}`.toLowerCase().includes(needle))
+        : entry.questions;
+      if (needle && !setMatches && matchingQuestions.length === 0) return [];
+      return [{ ...entry, questions: matchingQuestions }];
     });
-  }, [questions, skill, query]);
+  }, [entries, skill, query]);
+
+  const filtered = filteredEntries.flatMap((entry) => entry.questions);
+  const practicingEntry = entries.find((entry) => entry.id === practicingSetId);
 
   const counts = useMemo(
     () => ({
@@ -33,23 +74,40 @@ export function QuestionBank({ questions }: { questions: BankQuestion[] }) {
     [questions],
   );
 
-  if (practicing) {
+  if (practicingEntry) {
     return (
       <div>
         <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
           <button
             type="button"
-            onClick={() => setPracticing(false)}
+            onClick={() => setPracticingSetId(null)}
             className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-700 transition-colors hover:border-zinc-400"
           >
             <Icon name="arrow-right" size={14} className="rotate-180" />
             Back to bank
           </button>
           <p className="text-sm text-zinc-500">
-            Practicing {filtered.length} question{filtered.length === 1 ? "" : "s"}
+            Practicing {practicingEntry.questions.length} question{practicingEntry.questions.length === 1 ? "" : "s"} · {practicingEntry.title}
           </p>
         </div>
-        <McqPractice questions={filtered} accent="blue" />
+        <McqPractice
+          key={practicingEntry.id}
+          questions={practicingEntry.questions}
+          accent={practicingEntry.skill === "Listening" ? "violet" : "blue"}
+          context={{
+            title: practicingEntry.title,
+            text: practicingEntry.text,
+            label: practicingEntry.skill === "Listening" ? "Listening transcript" : "Reading passage",
+            ...(practicingEntry.audioId
+              ? {
+                  audio: {
+                    id: practicingEntry.audioId,
+                    entry: audioManifest[practicingEntry.audioId],
+                  },
+                }
+              : {}),
+          }}
+        />
       </div>
     );
   }
@@ -114,60 +172,49 @@ export function QuestionBank({ questions }: { questions: BankQuestion[] }) {
       ) : null}
       {/* Question list */}
       {filtered.length > 0 ? (
-        <div className="space-y-3">
-          {filtered.map((q) => (
-            <article
-              key={q.id}
-              className="flex items-start justify-between gap-4 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-colors hover:border-blue-200"
-            >
-              <div className="min-w-0">
+        <div className="space-y-6">
+          {filteredEntries.map((entry) => (
+            <section key={entry.id} className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
+              <div className="border-b border-zinc-100 p-5 sm:p-6">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span
-                    className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide ${
-                      q.skill === "Listening"
-                        ? "bg-violet-50 text-violet-600"
-                        : "bg-blue-50 text-blue-600"
-                    }`}
-                  >
-                    {q.skill}
+                  <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide ${entry.skill === "Listening" ? "bg-violet-50 text-violet-600" : "bg-blue-50 text-blue-600"}`}>
+                    {entry.skill}
                   </span>
-                  <span className="text-[11px] font-semibold text-zinc-400">
-                    {q.part} · {q.source}
-                  </span>
+                  <span className="text-xs font-semibold text-zinc-400">{entry.part}</span>
                 </div>
-                <p className="mt-2 text-[15px] font-medium leading-6 text-zinc-800">
-                  {q.question}
+                <h2 className="mt-2 font-display text-xl font-bold text-zinc-900">{entry.title}</h2>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-zinc-400">
+                  {entry.skill === "Listening" ? "Transcript" : "Passage"}
                 </p>
+                <div className="mt-2 max-h-64 overflow-y-auto whitespace-pre-wrap rounded-xl bg-zinc-50 p-4 text-sm leading-7 text-zinc-700">
+                  {entry.text}
+                </div>
               </div>
-              <span className="mt-1 hidden shrink-0 rounded-full bg-zinc-100 px-2.5 py-1 text-xs font-semibold text-zinc-500 sm:block">
-                {q.options.length} options
-              </span>
-            </article>
+              <div className="divide-y divide-zinc-100">
+                {entry.questions.map((q) => (
+                  <article key={q.id} className="flex items-start justify-between gap-4 p-5">
+                    <div className="min-w-0">
+                      <p className="text-xs font-semibold text-zinc-400">{q.label} · {q.part}</p>
+                      <p className="mt-1 text-[15px] font-medium leading-6 text-zinc-800">{q.question}</p>
+                      <ol className="mt-2 grid gap-1 text-sm leading-6 text-zinc-600 sm:grid-cols-2">
+                        {q.options.map((option, index) => <li key={index}><span className="mr-1 font-semibold text-zinc-400">{String.fromCharCode(65 + index)}.</span>{option}</li>)}
+                      </ol>
+                    </div>
+                  </article>
+                ))}
+              </div>
+              <div className="flex flex-wrap items-center justify-between gap-3 border-t border-zinc-100 bg-zinc-50/70 p-4 sm:px-6">
+                <span className="text-sm text-zinc-500">{entry.questions.length} question{entry.questions.length === 1 ? "" : "s"}</span>
+                <button type="button" onClick={() => setPracticingSetId(entry.id)} className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700">
+                  <Icon name="play" size={14} /> Practice this set
+                </button>
+              </div>
+            </section>
           ))}
         </div>
       ) : null}
 
       {/* Practice CTA */}
-      {filtered.length > 0 ? (
-        <div className="mt-6 flex items-center justify-between gap-4 rounded-2xl border border-blue-100 bg-blue-50/60 p-5">
-          <div>
-            <p className="font-display text-base font-bold text-zinc-900">
-              Practice these {filtered.length} question{filtered.length === 1 ? "" : "s"}
-            </p>
-            <p className="mt-0.5 text-sm text-zinc-500">
-              Get instant checking and a full explanation on every answer.
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={() => setPracticing(true)}
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
-          >
-            <Icon name="play" size={14} />
-            Start practice
-          </button>
-        </div>
-      ) : null}
     </div>
   );
 }

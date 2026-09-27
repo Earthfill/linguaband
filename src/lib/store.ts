@@ -68,27 +68,28 @@ function parsePracticeSet(payload: string): ListeningTrack | ReadingPassage | nu
   }
 }
 
-/** Load stored sets, falling back to bundled content and shadowing by set ID. */
+/** Return uploaded sets exclusively when present; otherwise use bundled content. */
 export async function listPracticeSets(): Promise<PracticeSets> {
-  const listening = new Map(builtinListeningTracks.map((set) => [set.id, set]));
-  const reading = new Map(builtinReadingPassages.map((set) => [set.id, set]));
   const db = getDb();
   if (db) {
     try {
       const res = await db
         .prepare("SELECT id, skill, payload FROM practice_sets ORDER BY updated_at DESC")
         .all<StoredPracticeSet>();
+      const listening: ListeningTrack[] = [];
+      const reading: ReadingPassage[] = [];
       for (const row of res.results ?? []) {
         const set = parsePracticeSet(row.payload);
         if (!set) continue;
-        if (row.skill === "listening") listening.set(row.id, set as ListeningTrack);
-        if (row.skill === "reading") reading.set(row.id, set as ReadingPassage);
+        if (row.skill === "listening") listening.push(set as ListeningTrack);
+        if (row.skill === "reading") reading.push(set as ReadingPassage);
       }
+      if (listening.length > 0 || reading.length > 0) return { listening, reading };
     } catch (err) {
       console.error("[store] listPracticeSets failed, falling back to bundled", err);
     }
   }
-  return { listening: [...listening.values()], reading: [...reading.values()] };
+  return { listening: builtinListeningTracks, reading: builtinReadingPassages };
 }
 
 export async function savePracticeSets(sets: PracticeSets): Promise<void> {

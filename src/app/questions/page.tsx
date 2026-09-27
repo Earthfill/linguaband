@@ -22,7 +22,7 @@ export default async function QuestionsPage() {
 
         <section className="py-12 sm:py-16">
           <Container>
-            <QuestionBank questions={questions} />
+            <QuestionBank questions={questions} sets={sets} />
           </Container>
         </section>
       </main>

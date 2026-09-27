@@ -22,6 +22,7 @@ export type {
 export type BankQuestion = PracticeQuestion & {
   skill: "Listening" | "Reading";
   source: string;
+  setId: string;
 };
 
 export function buildQuestionBank(
@@ -30,10 +31,10 @@ export function buildQuestionBank(
 ): BankQuestion[] {
   return [
     ...tracks.flatMap((track) =>
-      track.questions.map((q) => ({ ...q, skill: "Listening" as const, source: track.title })),
+      track.questions.map((q) => ({ ...q, skill: "Listening" as const, source: track.title, setId: track.id })),
     ),
     ...passages.flatMap((passage) =>
-      passage.questions.map((q) => ({ ...q, skill: "Reading" as const, source: passage.title })),
+      passage.questions.map((q) => ({ ...q, skill: "Reading" as const, source: passage.title, setId: passage.id })),
     ),
   ];
 }

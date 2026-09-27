@@ -63,7 +63,7 @@ export function DialogueAudioPlayer({
   mode: "exam" | "practice";
   onEnded?: () => void;
   entry?: AudioEntry;
-  source?: "stored" | "builtin";
+  source?: "stored" | "builtin" | "practice";
 }) {
   const entry = propEntry ?? audioManifest[id];
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -83,10 +83,12 @@ export function DialogueAudioPlayer({
         <p className="mt-3 whitespace-pre-line text-[15px] leading-8 text-zinc-700">{transcript}</p>
         <p className="mt-3 text-xs text-zinc-400">
           {source === "stored" ? (
-              "Audio is still being generated. If it does not appear, the audio job was not scheduled — check the GitHub token permission."
-            ) : (
-              <>Audio not generated yet — run <code className="rounded bg-zinc-100 px-1">npm run audio:bundled</code>.</>
-            )}
+            "Audio is still being generated. If it does not appear, the audio job was not scheduled — check the GitHub token permission."
+          ) : source === "practice" ? (
+            "Audio is not available for this practice set yet."
+          ) : source === "builtin" ? (
+            <>Audio not generated yet — run <code className="rounded bg-zinc-100 px-1">npm run audio:bundled</code>.</>
+          ) : null}
         </p>
       </div>
     );
