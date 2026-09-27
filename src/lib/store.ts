@@ -248,26 +248,27 @@ export async function adminMocks(): Promise<AdminMock[]> {
   try {
     const res = await db
       .prepare(
-        "SELECT id, name, badge, difficulty, description, status, updated_at FROM mocks ORDER BY created_at DESC",
+        "SELECT id, payload, status, updated_at FROM mocks ORDER BY created_at DESC",
       )
       .all<{
         id: string;
-        name: string;
-        badge: string;
-        difficulty: string;
-        description: string;
+        payload: string;
         status: MockStatus;
         updated_at: string;
       }>();
-    return (res.results ?? []).map((row) => ({
-      id: row.id,
-      name: row.name,
-      badge: row.badge,
-      difficulty: row.difficulty,
-      description: row.description,
-      status: row.status,
-      updatedAt: row.updated_at,
-    }));
+    return (res.results ?? []).flatMap((row) => {
+      const exam = parseExam(row.payload);
+      if (!exam) return [];
+      return [{
+        id: row.id,
+        name: exam.name,
+        badge: exam.badge,
+        difficulty: exam.difficulty,
+        description: exam.description,
+        status: row.status,
+        updatedAt: row.updated_at,
+      }];
+    });
   } catch (err) {
     console.error("[store] adminMocks failed", err);
     return [];

@@ -216,8 +216,8 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
         <span className={"rounded-full px-3 py-1.5 text-xs font-bold " + (attention ? "bg-amber-50 text-amber-800" : "bg-emerald-50 text-emerald-800")}>{attention ? String(attention) + " need attention" : "Everything looks good"}</span>
       </div>
       <div className="grid gap-5 xl:grid-cols-2">
-      <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
-        <div className="border-b border-zinc-100 px-6 py-5"><p className="text-xs font-bold uppercase tracking-wider text-violet-600">Practice content</p><h2 className="mt-1 font-display text-lg font-bold text-zinc-900">Listening practice audio</h2></div>
+      <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm px-6 py-5">
+        <div className="border-b border-zinc-100"><p className="text-xs font-bold uppercase tracking-wider text-violet-600">Practice content</p><h2 className="mt-1 font-display text-lg font-bold text-zinc-900">Listening practice audio</h2></div>
         {listeningTracks.length === 0 ? (
           <p className="mt-2 text-sm text-zinc-500">No listening practice tracks uploaded yet.</p>
         ) : (
@@ -248,15 +248,15 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
       <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
         <div className="border-b border-zinc-100 px-6 py-5"><p className="text-xs font-bold uppercase tracking-wider text-blue-600">Mock library</p><h2 className="mt-1 font-display text-lg font-bold text-zinc-900">Mock exam audio</h2></div>
         {mocks.length === 0 ? (
-          <p className="mt-2 text-sm text-zinc-500">None uploaded yet.</p>
+          <p className="px-6 py-5 text-sm text-zinc-500">No mock exams uploaded yet. Upload a mock exam above and its audio status will appear here.</p>
         ) : (
-          <ul className="mt-3 divide-y divide-zinc-100">
+          <ul className="divide-y divide-zinc-100">
             {mocks.map((m) => (
-              <li key={m.id} className="flex items-center justify-between gap-3 py-2">
-                <span className="text-sm text-zinc-700">
-                  {m.name} <span className="text-zinc-400">({m.id})</span>
+              <li key={m.id} className="flex flex-wrap items-center justify-between gap-3 px-6 py-4">
+                <span className="min-w-0 text-sm font-semibold text-zinc-700">
+                  {m.name} <span className="font-normal text-zinc-400">({m.id})</span>
                 </span>
-                <div className="flex items-center gap-2">
+                <div className="flex shrink-0 items-center gap-2">
                   {m.status === "content" || m.status === "failed" || isStuck(m, now) ? (
                     <button
                       type="button"
@@ -267,7 +267,7 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
                           ? "This job looks stuck — queue the audio again"
                           : "Queue audio generation for this mock"
                       }
-                      className="rounded-full border border-zinc-200 px-3 py-1 text-xs font-semibold text-zinc-600 transition-colors hover:border-blue-300 hover:text-blue-600 disabled:opacity-50"
+                      className="rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-600 transition-colors hover:border-blue-300 hover:text-blue-600 disabled:opacity-50"
                     >
                       {retrying === m.id ? "…" : isStuck(m, now) ? "Re-queue audio" : "Retry audio"}
                     </button>
