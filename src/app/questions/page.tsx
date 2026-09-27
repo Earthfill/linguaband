@@ -3,8 +3,12 @@ import { Footer } from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
 import { PracticeHero } from "@/components/practice/PracticeHero";
 import { QuestionBank } from "@/components/practice/QuestionBank";
+import { buildQuestionBank } from "@/data/practice";
+import { listPracticeSets } from "@/lib/store";
 
-export default function QuestionsPage() {
+export default async function QuestionsPage() {
+  const sets = await listPracticeSets();
+  const questions = buildQuestionBank(sets.listening, sets.reading);
   return (
     <>
       <Header />
@@ -18,7 +22,7 @@ export default function QuestionsPage() {
 
         <section className="py-12 sm:py-16">
           <Container>
-            <QuestionBank />
+            <QuestionBank questions={questions} />
           </Container>
         </section>
       </main>

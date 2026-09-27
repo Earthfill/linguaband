@@ -20,6 +20,8 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
   const [busy, setBusy] = useState(false);
   const [retrying, setRetrying] = useState<string | null>(null);
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
+  const [practiceBusy, setPracticeBusy] = useState(false);
+  const [practiceResult, setPracticeResult] = useState<{ ok: boolean; message: string } | null>(null);
   // 0 until the clock has been read in a timer (reading Date.now() during render would
   // break React's purity rules). Both server and client start at 0, so hydration matches.
   const [now, setNow] = useState(0);
@@ -103,6 +105,45 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
     }
   }
 
+  async function uploadPracticeSets(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formElement = e.currentTarget;
+    setPracticeBusy(true);
+    setPracticeResult(null);
+    try {
+      const res = await fetch("/api/admin/practice-sets", {
+        method: "POST",
+        body: new FormData(formElement),
+      });
+      const data = (await res.json().catch(() => null)) as {
+        ok?: boolean;
+        listening?: number;
+        reading?: number;
+        replacedIds?: string[];
+        errors?: string[];
+        error?: string;
+      } | null;
+      if (!res.ok) {
+        setPracticeResult({
+          ok: false,
+          message: data?.errors?.join("; ") || data?.error || `Upload failed (${res.status})`,
+        });
+        return;
+      }
+      const replaced = data?.replacedIds?.length ? ` Replaced matching IDs: ${data.replacedIds.join(", ")}.` : "";
+      setPracticeResult({
+        ok: true,
+        message: `Uploaded ${data?.listening ?? 0} listening and ${data?.reading ?? 0} reading set(s).${replaced}`,
+      });
+      formElement.reset();
+      router.refresh();
+    } catch {
+      setPracticeResult({ ok: false, message: "Upload failed (network error)." });
+    } finally {
+      setPracticeBusy(false);
+    }
+  }
+
   return (
     <div className="space-y-6">
       <form
@@ -136,6 +177,37 @@ export function AdminPanel({ mocks }: { mocks: AdminMock[] }) {
             }`}
           >
             {result.message}
+          </p>
+        ) : null}
+      </form>
+
+      <form
+        onSubmit={uploadPracticeSets}
+        className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
+      >
+        <h2 className="font-display text-lg font-bold text-zinc-900">Upload listening and reading practice sets</h2>
+        <p className="mt-1 text-sm text-zinc-500">
+          Upload JSON with <code>listening</code> and <code>reading</code> arrays, like <code>scripts/practice-sets/sample-practice-sets.json</code>. A matching set ID replaces the stored set.
+        </p>
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          <input
+            type="file"
+            name="file"
+            accept="application/json,.json"
+            required
+            className="text-sm text-zinc-600 file:mr-3 file:rounded-full file:border-0 file:bg-violet-600 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white"
+          />
+          <button
+            type="submit"
+            disabled={practiceBusy}
+            className="rounded-full bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+          >
+            {practiceBusy ? "Uploading…" : "Upload practice sets"}
+          </button>
+        </div>
+        {practiceResult ? (
+          <p className={`mt-3 rounded-lg px-3 py-2 text-sm ${practiceResult.ok ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"}`}>
+            {practiceResult.message}
           </p>
         ) : null}
       </form>

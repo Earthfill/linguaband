@@ -3,6 +3,8 @@ import { mockExams as builtinExams } from "@/data/practice";
 import { audioManifest as builtinAudio } from "@/data/practice/audio-manifest";
 import type { MockExam } from "@/data/practice";
 import type { AudioEntry } from "@/data/practice/audio-manifest";
+import { listeningTracks as builtinListeningTracks, readingPassages as builtinReadingPassages } from "@/data/practice";
+import type { ListeningTrack, ReadingPassage } from "@/data/practice";
 
 // Minimal structural types for Cloudflare's D1 binding (avoids a hard dependency
 // on @cloudflare/workers-types).
@@ -29,6 +31,13 @@ export type AdminMock = {
   updatedAt?: string;
 };
 
+export type PracticeSets = {
+  listening: ListeningTrack[];
+  reading: ReadingPassage[];
+};
+
+type StoredPracticeSet = { id: string; skill: "listening" | "reading"; payload: string };
+
 function getDb(): D1Database | null {
   try {
     const env = getCloudflareContext().env as { DB?: D1Database } | undefined;
@@ -48,6 +57,56 @@ function parseExam(payload: string): MockExam | null {
     return JSON.parse(payload) as MockExam;
   } catch {
     return null;
+  }
+}
+
+function parsePracticeSet(payload: string): ListeningTrack | ReadingPassage | null {
+  try {
+    return JSON.parse(payload) as ListeningTrack | ReadingPassage;
+  } catch {
+    return null;
+  }
+}
+
+/** Load stored sets, falling back to bundled content and shadowing by set ID. */
+export async function listPracticeSets(): Promise<PracticeSets> {
+  const listening = new Map(builtinListeningTracks.map((set) => [set.id, set]));
+  const reading = new Map(builtinReadingPassages.map((set) => [set.id, set]));
+  const db = getDb();
+  if (db) {
+    try {
+      const res = await db
+        .prepare("SELECT id, skill, payload FROM practice_sets ORDER BY updated_at DESC")
+        .all<StoredPracticeSet>();
+      for (const row of res.results ?? []) {
+        const set = parsePracticeSet(row.payload);
+        if (!set) continue;
+        if (row.skill === "listening") listening.set(row.id, set as ListeningTrack);
+        if (row.skill === "reading") reading.set(row.id, set as ReadingPassage);
+      }
+    } catch (err) {
+      console.error("[store] listPracticeSets failed, falling back to bundled", err);
+    }
+  }
+  return { listening: [...listening.values()], reading: [...reading.values()] };
+}
+
+export async function savePracticeSets(sets: PracticeSets): Promise<void> {
+  const db = getDb();
+  if (!db) throw new Error("No database configured");
+  const now = new Date().toISOString();
+  const rows = [
+    ...sets.listening.map((set) => ({ id: set.id, skill: "listening", set })),
+    ...sets.reading.map((set) => ({ id: set.id, skill: "reading", set })),
+  ];
+  for (const row of rows) {
+    await db
+      .prepare(
+        "INSERT INTO practice_sets (id, skill, payload, updated_at) VALUES (?, ?, ?, ?) " +
+          "ON CONFLICT(id) DO UPDATE SET skill = excluded.skill, payload = excluded.payload, updated_at = excluded.updated_at",
+      )
+      .bind(row.id, row.skill, JSON.stringify(row.set), now)
+      .run();
   }
 }
 

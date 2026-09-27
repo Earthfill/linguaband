@@ -1,19 +1,19 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { questionBank } from "@/data/practice";
+import type { BankQuestion } from "@/data/practice";
 import { Icon } from "@/components/icons";
 import { McqPractice } from "@/components/practice/McqPractice";
 
 type Skill = "All" | "Listening" | "Reading";
 
-export function QuestionBank() {
+export function QuestionBank({ questions }: { questions: BankQuestion[] }) {
   const [skill, setSkill] = useState<Skill>("All");
   const [query, setQuery] = useState("");
   const [practicing, setPracticing] = useState(false);
 
   const filtered = useMemo(() => {
-    return questionBank.filter((q) => {
+    return questions.filter((q) => {
       if (skill !== "All" && q.skill !== skill) return false;
       if (query.trim()) {
         const needle = query.trim().toLowerCase();
@@ -22,15 +22,15 @@ export function QuestionBank() {
       }
       return true;
     });
-  }, [skill, query]);
+  }, [questions, skill, query]);
 
   const counts = useMemo(
     () => ({
-      All: questionBank.length,
-      Listening: questionBank.filter((q) => q.skill === "Listening").length,
-      Reading: questionBank.filter((q) => q.skill === "Reading").length,
+      All: questions.length,
+      Listening: questions.filter((q) => q.skill === "Listening").length,
+      Reading: questions.filter((q) => q.skill === "Reading").length,
     }),
-    [],
+    [questions],
   );
 
   if (practicing) {

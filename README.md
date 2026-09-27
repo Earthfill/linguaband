@@ -153,6 +153,14 @@ exported from the bundled mock-01 data with `npm run mock:export`); a mock that 
 exists in D1 can also be created or replaced from the command line with
 `npm run mock:upsert -- scripts/sample-mock-01.json`.
 
+Listening and reading practice sets can be uploaded separately from mock exams in
+`/admin`. The JSON root must contain `listening` and `reading` arrays; each object
+uses the matching `ListeningTrack` or `ReadingPassage` shape from
+`src/data/practice/types.ts`. See `scripts/practice-sets/sample-practice-sets.json`
+for an example. Set IDs are replacement keys: an upload replaces any stored set
+with the same ID, while other bundled sets remain available as fallback. Uploaded
+sets feed the `/questions` Question Bank.
+
 ## Deploying to Cloudflare Workers
 
 The app runs on Cloudflare (free tier, business use allowed) via `@opennextjs/cloudflare`.
