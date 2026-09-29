@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { WritingTask } from "@/data/practice";
 import { Icon } from "@/components/icons";
 
@@ -20,11 +20,35 @@ type AiFeedback = {
 
 export function WritingWorkspace({ task }: { task: WritingTask }) {
   const [text, setText] = useState("");
+  const [isDraftLoaded, setIsDraftLoaded] = useState(false);
   const [showSample, setShowSample] = useState(false);
   const [feedback, setFeedback] = useState<FeedbackBars[] | null>(null);
   const [aiFeedback, setAiFeedback] = useState<AiFeedback | null>(null);
   const [feedbackError, setFeedbackError] = useState<string | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  const draftKey = `linguaband.writing.draft.${task.task}.${task.title}`;
+
+  useEffect(() => {
+    try {
+      // Restore browser-only data after mount to keep server and client markup consistent.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setText(window.localStorage.getItem(draftKey) ?? "");
+    } catch {
+      /* storage may be unavailable */
+    } finally {
+      setIsDraftLoaded(true);
+    }
+  }, [draftKey]);
+
+  useEffect(() => {
+    if (!isDraftLoaded) return;
+    try {
+      window.localStorage.setItem(draftKey, text);
+    } catch {
+      /* storage may be full or blocked */
+    }
+  }, [draftKey, isDraftLoaded, text]);
 
   const wordCount = useMemo(
     () => (text.trim() ? text.trim().split(/\s+/).length : 0),
