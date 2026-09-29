@@ -60,11 +60,22 @@ src/
 | `/questions` | Searchable/filterable question bank wired to an interactive MCQ practice engine |
 | `/listening` | Audio-mock player (simulated playback + transcript) with instant-check questions |
 | `/reading` | Side-by-side passage reader + question panel |
-| `/writing` | Email & survey task workspaces with word count + heuristic scoring preview |
+| `/writing` | Email & survey task workspaces with word count, heuristic checks, and optional AI feedback |
 | `/speaking` | 8 task cards with a prep/speak timer studio + CLB-graded sample responses |
 
 All practice content lives in `src/data/practice/` (original study material written for
 Linguaband); UI engines live in `src/components/practice/`.
+
+### AI-assisted writing feedback
+
+The Writing workspace keeps its local heuristic checks and can request optional AI
+corrections from Gemini. The API key is only read by the server. For local development,
+put `GEMINI_API_KEY` in the ignored `.dev.vars` file (see `.dev.vars.example`). For
+Cloudflare, set it with `npx wrangler secret put GEMINI_API_KEY`. The default model is
+`gemini-2.5-flash-lite`; set `GEMINI_MODEL` to another supported model if needed. The
+endpoint limits each Cloudflare client IP to eight requests per hour and requires
+migration `0005_writing_feedback_rate_limits.sql`. Feedback is practice guidance, not an
+official CELPIP score.
 
 ## Design tokens (from the original site)
 

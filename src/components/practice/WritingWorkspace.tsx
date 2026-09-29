@@ -10,11 +10,21 @@ const discourseMarkers = [
 ];
 
 type FeedbackBars = { label: string; pct: number; note: string };
+type AiFeedback = {
+  overall: string;
+  strengths: string[];
+  improvements: string[];
+  criteria: { label: string; score: number; feedback: string }[];
+  corrections: { original: string; suggestion: string; reason: string }[];
+};
 
 export function WritingWorkspace({ task }: { task: WritingTask }) {
   const [text, setText] = useState("");
   const [showSample, setShowSample] = useState(false);
   const [feedback, setFeedback] = useState<FeedbackBars[] | null>(null);
+  const [aiFeedback, setAiFeedback] = useState<AiFeedback | null>(null);
+  const [feedbackError, setFeedbackError] = useState<string | null>(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   const wordCount = useMemo(
     () => (text.trim() ? text.trim().split(/\s+/).length : 0),
@@ -34,7 +44,7 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
     return [words[0] ?? 150, words[1] ?? words[0] ?? 200];
   }, [task.wordTarget]);
 
-  function analyze() {
+  async function analyze() {
     const markers = discourseMarkers.filter((m) =>
       text.toLowerCase().includes(m),
     ).length;
@@ -75,6 +85,29 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
             : "Paragraphs are in place.",
       },
     ]);
+
+    setIsAnalyzing(true);
+    setAiFeedback(null);
+    setFeedbackError(null);
+    try {
+      const response = await fetch("/api/writing-feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, task }),
+      });
+      const result = (await response.json().catch(() => null)) as {
+        feedback?: AiFeedback;
+        error?: string;
+      } | null;
+      if (!response.ok || !result?.feedback) {
+        throw new Error(result?.error || "AI feedback is temporarily unavailable.");
+      }
+      setAiFeedback(result.feedback);
+    } catch (error) {
+      setFeedbackError(error instanceof Error ? error.message : "AI feedback is temporarily unavailable.");
+    } finally {
+      setIsAnalyzing(false);
+    }
   }
 
   return (
@@ -128,7 +161,11 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
           </div>
           <textarea
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => {
+              setText(e.target.value);
+              setAiFeedback(null);
+              setFeedbackError(null);
+            }}
             placeholder="Type your answer here…"
             rows={10}
             className="w-full resize-y rounded-xl border border-zinc-200 bg-zinc-50/50 p-4 text-[15px] leading-7 text-zinc-800 outline-none transition-colors placeholder:text-zinc-400 focus:border-blue-400 focus:bg-white"
@@ -141,7 +178,7 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
               className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-40"
             >
               <Icon name="sparkles" size={15} />
-              Get AI preview
+              {isAnalyzing ? "Reviewing…" : "Get AI feedback"}
             </button>
             <span className="text-xs text-zinc-400">
               {sentences} sentences · {paragraphs}{" "}
@@ -175,14 +212,70 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
                 </div>
               ))}
               <p className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-800">
-                Preview only — the full exam uses the official CELPIP Writing rubric.
+                Practice feedback only — this is AI-assisted and is not an official CELPIP score.
               </p>
+              {feedbackError ? (
+                <p role="status" className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-800">
+                  {feedbackError} Showing the basic writing checks above instead.
+                </p>
+              ) : null}
+              {aiFeedback ? (
+                <div className="space-y-4 border-t border-zinc-100 pt-4">
+                  <div>
+                    <h5 className="text-sm font-bold text-zinc-800">AI review</h5>
+                    <p className="mt-1 text-sm leading-6 text-zinc-600">{aiFeedback.overall}</p>
+                  </div>
+                  {aiFeedback.criteria.length ? (
+                    <div>
+                      <h6 className="text-xs font-bold uppercase tracking-wide text-zinc-500">Task criteria</h6>
+                      <ul className="mt-2 space-y-2">
+                        {aiFeedback.criteria.map((criterion, index) => (
+                          <li key={`${criterion.label}-${index}`} className="rounded-lg bg-zinc-50 p-3">
+                            <p className="text-sm font-semibold text-zinc-800">{criterion.label} <span className="text-blue-600">{criterion.score}/100</span></p>
+                            <p className="mt-1 text-xs leading-5 text-zinc-600">{criterion.feedback}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                  {aiFeedback.strengths.length ? (
+                    <div>
+                      <h6 className="text-xs font-bold uppercase tracking-wide text-emerald-700">What’s working</h6>
+                      <ul className="mt-1 list-inside list-disc space-y-1 text-sm leading-5 text-zinc-600">
+                        {aiFeedback.strengths.map((item, index) => <li key={index}>{item}</li>)}
+                      </ul>
+                    </div>
+                  ) : null}
+                  {aiFeedback.improvements.length ? (
+                    <div>
+                      <h6 className="text-xs font-bold uppercase tracking-wide text-amber-700">Next improvements</h6>
+                      <ul className="mt-1 list-inside list-disc space-y-1 text-sm leading-5 text-zinc-600">
+                        {aiFeedback.improvements.map((item, index) => <li key={index}>{item}</li>)}
+                      </ul>
+                    </div>
+                  ) : null}
+                  {aiFeedback.corrections.length ? (
+                    <div>
+                      <h6 className="text-xs font-bold uppercase tracking-wide text-zinc-500">Suggested corrections</h6>
+                      <ul className="mt-2 space-y-2">
+                        {aiFeedback.corrections.map((correction, index) => (
+                          <li key={`${correction.original}-${index}`} className="rounded-lg border border-zinc-100 p-3 text-xs leading-5">
+                            <p className="text-rose-700"><span className="font-semibold">Original:</span> {correction.original}</p>
+                            <p className="mt-1 text-emerald-700"><span className="font-semibold">Suggestion:</span> {correction.suggestion}</p>
+                            <p className="mt-1 text-zinc-500">{correction.reason}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
           ) : (
             <p className="mt-4 text-sm leading-6 text-zinc-500">
               Write your response on the left, then tap{" "}
-              <span className="font-semibold text-zinc-700">Get AI preview</span> to see
-              heuristic feedback on length, cohesion, and structure.
+              <span className="font-semibold text-zinc-700">Get AI feedback</span> to see
+              writing checks and, when configured, AI suggestions for this response.
             </p>
           )}
         </div>
@@ -190,7 +283,7 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
         <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-6">
           <button
             type="button"
-            onClick={() => setShowSample((v) => !v)}
+              onClick={() => setShowSample((v) => !v)}
             className="flex w-full items-center justify-between gap-3 text-left"
           >
             <span className="flex items-center gap-2 font-semibold text-zinc-900">

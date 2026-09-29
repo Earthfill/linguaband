@@ -14,3 +14,9 @@ GITHUB_REPO=Earthfill/linguaband
 # Public base URL for audio stored in R2 (e.g. https://audio.linguaband.com).
 # Leave empty to serve only the bundled audio (mock-01 fallback + practice tracks).
 AUDIO_BASE_URL=https://audio.linguaband.com
+
+# Gemini API key for AI-assisted writing feedback (server-side only).
+GEMINI_API_KEY=
+# Optional model override. Default: gemini-2.5-flash-lite.
+# Use gemini-3.5-flash-lite if your API key/account cannot access Gemini 2.5 models.
+GEMINI_MODEL=gemini-2.5-flash-lite
