@@ -63,7 +63,7 @@ export async function POST(request: Request) {
   }
   const unreferencedImages = [...imageFiles.keys()].filter((name) => !referencedImages.has(name));
   if (unreferencedImages.length) {
-    return Response.json({ error: `These selected images are not referenced by a listening track or reading passage: ${unreferencedImages.join(", ")}. The running app may need to be restarted or redeployed to load the latest upload handler.` }, { status: 400 });
+    return Response.json({ error: `These selected images are not referenced by a listening track or reading passage: ${unreferencedImages.join(", ")}.` }, { status: 400 });
   }
 
   try {
@@ -105,7 +105,9 @@ export async function POST(request: Request) {
     ok: true,
     listening: sets.listening.length,
     reading: sets.reading.length,
-    replacedIds: [...sets.listening, ...sets.reading].map((set) => set.id),
+    writing: sets.writing.length,
+    speaking: sets.speaking.length,
+    replacedIds: [...allSets, ...sets.writing, ...sets.speaking].map((set) => set.id),
     audio: audioResults,
   });
 }

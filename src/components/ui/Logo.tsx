@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export function Logo({ className = "" }: { className?: string }) {
+export function Logo({ className = "", isFooter }: { className?: string; isFooter?: boolean }) {
   return (
     <Link
       href="/"
@@ -23,7 +23,7 @@ export function Logo({ className = "" }: { className?: string }) {
           <path d="M8 16a4 4 0 0 0 8 0" />
         </svg>
       </span>
-      <span className="font-display text-[17px] font-bold leading-none tracking-tight text-zinc-900">
+      <span className={`font-display text-lg font-bold tracking-tight ${isFooter ? "text-zinc-100" : "text-zinc-900"}`}>
         Lingua<span className="text-blue-600">band</span>
       </span>
     </Link>

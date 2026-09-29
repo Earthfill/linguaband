@@ -1,4 +1,4 @@
-import type { ListeningTrack, PracticeQuestion, ReadingPassage } from "@/data/practice";
+import type { ListeningTrack, PracticeQuestion, ReadingPassage, SpeakingTask, WritingTask } from "@/data/practice";
 import type { PracticeSets } from "@/lib/store";
 
 const MIN_QUESTIONS_PER_SET = 15;
@@ -45,10 +45,15 @@ function validateQuestions(value: unknown, path: string, errors: string[]): valu
 
 export function validatePracticeSets(value: unknown): ValidationResult {
   const errors: string[] = [];
-  if (!isRecord(value)) return { sets: null, errors: ["JSON root must be an object with listening and reading arrays."] };
-  if (!Array.isArray(value.listening) || !Array.isArray(value.reading)) {
-    return { sets: null, errors: ["JSON root must contain listening and reading arrays."] };
+  if (!isRecord(value)) return { sets: null, errors: ["JSON root must be an object containing skill arrays."] };
+  const skills = ["listening", "reading", "writing", "speaking"] as const;
+  if (skills.some((skill) => value[skill] !== undefined && !Array.isArray(value[skill]))) {
+    return { sets: null, errors: ["Each provided skill must be an array."] };
   }
+  const listeningItems = (value.listening ?? []) as unknown[];
+  const readingItems = (value.reading ?? []) as unknown[];
+  const writingItems = (value.writing ?? []) as unknown[];
+  const speakingItems = (value.speaking ?? []) as unknown[];
 
   const allIds = new Set<string>();
   const checkSet = (item: unknown, kind: "listening" | "reading", index: number) => {
@@ -83,15 +88,56 @@ export function validatePracticeSets(value: unknown): ValidationResult {
     validateQuestions(item.questions, `${path}.questions`, errors);
   };
 
-  value.listening.forEach((item, i) => checkSet(item, "listening", i));
-  value.reading.forEach((item, i) => checkSet(item, "reading", i));
-  if (value.listening.length + value.reading.length === 0) errors.push("Upload at least one listening or reading set.");
+  listeningItems.forEach((item, i) => checkSet(item, "listening", i));
+  readingItems.forEach((item, i) => checkSet(item, "reading", i));
+
+  const checkTask = (item: unknown, kind: "writing" | "speaking", index: number) => {
+    const path = `${kind}[${index}]`;
+    if (!isRecord(item)) {
+      errors.push(`${path} must be an object.`);
+      return;
+    }
+    if (!nonEmptyString(item.id)) errors.push(`${path}.id must be a non-empty string.`);
+    else {
+      if (allIds.has(item.id)) errors.push(`Set ID "${item.id}" is repeated in this upload.`);
+      allIds.add(item.id);
+    }
+    const fields = kind === "writing"
+      ? ["task", "title", "timeLimit", "wordTarget", "scenario", "sampleAnswer"]
+      : ["title", "scenario", "sampleAnswer", "clb"];
+    for (const field of fields) {
+      if (!nonEmptyString(item[field])) errors.push(`${path}.${field} must be a non-empty string.`);
+    }
+    if (kind === "writing") {
+      if (!Array.isArray(item.instructions) || item.instructions.length === 0 || !item.instructions.every(nonEmptyString)) {
+        errors.push(`${path}.instructions must contain at least one non-empty string.`);
+      }
+      if (!Array.isArray(item.criteria) || item.criteria.length === 0 || !item.criteria.every((criterion) =>
+        isRecord(criterion) && nonEmptyString(criterion.label) && nonEmptyString(criterion.note))) {
+        errors.push(`${path}.criteria must contain objects with non-empty label and note strings.`);
+      }
+    } else {
+      for (const field of ["prepTimeSec", "speakTimeSec"]) {
+        if (!Number.isInteger(item[field]) || (item[field] as number) <= 0) errors.push(`${path}.${field} must be a positive integer.`);
+      }
+      if (!Array.isArray(item.tips) || item.tips.length === 0 || !item.tips.every(nonEmptyString)) {
+        errors.push(`${path}.tips must contain at least one non-empty string.`);
+      }
+    }
+  };
+  writingItems.forEach((item, i) => checkTask(item, "writing", i));
+  speakingItems.forEach((item, i) => checkTask(item, "speaking", i));
+  if (listeningItems.length + readingItems.length + writingItems.length + speakingItems.length === 0) {
+    errors.push("Upload at least one practice set or task.");
+  }
 
   if (errors.length > 0) return { sets: null, errors };
   return {
     sets: {
-      listening: value.listening as ListeningTrack[],
-      reading: value.reading as ReadingPassage[],
+      listening: listeningItems as ListeningTrack[],
+      reading: readingItems as ReadingPassage[],
+      writing: writingItems as WritingTask[],
+      speaking: speakingItems as SpeakingTask[],
     },
     errors,
   };

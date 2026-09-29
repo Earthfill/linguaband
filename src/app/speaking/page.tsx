@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
 import { PracticeHero } from "@/components/practice/PracticeHero";
 import { SpeakingBrowser } from "@/components/practice/SpeakingBrowser";
+import { listPracticeSets } from "@/lib/store";
 
 const format = [
   "30s prep + 60s speaking",
@@ -10,7 +11,8 @@ const format = [
   "Sample responses for every CLB",
 ];
 
-export default function SpeakingPage() {
+export default async function SpeakingPage() {
+  const { speaking } = await listPracticeSets();
   return (
     <>
       <Header />
@@ -34,7 +36,7 @@ export default function SpeakingPage() {
                 </span>
               ))}
             </div>
-            <SpeakingBrowser />
+            <SpeakingBrowser tasks={speaking} />
           </Container>
         </section>
       </main>

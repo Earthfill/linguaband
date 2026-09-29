@@ -1,11 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import type { BankQuestion, ListeningTrack, ReadingPassage } from "@/data/practice";
 import { Icon } from "@/components/icons";
 import { McqPractice } from "@/components/practice/McqPractice";
 
-type Skill = "All" | "Listening" | "Reading";
+type Skill = "All" | "Listening" | "Reading" | "Writing" | "Speaking";
 type SetEntry = {
   id: string;
   title: string;
@@ -18,6 +19,7 @@ type SetEntry = {
   audioId?: string;
   audioStatus?: ListeningTrack["audioStatus"];
   questions: BankQuestion[];
+  href?: string;
 };
 
 export function QuestionBank({
@@ -55,6 +57,11 @@ export function QuestionBank({
       imageAlt: passage.imageAlt,
       questions: questions.filter((q) => q.skill === "Reading" && q.setId === passage.id),
     })),
+    ...questions.filter((q) => q.skill === "Writing" || q.skill === "Speaking").map((q) => ({
+      id: `${q.skill}:${q.setId}`, title: q.source, part: q.part, skill: q.skill,
+      text: q.question, questions: [q],
+      href: q.skill === "Writing" ? `/writing?taskId=${encodeURIComponent(q.setId)}` : "/speaking",
+    })),
   ], [questions, sets]);
 
   const filteredEntries = useMemo(() => {
@@ -76,11 +83,13 @@ export function QuestionBank({
 
   const counts = useMemo(
     () => ({
-      All: sets.listening.length + sets.reading.length,
+      All: entries.length,
       Listening: sets.listening.length,
       Reading: sets.reading.length,
+      Writing: entries.filter((entry) => entry.skill === "Writing").length,
+      Speaking: entries.filter((entry) => entry.skill === "Speaking").length,
     }),
-    [sets],
+    [entries, sets],
   );
 
   if (practicingEntry) {
@@ -99,7 +108,14 @@ export function QuestionBank({
             Practicing {practicingEntry.questions.length} question{practicingEntry.questions.length === 1 ? "" : "s"} · {practicingEntry.title}
           </p>
         </div>
-        <McqPractice
+        {practicingEntry.skill === "Writing" || practicingEntry.skill === "Speaking" ? (
+          <div className="rounded-2xl border border-zinc-200 bg-white p-6">
+            <span className="text-xs font-bold uppercase tracking-wide text-blue-600">{practicingEntry.skill} prompt</span>
+            <h2 className="mt-2 font-display text-xl font-bold text-zinc-900">{practicingEntry.title}</h2>
+            <p className="mt-4 whitespace-pre-wrap text-sm leading-7 text-zinc-700">{practicingEntry.text}</p>
+            <Link href={practicingEntry.href!} className="mt-5 inline-flex rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700">Open {practicingEntry.skill} practice</Link>
+          </div>
+        ) : <McqPractice
           key={practicingEntry.id}
           questions={practicingEntry.questions}
           accent={practicingEntry.skill === "Listening" ? "violet" : "blue"}
@@ -119,7 +135,7 @@ export function QuestionBank({
                 }
               : {}),
           }}
-        />
+        />}
       </div>
     );
   }
@@ -129,7 +145,7 @@ export function QuestionBank({
       {/* Filters */}
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap gap-2">
-          {(["All", "Listening", "Reading"] as Skill[]).map((s) => (
+          {(["All", "Listening", "Reading", "Writing", "Speaking"] as Skill[]).map((s) => (
             <button
               key={s}
               type="button"
@@ -197,9 +213,11 @@ export function QuestionBank({
                 </div>
                 <h2 className="mt-2 font-display text-xl font-bold text-zinc-900">{entry.title}</h2>
                 </div>
-                <button type="button" onClick={() => setPracticingSetId(entry.id)} className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700">
-                  <Icon name="play" size={14} /> Practice this set
-                </button>
+                {entry.href ? (
+                  <button type="button" onClick={() => setPracticingSetId(entry.id)} className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"><Icon name="play" size={14} /> View prompt</button>
+                ) : (
+                  <button type="button" onClick={() => setPracticingSetId(entry.id)} className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"><Icon name="play" size={14} /> Practice this set</button>
+                )}
               </div>
             </section>
           ))}

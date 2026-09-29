@@ -148,7 +148,7 @@ export const templates: TemplateCard[] = [
       "Reply to a friend's problem with a calm, natural structure built on proven linking phrases.",
     tags: ["Speaking Task 1", "Advice"],
     level: "CLB 7–10",
-    href: "/learn/speaking-task-1-template-giving-advice",
+    href: "/learn/speaking-task-1",
   },
   {
     icon: "user",
@@ -158,7 +158,7 @@ export const templates: TemplateCard[] = [
       "Narrate a personal story with a clear setup, middle, and takeaway — tight enough for 60 seconds.",
     tags: ["Speaking Task 2"],
     level: "CLB 7–10",
-    href: "/learn",
+    href: "/learn/speaking-task-2",
   },
   {
     icon: "camera",
@@ -168,7 +168,57 @@ export const templates: TemplateCard[] = [
       "Describe any picture with a formula that hits every scoring point without ever running out of things to say.",
     tags: ["Speaking Task 3"],
     level: "CLB 7–10",
-    href: "/learn",
+    href: "/learn/speaking-task-3",
+  },
+  {
+    icon: "bulb",
+    group: "Speaking",
+    title: "Task 4 Template: Making Predictions",
+    description:
+      "Make plausible predictions from a scene and support each one with visual clues and reasoning.",
+    tags: ["Speaking Task 4", "Predictions"],
+    level: "CLB 7–10",
+    href: "/learn/speaking-task-4",
+  },
+  {
+    icon: "bar-chart",
+    group: "Speaking",
+    title: "Task 5 Template: Comparing and Persuading",
+    description:
+      "Compare two options fairly, then recommend one with clear benefits tailored to your listener.",
+    tags: ["Speaking Task 5", "Persuasion"],
+    level: "CLB 7–10",
+    href: "/learn/speaking-task-5",
+  },
+  {
+    icon: "shield",
+    group: "Speaking",
+    title: "Task 6 Template: Difficult Situation",
+    description:
+      "Handle a tricky situation calmly with a practical plan, respectful language, and a clear next step.",
+    tags: ["Speaking Task 6", "Problem solving"],
+    level: "CLB 7–10",
+    href: "/learn/speaking-task-6",
+  },
+  {
+    icon: "target",
+    group: "Speaking",
+    title: "Task 7 Template: Expressing Opinions",
+    description:
+      "State your position directly and develop it with focused reasons and a relevant example.",
+    tags: ["Speaking Task 7", "Opinion"],
+    level: "CLB 7–10",
+    href: "/learn/speaking-task-7",
+  },
+  {
+    icon: "sparkles",
+    group: "Speaking",
+    title: "Task 8 Template: Unusual Situation",
+    description:
+      "Describe an unexpected situation clearly, react naturally, and finish with a helpful recommendation.",
+    tags: ["Speaking Task 8", "Unusual situations"],
+    level: "CLB 7–10",
+    href: "/learn/speaking-task-8",
   },
   {
     icon: "mail",
@@ -178,7 +228,7 @@ export const templates: TemplateCard[] = [
       "One repeatable email blueprint for every prompt — complaint, invitation, explanation, or request.",
     tags: ["Writing Task 1", "Email"],
     level: "CLB 8–12",
-    href: "/learn/celpip-writing-task-1-template-writing-an-email",
+    href: "/learn/celpip-writing-task-1",
   },
   {
     icon: "clipboard-list",
@@ -188,7 +238,7 @@ export const templates: TemplateCard[] = [
       "Answer two survey prompts with an opinion-plus-example formula that always fills the word count.",
     tags: ["Writing Task 2", "Survey"],
     level: "CLB 8–12",
-    href: "/learn/celpip-writing-task-2-template-responding-to-survey-questions",
+    href: "/learn/celpip-writing-task-2",
   },
 ];
 
@@ -206,30 +256,13 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: "Practice Tests", href: "/questions" },
       { label: "Mock Exams", href: "/exams" },
-      { label: "Question Bank", href: "/questions" },
-      { label: "Listening Practice", href: "/listening" },
-      { label: "Reading Practice", href: "/reading" },
       { label: "Writing Practice", href: "/writing" },
       { label: "Speaking Practice", href: "/speaking" },
     ],
   },
   {
-    title: "CELPIP Courses",
-    links: [
-      { label: "Writing Course", href: "/courses/celpip-writing" },
-      { label: "Speaking Course", href: "/courses/celpip-speaking" },
-      { label: "Listening Course", href: "/courses/celpip-listening" },
-      { label: "Reading Course", href: "/courses/celpip-reading" },
-      { label: "Vocabulary & Collocations Kit", href: "/courses/celpip-vocabulary-collocations-kit" },
-      { label: "Vocabulary Foundations", href: "/courses/celpip-vocabulary-foundations" },
-    ],
-  },
-  {
     title: "Resources",
     links: [
-      { label: "CELPIP Teacher", href: "/learn" },
-      { label: "CELPIP Study Materials", href: "/learn" },
-      { label: "Student Reviews", href: "/reviews" },
       { label: "Writing & Speaking Templates", href: "/learn/templates" },
       { label: "Vocabulary Builder", href: "/courses/celpip-vocabulary-foundations" },
     ],

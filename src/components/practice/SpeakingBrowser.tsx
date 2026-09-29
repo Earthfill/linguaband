@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { speakingTasks, speakingOverview } from "@/data/practice";
+import { speakingTasks as bundledSpeakingTasks, speakingOverview } from "@/data/practice";
+import type { SpeakingTask } from "@/data/practice";
 import { Icon } from "@/components/icons";
 import { SpeakingStudio } from "@/components/practice/SpeakingStudio";
 
 type OverviewItem = (typeof speakingOverview)[number];
 
-export function SpeakingBrowser() {
+export function SpeakingBrowser({ tasks = [] }: { tasks?: SpeakingTask[] }) {
+  const uploadedIds = new Set(tasks.map((task) => task.id));
+  const speakingTasks = [...bundledSpeakingTasks.filter((task) => !uploadedIds.has(task.id)), ...tasks];
   const [activeId, setActiveId] = useState<string | null>(null);
   const active = speakingTasks.find((t) => t.id === activeId);
   const detailedTitles = new Set(speakingTasks.map((t) => t.title));
@@ -30,7 +33,9 @@ export function SpeakingBrowser() {
 
   return (
     <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-      {speakingOverview.map((item: OverviewItem, i) => {
+      {[...speakingOverview, ...speakingTasks.filter((task) => !speakingOverview.some((item) => item.title === task.title)).map((task) => ({
+        title: task.title, desc: task.scenario, icon: "message",
+      }))].map((item: OverviewItem, i) => {
         const playable = detailedTitles.has(item.title);
         return (
           <button

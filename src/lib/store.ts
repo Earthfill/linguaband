@@ -1,6 +1,6 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { MockExam } from "@/data/practice";
-import type { AudioEntry, ListeningTrack, ReadingPassage } from "@/data/practice/types";
+import type { AudioEntry, ListeningTrack, ReadingPassage, SpeakingTask, WritingTask } from "@/data/practice/types";
 
 // Minimal structural types for Cloudflare's D1 binding (avoids a hard dependency
 // on @cloudflare/workers-types).
@@ -30,6 +30,8 @@ export type AdminMock = {
 export type PracticeSets = {
   listening: ListeningTrack[];
   reading: ReadingPassage[];
+  writing: WritingTask[];
+  speaking: SpeakingTask[];
 };
 
 export type AdminPracticeTrack = Pick<ListeningTrack, "id" | "title" | "audio" | "audioStatus"> & {
@@ -38,7 +40,7 @@ export type AdminPracticeTrack = Pick<ListeningTrack, "id" | "title" | "audio" |
 
 type StoredPracticeSet = {
   id: string;
-  skill: "listening" | "reading";
+  skill: "listening" | "reading" | "writing" | "speaking";
   payload: string;
   audio?: string | null;
   audio_status?: ListeningTrack["audioStatus"];
@@ -67,7 +69,7 @@ function parseExam(payload: string): MockExam | null {
   }
 }
 
-function parsePracticeSet(payload: string): ListeningTrack | ReadingPassage | null {
+function parsePracticeSet(payload: string): ListeningTrack | ReadingPassage | WritingTask | SpeakingTask | null {
   try {
     return JSON.parse(payload) as ListeningTrack | ReadingPassage;
   } catch {
@@ -75,7 +77,7 @@ function parsePracticeSet(payload: string): ListeningTrack | ReadingPassage | nu
   }
 }
 
-/** Return uploaded practice sets only. No bundled listening or reading fallback is used. */
+/** Return uploaded practice sets only. */
 export async function listPracticeSets(): Promise<PracticeSets> {
   const db = getDb();
   if (db) {
@@ -85,6 +87,8 @@ export async function listPracticeSets(): Promise<PracticeSets> {
         .all<StoredPracticeSet>();
       const listening: ListeningTrack[] = [];
       const reading: ReadingPassage[] = [];
+      const writing: WritingTask[] = [];
+      const speaking: SpeakingTask[] = [];
       for (const row of res.results ?? []) {
         const set = parsePracticeSet(row.payload);
         if (!set) continue;
@@ -95,13 +99,15 @@ export async function listPracticeSets(): Promise<PracticeSets> {
           listening.push(track);
         }
         if (row.skill === "reading") reading.push(set as ReadingPassage);
+        if (row.skill === "writing") writing.push(set as WritingTask);
+        if (row.skill === "speaking") speaking.push(set as SpeakingTask);
       }
-      return { listening, reading };
+      return { listening, reading, writing, speaking };
     } catch (err) {
       console.error("[store] listPracticeSets failed", err);
     }
   }
-  return { listening: [], reading: [] };
+  return { listening: [], reading: [], writing: [], speaking: [] };
 }
 
 export async function savePracticeSets(sets: PracticeSets): Promise<void> {
@@ -111,14 +117,16 @@ export async function savePracticeSets(sets: PracticeSets): Promise<void> {
   const rows = [
     ...sets.listening.map((set) => ({ id: set.id, skill: "listening", set })),
     ...sets.reading.map((set) => ({ id: set.id, skill: "reading", set })),
+    ...sets.writing.map((set) => ({ id: set.id, skill: "writing", set })),
+    ...sets.speaking.map((set) => ({ id: set.id, skill: "speaking", set })),
   ];
   for (const row of rows) {
     await db
       .prepare(
         "INSERT INTO practice_sets (id, skill, payload, updated_at, audio, audio_status) VALUES (?, ?, ?, ?, NULL, ?) " +
           "ON CONFLICT(id) DO UPDATE SET skill = excluded.skill, payload = excluded.payload, updated_at = excluded.updated_at, " +
-          "audio = CASE WHEN json_extract(practice_sets.payload, '$.transcript') = json_extract(excluded.payload, '$.transcript') THEN practice_sets.audio ELSE NULL END, " +
-          "audio_status = CASE WHEN json_extract(practice_sets.payload, '$.transcript') = json_extract(excluded.payload, '$.transcript') THEN practice_sets.audio_status ELSE excluded.audio_status END",
+          "audio = CASE WHEN practice_sets.skill = 'listening' AND excluded.skill = 'listening' AND json_extract(practice_sets.payload, '$.transcript') = json_extract(excluded.payload, '$.transcript') THEN practice_sets.audio ELSE NULL END, " +
+          "audio_status = CASE WHEN practice_sets.skill = 'listening' AND excluded.skill = 'listening' AND json_extract(practice_sets.payload, '$.transcript') = json_extract(excluded.payload, '$.transcript') THEN practice_sets.audio_status ELSE excluded.audio_status END",
       )
       .bind(row.id, row.skill, JSON.stringify(row.set), now, row.skill === "listening" ? "content" : "ready")
       .run();

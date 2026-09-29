@@ -25,7 +25,7 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
     [text],
   );
   const paragraphs = useMemo(
-    () => (text.trim() ? text.split(/\n\s*\n/).length : 0),
+    () => (text.trim() ? text.split(/\r?\n/).filter((paragraph) => paragraph.trim()).length : 0),
     [text],
   );
 

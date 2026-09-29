@@ -24,6 +24,8 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
   const [practiceBusy, setPracticeBusy] = useState(false);
   const [practiceResult, setPracticeResult] = useState<{ ok: boolean; message: string } | null>(null);
+  const [writingSpeakingBusy, setWritingSpeakingBusy] = useState(false);
+  const [writingSpeakingResult, setWritingSpeakingResult] = useState<{ ok: boolean; message: string } | null>(null);
   // 0 until the clock has been read in a timer (reading Date.now() during render would
   // break React's purity rules). Both server and client start at 0, so hydration matches.
   const [now, setNow] = useState(0);
@@ -173,6 +175,31 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
     }
   }
 
+  async function uploadWritingSpeaking(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formElement = e.currentTarget;
+    setWritingSpeakingBusy(true);
+    setWritingSpeakingResult(null);
+    try {
+      const res = await fetch("/api/admin/practice-sets", { method: "POST", body: new FormData(formElement) });
+      const data = (await res.json().catch(() => null)) as {
+        writing?: number; speaking?: number; replacedIds?: string[]; errors?: string[]; error?: string;
+      } | null;
+      if (!res.ok) {
+        setWritingSpeakingResult({ ok: false, message: data?.errors?.join("; ") || data?.error || `Upload failed (${res.status})` });
+        return;
+      }
+      const replaced = data?.replacedIds?.length ? ` Replaced matching IDs: ${data.replacedIds.join(", ")}.` : "";
+      setWritingSpeakingResult({ ok: true, message: `Uploaded ${data?.writing ?? 0} writing and ${data?.speaking ?? 0} speaking task(s).${replaced}` });
+      formElement.reset();
+      router.refresh();
+    } catch {
+      setWritingSpeakingResult({ ok: false, message: "Upload failed (network error)." });
+    } finally {
+      setWritingSpeakingBusy(false);
+    }
+  }
+
   const practiceReady = listeningTracks.filter((track) => (track.audioStatus ?? (track.audio ? "ready" : "content")) === "ready").length;
   const mocksReady = mocks.filter((mock) => mock.status === "ready").length;
   const attention = listeningTracks.filter((track) => { const status = track.audioStatus ?? (track.audio ? "ready" : "content"); const updated = track.updatedAt ? Date.parse(track.updatedAt) : NaN; return status === "content" || status === "failed" || (status === "generating" && now > 0 && (Number.isNaN(updated) || now - updated > STUCK_AFTER_MS)); }).length + mocks.filter((mock) => mock.status === "content" || mock.status === "failed" || isStuck(mock, now)).length;
@@ -202,10 +229,17 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
         </form>
 
         <form onSubmit={uploadPracticeSets} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <div className="mb-5 flex items-start gap-3"><span className="grid h-11 w-11 place-items-center rounded-xl bg-violet-50 text-lg font-bold text-violet-700">♫</span><div><h3 className="font-display text-lg font-bold text-zinc-900">Practice sets</h3><p className="mt-1 text-sm leading-5 text-zinc-500">Upload listening and reading JSON with any referenced track images.</p></div></div>
+          <div className="mb-5 flex items-start gap-3"><span className="grid h-11 w-11 place-items-center rounded-xl bg-violet-50 text-lg font-bold text-violet-700">♫</span><div><h3 className="font-display text-lg font-bold text-zinc-900">Listening &amp; reading practice</h3><p className="mt-1 text-sm leading-5 text-zinc-500">Upload listening and reading JSON with any referenced track images.</p></div></div>
           <div className="grid gap-4"><label className="block text-sm font-medium text-zinc-700">Practice-set JSON<input type="file" name="file" accept="application/json,.json" required className="mt-2 block w-full rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-3 text-sm text-zinc-600 file:mr-3 file:rounded-full file:border-0 file:bg-violet-600 file:px-4 file:py-2 file:text-xs file:font-bold file:text-white" /></label><label className="block text-sm font-medium text-zinc-700">Track images <span className="font-normal text-zinc-400">(optional)</span><input type="file" name="images" accept="image/png,image/jpeg,image/webp" multiple className="mt-2 block w-full rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-3 text-sm text-zinc-600 file:mr-3 file:rounded-full file:border-0 file:bg-violet-100 file:px-4 file:py-2 file:text-xs file:font-bold file:text-violet-700" /></label></div>
           <button type="submit" disabled={practiceBusy} className="mt-4 rounded-full bg-violet-600 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-violet-700 disabled:opacity-50">{practiceBusy ? "Uploading…" : "Upload practice sets"}</button>
           {practiceResult ? <p role="status" className={"mt-4 rounded-xl px-4 py-3 text-sm leading-6 " + (practiceResult.ok ? "bg-emerald-50 text-emerald-800" : "bg-rose-50 text-rose-700")}>{practiceResult.message}</p> : null}
+        </form>
+
+        <form onSubmit={uploadWritingSpeaking} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+          <div className="mb-5 flex items-start gap-3"><span className="grid h-11 w-11 place-items-center rounded-xl bg-blue-50 text-lg font-bold text-blue-700">✎</span><div><h3 className="font-display text-lg font-bold text-zinc-900">Writing &amp; speaking tasks</h3><p className="mt-1 text-sm leading-5 text-zinc-500">Upload WritingTask and SpeakingTask objects in a JSON file. Matching IDs are replaced.</p></div></div>
+          <label className="block text-sm font-medium text-zinc-700">Writing &amp; speaking JSON<input type="file" name="file" accept="application/json,.json" required className="mt-2 block w-full rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-3 text-sm text-zinc-600 file:mr-3 file:rounded-full file:border-0 file:bg-blue-600 file:px-4 file:py-2 file:text-xs file:font-bold file:text-white" /></label>
+          <button type="submit" disabled={writingSpeakingBusy} className="mt-4 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-blue-700 disabled:opacity-50">{writingSpeakingBusy ? "Uploading…" : "Upload writing & speaking"}</button>
+          {writingSpeakingResult ? <p role="status" className={"mt-4 rounded-xl px-4 py-3 text-sm leading-6 " + (writingSpeakingResult.ok ? "bg-emerald-50 text-emerald-800" : "bg-rose-50 text-rose-700")}>{writingSpeakingResult.message}</p> : null}
         </form>
       </div>
       </section>

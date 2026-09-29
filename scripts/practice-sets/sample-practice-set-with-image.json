@@ -1,302 +1,199 @@
 {
   "listening": [
     {
-      "id": "lst-image-demo",
-      "title": "Finding the community centre",
+      "id": "2nd-image",
+      "title": "Finding your seat at the theatre",
       "part": "Part 2 · Listening to a Daily Life Conversation",
-      "setting": "A visitor asks a local resident for directions",
-      "speaker": "Maya (visitor) ↔ Jordan (local resident)",
-      "durationSec": 48,
-      "trackLabel": "Image demo · 0:48",
-      "transcript": "MAYA: Excuse me, I'm trying to get to the community centre. Is it far from here?\nJORDAN: Not too far. You're at the library now. Walk east along King Street until you reach Pine Avenue.\nMAYA: Is Pine Avenue before or after the park?\nJORDAN: It's just after the park. Turn left onto Pine, then take the second right onto Cedar Road. The community centre is beside the pharmacy, across from the school.\nMAYA: I see the school on this map. So I cross Cedar Road from the school?\nJORDAN: That's right. The entrance is on the south side of the building. If you reach the grocery store, you've gone one block too far.",
-      "image": "community-centre-map.png",
-      "imageAlt": "Neighborhood map showing the library, park, school, pharmacy, grocery store, and community centre",
+      "setting": "A theatre usher helps a patron find their seat before a show",
+      "speaker": "Patron ↔ Usher",
+      "durationSec": 52,
+      "trackLabel": "Image demo 2 · 0:52",
+      "transcript": "USHER: Good evening! Let me check your ticket... You're in Section D, Row K, Seat 14.\nPATRON: Great, how do I get there from the lobby?\nUSHER: Walk straight through the double doors, then continue through the cross aisle at the back of the orchestra level.\nPATRON: Is that the row right behind the front section, Section A?\nUSHER: Not quite. Section D is the center rear block, positioned behind Section A, between the left and right side sections — Section B is on the left, and Section C is on the right.\nPATRON: My seat is number 14 — is that near the aisle or closer to the middle of the row?\nUSHER: Row K has twenty seats numbered left to right, so seat 14 is on the far side, nearer the aisle that borders Section C, not the aisle near Section B.\nPATRON: Are there any emergency exits close to Section D?\nUSHER: Yes — the nearest exits for Section D are the two at the far corners near the cross aisle, not the ones up near the stage, which are really only convenient for Section A.\nPATRON: And if I need the restroom at intermission?\nUSHER: The restrooms are just past the lobby doors where you came in, so from Section D you'd head back the way you entered, through the cross aisle.\nPATRON: One more thing — is the balcony a good option if I come back another time?\nUSHER: The balcony is actually the section closest to the lobby, right behind the cross aisle, so it's the quickest to reach, but it's also the farthest section from the stage.\nPATRON: Thanks so much for your help!\nUSHER: Enjoy the show!",
+      "image": "theatre-seating-chart.png",
+      "imageAlt": "Theatre seating chart showing the stage, Sections A, B, C, and D, the balcony, cross aisle, exits, and the lobby entrance",
       "questions": [
         {
-          "id": "lst-image-demo-q1",
+          "id": "2nd-image-q1",
           "label": "Question 1",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "Where does the conversation take place at the beginning?",
-          "options": ["At the school", "At the library", "At the pharmacy", "At the grocery store"],
+          "question": "Which section, row, and seat is the patron assigned?",
+          "options": ["Section A, Row K, Seat 14", "Section D, Row K, Seat 14", "Section C, Row G, Seat 14", "Section D, Row G, Seat 20"],
           "answerIndex": 1,
-          "explanation": "Jordan tells Maya, 'You're at the library now.'"
+          "explanation": "The usher confirms, 'You're in Section D, Row K, Seat 14.'"
         },
         {
-          "id": "lst-image-demo-q2",
+          "id": "2nd-image-q2",
           "label": "Question 2",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "Which direction should Maya walk along King Street?",
-          "options": ["North", "South", "East", "West"],
-          "answerIndex": 2,
-          "explanation": "Jordan says to walk east along King Street."
+          "question": "Where does the patron start from?",
+          "options": ["The balcony", "The lobby", "Section A", "The cross aisle"],
+          "answerIndex": 1,
+          "explanation": "The patron asks how to get to their seat 'from the lobby.'"
         },
         {
-          "id": "lst-image-demo-q3",
+          "id": "2nd-image-q3",
           "label": "Question 3",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "When should Maya turn onto Pine Avenue?",
-          "options": ["Before reaching the park", "Just after the park", "At the school", "After the grocery store"],
+          "question": "What must the patron pass through after the lobby doors to reach Section D?",
+          "options": ["Section A directly", "The cross aisle at the back of the orchestra level", "The balcony stairs", "An exit door"],
           "answerIndex": 1,
-          "explanation": "Jordan says Pine Avenue is just after the park."
+          "explanation": "The usher says to 'continue through the cross aisle at the back of the orchestra level.'"
         },
         {
-          "id": "lst-image-demo-q4",
+          "id": "2nd-image-q4",
           "label": "Question 4",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "Which turn should Maya take from Pine Avenue onto Cedar Road?",
-          "options": ["The first left", "The second left", "The first right", "The second right"],
-          "answerIndex": 3,
-          "explanation": "Jordan directs Maya to take the second right onto Cedar Road."
+          "question": "Is Section D the same as the row directly behind Section A?",
+          "options": [
+            "Yes, they are the same section",
+            "No, Section D is a distinct center rear block positioned behind Section A",
+            "No, Section D is actually in front of Section A",
+            "The conversation does not clarify this"
+          ],
+          "answerIndex": 1,
+          "explanation": "The usher clarifies, 'Not quite. Section D is the center rear block, positioned behind Section A.'"
         },
         {
-          "id": "lst-image-demo-q5",
+          "id": "2nd-image-q5",
           "label": "Question 5",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "What landmark is beside the community centre?",
-          "options": ["The pharmacy", "The library", "The park", "The grocery store"],
-          "answerIndex": 0,
-          "explanation": "Jordan says the community centre is beside the pharmacy."
+          "question": "Which section is on the left of Section D?",
+          "options": ["Section A", "Section B", "Section C", "The balcony"],
+          "answerIndex": 1,
+          "explanation": "The usher says 'Section B is on the left, and Section C is on the right' of Section D."
         },
         {
-          "id": "lst-image-demo-q6",
+          "id": "2nd-image-q6",
           "label": "Question 6",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "What is directly across from the community centre?",
-          "options": ["The library", "The school", "The park", "The pharmacy"],
-          "answerIndex": 1,
-          "explanation": "Jordan says the centre is across from the school."
+          "question": "Which section is on the right of Section D?",
+          "options": ["Section A", "Section B", "Section C", "The lobby"],
+          "answerIndex": 2,
+          "explanation": "The usher states Section C is on the right of Section D."
         },
         {
-          "id": "lst-image-demo-q7",
+          "id": "2nd-image-q7",
           "label": "Question 7",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "Which side of the community centre has its entrance?",
-          "options": ["North", "East", "West", "South"],
-          "answerIndex": 3,
-          "explanation": "Jordan says the entrance is on the south side of the building."
+          "question": "How many seats are in Row K?",
+          "options": ["Ten", "Fourteen", "Twenty", "Thirty"],
+          "answerIndex": 2,
+          "explanation": "The usher explains 'Row K has twenty seats numbered left to right.'"
         },
         {
-          "id": "lst-image-demo-q8",
+          "id": "2nd-image-q8",
           "label": "Question 8",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "What would indicate that Maya has walked too far?",
-          "options": ["She reaches the grocery store", "She reaches the park", "She sees the library", "She crosses King Street"],
-          "answerIndex": 0,
-          "explanation": "Jordan says that reaching the grocery store means Maya has gone one block too far."
+          "question": "Is seat 14 closer to the Section B side or the Section C side of the row?",
+          "options": [
+            "Closer to the Section B side",
+            "Closer to the Section C side",
+            "Exactly in the middle",
+            "The conversation does not say"
+          ],
+          "answerIndex": 1,
+          "explanation": "The usher says seat 14 is 'on the far side, nearer the aisle that borders Section C.'"
         },
         {
-          "id": "lst-image-demo-q9",
+          "id": "2nd-image-q9",
           "label": "Question 9",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "What does Maya use to check the location of the school?",
-          "options": ["A bus schedule", "A neighborhood map", "A phone number", "A street sign"],
+          "question": "Which exits does the usher recommend for someone in Section D?",
+          "options": [
+            "The two exits nearest the stage",
+            "The two exits at the far corners near the cross aisle",
+            "There are no exits near Section D",
+            "Only the exit through the lobby"
+          ],
           "answerIndex": 1,
-          "explanation": "Maya says, 'I see the school on this map.'"
+          "explanation": "The usher says 'the nearest exits for Section D are the two at the far corners near the cross aisle.'"
         },
         {
-          "id": "lst-image-demo-q10",
+          "id": "2nd-image-q10",
           "label": "Question 10",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "How does Jordan describe the distance to the community centre?",
-          "options": ["It is very far", "It is nearby", "It is across town", "It requires a bus"],
+          "question": "Why are the exits near the stage not ideal for Section D patrons?",
+          "options": [
+            "They are locked during performances",
+            "They are really only convenient for Section A",
+            "They lead only to the balcony",
+            "They are reserved for staff only"
+          ],
           "answerIndex": 1,
-          "explanation": "Jordan says, 'Not too far,' indicating the centre is nearby."
+          "explanation": "The usher notes the stage-side exits 'are really only convenient for Section A.'"
         },
         {
-          "id": "lst-image-demo-q11",
+          "id": "2nd-image-q11",
           "label": "Question 11",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "What should Maya do at Pine Avenue?",
-          "options": ["Turn left", "Turn right", "Cross the park", "Return to the library"],
-          "answerIndex": 0,
-          "explanation": "Jordan says to turn left onto Pine Avenue."
+          "question": "Where are the restrooms located?",
+          "options": [
+            "Inside Section D",
+            "Just past the lobby doors, near where the patron entered",
+            "Behind the stage",
+            "Only accessible from the balcony"
+          ],
+          "answerIndex": 1,
+          "explanation": "The usher says 'the restrooms are just past the lobby doors where you came in.'"
         },
         {
-          "id": "lst-image-demo-q12",
+          "id": "2nd-image-q12",
           "label": "Question 12",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "What type of place is Maya trying to find?",
-          "options": ["A community centre", "A hospital", "A train station", "A post office"],
+          "question": "From Section D, how would the patron reach the restrooms at intermission?",
+          "options": [
+            "Head back through the cross aisle, the way they came in",
+            "Walk through Section A toward the stage",
+            "Take the balcony stairs down",
+            "Exit through the corner exit doors"
+          ],
           "answerIndex": 0,
-          "explanation": "Maya opens by saying she is trying to get to the community centre."
+          "explanation": "The usher says the patron 'would head back the way you entered, through the cross aisle.'"
         },
         {
-          "id": "lst-image-demo-q13",
+          "id": "2nd-image-q13",
           "label": "Question 13",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "Which pair of places helps Maya identify her destination on the map?",
-          "options": ["The library and the park", "The school and the pharmacy", "The park and the grocery store", "The library and the school"],
+          "question": "According to the usher, what is an advantage of the balcony?",
+          "options": [
+            "It has the best view of the stage",
+            "It is the quickest section to reach from the lobby",
+            "It is the cheapest section",
+            "It has the most legroom"
+          ],
           "answerIndex": 1,
-          "explanation": "Jordan locates the centre beside the pharmacy and across from the school."
+          "explanation": "The usher says the balcony 'is the quickest to reach,' being closest to the lobby."
         },
         {
-          "id": "lst-image-demo-q14",
+          "id": "2nd-image-q14",
           "label": "Question 14",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "What should Maya do after turning onto Cedar Road?",
-          "options": ["Look for the community centre by the pharmacy", "Walk back to the park", "Turn onto King Street", "Enter the grocery store"],
-          "answerIndex": 0,
-          "explanation": "After turning onto Cedar Road, the directions place the centre beside the pharmacy."
+          "question": "What is the trade-off of choosing the balcony, according to the usher?",
+          "options": [
+            "It costs more than other sections",
+            "It is the farthest section from the stage",
+            "It has no aisle access",
+            "It is closed during matinee shows"
+          ],
+          "answerIndex": 1,
+          "explanation": "The usher notes the balcony 'is also the farthest section from the stage.'"
         },
         {
-          "id": "lst-image-demo-q15",
+          "id": "2nd-image-q15",
           "label": "Question 15",
           "part": "Part 2 · Daily Life Conversation",
-          "question": "Why is the map useful to Maya during the conversation?",
-          "options": ["It shows the school and nearby streets", "It lists the centre's opening hours", "It identifies the bus fare", "It shows the pharmacy's phone number"],
-          "answerIndex": 0,
-          "explanation": "Maya refers to seeing the school on the map while confirming the directions."
+          "question": "Based on the whole conversation, which statement best describes the relationship between distance from the lobby and distance from the stage?",
+          "options": [
+            "Sections closer to the lobby are also closer to the stage",
+            "Sections closer to the lobby, like the balcony, tend to be farther from the stage, while sections farther from the lobby, like Section A, are closer to the stage",
+            "All sections are equally distant from both the lobby and the stage",
+            "Distance from the lobby has no relationship to distance from the stage"
+          ],
+          "answerIndex": 1,
+          "explanation": "The usher's directions show the patron must pass through the cross aisle and Section D to approach Section A near the stage, and separately notes the balcony — nearest the lobby — is farthest from the stage, indicating an inverse relationship between the two distances."
         }
       ]
     }
   ],
-  "reading": [
-    {
-      "id": "rd-image-demo",
-      "title": "Community garden volunteer notice",
-      "part": "Part 2 · Information",
-      "wordCount": 38,
-      "timeLimit": "3 min",
-      "passage": "COMMUNITY GARDEN VOLUNTEERS\n\nSaturday, May 18 · 9:00 a.m.–12:00 p.m.\nMeet at the garden entrance beside the tool shed. Volunteers will prepare planting beds and label the new herb section. Bring gloves if you have them; shared tools and water will be provided. In case of heavy rain, the session will move to Sunday, May 19, at the same time. To join, register at the community centre by Thursday, May 16.",
-      "image": "community-garden-layout.png",
-      "imageAlt": "Garden layout showing the entrance, tool shed, planting beds, and herb section",
-      "questions": [
-        {
-          "id": "rd-image-demo-q1",
-          "label": "Question 1",
-          "part": "Part 2 · Information",
-          "question": "When is the volunteer session scheduled?",
-          "options": ["Saturday morning", "Saturday afternoon", "Sunday morning", "Sunday afternoon"],
-          "answerIndex": 0,
-          "explanation": "The notice schedules the session for Saturday, May 18, from 9:00 a.m. to 12:00 p.m."
-        },
-        {
-          "id": "rd-image-demo-q2",
-          "label": "Question 2",
-          "part": "Part 2 · Information",
-          "question": "Where should volunteers meet?",
-          "options": ["At the school entrance", "Beside the garden tool shed", "At the community centre", "In the herb section"],
-          "answerIndex": 1,
-          "explanation": "The notice says to meet at the garden entrance beside the tool shed."
-        },
-        {
-          "id": "rd-image-demo-q3",
-          "label": "Question 3",
-          "part": "Part 2 · Information",
-          "question": "What should volunteers bring if possible?",
-          "options": ["Water", "Shared tools", "Gloves", "Plant labels"],
-          "answerIndex": 2,
-          "explanation": "Volunteers are asked to bring gloves if they have them."
-        },
-        {
-          "id": "rd-image-demo-q4",
-          "label": "Question 4",
-          "part": "Part 2 · Information",
-          "question": "What will happen if there is heavy rain?",
-          "options": ["The session will be cancelled", "The session will move to Sunday", "The work will move indoors", "The session will start later"],
-          "answerIndex": 1,
-          "explanation": "In case of heavy rain, the notice moves the session to Sunday, May 19, at the same time."
-        },
-        {
-          "id": "rd-image-demo-q5",
-          "label": "Question 5",
-          "part": "Part 2 · Information",
-          "question": "By when must volunteers register?",
-          "options": ["Wednesday, May 15", "Thursday, May 16", "Friday, May 17", "Saturday, May 18"],
-          "answerIndex": 1,
-          "explanation": "Registration at the community centre is required by Thursday, May 16."
-        },
-        {
-          "id": "rd-image-demo-q6",
-          "label": "Question 6",
-          "part": "Part 2 · Information",
-          "question": "Which area will volunteers label?",
-          "options": ["The entrance", "The planting beds", "The new herb section", "The tool shed"],
-          "answerIndex": 2,
-          "explanation": "The notice says volunteers will label the new herb section."
-        },
-        {
-          "id": "rd-image-demo-q7",
-          "label": "Question 7",
-          "part": "Part 2 · Information",
-          "question": "Which supplies are provided?",
-          "options": ["Gloves and labels", "Tools and water", "Seeds and gloves", "Water and raincoats"],
-          "answerIndex": 1,
-          "explanation": "The notice says shared tools and water will be provided."
-        },
-        {
-          "id": "rd-image-demo-q8",
-          "label": "Question 8",
-          "part": "Part 2 · Information",
-          "question": "What is the main purpose of this notice?",
-          "options": ["To recruit volunteers for a garden session", "To announce a garden closure", "To sell gardening tools", "To teach visitors how to plant herbs"],
-          "answerIndex": 0,
-          "explanation": "The notice provides details for people volunteering at a community garden work session."
-        },
-        {
-          "id": "rd-image-demo-q9",
-          "label": "Question 9",
-          "part": "Part 2 · Information",
-          "question": "Where can a person register?",
-          "options": ["At the garden entrance", "At the tool shed", "At the community centre", "In the herb section"],
-          "answerIndex": 2,
-          "explanation": "The notice directs volunteers to register at the community centre."
-        },
-        {
-          "id": "rd-image-demo-q10",
-          "label": "Question 10",
-          "part": "Part 2 · Information",
-          "question": "If the session moves because of rain, what remains unchanged?",
-          "options": ["The date", "The meeting place", "The time", "The registration deadline"],
-          "answerIndex": 2,
-          "explanation": "The notice says the Sunday session will take place at the same time."
-        },
-        {
-          "id": "rd-image-demo-q11",
-          "label": "Question 11",
-          "part": "Part 2 · Information",
-          "question": "What is one task volunteers will do?",
-          "options": ["Repair the tool shed", "Prepare planting beds", "Build a garden entrance", "Deliver water to the community centre"],
-          "answerIndex": 1,
-          "explanation": "Preparing planting beds is one of the listed volunteer tasks."
-        },
-        {
-          "id": "rd-image-demo-q12",
-          "label": "Question 12",
-          "part": "Part 2 · Information",
-          "question": "How long is the scheduled work session?",
-          "options": ["Two hours", "Three hours", "Four hours", "Five hours"],
-          "answerIndex": 1,
-          "explanation": "The session runs from 9:00 a.m. until 12:00 p.m., a total of three hours."
-        },
-        {
-          "id": "rd-image-demo-q13",
-          "label": "Question 13",
-          "part": "Part 2 · Information",
-          "question": "Which statement about gloves is correct?",
-          "options": ["They are required and supplied", "Volunteers may bring their own", "They can be collected at the school", "They are only needed in heavy rain"],
-          "answerIndex": 1,
-          "explanation": "The notice says to bring gloves if you have them, so bringing them is optional."
-        },
-        {
-          "id": "rd-image-demo-q14",
-          "label": "Question 14",
-          "part": "Part 2 · Information",
-          "question": "What does the accompanying layout help a reader identify?",
-          "options": ["The locations of garden areas and the entrance", "The Sunday weather forecast", "The community centre registration desk", "The volunteer schedule"],
-          "answerIndex": 0,
-          "explanation": "The image is a garden layout labeling the entrance and work areas."
-        },
-        {
-          "id": "rd-image-demo-q15",
-          "label": "Question 15",
-          "part": "Part 2 · Information",
-          "question": "What should someone do to take part in the session?",
-          "options": ["Register by Thursday at the community centre", "Arrive Sunday without registering", "Call the tool shed on Saturday", "Bring all tools and water"],
-          "answerIndex": 0,
-          "explanation": "The notice requires registration at the community centre by Thursday, May 16."
-        }
-      ]
-    }
-  ]
+  "reading": []
 }

@@ -28,7 +28,7 @@ export function Footer() {
       {/* Top: logo + description */}
       <Container>
         <div className="flex flex-col gap-6 py-14">
-          <Logo />
+          <Logo isFooter={true} />
           <p className="max-w-md text-sm leading-6 text-zinc-400">
             Linguaband is your all-in-one CELPIP prep hub — 4,000+ questions, timed
             mock tests, CLB-scored sample answers, and AI feedback on every

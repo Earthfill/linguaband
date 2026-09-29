@@ -1,0 +1,54 @@
+{
+  "writing": [
+    {
+      "id": "wr-upload-sample-02",
+      "task": "Writing Task 1",
+      "title": "Reporting a Problem with an Online Order",
+      "timeLimit": "27 min",
+      "wordTarget": "150–200 words",
+      "scenario": "You recently ordered a household item online, but it arrived damaged. Write an email to the company's customer service department.\n\nYour email should include:\n• A description of the problem with your order\n• The solution you would like the company to provide\n• How you can help the company resolve the issue quickly",
+      "instructions": [
+        "Begin with a polite greeting and identify your order.",
+        "Describe the damage clearly and explain why the item cannot be used.",
+        "State the solution you prefer, such as a replacement or a refund.",
+        "Offer practical help and close politely."
+      ],
+      "sampleAnswer": "Subject: Damaged Item in Order #48213\n\nDear Customer Service Team,\n\nI am writing about order #48213, which I received on Monday. I purchased a stainless steel water filter pitcher, but when I opened the package, I found that the lid was cracked and the handle was loose. Unfortunately, the pitcher cannot be used safely in this condition.\n\nI would like to request a replacement of the same model. If it is no longer in stock, I would be happy to accept a full refund to my original payment method. I have attached photographs of the damaged item and the packaging so that you can review the problem.\n\nTo make the process easier, I can return the pitcher as soon as you send me a prepaid shipping label. I would also appreciate an estimate of how long the replacement will take, since I am hosting family next week.\n\nThank you for your help. I look forward to hearing from you soon.\n\nSincerely,\nPriya Nair",
+      "criteria": [
+        {
+          "label": "Task completion",
+          "note": "Describes the problem, requests a specific solution, and offers practical help to resolve the issue."
+        },
+        {
+          "label": "Organization",
+          "note": "Presents the problem, the request, and the offer of help in a clear, logical order."
+        },
+        {
+          "label": "Tone",
+          "note": "Uses a polite, firm, and professional tone appropriate for a customer service email."
+        },
+        {
+          "label": "Language",
+          "note": "Uses clear sentences, accurate grammar, and precise vocabulary for describing damage and requesting solutions."
+        }
+      ]
+    }
+  ],
+  "speaking": [
+    {
+      "id": "spk-upload-sample-02",
+      "title": "Task 1: Giving Advice — Moving to a New City",
+      "scenario": "Your friend has accepted a job in a city where they do not know anyone. They are excited but nervous about settling in and making a new life there. What advice would you give?",
+      "prepTimeSec": 30,
+      "speakTimeSec": 60,
+      "tips": [
+        "Start by congratulating your friend and acknowledging their nervousness.",
+        "Suggest practical steps for the first weeks, such as exploring the neighbourhood and setting up a routine.",
+        "Recommend ways to meet people, such as clubs, classes, or coworker events.",
+        "End with encouragement and one simple action to take right away."
+      ],
+      "sampleAnswer": "Congratulations on the new job! It is natural to feel nervous about moving somewhere unfamiliar, but I think you will adjust faster than you expect. During your first week, I would focus on the basics: find a grocery store, a pharmacy, and a comfortable place to work or study nearby. Having a simple routine can make a new place feel like home. To meet people, you could join a sports club or a weekend class based on something you already enjoy, and you should say yes when coworkers invite you to lunch or events. Most people are happy to welcome someone new. It also helps to schedule regular video calls with your family and friends so you do not feel isolated. As a first step, why not look up a few local groups this weekend and attend one meeting? Small efforts like that will add up quickly.",
+      "clb": "CLB 9 sample"
+    }
+  ]
+}

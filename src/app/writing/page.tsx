@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
 import { PracticeHero } from "@/components/practice/PracticeHero";
 import { WritingBrowser } from "@/components/practice/WritingBrowser";
+import { listPracticeSets } from "@/lib/store";
 
 const skills = [
   "150–200 word email",
@@ -10,7 +11,13 @@ const skills = [
   "Formal vs informal register",
 ];
 
-export default function WritingPage() {
+export default async function WritingPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ taskId?: string | string[] }>;
+}) {
+  const { taskId } = await searchParams;
+  const { writing } = await listPracticeSets();
   return (
     <>
       <Header />
@@ -34,7 +41,7 @@ export default function WritingPage() {
                 </span>
               ))}
             </div>
-            <WritingBrowser />
+            <WritingBrowser tasks={writing} initialTaskId={Array.isArray(taskId) ? taskId[0] : taskId} />
           </Container>
         </section>
       </main>

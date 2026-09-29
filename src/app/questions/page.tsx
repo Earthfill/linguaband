@@ -8,7 +8,7 @@ import { listPracticeSets } from "@/lib/store";
 
 export default async function QuestionsPage() {
   const sets = await listPracticeSets();
-  const questions = buildQuestionBank(sets.listening, sets.reading);
+  const questions = buildQuestionBank(sets.listening, sets.reading, sets.writing, sets.speaking);
   return (
     <>
       <Header />
