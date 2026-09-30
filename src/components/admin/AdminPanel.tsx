@@ -246,6 +246,7 @@ export function AdminPanel({ mocks, listeningTracks, vocabularyTopicCount, vocab
         <SectionTitle eyebrow="Content management" title="Upload new content" description="Add mock exams, practice sets, and vocabulary topics." />
         <div className="mt-4 rounded-2xl border border-zinc-200 bg-white p-5 text-sm text-zinc-600">
           Published vocabulary: <strong className="text-zinc-900">{vocabularyWordCount} words</strong> across <strong className="text-zinc-900">{vocabularyTopicCount} topics</strong>.
+          <a className="ml-2 font-semibold text-blue-700 underline underline-offset-2" href="/vocabulary.json" download>Download sample vocabulary.json</a>
         </div>
         <div className="mt-4 grid gap-5 xl:grid-cols-2">
         <form onSubmit={onSubmit} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">

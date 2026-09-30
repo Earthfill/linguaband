@@ -1,0 +1,138 @@
+[
+  {
+    "name": "Work & careers",
+    "description": "Discuss workplace situations, career choices, and professional goals.",
+    "words": [
+      {
+        "word": "flexible",
+        "partOfSpeech": "adjective",
+        "definition": "Able to change or adapt to different needs or situations.",
+        "example": "A flexible schedule would help employees balance work and family responsibilities.",
+        "collocations": ["flexible schedule", "flexible working hours"]
+      },
+      {
+        "word": "opportunity",
+        "partOfSpeech": "noun",
+        "definition": "A situation that makes it possible to do or achieve something.",
+        "example": "The training program gave new staff an opportunity to develop practical skills.",
+        "collocations": ["career opportunity", "equal opportunity"]
+      },
+      {
+        "word": "collaborate",
+        "partOfSpeech": "verb",
+        "definition": "To work together with another person or group toward a shared goal.",
+        "example": "The two departments collaborated to improve customer service.",
+        "collocations": ["collaborate closely", "collaborate on a project"]
+      },
+      {
+        "word": "efficient",
+        "partOfSpeech": "adjective",
+        "definition": "Working well without wasting time, effort, or resources.",
+        "example": "An efficient system would reduce delays for both staff and customers.",
+        "collocations": ["highly efficient", "efficient way"]
+      }
+    ]
+  },
+  {
+    "name": "Community & housing",
+    "description": "Describe neighbourhoods, local services, and housing concerns.",
+    "words": [
+      {
+        "word": "accessible",
+        "partOfSpeech": "adjective",
+        "definition": "Easy to reach, enter, use, or understand.",
+        "example": "The city should make public services more accessible to residents with disabilities.",
+        "collocations": ["easily accessible", "accessible transportation"]
+      },
+      {
+        "word": "maintain",
+        "partOfSpeech": "verb",
+        "definition": "To keep something in good condition through regular care or repair.",
+        "example": "The landlord is responsible for maintaining the building's heating system.",
+        "collocations": ["maintain a property", "regularly maintain"]
+      },
+      {
+        "word": "convenient",
+        "partOfSpeech": "adjective",
+        "definition": "Useful or suitable for a particular need or purpose.",
+        "example": "Living near a transit station is convenient for people who commute.",
+        "collocations": ["convenient location", "more convenient"]
+      },
+      {
+        "word": "resident",
+        "partOfSpeech": "noun",
+        "definition": "A person who lives in a particular place.",
+        "example": "Residents asked the council to add more lighting to the park.",
+        "collocations": ["local residents", "long-time resident"]
+      }
+    ]
+  },
+  {
+    "name": "Health & lifestyle",
+    "description": "Talk about wellbeing, healthy habits, and community health services.",
+    "words": [
+      {
+        "word": "wellbeing",
+        "partOfSpeech": "noun",
+        "definition": "The state of being comfortable, healthy, and content.",
+        "example": "Regular exercise can support both physical health and emotional wellbeing.",
+        "collocations": ["mental wellbeing", "sense of wellbeing"]
+      },
+      {
+        "word": "balanced",
+        "partOfSpeech": "adjective",
+        "definition": "Including different things in sensible or suitable amounts.",
+        "example": "Preparing meals at home can make it easier to maintain a balanced diet.",
+        "collocations": ["balanced diet", "balanced lifestyle"]
+      },
+      {
+        "word": "prevent",
+        "partOfSpeech": "verb",
+        "definition": "To stop something from happening or arising.",
+        "example": "A short daily walk can help prevent some health problems.",
+        "collocations": ["prevent illness", "help prevent"]
+      },
+      {
+        "word": "beneficial",
+        "partOfSpeech": "adjective",
+        "definition": "Producing a good or helpful effect.",
+        "example": "A quiet place to study would be beneficial to students.",
+        "collocations": ["highly beneficial", "beneficial effect"]
+      }
+    ]
+  },
+  {
+    "name": "Education & learning",
+    "description": "Explain learning preferences, school programs, and education choices.",
+    "words": [
+      {
+        "word": "curriculum",
+        "partOfSpeech": "noun",
+        "definition": "The subjects and content included in a course or program of study.",
+        "example": "The school updated its curriculum to include more practical projects.",
+        "collocations": ["school curriculum", "curriculum changes"]
+      },
+      {
+        "word": "encourage",
+        "partOfSpeech": "verb",
+        "definition": "To give someone support or confidence to do something.",
+        "example": "Teachers can encourage students to ask questions and share ideas.",
+        "collocations": ["encourage participation", "strongly encourage"]
+      },
+      {
+        "word": "resource",
+        "partOfSpeech": "noun",
+        "definition": "A useful supply, source, or tool that helps achieve something.",
+        "example": "The library provides online resources for learners who study at home.",
+        "collocations": ["educational resources", "valuable resource"]
+      },
+      {
+        "word": "independent",
+        "partOfSpeech": "adjective",
+        "definition": "Able to act or make decisions without relying on others.",
+        "example": "The project helped learners become more independent researchers.",
+        "collocations": ["independent learning", "remain independent"]
+      }
+    ]
+  }
+]
