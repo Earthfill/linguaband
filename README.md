@@ -73,16 +73,23 @@ corrections from Gemini. AI feedback requires learner sign-in with email/passwor
 can receive three successful AI reviews per writing task; after the third success, that
 task's allowance resets after 36 hours. Failed Gemini requests do not count. The quota is
 stored in Cloudflare D1 and requires migrations `0006_writing_feedback_user_limits.sql` and
-`0007_learner_accounts.sql`. Email accounts require a password of at least 12 characters;
-passwords are stored as salted PBKDF2 hashes, and authentication attempts are rate limited.
+`0007_learner_accounts.sql`, and `0008_learner_email_verification.sql`. Email accounts require
+a password of at least 12 characters; passwords are stored as salted PBKDF2 hashes, and
+authentication attempts are rate limited. Email/password signup sends a one-hour, single-use
+verification link through Resend; email sign-in is blocked until verification. Existing accounts
+are preserved as verified when migration 0008 is applied. Google sign-in trusts Google's
+verified email and sends a welcome email only when it creates a new learner account.
 
 For Google sign-in, create a Google OAuth web client and add
 `https://<your-domain>/api/auth/google/callback` as an authorized redirect URI. Local
 `npm run dev` reads values from ignored `.env.local`; Wrangler-based local runs can use
 `.dev.vars`. Set `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REDIRECT_URI`, and a
 long random `LEARNER_SESSION_SECRET`; see `.dev.vars.example`. For production, add them as
-Worker secrets/variables (for example, `npx wrangler secret put GOOGLE_CLIENT_ID`). Apply
-the new schema with `npx wrangler d1 migrations apply linguaband-db --remote`. The Gemini
+Worker secrets/variables (for example, `npx wrangler secret put GOOGLE_CLIENT_ID`). Configure
+`RESEND_API_KEY`, `RESEND_FROM` (an address on a verified Resend domain), and `APP_BASE_URL`
+(the public HTTPS site origin) for verification and welcome emails. For local `.env.local`, use
+the same variable names; Wrangler local runs can use `.dev.vars`. Apply the schema with
+`npx wrangler d1 migrations apply linguaband-db --remote`. The Gemini
 API key stays server-side; the default model is `gemini-2.5-flash-lite`, configurable with
 `GEMINI_MODEL`. Feedback is practice guidance, not an official CELPIP score.
 

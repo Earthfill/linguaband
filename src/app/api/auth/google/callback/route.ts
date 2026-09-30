@@ -1,4 +1,5 @@
 import { learnerAuthEnv, consumeOAuthReturnPath, consumeOAuthState, getOrCreateGoogleLearner, googleAuthConfigured, setLearnerSession } from "@/lib/learner-auth";
+import { sendWelcomeEmail } from "@/lib/learner-email";
 
 type GoogleTokenResponse = { access_token?: string; error?: string };
 type GoogleUserInfo = { sub?: string; email?: string; name?: string; email_verified?: boolean };
@@ -40,7 +41,14 @@ export async function GET(request: Request) {
       throw new Error("Google profile could not be verified");
     }
 
-    const learner = await getOrCreateGoogleLearner({ id: profile.sub, email: profile.email, name: profile.name || profile.email });
+    const { learner, created } = await getOrCreateGoogleLearner({ id: profile.sub, email: profile.email, name: profile.name || profile.email });
+    if (created) {
+      try {
+        await sendWelcomeEmail(learner);
+      } catch (error) {
+        console.error("[google-auth] first-login welcome email failed", error);
+      }
+    }
     await setLearnerSession(learner);
     return Response.redirect(new URL(await consumeOAuthReturnPath(), url), 303);
   } catch (error) {

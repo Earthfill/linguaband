@@ -13,6 +13,9 @@ export type LearnerAuthEnv = {
   GOOGLE_CLIENT_SECRET?: string;
   GOOGLE_REDIRECT_URI?: string;
   LEARNER_SESSION_SECRET?: string;
+  RESEND_API_KEY?: string;
+  RESEND_FROM?: string;
+  APP_BASE_URL?: string;
   DB?: {
     prepare(sql: string): {
       bind(...values: (string | number | null)[]): {
@@ -20,6 +23,7 @@ export type LearnerAuthEnv = {
         run(): Promise<unknown>;
       };
     };
+    batch?(statements: unknown[]): Promise<unknown[]>;
   };
 };
 
@@ -32,23 +36,28 @@ export function learnerAuthEnv(): LearnerAuthEnv {
       GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
       GOOGLE_REDIRECT_URI: process.env.GOOGLE_REDIRECT_URI,
       LEARNER_SESSION_SECRET: process.env.LEARNER_SESSION_SECRET,
+      RESEND_API_KEY: process.env.RESEND_API_KEY,
+      RESEND_FROM: process.env.RESEND_FROM,
+      APP_BASE_URL: process.env.APP_BASE_URL,
       DB: undefined,
     };
   }
 }
 
-export async function getOrCreateGoogleLearner(profile: Learner): Promise<Learner> {
+export async function getOrCreateGoogleLearner(profile: Learner): Promise<{ learner: Learner; created: boolean }> {
   const db = learnerAuthEnv().DB;
   if (!db) throw new Error("Learner account storage is not configured.");
   const id = crypto.randomUUID();
-  await db.prepare(
-    "INSERT INTO learner_accounts (id, email, name, password_hash, created_at) VALUES (?, ?, ?, NULL, ?) " +
-    "ON CONFLICT(email) DO UPDATE SET name = excluded.name",
-  ).bind(id, profile.email, profile.name, Math.floor(Date.now() / 1000)).run();
+  const createdAccount = await db.prepare(
+    "INSERT INTO learner_accounts (id, email, name, password_hash, email_verified, created_at) VALUES (?, ?, ?, NULL, 1, ?) " +
+    "ON CONFLICT(email) DO UPDATE SET name = excluded.name, email_verified = 1 " +
+    "RETURNING id, created_at = excluded.created_at AS is_new_account",
+  ).bind(id, profile.email, profile.name, Math.floor(Date.now() / 1000))
+    .first<{ id: string; is_new_account: number }>();
   const account = await db.prepare("SELECT id, email, name FROM learner_accounts WHERE email = ?")
     .bind(profile.email).first<Learner>();
   if (!account) throw new Error("Could not load Google learner account.");
-  return account;
+  return { learner: account, created: createdAccount?.is_new_account === 1 };
 }
 
 function base64Url(bytes: Uint8Array): string {

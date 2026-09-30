@@ -9,7 +9,7 @@ import { getLearner, googleAuthConfigured, safeLoginReturnPath } from "@/lib/lea
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ returnTo?: string | string[]; error?: string }>;
+  searchParams: Promise<{ returnTo?: string | string[]; error?: string; verified?: string }>;
 }) {
   const [params, learner] = await Promise.all([searchParams, getLearner()]);
   const requestedReturnTo = Array.isArray(params.returnTo) ? params.returnTo[0] : params.returnTo;
@@ -22,7 +22,7 @@ export default async function LoginPage({
   return (
     <>
       <Header />
-      <main className="flex flex-1 items-center py-16 sm:py-24">
+      <main className="flex flex-1 items-center py-16 sm:py-8">
         <Container className="max-w-lg">
           <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-9">
             <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">Welcome back</p>
@@ -30,6 +30,17 @@ export default async function LoginPage({
             <p className="mt-3 text-sm leading-6 text-zinc-600">
               Sign in with email or Google to access personalized AI writing feedback and keep your review allowance tied to your account.
             </p>
+
+            {params.verified === "1" ? (
+              <p role="status" className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-800">
+                Email verified. You can now sign in with your email and password.
+              </p>
+            ) : null}
+            {params.error === "verification" ? (
+              <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-800">
+                That verification link is invalid or expired. Sign in and request a new link.
+              </p>
+            ) : null}
 
             <EmailAuthForm returnTo={returnTo} />
 
@@ -75,7 +86,6 @@ export default async function LoginPage({
           </section>
         </Container>
       </main>
-      <Footer />
     </>
   );
 }

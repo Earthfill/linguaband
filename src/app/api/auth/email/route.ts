@@ -8,6 +8,7 @@ import {
   verifyPassword,
   type Learner,
 } from "@/lib/learner-auth";
+import { emailDeliveryConfigured, sendVerificationEmail } from "@/lib/learner-email";
 
 type AuthDatabase = NonNullable<ReturnType<typeof learnerAuthEnv>["DB"]>;
 const MAX_AUTH_ATTEMPTS = 10;
@@ -59,11 +60,14 @@ export async function POST(request: Request) {
 
   const input = body as Record<string, unknown>;
   const mode = input.mode;
+  const action = input.action;
   const email = typeof input.email === "string" ? input.email.trim().toLowerCase() : "";
   const password = typeof input.password === "string" ? input.password : "";
   const returnTo = safeLoginReturnPath(typeof input.returnTo === "string" ? input.returnTo : null);
-  if (mode !== "login" && mode !== "register") return jsonError("Choose sign in or create account.", 400);
+  const isResend = mode === "resend-verification";
+  if (mode !== "login" && mode !== "register" && !isResend) return jsonError("Choose sign in or create account.", 400);
   if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return jsonError("Enter a valid email address.", 400);
+  if (isResend && action !== "resend-verification") return jsonError("Invalid account action.", 400);
   if (mode === "register" && (password.length < 12 || password.length > 128)) {
     return jsonError("Choose a password between 12 and 128 characters.", 400);
   }
@@ -72,7 +76,18 @@ export async function POST(request: Request) {
   try {
     if (!await rateLimit(db, request)) return jsonError("Too many attempts. Please wait 15 minutes before trying again.", 429);
 
+    if (isResend) {
+      if (emailDeliveryConfigured()) {
+        const existing = await db.prepare(
+          "SELECT id, email, name, email_verified FROM learner_accounts WHERE email = ?",
+        ).bind(email).first<Learner & { email_verified: number }>();
+        if (existing && !existing.email_verified) await sendVerificationEmail(db, existing);
+      }
+      return NextResponse.json({ ok: true, message: "If the account needs verification, an email will be sent shortly." });
+    }
+
     if (mode === "register") {
+      if (!emailDeliveryConfigured()) return jsonError("Email verification is not configured yet. Please try again later.", 503);
       const account: Learner = {
         id: crypto.randomUUID(),
         email,
@@ -80,20 +95,32 @@ export async function POST(request: Request) {
       };
       const passwordHash = await hashPassword(password);
       const created = await db.prepare(
-        "INSERT INTO learner_accounts (id, email, name, password_hash, created_at) VALUES (?, ?, ?, ?, ?) " +
+        "INSERT INTO learner_accounts (id, email, name, password_hash, email_verified, created_at) VALUES (?, ?, ?, ?, 0, ?) " +
         "ON CONFLICT(email) DO NOTHING RETURNING id, email, name",
       ).bind(account.id, account.email, account.name, passwordHash, Math.floor(Date.now() / 1000))
         .first<Learner>();
       if (!created) return jsonError("An account with this email already exists. Try signing in instead.", 409);
-      await setLearnerSession(created);
-      return NextResponse.json({ ok: true, returnTo });
+      try {
+        await sendVerificationEmail(db, created);
+      } catch (error) {
+        await db.prepare("DELETE FROM learner_accounts WHERE id = ? AND email_verified = 0").bind(created.id).run();
+        throw error;
+      }
+      return NextResponse.json({ ok: true, verificationRequired: true });
     }
 
     const account = await db.prepare(
-      "SELECT id, email, name, password_hash FROM learner_accounts WHERE email = ?",
-    ).bind(email).first<Learner & { password_hash: string | null }>();
+      "SELECT id, email, name, password_hash, email_verified FROM learner_accounts WHERE email = ?",
+    ).bind(email).first<Learner & { password_hash: string | null; email_verified: number }>();
     if (!account?.password_hash || !await verifyPassword(password, account.password_hash)) {
       return jsonError("Email or password is incorrect.", 401);
+    }
+    if (!account.email_verified) {
+      return NextResponse.json({
+        error: "Please verify your email before signing in.",
+        verificationRequired: true,
+        email: account.email,
+      }, { status: 403 });
     }
     await setLearnerSession({ id: account.id, email: account.email, name: account.name });
     return NextResponse.json({ ok: true, returnTo });

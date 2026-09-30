@@ -29,3 +29,10 @@ GOOGLE_CLIENT_SECRET=
 GOOGLE_REDIRECT_URI=http://localhost:3000/api/auth/google/callback
 # Generate a long random secret (at least 32 characters).
 LEARNER_SESSION_SECRET=
+
+# Resend email delivery for signup verification and first-Google-login welcome email.
+# Use a sender address verified in Resend, e.g. Linguaband <hello@example.com>.
+RESEND_API_KEY=
+RESEND_FROM=
+# Public origin used in email links; use your production HTTPS origin in production.
+APP_BASE_URL=http://localhost:3000
