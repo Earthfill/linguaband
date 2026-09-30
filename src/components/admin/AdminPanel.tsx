@@ -16,7 +16,7 @@ function isStuck(mock: AdminMock, now: number): boolean {
   return now - updated > STUCK_AFTER_MS;
 }
 
-export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; listeningTracks: AdminPracticeTrack[] }) {
+export function AdminPanel({ mocks, listeningTracks, vocabularyTopicCount, vocabularyWordCount }: { mocks: AdminMock[]; listeningTracks: AdminPracticeTrack[]; vocabularyTopicCount: number; vocabularyWordCount: number }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [retrying, setRetrying] = useState<string | null>(null);
@@ -26,6 +26,8 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
   const [practiceResult, setPracticeResult] = useState<{ ok: boolean; message: string } | null>(null);
   const [writingSpeakingBusy, setWritingSpeakingBusy] = useState(false);
   const [writingSpeakingResult, setWritingSpeakingResult] = useState<{ ok: boolean; message: string } | null>(null);
+  const [vocabularyBusy, setVocabularyBusy] = useState(false);
+  const [vocabularyResult, setVocabularyResult] = useState<{ ok: boolean; message: string } | null>(null);
   // 0 until the clock has been read in a timer (reading Date.now() during render would
   // break React's purity rules). Both server and client start at 0, so hydration matches.
   const [now, setNow] = useState(0);
@@ -200,6 +202,28 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
     }
   }
 
+  async function uploadVocabulary(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formElement = e.currentTarget;
+    setVocabularyBusy(true);
+    setVocabularyResult(null);
+    try {
+      const response = await fetch("/api/admin/vocabulary", { method: "POST", body: new FormData(formElement) });
+      const data = await response.json().catch(() => null) as { topics?: number; words?: number; errors?: string[]; error?: string } | null;
+      if (!response.ok) {
+        setVocabularyResult({ ok: false, message: data?.errors?.join("; ") || data?.error || `Upload failed (${response.status})` });
+        return;
+      }
+      setVocabularyResult({ ok: true, message: `Published ${data?.words ?? 0} words across ${data?.topics ?? 0} topics.` });
+      formElement.reset();
+      router.refresh();
+    } catch {
+      setVocabularyResult({ ok: false, message: "Upload failed (network error)." });
+    } finally {
+      setVocabularyBusy(false);
+    }
+  }
+
   const practiceReady = listeningTracks.filter((track) => (track.audioStatus ?? (track.audio ? "ready" : "content")) === "ready").length;
   const mocksReady = mocks.filter((mock) => mock.status === "ready").length;
   const attention = listeningTracks.filter((track) => { const status = track.audioStatus ?? (track.audio ? "ready" : "content"); const updated = track.updatedAt ? Date.parse(track.updatedAt) : NaN; return status === "content" || status === "failed" || (status === "generating" && now > 0 && (Number.isNaN(updated) || now - updated > STUCK_AFTER_MS)); }).length + mocks.filter((mock) => mock.status === "content" || mock.status === "failed" || isStuck(mock, now)).length;
@@ -219,13 +243,23 @@ export function AdminPanel({ mocks, listeningTracks }: { mocks: AdminMock[]; lis
         <MetricCard label="Needs attention" value={attention} detail="Audio jobs to review" tone="amber" />
       </section>
       <section id="uploads" className="scroll-mt-24">
-        <SectionTitle eyebrow="Content management" title="Upload new content" description="Add mock exams and publish listening or reading practice sets." />
+        <SectionTitle eyebrow="Content management" title="Upload new content" description="Add mock exams, practice sets, and vocabulary topics." />
+        <div className="mt-4 rounded-2xl border border-zinc-200 bg-white p-5 text-sm text-zinc-600">
+          Published vocabulary: <strong className="text-zinc-900">{vocabularyWordCount} words</strong> across <strong className="text-zinc-900">{vocabularyTopicCount} topics</strong>.
+        </div>
         <div className="mt-4 grid gap-5 xl:grid-cols-2">
         <form onSubmit={onSubmit} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
           <div className="mb-5 flex items-start gap-3"><span className="grid h-11 w-11 place-items-center rounded-xl bg-blue-50 text-lg font-bold text-blue-700">▤</span><div><h3 className="font-display text-lg font-bold text-zinc-900">Mock exam</h3><p className="mt-1 text-sm leading-5 text-zinc-500">Upload one JSON file shaped like the mock template.</p></div></div>
           <label className="block text-sm font-medium text-zinc-700">Mock exam JSON<input type="file" name="file" accept="application/json,.json" required className="mt-2 block w-full rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-3 text-sm text-zinc-600 file:mr-3 file:rounded-full file:border-0 file:bg-blue-600 file:px-4 file:py-2 file:text-xs file:font-bold file:text-white" /></label>
           <button type="submit" disabled={busy} className="mt-4 rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-zinc-700 disabled:opacity-50">{busy ? "Uploading…" : "Upload mock exam"}</button>
           {result ? <p role="status" className={"mt-4 rounded-xl px-4 py-3 text-sm leading-6 " + (result.ok ? "bg-emerald-50 text-emerald-800" : "bg-rose-50 text-rose-700")}>{result.message}</p> : null}
+        </form>
+
+        <form onSubmit={uploadVocabulary} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+          <div className="mb-5 flex items-start gap-3"><span className="grid h-11 w-11 place-items-center rounded-xl bg-emerald-50 text-lg font-bold text-emerald-700">Aa</span><div><h3 className="font-display text-lg font-bold text-zinc-900">Vocabulary builder</h3><p className="mt-1 text-sm leading-5 text-zinc-500">Upload a JSON array of topics, each with words, definitions, examples, and collocations. The upload replaces the current vocabulary content.</p></div></div>
+          <label className="block text-sm font-medium text-zinc-700">Vocabulary JSON<input type="file" name="file" accept="application/json,.json" required className="mt-2 block w-full rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-3 text-sm text-zinc-600 file:mr-3 file:rounded-full file:border-0 file:bg-emerald-600 file:px-4 file:py-2 file:text-xs file:font-bold file:text-white" /></label>
+          <button type="submit" disabled={vocabularyBusy} className="mt-4 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-emerald-700 disabled:opacity-50">{vocabularyBusy ? "Publishing…" : "Upload vocabulary"}</button>
+          {vocabularyResult ? <p role="status" className={"mt-4 rounded-xl px-4 py-3 text-sm leading-6 " + (vocabularyResult.ok ? "bg-emerald-50 text-emerald-800" : "bg-rose-50 text-rose-700")}>{vocabularyResult.message}</p> : null}
         </form>
 
         <form onSubmit={uploadPracticeSets} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">

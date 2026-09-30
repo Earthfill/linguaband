@@ -36,7 +36,7 @@ export const navigation: NavItem[] = [
     //   { label: "Writing Task 2: Survey Template", href: "/learn/celpip-writing-task-2-template-responding-to-survey-questions" },
     // ],
   },
-  { label: "Vocabulary", href: "/courses/celpip-vocabulary-foundations" },
-  { label: "Reviews", href: "/reviews" },
+  { label: "Vocabulary", href: "/vocabulary" },
+  // { label: "Reviews", href: "/reviews" },
   { label: "Pricing", href: "/pricing" },
 ];

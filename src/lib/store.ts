@@ -1,6 +1,7 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { MockExam } from "@/data/practice";
 import type { AudioEntry, ListeningTrack, ReadingPassage, SpeakingTask, WritingTask } from "@/data/practice/types";
+import { validateVocabularyTopics, type VocabularyTopic } from "@/data/vocabulary";
 
 // Minimal structural types for Cloudflare's D1 binding (avoids a hard dependency
 // on @cloudflare/workers-types).
@@ -59,6 +60,29 @@ function getDb(): D1Database | null {
 /** True only when running on Cloudflare with the D1 binding configured. */
 export function hasRemoteStore(): boolean {
   return getDb() !== null;
+}
+
+export async function getVocabularyTopics(): Promise<VocabularyTopic[]> {
+  const db = getDb();
+  if (!db) return [];
+  try {
+    const row = await db.prepare("SELECT payload FROM vocabulary_content WHERE id = 'default'").first<{ payload: string }>();
+    if (!row) return [];
+    const parsed: unknown = JSON.parse(row.payload);
+    return validateVocabularyTopics(parsed).topics ?? [];
+  } catch (error) {
+    console.error("[store] getVocabularyTopics failed", error);
+    return [];
+  }
+}
+
+export async function saveVocabularyTopics(topics: VocabularyTopic[]): Promise<void> {
+  const db = getDb();
+  if (!db) throw new Error("No database configured");
+  await db.prepare(
+    "INSERT INTO vocabulary_content (id, payload, updated_at) VALUES ('default', ?, ?) " +
+      "ON CONFLICT(id) DO UPDATE SET payload = excluded.payload, updated_at = excluded.updated_at",
+  ).bind(JSON.stringify(topics), new Date().toISOString()).run();
 }
 
 function parseExam(payload: string): MockExam | null {
