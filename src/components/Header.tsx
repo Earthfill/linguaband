@@ -40,7 +40,7 @@ export function Header() {
     return () => { active = false; };
   }, []);
 
-  const firstName = learner?.name?.trim().split(/\s+/)[0];
+  const firstInitial = learner?.name?.trim().charAt(0).toUpperCase();
 
   return (
     <header
@@ -72,20 +72,14 @@ export function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           {learner?.authenticated ? (
             <span aria-label={`Signed in as ${learner.name ?? "learner"}`} title={learner.name}
-              className="inline-flex h-10 min-w-10 items-center justify-center rounded-full bg-black px-3 text-sm font-semibold text-white">
-              {firstName || "Learner"}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-black text-sm font-semibold text-white">
+              {firstInitial || "L"}
             </span>
           ) : learner && !learner.authenticated ? (
-            <Link href="/login" className="rounded-full px-4 py-2 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900">
+            <Link href="/login" className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-zinc-800">
               Log In
             </Link>
           ) : null}
-          <Link
-            href="/#"
-            className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-zinc-800"
-          >
-            Start Free
-          </Link>
         </div>
 
         <button
@@ -131,19 +125,15 @@ export function Header() {
           <div className="mt-8 flex flex-col gap-3">
             {learner?.authenticated ? (
               <span aria-label={`Signed in as ${learner.name ?? "learner"}`} title={learner.name}
-                className="inline-flex min-h-12 items-center justify-center self-start rounded-full bg-black px-5 text-sm font-semibold text-white">
-                {firstName || "Learner"}
+                className="inline-flex h-10 w-10 items-center justify-center self-start rounded-full bg-black text-sm font-semibold text-white">
+                {firstInitial || "L"}
               </span>
             ) : learner && !learner.authenticated ? (
               <Link href="/login" onClick={() => setMobileOpen(false)}
-                className="inline-flex h-12 items-center justify-center rounded-full border border-zinc-300 text-sm font-semibold text-zinc-900">
+                className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-zinc-800">
                 Log In
               </Link>
             ) : null}
-            <Link href="/#" onClick={() => setMobileOpen(false)}
-              className="inline-flex h-12 items-center justify-center rounded-full bg-zinc-900 text-sm font-semibold text-white">
-              Start Free
-            </Link>
           </div>
         </nav>
       </div>
