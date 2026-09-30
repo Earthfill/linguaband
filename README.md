@@ -69,13 +69,20 @@ Linguaband); UI engines live in `src/components/practice/`.
 ### AI-assisted writing feedback
 
 The Writing workspace keeps its local heuristic checks and can request optional AI
-corrections from Gemini. The API key is only read by the server. For local development,
-put `GEMINI_API_KEY` in the ignored `.dev.vars` file (see `.dev.vars.example`). For
-Cloudflare, set it with `npx wrangler secret put GEMINI_API_KEY`. The default model is
-`gemini-2.5-flash-lite`; set `GEMINI_MODEL` to another supported model if needed. The
-endpoint limits each Cloudflare client IP to eight requests per hour and requires
-migration `0005_writing_feedback_rate_limits.sql`. Feedback is practice guidance, not an
-official CELPIP score.
+corrections from Gemini. AI feedback requires Google sign-in. Each signed-in Google account
+can receive three successful AI reviews per writing task; after the third success, that
+task's allowance resets after 36 hours. Failed Gemini requests do not count. The quota is
+stored in Cloudflare D1 and requires migration `0006_writing_feedback_user_limits.sql`.
+
+For Google sign-in, create a Google OAuth web client and add
+`https://<your-domain>/api/auth/google/callback` as an authorized redirect URI. Local
+`npm run dev` reads values from ignored `.env.local`; Wrangler-based local runs can use
+`.dev.vars`. Set `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REDIRECT_URI`, and a
+long random `LEARNER_SESSION_SECRET`; see `.dev.vars.example`. For production, add them as
+Worker secrets/variables (for example, `npx wrangler secret put GOOGLE_CLIENT_ID`). Apply
+the new schema with `npx wrangler d1 migrations apply linguaband-db --remote`. The Gemini
+API key stays server-side; the default model is `gemini-2.5-flash-lite`, configurable with
+`GEMINI_MODEL`. Feedback is practice guidance, not an official CELPIP score.
 
 ## Design tokens (from the original site)
 

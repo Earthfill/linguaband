@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import type { WritingTask } from "@/data/practice";
 import { Icon } from "@/components/icons";
 
@@ -17,8 +18,27 @@ type AiFeedback = {
   criteria: { label: string; score: number; feedback: string }[];
   corrections: { original: string; suggestion: string; reason: string }[];
 };
+type FeedbackQuota = {
+  authenticated: boolean;
+  email?: string;
+  successfulReviews?: number;
+  remaining?: number;
+  cooldownUntil?: number | null;
+};
+
+async function loadFeedbackQuota(taskId: string): Promise<FeedbackQuota | null> {
+  try {
+    const response = await fetch(`/api/writing-feedback?taskId=${encodeURIComponent(taskId)}`);
+    const result = await response.json().catch(() => null) as FeedbackQuota | null;
+    if (response.status === 401) return { authenticated: false };
+    return response.ok ? result : null;
+  } catch {
+    return null;
+  }
+}
 
 export function WritingWorkspace({ task }: { task: WritingTask }) {
+  const router = useRouter();
   const [text, setText] = useState("");
   const [isDraftLoaded, setIsDraftLoaded] = useState(false);
   const [showSample, setShowSample] = useState(false);
@@ -26,6 +46,8 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
   const [aiFeedback, setAiFeedback] = useState<AiFeedback | null>(null);
   const [feedbackError, setFeedbackError] = useState<string | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [quota, setQuota] = useState<FeedbackQuota | null>(null);
+  const [quotaLoading, setQuotaLoading] = useState(true);
 
   const draftKey = `linguaband.writing.draft.${task.task}.${task.title}`;
 
@@ -49,6 +71,16 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
       /* storage may be full or blocked */
     }
   }, [draftKey, isDraftLoaded, text]);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadFeedbackQuota(task.id)
+      .then((result) => { if (!cancelled) setQuota(result); })
+      .finally(() => {
+        if (!cancelled) setQuotaLoading(false);
+      });
+    return () => { cancelled = true; };
+  }, [task.id]);
 
   const wordCount = useMemo(
     () => (text.trim() ? text.trim().split(/\s+/).length : 0),
@@ -122,17 +154,29 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
       const result = (await response.json().catch(() => null)) as {
         feedback?: AiFeedback;
         error?: string;
+        signInRequired?: boolean;
+        quota?: FeedbackQuota;
       } | null;
       if (!response.ok || !result?.feedback) {
+        if (response.status === 401 || result?.signInRequired) {
+          router.push(`/login?returnTo=${encodeURIComponent(`/writing?taskId=${task.id}`)}`);
+          return;
+        }
         throw new Error(result?.error || "AI feedback is temporarily unavailable.");
       }
       setAiFeedback(result.feedback);
+      if (result.quota) setQuota({ ...result.quota, authenticated: true, email: quota?.email });
+      else setQuota(await loadFeedbackQuota(task.id));
     } catch (error) {
       setFeedbackError(error instanceof Error ? error.message : "AI feedback is temporarily unavailable.");
     } finally {
       setIsAnalyzing(false);
     }
   }
+
+  const cooldownDate = quota?.cooldownUntil
+    ? new Date(quota.cooldownUntil * 1000).toLocaleString()
+    : null;
 
   return (
     <div className="grid gap-4 lg:grid-cols-2">
@@ -198,12 +242,30 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
             <button
               type="button"
               onClick={analyze}
-              disabled={wordCount === 0}
+              disabled={wordCount === 0 || isAnalyzing || quotaLoading || !quota?.authenticated || (quota.remaining ?? 0) <= 0}
               className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-40"
             >
               <Icon name="sparkles" size={15} />
-              {isAnalyzing ? "Reviewing…" : "Get AI feedback"}
+              {isAnalyzing ? "Reviewing…" : quotaLoading ? "Checking sign-in…" : quota?.authenticated === false ? "Sign in to get AI feedback" : "Get AI feedback"}
             </button>
+            {quota?.authenticated === false ? (
+              <a href={`/login?returnTo=${encodeURIComponent(`/writing?taskId=${task.id}`)}`} className="text-xs font-semibold text-blue-600 hover:text-blue-700">Sign in to use AI feedback</a>
+            ) : quota === null && !quotaLoading ? (
+              <span role="status" className="text-xs text-amber-700">
+                Could not verify AI review availability. Refresh the page and try again.
+              </span>
+            ) : quota?.authenticated ? (
+              <span className="text-xs text-zinc-500" aria-live="polite">
+                {quota.email ? `${quota.email} · ` : ""}
+                {quota.remaining ?? 3} of 3 AI reviews left
+                {cooldownDate && (quota.remaining ?? 0) === 0 ? ` · Available ${cooldownDate}` : ""}
+              </span>
+            ) : null}
+            {quota?.authenticated ? (
+              <form action="/api/auth/logout" method="post">
+                <button type="submit" className="text-xs font-semibold text-zinc-500 hover:text-zinc-800">Sign out</button>
+              </form>
+            ) : null}
             <span className="text-xs text-zinc-400">
               {sentences} sentences · {paragraphs}{" "}
               {paragraphs === 1 ? "paragraph" : "paragraphs"}
@@ -241,6 +303,11 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
               {feedbackError ? (
                 <p role="status" className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-800">
                   {feedbackError} Showing the basic writing checks above instead.
+                </p>
+              ) : null}
+              {quota?.authenticated && quota.remaining === 0 && cooldownDate ? (
+                <p role="status" className="rounded-lg border border-blue-200 bg-blue-50 p-3 text-xs leading-5 text-blue-800">
+                  You’ve used all 3 successful AI reviews for this task. Your allowance resets {cooldownDate}.
                 </p>
               ) : null}
               {aiFeedback ? (

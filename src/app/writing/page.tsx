@@ -14,9 +14,9 @@ const skills = [
 export default async function WritingPage({
   searchParams,
 }: {
-  searchParams: Promise<{ taskId?: string | string[] }>;
+  searchParams: Promise<{ taskId?: string | string[]; authError?: string }>;
 }) {
-  const { taskId } = await searchParams;
+  const { taskId, authError } = await searchParams;
   const { writing } = await listPracticeSets();
   return (
     <>
@@ -31,6 +31,11 @@ export default async function WritingPage({
 
         <section className="py-12 sm:py-16">
           <Container>
+            {authError === "google" ? (
+              <p role="alert" className="mb-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
+                Google sign-in could not be completed. Please check the OAuth setup and try again.
+              </p>
+            ) : null}
             <div className="mb-8 flex flex-wrap gap-2">
               {skills.map((skill) => (
                 <span

@@ -1,11 +1,13 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { writingTasks } from "@/data/practice";
 import type { WritingTask } from "@/data/practice/types";
+import { getLearner } from "@/lib/learner-auth";
 
 const MAX_ESSAY_CHARACTERS = 8_000;
 const MAX_TASK_CHARACTERS = 4_000;
 const MAX_OUTPUT_TOKENS = 800;
-const MAX_REQUESTS_PER_HOUR = 8;
-const RATE_WINDOW_SECONDS = 60 * 60;
+const MAX_SUCCESSFUL_REVIEWS = 3;
+const COOLDOWN_SECONDS = 36 * 60 * 60;
 const DEFAULT_MODEL = "gemini-2.5-flash-lite";
 
 type RateLimitDatabase = {
@@ -81,12 +83,26 @@ function validateFeedback(value: unknown): value is Feedback {
 }
 
 function isWritingTask(value: unknown): value is WritingTask {
-  return isRecord(value) && typeof value.title === "string" &&
+  return isRecord(value) && typeof value.id === "string" && typeof value.title === "string" &&
     typeof value.task === "string" && typeof value.wordTarget === "string" &&
     typeof value.scenario === "string" && Array.isArray(value.instructions) &&
     value.instructions.every((item) => typeof item === "string") &&
     Array.isArray(value.criteria) && value.criteria.every((item) =>
       isRecord(item) && typeof item.label === "string" && typeof item.note === "string");
+}
+
+async function getAuthoritativeTask(taskId: string, db: RateLimitDatabase): Promise<WritingTask | null> {
+  const bundled = writingTasks.find((task) => task.id === taskId);
+  if (bundled) return bundled;
+  const stored = await db.prepare("SELECT payload FROM practice_sets WHERE id = ? AND skill = 'writing'")
+    .bind(taskId).first<{ payload: string }>();
+  if (!stored) return null;
+  try {
+    const task: unknown = JSON.parse(stored.payload);
+    return isWritingTask(task) && task.id === taskId ? task : null;
+  } catch {
+    return null;
+  }
 }
 
 export async function POST(request: Request) {
@@ -125,7 +141,11 @@ export async function POST(request: Request) {
     return Response.json({ error: `Response is too long (maximum ${MAX_ESSAY_CHARACTERS} characters).` }, { status: 413 });
   }
 
-  const task = body.task;
+  if (!env.DB) {
+    return Response.json({ error: "AI feedback is temporarily unavailable because request limits are not configured." }, { status: 503 });
+  }
+  const task = await getAuthoritativeTask(body.task.id, env.DB);
+  if (!task) return Response.json({ error: "This writing task is no longer available." }, { status: 404 });
   const taskContext = JSON.stringify({
     task: task.task,
     title: task.title,
@@ -138,39 +158,53 @@ export async function POST(request: Request) {
     return Response.json({ error: "Writing task contains too much text." }, { status: 413 });
   }
 
-  if (!env.DB) {
-    return Response.json({ error: "AI feedback is temporarily unavailable because request limits are not configured." }, { status: 503 });
+  const learner = await getLearner();
+  if (!learner) {
+    return Response.json({ error: "Sign in with Google to get AI writing feedback.", signInRequired: true }, { status: 401 });
   }
-
-  const clientIp = request.headers.get("cf-connecting-ip") ??
-    (process.env.NODE_ENV === "production" ? "" : "local-development");
-  if (!clientIp) {
-    return Response.json({ error: "Could not determine the request limit key." }, { status: 503 });
-  }
-
-  const ipDigest = await crypto.subtle.digest(
-    "SHA-256",
-    new TextEncoder().encode(`${apiKey}:${clientIp}`),
-  );
-  const ipHash = Array.from(new Uint8Array(ipDigest), (byte) => byte.toString(16).padStart(2, "0")).join("");
-  const windowStart = Math.floor(Date.now() / (RATE_WINDOW_SECONDS * 1000)) * RATE_WINDOW_SECONDS;
+  let now = Math.floor(Date.now() / 1000);
   try {
-    const rate = await env.DB.prepare(
-      "INSERT INTO writing_feedback_rate_limits (ip_hash, window_start, request_count) VALUES (?, ?, 1) " +
-      "ON CONFLICT(ip_hash) DO UPDATE SET window_start = excluded.window_start, " +
-      "request_count = CASE WHEN writing_feedback_rate_limits.window_start = excluded.window_start " +
-      "THEN writing_feedback_rate_limits.request_count + 1 ELSE 1 END RETURNING request_count",
-    ).bind(ipHash, windowStart).first<{ request_count: number }>();
-    if (!rate) throw new Error("Rate limit update returned no row");
-    if (rate.request_count > MAX_REQUESTS_PER_HOUR) {
-      return Response.json({ error: "You have reached the writing-feedback limit. Try again in about an hour." }, { status: 429 });
+    const reserved = await env.DB.prepare(
+      "INSERT INTO writing_feedback_user_limits (user_id, task_id, success_count, pending_count, cooldown_until) " +
+      "VALUES (?, ?, 0, 1, NULL) ON CONFLICT(user_id, task_id) DO UPDATE SET " +
+      "success_count = CASE WHEN cooldown_until IS NOT NULL AND cooldown_until <= ? THEN 0 ELSE success_count END, " +
+      "pending_count = CASE WHEN cooldown_until IS NOT NULL AND cooldown_until <= ? THEN 1 ELSE pending_count + 1 END, " +
+      "cooldown_until = CASE WHEN cooldown_until IS NOT NULL AND cooldown_until <= ? THEN NULL ELSE cooldown_until END " +
+      "WHERE (cooldown_until IS NOT NULL AND cooldown_until <= ?) OR " +
+      "(cooldown_until IS NULL AND success_count + pending_count < ?) " +
+      "RETURNING success_count, pending_count, cooldown_until",
+    ).bind(learner.id, task.id, now, now, now, now, MAX_SUCCESSFUL_REVIEWS).first<{
+      success_count: number; pending_count: number; cooldown_until: number | null;
+    }>();
+    if (!reserved) {
+      const current = await env.DB.prepare(
+        "SELECT success_count, pending_count, cooldown_until FROM writing_feedback_user_limits WHERE user_id = ? AND task_id = ?",
+      ).bind(learner.id, task.id).first<{ success_count: number; pending_count: number; cooldown_until: number | null }>();
+      if (!current) throw new Error("Quota reservation failed without a quota row");
+      const retryAfterSeconds = current.cooldown_until && current.cooldown_until > now
+        ? current.cooldown_until - now
+        : undefined;
+      return Response.json({
+        error: retryAfterSeconds
+          ? "You’ve used all 3 successful AI reviews for this writing task. Try again after the 36-hour cooldown."
+          : "All 3 AI review attempts for this task are currently in progress. Please wait for one to finish.",
+        retryAfterSeconds,
+        remaining: 0,
+      }, { status: 429 });
     }
-    await env.DB.prepare("DELETE FROM writing_feedback_rate_limits WHERE window_start < ?")
-      .bind(windowStart - RATE_WINDOW_SECONDS).run();
   } catch (error) {
-    console.error("[writing-feedback] rate limit check failed", error);
-    return Response.json({ error: "AI feedback is temporarily unavailable because request limits could not be checked." }, { status: 503 });
+    console.error("[writing-feedback] quota reservation failed", error);
+    return Response.json({ error: "AI feedback is temporarily unavailable because your review limit could not be checked." }, { status: 503 });
   }
+
+  let reservationPending = true;
+  const releaseReservation = async () => {
+    if (!reservationPending) return;
+    await env.DB!.prepare(
+      "UPDATE writing_feedback_user_limits SET pending_count = MAX(0, pending_count - 1) WHERE user_id = ? AND task_id = ?",
+    ).bind(learner.id, task.id).run();
+    reservationPending = false;
+  };
 
   const model = env.GEMINI_MODEL || process.env.GEMINI_MODEL || DEFAULT_MODEL;
   const controller = new AbortController();
@@ -208,6 +242,7 @@ Scoring rubric: Give each listed task criterion an independent practice score fr
 
     if (!upstream.ok) {
       console.error("[writing-feedback] Gemini API returned", upstream.status);
+      await releaseReservation();
       return Response.json({ error: upstream.status === 429
         ? "AI feedback is busy right now. Please try again shortly."
         : "The AI feedback service could not complete this request. Check the configured Gemini model and API key." }, { status: upstream.status === 429 ? 429 : 502 });
@@ -219,6 +254,7 @@ Scoring rubric: Give each listed task criterion an independent practice score fr
     const parts = content && Array.isArray(content.parts) ? content.parts : [];
     const generatedText = parts.find((part) => isRecord(part) && typeof part.text === "string");
     if (!isRecord(generatedText) || typeof generatedText.text !== "string") {
+      await releaseReservation();
       return Response.json({ error: "The AI returned an empty response. Please try again." }, { status: 502 });
     }
 
@@ -226,14 +262,37 @@ Scoring rubric: Give each listed task criterion an independent practice score fr
     try {
       feedback = JSON.parse(generatedText.text);
     } catch {
+      await releaseReservation();
       return Response.json({ error: "The AI returned feedback in an unexpected format. Please try again." }, { status: 502 });
     }
     if (!validateFeedback(feedback)) {
+      await releaseReservation();
       return Response.json({ error: "The AI returned incomplete feedback. Please try again." }, { status: 502 });
     }
 
-    return Response.json({ feedback });
+    now = Math.floor(Date.now() / 1000);
+    const committed = await env.DB.prepare(
+      "UPDATE writing_feedback_user_limits SET success_count = success_count + 1, pending_count = MAX(0, pending_count - 1), " +
+      "cooldown_until = CASE WHEN success_count + 1 >= ? THEN ? ELSE NULL END WHERE user_id = ? AND task_id = ? AND pending_count > 0 " +
+      "RETURNING success_count, pending_count, cooldown_until",
+    ).bind(MAX_SUCCESSFUL_REVIEWS, now + COOLDOWN_SECONDS, learner.id, task.id)
+      .first<{ success_count: number; pending_count: number; cooldown_until: number | null }>();
+    reservationPending = false;
+    if (!committed) throw new Error("Could not commit successful writing-feedback quota");
+    return Response.json({
+      feedback,
+      quota: {
+        successfulReviews: committed.success_count,
+        remaining: Math.max(0, MAX_SUCCESSFUL_REVIEWS - committed.success_count - committed.pending_count),
+        cooldownUntil: committed.cooldown_until,
+      },
+    });
   } catch (error) {
+    try {
+      await releaseReservation();
+    } catch (quotaError) {
+      console.error("[writing-feedback] quota reservation release failed", quotaError);
+    }
     const timedOut = error instanceof Error && error.name === "AbortError";
     console.error("[writing-feedback] request failed", timedOut ? "timeout" : error);
     return Response.json({ error: timedOut
@@ -241,5 +300,47 @@ Scoring rubric: Give each listed task criterion an independent practice score fr
       : "Could not reach the AI feedback service. Please try again." }, { status: 502 });
   } finally {
     clearTimeout(timeout);
+  }
+}
+
+export async function GET(request: Request) {
+  const learner = await getLearner();
+  if (!learner) return Response.json({ authenticated: false }, { status: 401 });
+
+  const taskId = new URL(request.url).searchParams.get("taskId");
+  if (!taskId || !/^[a-zA-Z0-9_-]{1,100}$/.test(taskId)) {
+    return Response.json({ error: "A valid writing task ID is required." }, { status: 400 });
+  }
+
+  let env: { DB?: RateLimitDatabase };
+  try {
+    env = (await getCloudflareContext({ async: true })).env as typeof env;
+  } catch {
+    env = {};
+  }
+  if (!env.DB) return Response.json({ error: "Writing-review limits are not configured." }, { status: 503 });
+  if (!await getAuthoritativeTask(taskId, env.DB)) {
+    return Response.json({ error: "This writing task is no longer available." }, { status: 404 });
+  }
+
+  try {
+    const quota = await env.DB.prepare(
+      "SELECT success_count, pending_count, cooldown_until FROM writing_feedback_user_limits WHERE user_id = ? AND task_id = ?",
+    ).bind(learner.id, taskId).first<{ success_count: number; pending_count: number; cooldown_until: number | null }>();
+    const now = Math.floor(Date.now() / 1000);
+    const coolingDown = Boolean(quota?.cooldown_until && quota.cooldown_until > now);
+    const successfulReviews = coolingDown ? MAX_SUCCESSFUL_REVIEWS
+      : quota?.cooldown_until && quota.cooldown_until <= now ? 0
+        : quota?.success_count ?? 0;
+    return Response.json({
+      authenticated: true,
+      email: learner.email,
+      successfulReviews,
+      remaining: Math.max(0, MAX_SUCCESSFUL_REVIEWS - successfulReviews - (quota?.pending_count ?? 0)),
+      cooldownUntil: coolingDown ? quota?.cooldown_until : null,
+    });
+  } catch (error) {
+    console.error("[writing-feedback] quota status lookup failed", error);
+    return Response.json({ error: "Could not check the writing-review limit." }, { status: 503 });
   }
 }

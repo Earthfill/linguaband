@@ -55,7 +55,7 @@ export function Header() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Link
-            href="/#"
+            href="/login"
             className="rounded-full px-4 py-2 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900"
           >
             Log In
