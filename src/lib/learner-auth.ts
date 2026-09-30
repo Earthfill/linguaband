@@ -5,6 +5,7 @@ const SESSION_COOKIE = "linguaband_learner";
 const OAUTH_STATE_COOKIE = "linguaband_google_state";
 const OAUTH_RETURN_COOKIE = "linguaband_google_return";
 const SESSION_MAX_AGE = 60 * 60 * 24 * 30;
+const PASSWORD_HASH_ITERATIONS = 100_000;
 
 export type Learner = { id: string; email: string; name: string };
 
@@ -94,16 +95,16 @@ export async function hashPassword(password: string, salt?: Uint8Array): Promise
   new Uint8Array(saltBuffer).set(actualSalt);
   const keyMaterial = await crypto.subtle.importKey("raw", new TextEncoder().encode(password), "PBKDF2", false, ["deriveBits"]);
   const bits = await crypto.subtle.deriveBits(
-    { name: "PBKDF2", hash: "SHA-256", salt: saltBuffer, iterations: 310_000 },
+    { name: "PBKDF2", hash: "SHA-256", salt: saltBuffer, iterations: PASSWORD_HASH_ITERATIONS },
     keyMaterial,
     256,
   );
-  return `pbkdf2-sha256$310000$${base64Url(actualSalt)}$${base64Url(new Uint8Array(bits))}`;
+  return `pbkdf2-sha256$${PASSWORD_HASH_ITERATIONS}$${base64Url(actualSalt)}$${base64Url(new Uint8Array(bits))}`;
 }
 
 export async function verifyPassword(password: string, storedHash: string): Promise<boolean> {
   const [algorithm, iterationsRaw, saltRaw, expectedRaw] = storedHash.split("$");
-  if (algorithm !== "pbkdf2-sha256" || iterationsRaw !== "310000" || !saltRaw || !expectedRaw) return false;
+  if (algorithm !== "pbkdf2-sha256" || iterationsRaw !== String(PASSWORD_HASH_ITERATIONS) || !saltRaw || !expectedRaw) return false;
   try {
     const actual = await hashPassword(password, decodeBase64Url(saltRaw));
     const actualBytes = decodeBase64Url(actual.split("$")[3]);
