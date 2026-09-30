@@ -52,7 +52,7 @@ export function EmailAuthForm({ returnTo }: { returnTo: string }) {
         setNotice(result.message);
         return;
       }
-      router.replace(result.returnTo ?? "/writing");
+      router.replace("/");
       router.refresh();
     } catch {
       setError("Could not connect. Please try again.");

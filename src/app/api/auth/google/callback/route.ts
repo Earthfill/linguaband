@@ -50,7 +50,8 @@ export async function GET(request: Request) {
       }
     }
     await setLearnerSession(learner);
-    return Response.redirect(new URL(await consumeOAuthReturnPath(), url), 303);
+    await consumeOAuthReturnPath();
+    return Response.redirect(new URL("/", url), 303);
   } catch (error) {
     console.error("[google-auth] sign-in failed", error);
     await consumeOAuthReturnPath();
