@@ -22,7 +22,7 @@ export default async function LoginPage({
   return (
     <>
       <Header />
-      <main className="flex flex-1 items-center py-16 sm:py-8">
+      <main className="flex flex-1 items-center">
         <Container className="max-w-lg">
           <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-9">
             <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">Welcome back</p>
