@@ -49,16 +49,16 @@ export async function getOrCreateGoogleLearner(profile: Learner): Promise<{ lear
   const db = learnerAuthEnv().DB;
   if (!db) throw new Error("Learner account storage is not configured.");
   const id = crypto.randomUUID();
-  const createdAccount = await db.prepare(
+  const existingAccount = await db.prepare("SELECT id FROM learner_accounts WHERE email = ?")
+    .bind(profile.email).first<{ id: string }>();
+  await db.prepare(
     "INSERT INTO learner_accounts (id, email, name, password_hash, email_verified, created_at) VALUES (?, ?, ?, NULL, 1, ?) " +
-    "ON CONFLICT(email) DO UPDATE SET name = excluded.name, email_verified = 1 " +
-    "RETURNING id, created_at = excluded.created_at AS is_new_account",
-  ).bind(id, profile.email, profile.name, Math.floor(Date.now() / 1000))
-    .first<{ id: string; is_new_account: number }>();
+    "ON CONFLICT(email) DO UPDATE SET name = excluded.name, email_verified = 1",
+  ).bind(id, profile.email, profile.name, Math.floor(Date.now() / 1000)).run();
   const account = await db.prepare("SELECT id, email, name FROM learner_accounts WHERE email = ?")
     .bind(profile.email).first<Learner>();
   if (!account) throw new Error("Could not load Google learner account.");
-  return { learner: account, created: createdAccount?.is_new_account === 1 };
+  return { learner: account, created: !existingAccount };
 }
 
 function base64Url(bytes: Uint8Array): string {
