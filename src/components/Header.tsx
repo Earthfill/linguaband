@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { navigation } from "@/data/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { Dropdown } from "@/components/ui/Dropdown";
@@ -10,9 +11,29 @@ import { Icon } from "@/components/icons";
 type LearnerSession = { authenticated: boolean; name?: string };
 
 export function Header() {
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [learner, setLearner] = useState<LearnerSession | null>(null);
+  const [loggingOut, setLoggingOut] = useState(false);
+
+  async function logout() {
+    if (loggingOut) return;
+    setLoggingOut(true);
+    try {
+      const response = await fetch("/api/auth/logout", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        credentials: "same-origin",
+      });
+      if (!response.ok) throw new Error("Logout request failed");
+      setLearner({ authenticated: false });
+      setMobileOpen(false);
+      router.refresh();
+    } catch {
+      setLoggingOut(false);
+    }
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -71,10 +92,16 @@ export function Header() {
 
         <div className="hidden items-center gap-3 lg:flex">
           {learner?.authenticated ? (
-            <span aria-label={`Signed in as ${learner.name ?? "learner"}`} title={learner.name}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-black text-sm font-semibold text-white">
-              {firstInitial || "L"}
-            </span>
+            <>
+              <span aria-label={`Signed in as ${learner.name ?? "learner"}`} title={learner.name}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-black text-sm font-semibold text-white">
+                {firstInitial || "L"}
+              </span>
+              <button type="button" onClick={logout} disabled={loggingOut}
+                className="rounded-full px-4 py-2 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 disabled:opacity-60">
+                {loggingOut ? "Logging out…" : "Log out"}
+              </button>
+            </>
           ) : learner && !learner.authenticated ? (
             <Link href="/login" className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-zinc-800">
               Log In
@@ -124,10 +151,18 @@ export function Header() {
 
           <div className="mt-8 flex flex-col gap-3">
             {learner?.authenticated ? (
-              <span aria-label={`Signed in as ${learner.name ?? "learner"}`} title={learner.name}
-                className="inline-flex h-10 w-10 items-center justify-center self-start rounded-full bg-black text-sm font-semibold text-white">
-                {firstInitial || "L"}
-              </span>
+              <>
+                <div className="flex items-center gap-3">
+                  <span aria-label={`Signed in as ${learner.name ?? "learner"}`} title={learner.name}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-black text-sm font-semibold text-white">
+                    {firstInitial || "L"}
+                  </span>
+                  <button type="button" onClick={logout} disabled={loggingOut}
+                    className="inline-flex h-12 flex-1 items-center justify-center rounded-full border border-zinc-300 text-sm font-semibold text-zinc-900 disabled:opacity-60">
+                    {loggingOut ? "Logging out…" : "Log out"}
+                  </button>
+                </div>
+              </>
             ) : learner && !learner.authenticated ? (
               <Link href="/login" onClick={() => setMobileOpen(false)}
                 className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-zinc-800">
