@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Container } from "@/components/ui/Container";
+import { EmailAuthForm } from "@/app/login/EmailAuthForm";
 import { getLearner, googleAuthConfigured, safeLoginReturnPath } from "@/lib/learner-auth";
 
 export default async function LoginPage({
@@ -27,8 +28,16 @@ export default async function LoginPage({
             <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">Welcome back</p>
             <h1 className="mt-2 font-display text-3xl font-bold text-zinc-900">Sign in to Linguaband</h1>
             <p className="mt-3 text-sm leading-6 text-zinc-600">
-              Sign in with Google to access personalized AI writing feedback and keep your review allowance tied to your account.
+              Sign in with email or Google to access personalized AI writing feedback and keep your review allowance tied to your account.
             </p>
+
+            <EmailAuthForm returnTo={returnTo} />
+
+            <div className="my-6 flex items-center gap-4 text-xs font-medium uppercase tracking-wide text-zinc-400">
+              <span className="h-px flex-1 bg-zinc-200" />
+              or
+              <span className="h-px flex-1 bg-zinc-200" />
+            </div>
 
             {params.error === "google" || params.error === "google-config" ? (
               <p role="alert" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-800">

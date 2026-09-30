@@ -13,6 +13,14 @@ export type LearnerAuthEnv = {
   GOOGLE_CLIENT_SECRET?: string;
   GOOGLE_REDIRECT_URI?: string;
   LEARNER_SESSION_SECRET?: string;
+  DB?: {
+    prepare(sql: string): {
+      bind(...values: (string | number | null)[]): {
+        first<T>(): Promise<T | null>;
+        run(): Promise<unknown>;
+      };
+    };
+  };
 };
 
 export function learnerAuthEnv(): LearnerAuthEnv {
@@ -24,8 +32,23 @@ export function learnerAuthEnv(): LearnerAuthEnv {
       GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
       GOOGLE_REDIRECT_URI: process.env.GOOGLE_REDIRECT_URI,
       LEARNER_SESSION_SECRET: process.env.LEARNER_SESSION_SECRET,
+      DB: undefined,
     };
   }
+}
+
+export async function getOrCreateGoogleLearner(profile: Learner): Promise<Learner> {
+  const db = learnerAuthEnv().DB;
+  if (!db) throw new Error("Learner account storage is not configured.");
+  const id = crypto.randomUUID();
+  await db.prepare(
+    "INSERT INTO learner_accounts (id, email, name, password_hash, created_at) VALUES (?, ?, ?, NULL, ?) " +
+    "ON CONFLICT(email) DO UPDATE SET name = excluded.name",
+  ).bind(id, profile.email, profile.name, Math.floor(Date.now() / 1000)).run();
+  const account = await db.prepare("SELECT id, email, name FROM learner_accounts WHERE email = ?")
+    .bind(profile.email).first<Learner>();
+  if (!account) throw new Error("Could not load Google learner account.");
+  return account;
 }
 
 function base64Url(bytes: Uint8Array): string {
@@ -54,6 +77,35 @@ function cookieOptions(maxAge: number) {
 
 export function googleAuthConfigured(env = learnerAuthEnv()): boolean {
   return Boolean(env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET && env.LEARNER_SESSION_SECRET);
+}
+
+export async function hashPassword(password: string, salt?: Uint8Array): Promise<string> {
+  const actualSalt = salt ?? new Uint8Array(crypto.getRandomValues(new Uint8Array(16)));
+  const saltBuffer = new ArrayBuffer(actualSalt.length);
+  new Uint8Array(saltBuffer).set(actualSalt);
+  const keyMaterial = await crypto.subtle.importKey("raw", new TextEncoder().encode(password), "PBKDF2", false, ["deriveBits"]);
+  const bits = await crypto.subtle.deriveBits(
+    { name: "PBKDF2", hash: "SHA-256", salt: saltBuffer, iterations: 310_000 },
+    keyMaterial,
+    256,
+  );
+  return `pbkdf2-sha256$310000$${base64Url(actualSalt)}$${base64Url(new Uint8Array(bits))}`;
+}
+
+export async function verifyPassword(password: string, storedHash: string): Promise<boolean> {
+  const [algorithm, iterationsRaw, saltRaw, expectedRaw] = storedHash.split("$");
+  if (algorithm !== "pbkdf2-sha256" || iterationsRaw !== "310000" || !saltRaw || !expectedRaw) return false;
+  try {
+    const actual = await hashPassword(password, decodeBase64Url(saltRaw));
+    const actualBytes = decodeBase64Url(actual.split("$")[3]);
+    const expectedBytes = decodeBase64Url(expectedRaw);
+    if (actualBytes.length !== expectedBytes.length) return false;
+    let mismatch = 0;
+    for (let index = 0; index < actualBytes.length; index += 1) mismatch |= actualBytes[index] ^ expectedBytes[index];
+    return mismatch === 0;
+  } catch {
+    return false;
+  }
 }
 
 export async function setOAuthState(state: string): Promise<void> {

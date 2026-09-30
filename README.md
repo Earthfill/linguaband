@@ -69,10 +69,12 @@ Linguaband); UI engines live in `src/components/practice/`.
 ### AI-assisted writing feedback
 
 The Writing workspace keeps its local heuristic checks and can request optional AI
-corrections from Gemini. AI feedback requires Google sign-in. Each signed-in Google account
+corrections from Gemini. AI feedback requires learner sign-in with email/password or Google. Each signed-in account
 can receive three successful AI reviews per writing task; after the third success, that
 task's allowance resets after 36 hours. Failed Gemini requests do not count. The quota is
-stored in Cloudflare D1 and requires migration `0006_writing_feedback_user_limits.sql`.
+stored in Cloudflare D1 and requires migrations `0006_writing_feedback_user_limits.sql` and
+`0007_learner_accounts.sql`. Email accounts require a password of at least 12 characters;
+passwords are stored as salted PBKDF2 hashes, and authentication attempts are rate limited.
 
 For Google sign-in, create a Google OAuth web client and add
 `https://<your-domain>/api/auth/google/callback` as an authorized redirect URI. Local
