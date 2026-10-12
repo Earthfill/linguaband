@@ -35,7 +35,10 @@ export type IconName =
   | "target"
   | "list"
   | "search"
-  | "grid";
+  | "grid"
+  | "upload"
+  | "log-out"
+  | "waveform";
 
 const paths: Record<IconName, ReactNode> = {
   clipboard: (
@@ -208,6 +211,30 @@ const paths: Record<IconName, ReactNode> = {
       <rect x="14" y="3" width="7" height="7" rx="1.5" />
       <rect x="3" y="14" width="7" height="7" rx="1.5" />
       <rect x="14" y="14" width="7" height="7" rx="1.5" />
+    </>
+  ),
+  upload: (
+    <>
+      <path d="M12 15V3" />
+      <path d="m7 8 5-5 5 5" />
+      <path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" />
+    </>
+  ),
+  "log-out": (
+    <>
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+      <path d="m16 17 5-5-5-5" />
+      <path d="M21 12H9" />
+    </>
+  ),
+  waveform: (
+    <>
+      <path d="M3 12h1" />
+      <path d="M7 8v8" />
+      <path d="M11 5v14" />
+      <path d="M15 9v6" />
+      <path d="M19 7v10" />
+      <path d="M23 11v2" />
     </>
   ),
 };

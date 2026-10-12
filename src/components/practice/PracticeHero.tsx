@@ -22,7 +22,7 @@ export function PracticeHero({
 }: PracticeHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 pb-10 pt-10 sm:pb-14 sm:pt-14">
-      <div className="pointer-events-none absolute inset-x-0 -top-32 -z-10 mx-auto h-72 max-w-3xl rounded-full bg-gradient-to-b from-blue-100/70 to-transparent blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-0 -top-32 -z-10 mx-auto h-72 max-w-3xl rounded-full bg-linear-to-b from-blue-100/70 to-transparent blur-3xl" />
       <Container>
         <nav className="mb-6 flex flex-wrap items-center gap-1.5 text-sm text-zinc-500">
           {crumbs?.map((crumb, i) => (

@@ -22,6 +22,13 @@ type SetEntry = {
   href?: string;
 };
 
+const skillChip: Record<Exclude<Skill, "All">, string> = {
+  Listening: "bg-violet-50 text-violet-600",
+  Reading: "bg-blue-50 text-blue-600",
+  Writing: "bg-indigo-50 text-indigo-600",
+  Speaking: "bg-lime-50 text-lime-600",
+};
+
 export function QuestionBank({
   questions,
   sets,
@@ -127,12 +134,12 @@ export function QuestionBank({
             imageAlt: practicingEntry.imageAlt,
             ...(practicingEntry.audioId
               ? {
-                  audio: {
-                    id: practicingEntry.audioId,
-                    entry: practicingEntry.audio,
-                    status: practicingEntry.audioStatus,
-                  },
-                }
+                audio: {
+                  id: practicingEntry.audioId,
+                  entry: practicingEntry.audio,
+                  status: practicingEntry.audioStatus,
+                },
+              }
               : {}),
           }}
         />}
@@ -150,11 +157,10 @@ export function QuestionBank({
               key={s}
               type="button"
               onClick={() => setSkill(s)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                skill === s
-                  ? "bg-zinc-900 text-white"
-                  : "border border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300"
-              }`}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${skill === s
+                ? "bg-zinc-900 text-white"
+                : "border border-zinc-200 bg-white text-zinc-600 hover:border-zinc-300"
+                }`}
             >
               {s}
               <span className={`ml-1.5 text-xs ${skill === s ? "text-zinc-300" : "text-zinc-400"}`}>
@@ -205,13 +211,13 @@ export function QuestionBank({
             <section key={entry.id} className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
               <div className="flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6">
                 <div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide ${entry.skill === "Listening" ? "bg-violet-50 text-violet-600" : "bg-blue-50 text-blue-600"}`}>
-                    {entry.skill}
-                  </span>
-                  <span className="text-xs font-semibold text-zinc-400">{entry.part}</span>
-                </div>
-                <h2 className="mt-2 font-display text-xl font-bold text-zinc-900">{entry.title}</h2>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide ${skillChip[entry.skill]}`}>
+                      {entry.skill}
+                    </span>
+                    <span className="text-xs font-semibold text-zinc-400">{entry.part}</span>
+                  </div>
+                  <h2 className="mt-2 font-display text-xl font-bold text-zinc-900">{entry.title}</h2>
                 </div>
                 {entry.href ? (
                   <button type="button" onClick={() => setPracticingSetId(entry.id)} className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"><Icon name="play" size={14} /> View prompt</button>

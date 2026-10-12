@@ -139,8 +139,12 @@ gracefully if audio is missing (it falls back to the plain transcript).
 
 ## Admin — adding mock tests
 
-A password-protected `/admin` page accepts one JSON file per mock test. The file matches
-the existing `MockExam` shape:
+The password-protected `/admin` area is a sidebar app shell with four sections:
+**Dashboard** (`/admin`, metrics + quick links), **Uploads** (`/admin/uploads`,
+mock exams, practice sets, writing & speaking), **Vocabulary**
+(`/admin/vocabulary`), and **Audio jobs** (`/admin/audio`, generation queue +
+retries). Uploads accepts one JSON file per mock test. The file matches the
+existing `MockExam` shape:
 
 ```json
 {

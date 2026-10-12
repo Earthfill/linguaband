@@ -17,6 +17,8 @@ export default async function WritingPage({
   searchParams: Promise<{ taskId?: string | string[]; authError?: string }>;
 }) {
   const { taskId, authError } = await searchParams;
+  const rawTaskId = Array.isArray(taskId) ? taskId[0] : taskId;
+  if (!rawTaskId) throw new Error("Missing writing task. Open this page with a task selected, e.g. /writing?taskId=wr-01.");
   const { writing } = await listPracticeSets();
   return (
     <>
@@ -46,7 +48,7 @@ export default async function WritingPage({
                 </span>
               ))}
             </div>
-            <WritingBrowser tasks={writing} initialTaskId={Array.isArray(taskId) ? taskId[0] : taskId} />
+            <WritingBrowser tasks={writing} initialTaskId={rawTaskId} />
           </Container>
         </section>
       </main>
