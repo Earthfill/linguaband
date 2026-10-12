@@ -8,10 +8,10 @@ type UploadResult = { ok: boolean; message: string };
 type Accent = "blue" | "violet" | "amber";
 type PickedFile = { name: string; size: number };
 
-const ACCENTS: Record<Accent, { badge: string; drag: string; button: string; file: string }> = {
-  blue: { badge: "bg-blue-50 text-blue-700", drag: "border-blue-400 bg-blue-50", button: "bg-blue-600 hover:bg-blue-700", file: "bg-blue-50 text-blue-700" },
-  violet: { badge: "bg-violet-50 text-violet-700", drag: "border-violet-400 bg-violet-50", button: "bg-violet-600 hover:bg-violet-700", file: "bg-violet-50 text-violet-700" },
-  amber: { badge: "bg-amber-50 text-amber-700", drag: "border-amber-400 bg-amber-50", button: "bg-amber-600 hover:bg-amber-700", file: "bg-amber-50 text-amber-700" },
+const ACCENTS: Record<Accent, { badge: string; drag: string; button: string; file: string; link: string }> = {
+  blue: { badge: "bg-blue-50 text-blue-700", drag: "border-blue-400 bg-blue-50", button: "bg-blue-600 hover:bg-blue-700", file: "bg-blue-50 text-blue-700", link: "text-blue-700" },
+  violet: { badge: "bg-violet-50 text-violet-700", drag: "border-violet-400 bg-violet-50", button: "bg-violet-600 hover:bg-violet-700", file: "bg-violet-50 text-violet-700", link: "text-violet-700" },
+  amber: { badge: "bg-amber-50 text-amber-700", drag: "border-amber-400 bg-amber-50", button: "bg-amber-600 hover:bg-amber-700", file: "bg-amber-50 text-amber-700", link: "text-amber-700" },
 };
 
 function formatSize(bytes: number): string {
@@ -72,9 +72,8 @@ function FileDrop({
       }}
       onDragLeave={() => setDragging(false)}
       onDrop={onDrop}
-      className={`flex cursor-pointer items-center gap-3 rounded-xl border-2 border-dashed px-4 py-4 transition-colors ${
-        dragging ? tone.drag : "border-zinc-300 bg-zinc-50 hover:border-zinc-400 hover:bg-zinc-100"
-      }`}
+      className={`flex cursor-pointer items-center gap-3 rounded-xl border-2 border-dashed px-4 py-4 transition-colors ${dragging ? tone.drag : "border-zinc-300 bg-zinc-50 hover:border-zinc-400 hover:bg-zinc-100"
+        }`}
     >
       <input
         ref={inputRef}
@@ -118,9 +117,8 @@ function ResultAlert({ result }: { result: UploadResult | null }) {
   return (
     <p
       role="status"
-      className={`flex items-start gap-2 rounded-xl px-4 py-3 text-sm leading-5 ${
-        result.ok ? "bg-emerald-50 text-emerald-800" : "bg-rose-50 text-rose-700"
-      }`}
+      className={`flex items-start gap-2 rounded-xl px-4 py-3 text-sm leading-5 ${result.ok ? "bg-emerald-50 text-emerald-800" : "bg-rose-50 text-rose-700"
+        }`}
     >
       <Icon name={result.ok ? "check" : "x"} size={16} className="mt-0.5 shrink-0" />
       <span>{result.message}</span>
@@ -133,12 +131,16 @@ function FormCard({
   icon,
   title,
   description,
+  sampleKind,
+  sampleFilename,
   children,
 }: {
   accent: Accent;
   icon: IconName;
   title: string;
   description: string;
+  sampleKind?: "mock" | "practice" | "writing-speaking";
+  sampleFilename?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -147,9 +149,19 @@ function FormCard({
         <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl ${ACCENTS[accent].badge}`}>
           <Icon name={icon} size={20} />
         </span>
-        <div>
+        <div className="min-w-0 flex-1">
           <h3 className="font-display text-lg font-bold text-zinc-900">{title}</h3>
           <p className="mt-1 text-sm leading-5 text-zinc-500">{description}</p>
+          {sampleKind ? (
+            <a
+              href={`/api/admin/sample-json?kind=${sampleKind}`}
+              download={sampleFilename}
+              className={`mt-2 inline-flex items-center gap-1.5 text-xs font-semibold underline-offset-2 transition hover:underline ${ACCENTS[accent].link}`}
+            >
+              <Icon name="download" size={14} />
+              Download sample JSON
+            </a>
+          ) : null}
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-4 px-6 py-5">{children}</div>
@@ -167,6 +179,16 @@ function SubmitButton({ busy, busyLabel, label, accent }: { busy: boolean; busyL
       {busy ? busyLabel : label}
     </button>
   );
+}
+
+function Note({ texts }: { texts: string[] }) {
+  return (
+    <div className="bg-pink-100/50 border border-pink-500 px-4 py-2 rounded-xl">
+      {texts.map((t, idx) => (
+        <p key={idx} className="italic text-xs">• {t}</p>
+      ))}
+    </div>
+  )
 }
 
 export function UploadForms() {
@@ -291,7 +313,14 @@ export function UploadForms() {
     <div className="space-y-5">
       <div className="grid gap-5 lg:grid-cols-3">
         <form onSubmit={onSubmit} className="contents">
-          <FormCard accent="blue" icon="clipboard-list" title="Mock exam" description="Upload one JSON file shaped like the mock template.">
+          <FormCard
+            accent="blue"
+            icon="clipboard-list"
+            title="Mock exam"
+            description="Upload one JSON file shaped like the mock template."
+            sampleKind="mock"
+            sampleFilename="sample-mock-exam.json"
+          >
             <FileDrop name="file" accept="application/json,.json" accent="blue" icon="clipboard-list" idle="Mock exam JSON" selectedLabel="file selected" />
             <SubmitButton busy={busy} busyLabel="Uploading…" label="Upload mock exam" accent="blue" />
             <ResultAlert result={result} />
@@ -299,8 +328,18 @@ export function UploadForms() {
         </form>
 
         <form onSubmit={uploadPracticeSets} className="contents">
-          <FormCard accent="violet" icon="layers" title="Listening & reading practice" description="Upload listening and reading JSON with any referenced track images.">
-            <FileDrop name="file" accept="application/json,.json" accent="violet" icon="clipboard-list" idle="Practice-set JSON" selectedLabel="file selected" />
+          <FormCard
+            accent="violet"
+            icon="layers"
+            title="Listening & reading practice"
+            description="Upload listening and reading JSON with any referenced track images."
+            sampleKind="practice"
+            sampleFilename="sample-practice-sets.json"
+          >
+            <div className="space-y-1.5">
+              <Note texts={["Listening or reeading can be []", "Remove or add the image/imageAlt property as needed either for listening or reading before the questions property"]} />
+              <FileDrop name="file" accept="application/json,.json" accent="violet" icon="clipboard-list" idle="Practice-set JSON" selectedLabel="file selected" />
+            </div>
             <FileDrop name="images" accept="image/png,image/jpeg,image/webp" multiple required={false} accent="violet" icon="camera" idle="Track images (optional)" selectedLabel="images selected" />
             <SubmitButton busy={practiceBusy} busyLabel="Uploading…" label="Upload practice sets" accent="violet" />
             <ResultAlert result={practiceResult} />
@@ -308,7 +347,14 @@ export function UploadForms() {
         </form>
 
         <form onSubmit={uploadWritingSpeaking} className="contents">
-          <FormCard accent="amber" icon="pen" title="Writing &amp; speaking tasks" description="Upload WritingTask and SpeakingTask objects in a JSON file. Matching IDs are replaced.">
+          <FormCard
+            accent="amber"
+            icon="pen"
+            title="Writing &amp; speaking tasks"
+            description="Upload WritingTask and SpeakingTask objects in a JSON file. Matching IDs are replaced."
+            sampleKind="writing-speaking"
+            sampleFilename="sample-writing-speaking.json"
+          >
             <FileDrop name="file" accept="application/json,.json" accent="amber" icon="pen" idle="Writing & speaking JSON" selectedLabel="file selected" />
             <SubmitButton busy={writingSpeakingBusy} busyLabel="Uploading…" label="Upload writing & speaking" accent="amber" />
             <ResultAlert result={writingSpeakingResult} />
@@ -324,6 +370,15 @@ export function UploadForms() {
           Audio jobs
         </a>
         .
+      </p>
+
+      <p className="rounded-2xl border border-dashed border-zinc-300 bg-white px-5 py-4 text-xs leading-5 text-zinc-500">
+        <strong className="text-zinc-700">Sample files:</strong> each card above has a{" "}
+        <strong className="text-zinc-700">Download sample JSON</strong> link with a valid, minimal file matching that
+        card&apos;s schema — edit the content, keep the structure, and upload. The practice-set sample also references{" "}
+        <code className="rounded bg-zinc-100 px-1 py-0.5">sample-image.png</code>, so either add an image file with that
+        name or remove the <code className="rounded bg-zinc-100 px-1 py-0.5">image</code> /{" "}
+        <code className="rounded bg-zinc-100 px-1 py-0.5">imageAlt</code> fields before uploading.
       </p>
     </div>
   );

@@ -10,7 +10,7 @@ import { isStuck, mockNeedsAttention, practiceTrackStatus, trackNeedsAttention }
 
 const CLOCK_TICK_MS = 30_000;
 const AUTO_REFRESH_MS = 20_000;
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 10;
 
 type Filter = "all" | "attention" | "ready";
 type JobResult = { ok: boolean; message: string };

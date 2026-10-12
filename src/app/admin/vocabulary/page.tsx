@@ -25,7 +25,7 @@ export default async function AdminVocabularyPage() {
           <p className="mt-3 font-display text-3xl font-bold tracking-tight text-zinc-900">{vocabularyTopics.length}</p>
         </div>
         <div className="flex items-center rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-          <a className="font-semibold text-blue-700 underline underline-offset-2" href="/vocabulary.json" download>
+          <a className="font-semibold text-blue-700 underline underline-offset-2" href="/api/admin/sample-json?kind=vocabulary" download>
             Download sample vocabulary.json
           </a>
         </div>

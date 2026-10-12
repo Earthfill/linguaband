@@ -39,6 +39,7 @@ export type IconName =
   | "search"
   | "grid"
   | "upload"
+  | "download"
   | "log-out"
   | "waveform";
 
@@ -221,6 +222,13 @@ const paths: Record<IconName, ReactNode> = {
     <>
       <path d="M12 15V3" />
       <path d="m7 8 5-5 5 5" />
+      <path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" />
+    </>
+  ),
+  download: (
+    <>
+      <path d="M12 3v12" />
+      <path d="m7 10 5 5 5-5" />
       <path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4" />
     </>
   ),
