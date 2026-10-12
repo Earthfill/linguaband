@@ -93,12 +93,12 @@ function FileDrop({
         {files.length === 0 ? (
           <>
             <span className="block truncate text-sm font-semibold text-zinc-700">{idle}</span>
-            <span className="block text-xs text-zinc-400">Click to browse â€” or drop a file here</span>
+            <span className="block text-xs text-zinc-400">Click to browse — or drop a file here</span>
           </>
         ) : summary ? (
           <>
             <span className="block truncate text-sm font-semibold text-zinc-800">{summary.name}</span>
-            <span className="block text-xs text-zinc-400">{formatSize(summary.size)} Â· drop to replace</span>
+            <span className="block text-xs text-zinc-400">{formatSize(summary.size)} · drop to replace</span>
           </>
         ) : (
           <>
@@ -203,7 +203,7 @@ export function UploadForms() {
         const warnings = data?.warnings?.length ? ` ${data.warnings.join(" ")}` : "";
         const note = data?.dispatched
           ? "Audio generation started."
-          : `Audio was NOT scheduled â€” ${data?.status ?? ""} ${data?.error ?? "check GITHUB_TOKEN / GITHUB_REPO"}`.trim();
+          : `Audio was NOT scheduled — ${data?.status ?? ""} ${data?.error ?? "check GITHUB_TOKEN / GITHUB_REPO"}`.trim();
         setResult({ ok: true, message: `Uploaded. ${note}${warnings}` });
         router.refresh();
       } else {
@@ -293,7 +293,7 @@ export function UploadForms() {
         <form onSubmit={onSubmit} className="contents">
           <FormCard accent="blue" icon="clipboard-list" title="Mock exam" description="Upload one JSON file shaped like the mock template.">
             <FileDrop name="file" accept="application/json,.json" accent="blue" icon="clipboard-list" idle="Mock exam JSON" selectedLabel="file selected" />
-            <SubmitButton busy={busy} busyLabel="Uploadingâ€¦" label="Upload mock exam" accent="blue" />
+            <SubmitButton busy={busy} busyLabel="Uploading…" label="Upload mock exam" accent="blue" />
             <ResultAlert result={result} />
           </FormCard>
         </form>
@@ -302,7 +302,7 @@ export function UploadForms() {
           <FormCard accent="violet" icon="layers" title="Listening & reading practice" description="Upload listening and reading JSON with any referenced track images.">
             <FileDrop name="file" accept="application/json,.json" accent="violet" icon="clipboard-list" idle="Practice-set JSON" selectedLabel="file selected" />
             <FileDrop name="images" accept="image/png,image/jpeg,image/webp" multiple required={false} accent="violet" icon="camera" idle="Track images (optional)" selectedLabel="images selected" />
-            <SubmitButton busy={practiceBusy} busyLabel="Uploadingâ€¦" label="Upload practice sets" accent="violet" />
+            <SubmitButton busy={practiceBusy} busyLabel="Uploading…" label="Upload practice sets" accent="violet" />
             <ResultAlert result={practiceResult} />
           </FormCard>
         </form>
@@ -310,14 +310,14 @@ export function UploadForms() {
         <form onSubmit={uploadWritingSpeaking} className="contents">
           <FormCard accent="amber" icon="pen" title="Writing &amp; speaking tasks" description="Upload WritingTask and SpeakingTask objects in a JSON file. Matching IDs are replaced.">
             <FileDrop name="file" accept="application/json,.json" accent="amber" icon="pen" idle="Writing & speaking JSON" selectedLabel="file selected" />
-            <SubmitButton busy={writingSpeakingBusy} busyLabel="Uploadingâ€¦" label="Upload writing & speaking" accent="amber" />
+            <SubmitButton busy={writingSpeakingBusy} busyLabel="Uploading…" label="Upload writing & speaking" accent="amber" />
             <ResultAlert result={writingSpeakingResult} />
           </FormCard>
         </form>
       </div>
 
       <p className="rounded-2xl border border-dashed border-zinc-300 bg-white px-5 py-4 text-xs leading-5 text-zinc-500">
-        <strong className="text-zinc-700">Good to know:</strong> IDs are replacement keys â€” uploading a file with an
+        <strong className="text-zinc-700">Good to know:</strong> IDs are replacement keys — uploading a file with an
         existing ID replaces that content. Uploads go live immediately; listening audio is queued automatically
         (about 2 minutes) and can be watched under{" "}
         <a href="/admin/audio" className="font-semibold text-blue-700 underline underline-offset-2">

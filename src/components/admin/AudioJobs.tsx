@@ -10,6 +10,7 @@ import { isStuck, mockNeedsAttention, practiceTrackStatus, trackNeedsAttention }
 
 const CLOCK_TICK_MS = 30_000;
 const AUTO_REFRESH_MS = 20_000;
+const PAGE_SIZE = 20;
 
 type Filter = "all" | "attention" | "ready";
 type JobResult = { ok: boolean; message: string };
@@ -117,6 +118,87 @@ function EmptyState({ icon, title, body, cta }: { icon: IconName; title: string;
   );
 }
 
+function pageNumbers(current: number, total: number): (number | "…")[] {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+  const pages = new Set<number>([1, total, current, current - 1, current + 1]);
+  if (current <= 3) [2, 3, 4].forEach((p) => pages.add(p));
+  if (current >= total - 2) [total - 3, total - 2, total - 1].forEach((p) => pages.add(p));
+  const sorted = [...pages].filter((p) => p >= 1 && p <= total).sort((a, b) => a - b);
+  const out: (number | "…")[] = [];
+  let prev = 0;
+  for (const p of sorted) {
+    if (prev && p - prev > 1) out.push("…");
+    out.push(p);
+    prev = p;
+  }
+  return out;
+}
+
+function Pagination({
+  page,
+  totalPages,
+  total,
+  onPage,
+}: {
+  page: number;
+  totalPages: number;
+  total: number;
+  onPage: (p: number) => void;
+}) {
+  const start = (page - 1) * PAGE_SIZE + 1;
+  const end = Math.min(page * PAGE_SIZE, total);
+  if (total <= PAGE_SIZE) {
+    return <p className="px-5 py-3 text-xs text-zinc-400">Showing all {total} {total === 1 ? "job" : "jobs"}</p>;
+  }
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-2 border-t border-zinc-100 px-5 py-3">
+      <p className="text-xs text-zinc-400">
+        Showing <span className="font-semibold text-zinc-600">{start}–{end}</span> of{" "}
+        <span className="font-semibold text-zinc-600">{total}</span>
+      </p>
+      <div className="flex items-center gap-1">
+        <button
+          type="button"
+          onClick={() => onPage(page - 1)}
+          disabled={page === 1}
+          aria-label="Previous page"
+          className="grid h-8 w-8 place-items-center rounded-full border border-zinc-200 text-zinc-500 transition hover:border-zinc-300 hover:text-zinc-900 disabled:opacity-40 disabled:hover:border-zinc-200 disabled:hover:text-zinc-500"
+        >
+          <Icon name="chevron-left" size={16} />
+        </button>
+        {pageNumbers(page, totalPages).map((p, i) =>
+          p === "…" ? (
+            <span key={`gap-${i}`} className="px-1 text-xs text-zinc-400">…</span>
+          ) : (
+            <button
+              key={p}
+              type="button"
+              onClick={() => onPage(p)}
+              aria-current={p === page ? "page" : undefined}
+              className={`grid h-8 min-w-8 place-items-center rounded-full px-2 text-xs font-bold transition ${
+                p === page
+                  ? "bg-zinc-900 text-white"
+                  : "border border-zinc-200 text-zinc-600 hover:border-zinc-300 hover:text-zinc-900"
+              }`}
+            >
+              {p}
+            </button>
+          ),
+        )}
+        <button
+          type="button"
+          onClick={() => onPage(page + 1)}
+          disabled={page === totalPages}
+          aria-label="Next page"
+          className="grid h-8 w-8 place-items-center rounded-full border border-zinc-200 text-zinc-500 transition hover:border-zinc-300 hover:text-zinc-900 disabled:opacity-40 disabled:hover:border-zinc-200 disabled:hover:text-zinc-500"
+        >
+          <Icon name="chevron-right" size={16} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function AudioJobs({ mocks, listeningTracks }: { mocks: AdminMock[]; listeningTracks: AdminPracticeTrack[] }) {
   const router = useRouter();
   const [retrying, setRetrying] = useState<string | null>(null);
@@ -126,8 +208,8 @@ export function AudioJobs({ mocks, listeningTracks }: { mocks: AdminMock[]; list
   const [filter, setFilter] = useState<Filter>("all");
   const [query, setQuery] = useState("");
   const [refreshing, setRefreshing] = useState(false);
-  // 0 until the clock has been read in a timer (reading Date.now() during render would
-  // break React's purity rules). Both server and client start at 0, so hydration matches.
+  const [trackPage, setTrackPage] = useState(1);
+  const [mockPage, setMockPage] = useState(1);
   const [now, setNow] = useState(0);
 
   useEffect(() => {
@@ -222,6 +304,13 @@ export function AudioJobs({ mocks, listeningTracks }: { mocks: AdminMock[]; list
     .filter((mock) => keep(mockNeedsAttention(mock, now), mock.status === "ready"))
     .sort((a, b) => Number(mockNeedsAttention(b, now)) - Number(mockNeedsAttention(a, now)));
 
+  const trackTotalPages = Math.max(1, Math.ceil(visibleTracks.length / PAGE_SIZE));
+  const mockTotalPages = Math.max(1, Math.ceil(visibleMocks.length / PAGE_SIZE));
+  const safeTrackPage = Math.min(trackPage, trackTotalPages);
+  const safeMockPage = Math.min(mockPage, mockTotalPages);
+  const pagedTracks = visibleTracks.slice((safeTrackPage - 1) * PAGE_SIZE, safeTrackPage * PAGE_SIZE);
+  const pagedMocks = visibleMocks.slice((safeMockPage - 1) * PAGE_SIZE, safeMockPage * PAGE_SIZE);
+
   const counts: Record<Filter, number> = {
     all: searchedTracks.length + searchedMocks.length,
     attention:
@@ -251,7 +340,11 @@ export function AudioJobs({ mocks, listeningTracks }: { mocks: AdminMock[]; list
             <button
               key={item.key}
               type="button"
-              onClick={() => setFilter(item.key)}
+              onClick={() => {
+                setFilter(item.key);
+                setTrackPage(1);
+                setMockPage(1);
+              }}
               aria-pressed={filter === item.key}
               className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors ${
                 filter === item.key
@@ -269,7 +362,11 @@ export function AudioJobs({ mocks, listeningTracks }: { mocks: AdminMock[]; list
           <input
             type="search"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setTrackPage(1);
+              setMockPage(1);
+            }}
             placeholder="Search id or title…"
             aria-label="Search audio jobs"
             className="w-44 rounded-full border border-zinc-200 bg-white py-2 pl-9 pr-3 text-sm text-zinc-700 outline-none transition focus:border-zinc-400 focus:ring-2 focus:ring-zinc-100 sm:w-56"
@@ -324,36 +421,39 @@ export function AudioJobs({ mocks, listeningTracks }: { mocks: AdminMock[]; list
               body="Nothing here matches the current filter or search."
             />
           ) : (
-            <ul className="divide-y divide-zinc-100">
-              {visibleTracks.map((track) => {
-                const status = practiceTrackStatus(track);
-                const stuck = isStuck(status, track.updatedAt, now);
-                return (
-                  <JobRow
-                    key={track.id}
-                    tone="bg-violet-50 text-violet-600"
-                    icon="headphones"
-                    title={track.title}
-                    id={track.id}
-                    updatedAt={track.updatedAt}
-                    now={now}
-                    badge={<StatusBadge status={stuck ? "stuck" : status} />}
-                    action={
-                      status !== "ready" || stuck ? (
-                        <button
-                          type="button"
-                          onClick={() => retryPracticeAudio(track.id)}
-                          disabled={retryingPractice === track.id}
-                          className="shrink-0 rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-600 transition-colors hover:border-violet-300 hover:text-violet-600 disabled:opacity-50"
-                        >
-                          {retryingPractice === track.id ? "…" : status === "generating" || stuck ? "Re-queue audio" : "Generate audio"}
-                        </button>
-                      ) : null
-                    }
-                  />
-                );
-              })}
-            </ul>
+            <>
+              <ul className="divide-y divide-zinc-100">
+                {pagedTracks.map((track) => {
+                  const status = practiceTrackStatus(track);
+                  const stuck = isStuck(status, track.updatedAt, now);
+                  return (
+                    <JobRow
+                      key={track.id}
+                      tone="bg-violet-50 text-violet-600"
+                      icon="headphones"
+                      title={track.title}
+                      id={track.id}
+                      updatedAt={track.updatedAt}
+                      now={now}
+                      badge={<StatusBadge status={stuck ? "stuck" : status} />}
+                      action={
+                        status !== "ready" || stuck ? (
+                          <button
+                            type="button"
+                            onClick={() => retryPracticeAudio(track.id)}
+                            disabled={retryingPractice === track.id}
+                            className="shrink-0 rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-600 transition-colors hover:border-violet-300 hover:text-violet-600 disabled:opacity-50"
+                          >
+                            {retryingPractice === track.id ? "…" : status === "generating" || stuck ? "Re-queue audio" : "Generate audio"}
+                          </button>
+                        ) : null
+                      }
+                    />
+                  );
+                })}
+              </ul>
+              <Pagination page={safeTrackPage} totalPages={trackTotalPages} total={visibleTracks.length} onPage={setTrackPage} />
+            </>
           )}
         </div>
 
@@ -385,41 +485,44 @@ export function AudioJobs({ mocks, listeningTracks }: { mocks: AdminMock[]; list
               body="Nothing here matches the current filter or search."
             />
           ) : (
-            <ul className="divide-y divide-zinc-100">
-              {visibleMocks.map((mock) => {
-                const stuck = isStuck(mock.status, mock.updatedAt, now);
-                const needsAction = mock.status === "content" || mock.status === "failed" || stuck;
-                return (
-                  <JobRow
-                    key={mock.id}
-                    tone="bg-blue-50 text-blue-600"
-                    icon="layers"
-                    title={mock.name}
-                    id={mock.id}
-                    updatedAt={mock.updatedAt}
-                    now={now}
-                    badge={<StatusBadge status={stuck ? "stuck" : mock.status} />}
-                    action={
-                      needsAction ? (
-                        <button
-                          type="button"
-                          onClick={() => retryAudio(mock.id)}
-                          disabled={retrying === mock.id}
-                          title={
-                            stuck
-                              ? "This job looks stuck — queue the audio again"
-                              : "Queue audio generation for this mock"
-                          }
-                          className="shrink-0 rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-600 transition-colors hover:border-blue-300 hover:text-blue-600 disabled:opacity-50"
-                        >
-                          {retrying === mock.id ? "…" : stuck ? "Re-queue audio" : "Retry audio"}
-                        </button>
-                      ) : null
-                    }
-                  />
-                );
-              })}
-            </ul>
+            <>
+              <ul className="divide-y divide-zinc-100">
+                {pagedMocks.map((mock) => {
+                  const stuck = isStuck(mock.status, mock.updatedAt, now);
+                  const needsAction = mock.status === "content" || mock.status === "failed" || stuck;
+                  return (
+                    <JobRow
+                      key={mock.id}
+                      tone="bg-blue-50 text-blue-600"
+                      icon="layers"
+                      title={mock.name}
+                      id={mock.id}
+                      updatedAt={mock.updatedAt}
+                      now={now}
+                      badge={<StatusBadge status={stuck ? "stuck" : mock.status} />}
+                      action={
+                        needsAction ? (
+                          <button
+                            type="button"
+                            onClick={() => retryAudio(mock.id)}
+                            disabled={retrying === mock.id}
+                            title={
+                              stuck
+                                ? "This job looks stuck — queue the audio again"
+                                : "Queue audio generation for this mock"
+                            }
+                            className="shrink-0 rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-600 transition-colors hover:border-blue-300 hover:text-blue-600 disabled:opacity-50"
+                          >
+                            {retrying === mock.id ? "…" : stuck ? "Re-queue audio" : "Retry audio"}
+                          </button>
+                        ) : null
+                      }
+                    />
+                  );
+                })}
+              </ul>
+              <Pagination page={safeMockPage} totalPages={mockTotalPages} total={visibleMocks.length} onPage={setMockPage} />
+            </>
           )}
         </div>
       </div>
