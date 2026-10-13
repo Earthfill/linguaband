@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { WritingTask } from "@/data/practice";
 import { Icon } from "@/components/icons";
@@ -49,10 +49,21 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
   const [quota, setQuota] = useState<FeedbackQuota | null>(null);
   const [quotaLoading, setQuotaLoading] = useState(true);
 
-  const draftKey = `linguaband.writing.draft.${task.task}.${task.title}`;
+  const draftKey = `linguaband.writing.draft.${task.id}`;
+  // Tracks which draft key has already hydrated this mount so React 18
+  // StrictMode's setup -> cleanup -> setup cycle in dev doesn't wipe the
+  // restored text (cleanup deletes storage; the re-run must not reload it).
+  const hydratedForKey = useRef<string | null>(null);
 
+  // Load this task's draft (if any) and reset workspace state per task.
   useEffect(() => {
+    if (hydratedForKey.current === draftKey) return;
+    hydratedForKey.current = draftKey;
     try {
+      // Drop any legacy per-task key so stale drafts don't pile up.
+      window.localStorage.removeItem(
+        `linguaband.writing.draft.${task.task}.${task.title}`,
+      );
       // Restore browser-only data after mount to keep server and client markup consistent.
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setText(window.localStorage.getItem(draftKey) ?? "");
@@ -61,7 +72,11 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
     } finally {
       setIsDraftLoaded(true);
     }
-  }, [draftKey]);
+    setFeedback(null);
+    setAiFeedback(null);
+    setFeedbackError(null);
+    setShowSample(false);
+  }, [draftKey, task.task, task.title]);
 
   useEffect(() => {
     if (!isDraftLoaded) return;
@@ -71,6 +86,20 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
       /* storage may be full or blocked */
     }
   }, [draftKey, isDraftLoaded, text]);
+
+  // Clear this task's saved draft when switching tasks or navigating away,
+  // so the textarea only ever holds text for the current task and starts
+  // empty the next time the task is opened. A browser refresh does not run
+  // this cleanup, so an accidental reload still restores the draft.
+  useEffect(() => {
+    return () => {
+      try {
+        window.localStorage.removeItem(draftKey);
+      } catch {
+        /* storage may be unavailable */
+      }
+    };
+  }, [draftKey]);
 
   useEffect(() => {
     let cancelled = false;
