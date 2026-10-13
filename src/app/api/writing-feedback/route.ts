@@ -6,7 +6,7 @@ import { getLearner } from "@/lib/learner-auth";
 const MAX_ESSAY_CHARACTERS = 8_000;
 const MAX_TASK_CHARACTERS = 4_000;
 const MAX_OUTPUT_TOKENS = 800;
-const MAX_SUCCESSFUL_REVIEWS = 3;
+const MAX_SUCCESSFUL_REVIEWS = 2;
 const COOLDOWN_SECONDS = 36 * 60 * 60;
 const DEFAULT_MODEL = "gemini-2.5-flash-lite";
 

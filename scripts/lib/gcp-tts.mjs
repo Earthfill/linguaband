@@ -17,53 +17,157 @@ export const SCOPE = "https://www.googleapis.com/auth/cloud-platform";
 export const SENTENCE_PAUSE_MS = 130; // silence between sentence chunks within a turn
 export const TURN_PAUSE_MS = 320; // silence between speaker turns
 
-// One distinct en-AU Chirp 3: HD voice per speaker role. Any speaker that is not
-// mapped here falls back to FALLBACK_VOICE, so keep this list ahead of new content
-// (`node scripts/audit-audio.mjs --no-head` lists mocks; the manifests carry each
-// section's speakers).
+// Voice pools: the en-AU Chirp 3: HD voices grouped by Google's own ssmlGender
+// (verified against GET /v1/voices — `node scripts/gcp-audio.mjs` prints the same
+// list). Female names must pick from FEMALE_VOICES, male names from MALE_VOICES.
+export const FEMALE_VOICES = [
+  "en-AU-Chirp3-HD-Achernar",
+  "en-AU-Chirp3-HD-Aoede",
+  "en-AU-Chirp3-HD-Autonoe",
+  "en-AU-Chirp3-HD-Callirrhoe",
+  "en-AU-Chirp3-HD-Despina",
+  "en-AU-Chirp3-HD-Erinome",
+  "en-AU-Chirp3-HD-Gacrux",
+  "en-AU-Chirp3-HD-Kore",
+  "en-AU-Chirp3-HD-Laomedeia",
+  "en-AU-Chirp3-HD-Leda",
+  "en-AU-Chirp3-HD-Pulcherrima",
+  "en-AU-Chirp3-HD-Sulafat",
+  "en-AU-Chirp3-HD-Vindemiatrix",
+  "en-AU-Chirp3-HD-Zephyr",
+];
+export const MALE_VOICES = [
+  "en-AU-Chirp3-HD-Achird",
+  "en-AU-Chirp3-HD-Algenib",
+  "en-AU-Chirp3-HD-Algieba",
+  "en-AU-Chirp3-HD-Alnilam",
+  "en-AU-Chirp3-HD-Charon",
+  "en-AU-Chirp3-HD-Enceladus",
+  "en-AU-Chirp3-HD-Fenrir",
+  "en-AU-Chirp3-HD-Iapetus",
+  "en-AU-Chirp3-HD-Orus",
+  "en-AU-Chirp3-HD-Puck",
+  "en-AU-Chirp3-HD-Rasalgethi",
+  "en-AU-Chirp3-HD-Sadachbia",
+  "en-AU-Chirp3-HD-Sadaltager",
+  "en-AU-Chirp3-HD-Schedar",
+  "en-AU-Chirp3-HD-Umbriel",
+  "en-AU-Chirp3-HD-Zubenelgenubi",
+];
+
+// One voice per speaker: female names get female voices, male names get male
+// voices (roles without a name keep whatever suits the character). Every speaker
+// sharing a section needs a *distinct* voice — `npm run audio:audit` reports
+// collisions (`node scripts/audit-audio.mjs --no-head` without Cloudflare env).
 export const SPEAKER_VOICES = {
-  AGENT: "en-AU-Chirp3-HD-Kore",
-  CUSTOMER: "en-AU-Chirp3-HD-Charon",
-  LEE: "en-AU-Chirp3-HD-Leda",
+  // Female names.
+  AGENT: "en-AU-Chirp3-HD-Kore", // self-identifies as Priya ("this is Priya")
+  PRIYA: "en-AU-Chirp3-HD-Kore", // same person as AGENT, so same voice
   MARA: "en-AU-Chirp3-HD-Aoede",
-  ANNOUNCER: "en-AU-Chirp3-HD-Erinome",
-  "NEWS READER": "en-AU-Chirp3-HD-Orus",
-  HOST: "en-AU-Chirp3-HD-Gacrux",
+  AYESHA: "en-AU-Chirp3-HD-Aoede",
   ELENA: "en-AU-Chirp3-HD-Autonoe",
-  MARCUS: "en-AU-Chirp3-HD-Schedar",
-  "SPEAKER A": "en-AU-Chirp3-HD-Puck",
-  "SPEAKER B": "en-AU-Chirp3-HD-Zubenelgenubi",
-  // Roles used by the newer mock scripts / question banks.
-  BETH: "en-AU-Chirp3-HD-Vindemiatrix",
-  CALLER: "en-AU-Chirp3-HD-Fenrir",
-  CHLOE: "en-AU-Chirp3-HD-Despina",
-  COORDINATOR: "en-AU-Chirp3-HD-Alnilam",
-  DELPHINE: "en-AU-Chirp3-HD-Despina",
-  DEV: "en-AU-Chirp3-HD-Iapetus",
-  FELIX: "en-AU-Chirp3-HD-Enceladus",
-  GRACE: "en-AU-Chirp3-HD-Sulafat",
+  CLIENT: "en-AU-Chirp3-HD-Autonoe", // Tamsin Lowry
+  ANNOUNCER: "en-AU-Chirp3-HD-Erinome",
+  ZARA: "en-AU-Chirp3-HD-Erinome",
+  HOST: "en-AU-Chirp3-HD-Gacrux",
+  NADIA: "en-AU-Chirp3-HD-Gacrux",
   HANNAH: "en-AU-Chirp3-HD-Laomedeia",
-  IAN: "en-AU-Chirp3-HD-Iapetus",
-  JO: "en-AU-Chirp3-HD-Achird",
-  LEAH: "en-AU-Chirp3-HD-Callirrhoe",
-  MIA: "en-AU-Chirp3-HD-Sadachbia",
-  NADIA: "en-AU-Chirp3-HD-Rasalgethi",
-  NOAH: "en-AU-Chirp3-HD-Algenib",
-  OMAR: "en-AU-Chirp3-HD-Algieba",
-  OWEN: "en-AU-Chirp3-HD-Algenib",
-  PRIYANKA: "en-AU-Chirp3-HD-Pulcherrima",
-  RAVI: "en-AU-Chirp3-HD-Sadaltager",
-  RECORDING: "en-AU-Chirp3-HD-Zephyr",
-  SAM: "en-AU-Chirp3-HD-Achernar",
-  TARA: "en-AU-Chirp3-HD-Sadachbia",
-  ZARA: "en-AU-Chirp3-HD-Rasalgethi",
-  "CAFE OWNER": "en-AU-Chirp3-HD-Umbriel",
-  LIBRARIAN: "en-AU-Chirp3-HD-Despina",
-  MANAGER: "en-AU-Chirp3-HD-Alnilam",
   RECEPTIONIST: "en-AU-Chirp3-HD-Laomedeia",
+  PRIYANKA: "en-AU-Chirp3-HD-Pulcherrima",
+  GRACE: "en-AU-Chirp3-HD-Sulafat",
+  STYLIST: "en-AU-Chirp3-HD-Sulafat", // Renee
+  BETH: "en-AU-Chirp3-HD-Vindemiatrix",
+  MABEL: "en-AU-Chirp3-HD-Vindemiatrix",
+  RECORDING: "en-AU-Chirp3-HD-Zephyr",
+  TARA: "en-AU-Chirp3-HD-Zephyr",
+  CHLOE: "en-AU-Chirp3-HD-Despina",
+  DELPHINE: "en-AU-Chirp3-HD-Despina",
+  LIBRARIAN: "en-AU-Chirp3-HD-Despina",
+  LEAH: "en-AU-Chirp3-HD-Callirrhoe",
+  MIA: "en-AU-Chirp3-HD-Achernar",
+  "SPEAKER B": "en-AU-Chirp3-HD-Achernar",
+  // Male names. LEE, JO, SAM and WREN are unisex — voiced male by preference.
+  CUSTOMER: "en-AU-Chirp3-HD-Charon",
+  FELIX: "en-AU-Chirp3-HD-Enceladus",
+  MARCUS: "en-AU-Chirp3-HD-Schedar",
+  NOAH: "en-AU-Chirp3-HD-Algenib",
+  OWEN: "en-AU-Chirp3-HD-Algenib",
+  OMAR: "en-AU-Chirp3-HD-Algieba",
+  RAVI: "en-AU-Chirp3-HD-Sadaltager",
+  DEV: "en-AU-Chirp3-HD-Iapetus",
+  IAN: "en-AU-Chirp3-HD-Iapetus",
+  LEE: "en-AU-Chirp3-HD-Rasalgethi",
+  OTIS: "en-AU-Chirp3-HD-Sadachbia",
+  TOM: "en-AU-Chirp3-HD-Puck",
+  SAM: "en-AU-Chirp3-HD-Orus",
+  WREN: "en-AU-Chirp3-HD-Zubenelgenubi",
+  JO: "en-AU-Chirp3-HD-Achird",
+  "SPEAKER A": "en-AU-Chirp3-HD-Puck",
+  // Roles without a fixed name.
+  CALLER: "en-AU-Chirp3-HD-Fenrir",
+  "NEWS READER": "en-AU-Chirp3-HD-Orus",
+  COORDINATOR: "en-AU-Chirp3-HD-Alnilam",
+  MANAGER: "en-AU-Chirp3-HD-Alnilam",
+  "CAFE OWNER": "en-AU-Chirp3-HD-Umbriel",
   STUDENT: "en-AU-Chirp3-HD-Achird",
 };
+
+// Names not yet in SPEAKER_VOICES still get a gender-correct voice from the
+// matching pool instead of the fallback. Unisex names are listed under the
+// gender they should be voiced with.
+export const NAME_GENDER = {
+  AYESHA: "female",
+  BETH: "female",
+  CHLOE: "female",
+  DANIEL: "male",
+  DELPHINE: "female",
+  DEV: "male",
+  ELENA: "female",
+  FELIX: "male",
+  GRACE: "female",
+  HANNAH: "female",
+  IAN: "male",
+  JO: "male",
+  LEE: "male",
+  LEAH: "female",
+  MABEL: "female",
+  MARA: "female",
+  MARCUS: "male",
+  MIA: "female",
+  NADIA: "female",
+  NOAH: "male",
+  OMAR: "male",
+  OTIS: "male",
+  OWEN: "male",
+  PRIYA: "female",
+  PRIYANKA: "female",
+  RAVI: "male",
+  RENEE: "female",
+  SAM: "male",
+  TAMSIN: "female",
+  TOM: "male",
+  TARA: "female",
+  WREN: "male",
+  ZARA: "female",
+};
+
 export const FALLBACK_VOICE = "en-AU-Chirp3-HD-Kore";
+
+const hashName = (name) => {
+  let h = 5381;
+  for (let i = 0; i < name.length; i++) h = ((h << 5) + h + name.charCodeAt(i)) | 0;
+  return h >>> 0;
+};
+
+/** Voice for a speaker: explicit mapping, else a stable pick from the name's gender pool, else the fallback. */
+export function voiceForSpeaker(speaker) {
+  const explicit = SPEAKER_VOICES[speaker];
+  if (explicit) return explicit;
+  const gender = NAME_GENDER[speaker];
+  if (gender === "female") return FEMALE_VOICES[hashName(speaker) % FEMALE_VOICES.length];
+  if (gender === "male") return MALE_VOICES[hashName(speaker) % MALE_VOICES.length];
+  return FALLBACK_VOICE;
+}
 
 export const round = (value, dp = 2) => {
   const f = 10 ** dp;
@@ -277,7 +381,7 @@ export async function buildSectionAudio({ token, segments, onChunk }) {
 
   for (let si = 0; si < segments.length; si++) {
     const seg = segments[si];
-    const voice = SPEAKER_VOICES[seg.speaker] ?? FALLBACK_VOICE;
+    const voice = voiceForSpeaker(seg.speaker);
     const segStart = cursor;
     const sentences = [];
     let local = 0;

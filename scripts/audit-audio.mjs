@@ -9,7 +9,7 @@
 // Exit code 1 = something needs attention (missing/broken audio for a listening mock).
 
 import { d1Query } from "./lib/d1.mjs";
-import { FALLBACK_VOICE, SPEAKER_VOICES } from "./lib/gcp-tts.mjs";
+import { voiceForSpeaker } from "./lib/gcp-tts.mjs";
 
 const noHead = process.argv.includes("--no-head");
 
@@ -25,7 +25,8 @@ function listeningSections(payload) {
 
 /**
  * Speakers in one section that would be read by the same voice — the giveaway is a
- * role missing from SPEAKER_VOICES, because every unknown role falls back to one voice.
+ * role missing from SPEAKER_VOICES and NAME_GENDER, because every unknown speaker
+ * falls back to one voice.
  */
 function voiceCollisions(payload) {
   const collisions = [];
@@ -42,7 +43,7 @@ function voiceCollisions(payload) {
       const match = line.match(/^([A-Z][A-Z ]*?):/);
       if (!match) continue;
       const speaker = match[1].trim();
-      const voice = SPEAKER_VOICES[speaker] ?? FALLBACK_VOICE;
+      const voice = voiceForSpeaker(speaker);
       if (!byVoice.has(voice)) byVoice.set(voice, new Set());
       byVoice.get(voice).add(speaker);
     }

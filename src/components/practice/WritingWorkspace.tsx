@@ -257,7 +257,7 @@ export function WritingWorkspace({ task }: { task: WritingTask }) {
             ) : quota?.authenticated ? (
               <span className="text-xs text-zinc-500" aria-live="polite">
                 {quota.email ? `${quota.email} · ` : ""}
-                {quota.remaining ?? 3} of 3 AI reviews left
+                {quota.remaining ?? 2} of 2 AI reviews left
                 {cooldownDate && (quota.remaining ?? 0) === 0 ? ` · Available ${cooldownDate}` : ""}
               </span>
             ) : null}
